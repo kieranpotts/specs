@@ -12,11 +12,11 @@ Non-functional requirements place constraints on the design of a software system
 
 #### Contents
 
-- [Compatibility](src/implemented/quality/compatibility.md) \
+- [Compatibility](compatibility.md) \
   The web browsers and devices supported by our client-side application.
 
-- [Idempotence](src/implemented/quality/idempotence.md) \
+- [Idempotence](idempotence.md) \
   Web API operations can be repeated or retried without causing unintended side effects.
 
-- [Portability](src/implemented/quality/portability.md) \
+- [Portability](portability.md) \
   The server application can be easily ported to different physical infrastructure.
