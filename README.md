@@ -1,19 +1,22 @@
 # Software Requirements Specification (SRS)
 
-This source code repository encapsulates the software requirements and specifications for [PROJECT_NAME].
+This source code repository encapsulates the software requirements and specifications for [PROJECT NAME]. Both functional and non-functional requirements (such as performance and security) are covered.
 
 Business requirements turn into implemented software specifications through the following life cycle:
 
-- **Stage 1: [Proposals](src/proposals)** \
-  Functional and non-functional requirements that are in the early business analysis and solution design stages. 
+- **Stage 1: [Proposals](./src/proposals)** \
+  New business requirements are solicited and documented here.
 
-- **Stage 2: [Accepted](src/accepted)** \
-  Proposed changes that have been finalised and accepted, and have been queued and prioritised for development. Alternatively, proposals may be **[Rejected](src/rejected)**.
+- **Stage 2: [Accepted](./src/accepted)** or **[rejected](./src/rejected)** \
+  When finalised, proposals are evaluated for their costs and benefits, and then either accepted or rejected for development.
 
-- **Stage 3: [Implemented](src/implemented)** \
-  Features and non-functional attributes that describe the current production system "as is".
+- **Stage 3: [Implemented](./src/implemented)** \
+  This section describes the current production system "as is".
 
-In each stage of the life cycle, software requirements are specified using a mix of artifacts, such as entity diagrams, use cases, [Gherkin-formatted](docs/gherkin.md) `.feature` files, workflow diagrams, user interface wireframes, and test tables. The formats used to define software requirements and specifications may change as the proposals move through the various stages of the software development life cycle.
+- **Stage 4: [Deprecated](./src/deprecated)** \
+  Over time, some features may be removed or superseded by others.
+
+See [the documentation](./docs) for instructions to write software proposals, and to manage software requirements through the design and implementation process.
 
 ---
 

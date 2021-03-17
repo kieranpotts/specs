@@ -1,6 +1,6 @@
 # Overview
 
-This is broad outline of the business problem and how [PROJECT_NAME] will solve it.
+This is a broad outline of the business problem and how [PROJECT_NAME] will solve it.
 
 #### The problem
 

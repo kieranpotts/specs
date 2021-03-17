@@ -1,3 +1,3 @@
-# Rejected Proposals
+# Rejected
 
-The contents of this directory are proposals that were rejected for development, or removed from the software subsequent to their implementation.
+This section is an archive of old proposals that were ultimately rejected for development.
