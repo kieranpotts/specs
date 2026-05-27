@@ -1,39 +1,55 @@
-# <Project Name>
+# [Project Name] — Software Requirements Specification
 
 ## Project overview
 
-A short paragraph describing what this project does, who it is for, and any constraints that materially affect how AI agents should approach changes to it.
+This repository holds the software requirements specification (SRS) for [Project Name]. It describes _what_ the system does, in business terms — its features, users, domain model, and non-functional constraints.
 
-## Tech stack
+It is documentation, not code. There is nothing to build, lint, or run.
 
-- Language and runtime versions.
-- Major frameworks and libraries.
+Decisions about _how_ the system is implemented are recorded separately. The focus of the SRS is on product requirements, not technical design. The SRS is implementation-agnostic. It should be possible to implement the system in any technology stack without changing the specification.
+
+Changes are introduced through proposals. The [specification](./specification/) sections always reflect the current state of the system "as is" in production. The [`proposals/`](./proposals/) directory is the permanent archive of how that state was reached, including proposals that were rejected.
 
 ## Repository structure
 
-- `src/`: Application source.
-- `tests/`: Automated tests (unit, integration, system).
-- `run/`: Dev tools (Bash scripts).
-- `docs/`: Developer/maintainer docs, including architectural decision records.
-- `skills/`: On-demand context for agents.
+- `specification/`: The current agreed specification of the production system ("as is"), organized into the following sections:
 
-## Tools
+  - `specification/overview/`: Mission statement, problem statement, and project scope.
 
-- `command` to build production-grade artifacts.
-- `command` for linting.
-- `command` for testing.
+  - `specification/model/`: Domain entities and their relationships.
+
+  - `specification/actors/`: The actors that interact with the system, and the permission hierarchy.
+
+  - `specification/journeys/`: User journeys, as wireframes and visual designs.
+
+  - `specification/features/`: Functional requirements as Gherkin `.feature` files.
+
+  - `specification/performance/`: Non-functional requirements — quality attributes and performance targets.
+
+- `proposals/`: The permanent archive of every proposed change. `TEMPLATE.md` is the starting point for a new proposal.
+
+- `docs/`: Documentation about the proposal lifecycle and workflow.
 
 ## Rules
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and agent skills/instructions/rules, are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-- MUST NOT do this.
-- SHOULD do this.
-- MAY do this.
+- Write in American English.
+
+- The [specification sections](./specification/) describe the system "as is". When editing them as part of a proposal, describe the intended final state after the change ships — not a changelog.
+
+- Specify functional requirements as Gherkin scenarios. Each scenario MUST be a concrete, testable acceptance criterion.
+
+- State non-functional requirements as measurable thresholds, not aspirations.
+
+- The default branch is `prod`. It always reflects the as-is state of the production system. Nothing merges into `prod` until real users are using the proposed change in production.
+
+- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `prod`, and open a pull request titled `proposal: [description]`.
+
+- Once a proposal is `ACCEPTED` or `REJECTED`, its document is immutable. To change a past decision, open a new proposal that supersedes it – do NOT edit the original.
+
+- Never delete a proposal document, including rejected ones.
 
 ## Skills
 
-- `./skills/release/SKILL.md`: Checklist for cutting a release.
-- `./skills/migration/SKILL.md`: Guidance for writing database migrations.
-- `../skills/code-review/SKILL.md`: Code review checklist.
-- `https://example.com/standards/api-design/treee/main/SKILL.md`: HTTP API design conventions.
+- `../skills/`: Shared AI skills. See https://github.com/kieranpotts/skills.
