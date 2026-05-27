@@ -1,6 +1,6 @@
 ---
 name: Performance
-about: Define a constraint within which the system must perform
+about: Canvas early feedback on an idea for a new or changed non-functional requirement
 title: ""
 labels: PERFORMANCE
 assignees: ""

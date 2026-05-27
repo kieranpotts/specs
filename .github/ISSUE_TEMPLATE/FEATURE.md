@@ -1,6 +1,6 @@
 ---
 name: Feature
-about: Propose an idea for a new or improved operation or behavior
+about: Canvas early feedback on an idea for a new or changed functional requirement
 title: ""
 labels: FEATURE
 assignees: ""
@@ -26,7 +26,7 @@ _Why should this change be made? What problem does it solve, and for whom? What 
 
 HIGH | MEDIUM | LOW
 
-_List the components or modules that are expected to need to be changed to implement the described operations and behaviors. Mention any tools, techniques, or methodologies that may be useful to support the implementation. Identify any dependencies that need to be considered. WHich actors, user journeys, and domain model entities would be affected?_
+_List the components or modules that are expected to need to be changed to implement the described operations and behaviors. Mention any tools, techniques, or methodologies that may be useful to support the implementation. Identify any dependencies that need to be considered. Which actors, user journeys, and domain model entities would be affected?_
 
 ## Alternatives
 

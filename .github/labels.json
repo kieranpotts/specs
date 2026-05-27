@@ -13,5 +13,35 @@
     "name": "MAINTENANCE",
     "description": "A routine housekeeping chore in this repository only",
     "color": "AA6600"
+  },
+  {
+    "name": "DRAFT",
+    "description": "A preliminary proposal, put forward for early feedback",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "PROPOSED",
+    "description": "A proposal being negotiated with stakeholders",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "ACCEPTED",
+    "description": "A proposal approved and queued for implementation",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "REJECTED",
+    "description": "A proposal that will not be taken forward",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "RELEASED",
+    "description": "A proposal whose changes are live in production",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "DEPRECATED",
+    "description": "A previously released proposal that is no longer in effect",
+    "color": "FFFFFF"
   }
 ]

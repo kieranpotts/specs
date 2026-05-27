@@ -44,9 +44,9 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - The default branch is `prod`. It always reflects the as-is state of the production system. Nothing merges into `prod` until real users are using the proposed change in production.
 
-- Every proposal MUST start as a GitHub issue (FEATURE or PERFORMANCE) before a pull request is opened. A pull request MUST NOT be opened until the originating issue has been reviewed and the idea accepted.
+- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `prod`, and open a pull request titled `proposal: [description]`. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the proposal document.
 
-- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `prod`, and open a pull request titled `proposal: [description]`. The proposal document MUST link back to the originating issue via the `Issue` field.
+- The current lifecycle state of a proposal is tracked via labels on the issue and PR. Apply the matching label (DRAFT, PROPOSED, ACCEPTED, REJECTED, RELEASED, DEPRECATED) as the proposal advances.
 
 - Once a proposal is `ACCEPTED` or `REJECTED`, its document is immutable. To change a past decision, open a new proposal that supersedes it – do NOT edit the original.
 
