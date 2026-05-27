@@ -1,3 +1,8 @@
+#
+# GitHub Discussions - form configuration.
+# https://docs.github.com/en/discussions/managing-discussions-for-your-community/creating-discussion-category-forms
+#
+
 title: "[Type a brief description]"
 labels: ["PERFORMANCE"]
 body:
