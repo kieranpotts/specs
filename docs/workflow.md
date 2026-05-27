@@ -14,8 +14,8 @@ All proposal branches are cut from `prod` and merged back into `prod` — but on
 
 Before writing a full proposal, the proposer MAY open a GitHub issue to gather early feedback and gauge whether the idea is worth progressing. Choose the appropriate template:
 
-- **FEATURE**: To canvas opinion on a new or changed functional requirement.
-- **PERFORMANCE**: To canvas opinion on a new or changed non-functional requirement.
+- **FEATURE**: To canvass opinion on a new or changed functional requirement.
+- **PERFORMANCE**: To canvass opinion on a new or changed non-functional requirement.
 
 The issue is a lightweight way to surface the idea to stakeholders and get initial triage from the product managers without committing to a full proposal. When the proposer decides to move forward, they close the issue and open a pull request (see Step 2). If the idea is not pursued, the issue is simply closed without further action.
 

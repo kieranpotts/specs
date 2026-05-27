@@ -10,7 +10,7 @@ Feature: Changelog
       And the list is ordered in reverse chronological order, the most recent first
       And each entry in the list has a version number and a release date
 
-  Scenario: View the detailed entry of a changelog entry
+  Scenario: View the details of a changelog entry
     Given an Authenticated User is logged in
       And the user is viewing the changelog
      When the user clicks on an entry in the changelog

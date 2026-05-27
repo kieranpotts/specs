@@ -2,7 +2,7 @@
 
 This directory is the permanent archive of every proposed change to the software requirements specification.
 
-The [specification sections](../specification/) always describe the system as it is _now_ in production. This proposals directory records how it got there. Every change is introduced through a proposal, and every proposal is kept here as a permanent document — including proposals that were ultimately rejected. Rejected proposals are not deleted, but remain as a record of the decision and the rationale behind why they were rejected, so that the same ground is not needlessly re-trodden later.
+The [specification sections](../specification/) always describe the system as it is _now_ in production. This proposals directory records how it got there. Every change is introduced through a proposal, and every proposal is kept here as a permanent document — including proposals that were ultimately rejected. Rejected proposals are not deleted, but remain as a record of the decision and the rationale behind it, so that the same ground is not needlessly re-trodden later.
 
 ## How it works
 

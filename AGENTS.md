@@ -48,7 +48,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - The current lifecycle state of a proposal is tracked via labels on the issue and PR. Apply the matching label (`#draft`, `#proposed`, `#accepted`, `#rejected`, `#released`, `#deprecated`) as the proposal advances.
 
-- Once a proposal is `#accepted` or `#rejected`, its document is immutable. To change a past decision, open a new proposal that supersedes it – do NOT edit the original.
+- Once a proposal is `#accepted` or `#rejected`, its document is immutable. To change a past decision, open a new proposal that supersedes it — do NOT edit the original.
 
 - Never delete a proposal document, including rejected ones.
 

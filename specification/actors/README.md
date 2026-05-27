@@ -8,7 +8,7 @@ The actors are derived from the [domain model](../model/).
 
 ## Actor hierarchy
 
-There is a hierarchy of actors. Privileges and permissions are inherited down the hierarchy, so a [../features/](feature) is specified once only, for the lowest-order actor type that has access to it. Thus, the features available to Authenticated Users are also available to all higher-privileged actor types.
+There is a hierarchy of actors. Privileges and permissions are inherited down the hierarchy, so a [feature](../features/) is specified once only, for the lowest-order actor type that has access to it. Thus, the features available to Authenticated Users are also available to all higher-privileged actor types.
 
 The current actor hierarchy is as follows:
 

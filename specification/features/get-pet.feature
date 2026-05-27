@@ -19,6 +19,6 @@ Feature: Get pet by ID
 
   Scenario: Unauthenticated request
     Given a caller is not authenticated
-     When the caller requests a pet by id
+     When the caller requests a pet by ID
      Then the response status indicates the request is unauthorized
       And no catalog data is returned

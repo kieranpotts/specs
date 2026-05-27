@@ -1,6 +1,6 @@
 ---
 name: Performance
-about: Canvas early feedback on an idea for a new or changed non-functional requirement
+about: Canvass early feedback on an idea for a new or changed non-functional requirement
 title: ""
 labels: PERFORMANCE
 assignees: ""

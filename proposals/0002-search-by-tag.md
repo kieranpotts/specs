@@ -50,7 +50,7 @@ No changes are required to the domain model, actor hierarchy, or performance req
 ## Tradeoffs and risks
 
 - **Full-text keyword search has non-trivial performance implications**: Matching against free-text `description` fields at scale requires indexing. If the underlying implementation uses a simple SQL `LIKE` or `ILIKE` query, it will not meet the latency thresholds at catalog sizes approaching the 50,000-record capacity target. The implementation team must choose an appropriate indexing strategy.
-- **Tag matching is exact**: The specification requires exact tag matches (eg. "hypoallergenic" does not match "hypo-allergenic"). This may frustrate consumers if tag values are not normalised consistently when listings are created. Tag normalisation is an administrative concern outside the scope of this API, but it is a real operational risk.
+- **Tag matching is exact**: The specification requires exact tag matches (eg. "hypoallergenic" does not match "hypo-allergenic"). This may frustrate consumers if tag values are not normalized consistently when listings are created. Tag normalization is an administrative concern outside the scope of this API, but it is a real operational risk.
 - **No relevance ranking**: Search results are returned in the default list order (id ascending). Consumers requiring ranked results must implement ranking client-side.
 
 ## Questions

@@ -98,8 +98,6 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 
 -   **The GitHub PR label is `#rejected`** and `Last updated` in the proposal document is today's date.
 
--   **The GitHub PR label is `#rejected`.**
-
 -   **The commit contains only the proposal document** (plus any spec reverts as separate staged changes committed together).
 
 -   **The user has explicitly confirmed** the rejection decision before any changes were made.
