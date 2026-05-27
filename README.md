@@ -21,7 +21,7 @@ Technical decisions about _how_ the solution works — its architecture and impl
 
 - [**Contributing**](./CONTRIBUTING.md): Instructions for shepherding proposals through their lifecycle, and for maintaining the specification.
 
-- [**Skills**](./skills/): AI skills for managing the proposal workflow, and other shared utilities for use in agent context windows.
+- [**Agents**](./AGENTS.md): Instructions for agentic tools to maintain the specifications and manage the lifecycle of proposals with a high degree of autonomy. Includes links to domain-specific skills.
 
 -----
 
