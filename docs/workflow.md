@@ -24,6 +24,6 @@ Your proposal is now open for comments. Invite feedback from all relevant stakeh
 
 Product managers are responsible for using the PR's checklist to track the proposal through its lifecycle.
 
-When a proposal is **accepted**, the product managers should assign the proposal a sequential ID, update its status, and queue it for implementation. When the implementation ships to production, the proposal's status becomes **implemented** and its changes to the specification sections are merged into `prod`.
+When a proposal is **ACCEPTED**, the product managers should assign the proposal a sequential ID, update its status, and queue it for implementation. When the implementation ships to production, the proposal's status becomes **RELEASED** and its changes to the specification sections are merged into `prod`.
 
-When a proposal is **rejected**, the proposal document is still merged into `prod` (with status `REJECTED`), but the accompanying edits to the specification sections are reverted. This is how rejected proposals are preserved – the decision and its rationale live on in [`proposals/`](../proposals/), even though the system itself is unchanged.
+When a proposal is **REJECTED**, the proposal document is still merged into `prod` (with status "REJECTED"), but the accompanying edits to the specification sections are reverted. This is how rejected proposals are preserved – the decision and its rationale live on in [`proposals/`](../proposals/), even though the system itself is unchanged.
