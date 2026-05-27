@@ -1,6 +1,8 @@
 # Software requirements specification (SRS)
 
-A template for managing the lifecycle of software requirements via version control.
+**A template for managing the lifecycle of software requirements via version control.**
+
+**🚧 Under reconstruction.**
 
 ## 📓 Documentation
 
