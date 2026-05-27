@@ -4,10 +4,10 @@
 
 **🚧 Under construction.**
 
-## 📓 Documentation
+## Documentation
 
-- [**Section 1**](./docs/section-1.md)
-- [**Section 2**](./docs/section-2.md)
+- [**Proposal lifecycle**](./docs/lifecycle.md): The states a proposal moves through, from draft to implemented or rejected.
+- [**Workflow**](./docs/workflow.md): How to propose a change to the specification.
 
 -----
 
