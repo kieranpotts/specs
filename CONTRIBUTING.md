@@ -52,9 +52,17 @@ The [specification sections](./specification/) always reflect the _current_ stat
 
 Each proposal moves through a defined state machine. The current state is represented by a lifecycle label applied to the pull request. The labels are named `#draft`, `#proposed`, `#accepted`, `#rejected`, `#released`, and `#deprecated`. Only the product managers may advance a proposal's state. They verify gates using the PR's checklist and apply the matching label as each transition occurs.
 
-```text
-draft → proposed → accepted → released → deprecated
-                 ↘ rejected
+```mermaid
+stateDiagram-v2
+  direction LR
+  [*] --> draft
+  draft --> proposed
+  proposed --> accepted
+  proposed --> rejected
+  accepted --> released
+  released --> deprecated
+  rejected --> [*]
+  deprecated --> [*]
 ```
 
 The states are:
