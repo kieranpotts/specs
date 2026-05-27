@@ -1,7 +1,8 @@
 Copy the "Summary" section from the proposal document here.
 
+- Issue: #...
 - Proposal document: ./proposals/[my-proposal].md
-- Discussion thread: https://github.com/kieranpotts/specs/discussions/...
+- Discussion thread: [Link]
 
 **Please use the discussion thread, not this pull request, to provide feedback on the proposal.** This keeps the pull request thread clean and focused on the edit history of the proposal document itself.
 
@@ -11,8 +12,9 @@ This section is maintained by the project maintainers to track the proposal thro
 
 To move this proposal from **DRAFT** to **PROPOSED**:
 
+- [ ] The originating issue was accepted before this pull request was opened.
 - [ ] The proposal document is complete enough to invite review from other stakeholders.
-- [ ] A discussion thread has been created and linked from this pull request, and vice versa.
+- [ ] A discussion thread has been created (if needed) and linked from this pull request, and vice versa.
 - [ ] The proposal's `Status` is set to "PROPOSED".
 
 To move this proposal from **PROPOSED** to either **ACCEPTED** or **REJECTED**:

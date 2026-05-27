@@ -1,39 +1,33 @@
 ---
 name: Performance
-about: Define a constraint within which the system must perform
+about: Propose a new or changed non-functional requirement
 title: ""
 labels: PERFORMANCE
 assignees: ""
 ---
 
-## Description
+_A short, single-paragraph description of the proposed change._
 
-Write a concise description of the runtime performance improvements that need to be made.
+Discussion thread: [Link]
 
-## Current state
+## Motivation
 
-Describe the current state of the relevant non-functional quality attributes, eg. security, availability, or latency. If possible, provide current performance metrics, eg. response time, throughput, or CPU usage.
-
-## Desired state
-
-Define the criteria for considering the performance improvements to be successful. If possible, specify measurable performance metrics.
-
-## Proposed solutions
-
-Outline the steps or strategies for achieving the desired performance improvements. Mention any tools, techniques, or methodologies to be used, eg. code profiling, load testing, or security auditing.
+_Why should this change be made? What problem does it solve, and for whom? What is the expected outcome for the business and its customers?_
 
 ## Impact
 
-List the components or modules that are expected to need to be changed to achieve the desired performance improvements. Identify any dependencies that need to be considered, too.
+HIGH | MEDIUM | LOW
 
-## Risks
+_Who is affected by this change — the business, its users, particular user roles? — and what is the nature of the impact?_
 
-Identify potential risks. For each risk, describe possible mitigation strategies.
+## Proposed change
 
-## Validation
+_Describe the proposed non-functional requirement in measurable terms, and state the desired threshold. Which existing requirements in the performance specification would be added, modified, or removed?_
 
-Describe the testing strategy that will be used to validate the improvements, eg. benchmarking, stress tests, security tests. Establish a baseline for comparison.
+## Alternatives
+
+_What other approaches were considered, if any? Why is this approach preferred?_
 
 ## Additional notes
 
-Add any other context, background information, or references that might be helpful in understanding the requirements.
+_Any open questions, risks, or context that would help stakeholders evaluate this proposal._

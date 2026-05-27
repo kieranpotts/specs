@@ -6,7 +6,7 @@ The [specification sections](../specification/) always describe the system as it
 
 ## How it works
 
-1. A proposal starts as a copy of [`TEMPLATE.md`](./TEMPLATE.md), authored on a `proposal/[short-description]` branch and opened as a pull request. See [the workflow](../docs/workflow.md) for the full process.
+1. A proposal starts as a GitHub issue (FEATURE or PERFORMANCE), which is reviewed and triaged before any specification edits are made. Once the idea is accepted, the proposer opens a pull request: a copy of [`TEMPLATE.md`](./TEMPLATE.md), authored on a `proposal/[short-description]` branch, with the `Issue` field linking back to the originating issue. See [the workflow](../docs/workflow.md) for the full process.
 
 2. The proposal moves through its [lifecycle](../docs/lifecycle.md): `DRAFT → PROPOSED → ACCEPTED|REJECTED → RELEASED → DEPRECATED`.
 

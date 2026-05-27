@@ -5,6 +5,7 @@
 - Last updated: YYYY-MM-DD
 - Approvers:
 - Approval date:
+- Issue: #...
 - Proposal PR: #...
 - Discussion thread:
 - Implementation trackers:

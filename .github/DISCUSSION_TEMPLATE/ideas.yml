@@ -1,10 +1,17 @@
-title: "[Type a brief description] "
-labels: []
+title: "[Type a brief description]"
+labels: ["FEATURE"] # Default to FEATURE label. Use may change to PERFORMANCE.
 body:
+  - type: input
+    id: issue
+    attributes:
+      label: Issue
+      description: Link to the originating FEATURE or PERFORMANCE issue
+    validations:
+      required: false
   - type: input
     id: pr
     attributes:
       label: PR
-      description: Link to the pull request, if applicable
+      description: Link to the pull request, once opened
     validations:
       required: false

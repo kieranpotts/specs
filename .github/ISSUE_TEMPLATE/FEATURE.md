@@ -1,35 +1,33 @@
 ---
 name: Feature
-about: Propose an idea for a new or improved operation or behavior
+about: Propose a new or changed functional requirement
 title: ""
 labels: FEATURE
 assignees: ""
 ---
 
-## Description
+_Write a short, single-paragraph description of the proposed change._
 
-Write a concise description of the feature you're requesting.
+Discussion thread: [Link]
 
-## Use cases
+## Motivation
 
-Explain why this feature would be useful, and how it would be used. Which users would benefit from this feature?
+_Why should this change be made? What problem does it solve, and for whom? What is the expected outcome for the business and its customers?_
 
-## Benefits
+## Impact
 
-List the benefits of this feature, such as improved user experience, increased efficiency, or new capabilities.
+HIGH | MEDIUM | LOW
 
-## Requirements
+_Who is affected by this change — the business, its users, particular user roles? — and what is the nature of the impact?_
 
-Outline any specific requirements or criteria for the feature, such as performance considerations, compatibility with existing systems, or any other relevant factors.
+## Proposed change
 
-## Mock-ups
-
-If applicable, include mock-ups or other design artifacts that help to illustrate the proposed changes.
+_Describe the change at a high level. Which features, actors, journeys, or domain model entities would be added, modified, or removed?_
 
 ## Alternatives
 
-What alternative solutions were considered, if any?
+_What other approaches were considered, if any? Why is this approach preferred?_
 
 ## Additional notes
 
-Add any other context, background information, or references that might be helpful in understanding the requirements.
+_Any open questions, risks, or context that would help stakeholders evaluate this proposal._

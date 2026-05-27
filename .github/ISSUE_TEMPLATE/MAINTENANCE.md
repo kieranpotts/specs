@@ -1,18 +1,12 @@
 ---
 name: Maintenance
-about: Plan a routine housekeeping task
+about: Plan a routine housekeeping chore, scoped to this repository only
 title: ""
 labels: MAINTENANCE
 assignees: ""
 ---
 
-## Description
-
-Write a concise description of the maintenance work that needs to be done.
-
-## Due
-
-What's the deadline for this, if the work needs to be completed by a specific date, eg. before the EOL of a dependency?
+_Write a concise description of the maintenance work that needs to be done._
 
 ## Steps to complete
 
@@ -22,4 +16,4 @@ What's the deadline for this, if the work needs to be completed by a specific da
 
 ## Additional notes
 
-Add any additional information or context that might help to complete this task.
+_Add any additional information or context that might help to complete this task._

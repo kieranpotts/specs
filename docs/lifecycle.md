@@ -2,7 +2,9 @@
 
 The [specification sections](../specification/) always reflect the _current_ state of the system, released to real users in production.
 
-Changes to the production state are introduced through proposals. Each proposal is a single, permanent document under [`proposals/`](../proposals/), and moves through the following states:
+Changes to the production state are introduced through proposals. Every proposal starts as a GitHub issue (FEATURE or PERFORMANCE) to allow initial triage before any specification edits are made. Once the idea is accepted, a pull request is opened to carry the proposal through the rest of its lifecycle. See the [workflow](./workflow.md) for the full process.
+
+Each proposal is a single, permanent document under [`proposals/`](../proposals/), and moves through the following states:
 
 - **DRAFT**: A preliminary proposal, put forward for early feedback.
 
