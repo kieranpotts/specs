@@ -16,6 +16,7 @@ The [specification sections](../specification/) always describe the system as it
 
 ## Index
 
-| ID | Title | Author | Status |
+| ID   | Title | Author | Status |
 | ---- | ----- | ------ | ------ |
-|      |       |        |        |
+| 0001 | [Catalog read API](./0001-catalog-read-api.md) | Kieran Potts | #released |
+| 0002 | [Search by tag](./0002-search-by-tag.md) | Kieran Potts | #released |

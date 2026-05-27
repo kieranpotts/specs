@@ -12,8 +12,8 @@ There is a hierarchy of actors. Privileges and permissions are inherited down th
 
 The current actor hierarchy is as follows:
 
-- **Anonymous User**: A visitor who has not authenticated. _Describe what an anonymous user can and cannot do._
+- **Anonymous User**: A caller who has not authenticated. Anonymous Users cannot access any catalog data. All API endpoints require a valid credential; unauthenticated requests are rejected.
 
-- **Authenticated User**: A visitor who has signed in. Inherits everything available to an Anonymous User. _Describe the additional capabilities unlocked by authentication._
+- **Authenticated User**: A caller who has presented a valid credential — either a human operator using a client application, or an automated system making machine-to-machine requests. Authenticated Users can list and search the catalog and retrieve the full details of any individual pet listing.
 
 _Add further actor types as needed, ordered from lowest to highest privilege._
