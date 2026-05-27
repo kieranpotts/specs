@@ -1,0 +1,17 @@
+[
+  {
+    "name": "FEATURE",
+    "description": "An idea for a new or improved operation or behavior",
+    "color": "2266EE"
+  },
+  {
+    "name": "PERFORMANCE",
+    "description": "A change to a constraint within which the system must perform",
+    "color": "008800"
+  },
+  {
+    "name": "MAINTENANCE",
+    "description": "A routine housekeeping chore in this repository only",
+    "color": "AA6600"
+  }
+]
