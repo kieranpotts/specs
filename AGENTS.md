@@ -42,9 +42,9 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - State non-functional requirements as measurable thresholds, not aspirations.
 
-- The default branch is `prod`. It always reflects the as-is state of the production system. Nothing merges into `prod` until real users are using the proposed change in production.
+- The default branch is `main`. It always reflects the as-is state of the production system. Nothing merges into `main` until real users are using the proposed change in production.
 
-- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `prod`, and open a pull request titled `proposal: [description]`. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the proposal document.
+- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `main`, and open a pull request titled `proposal: [description]`. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the proposal document.
 
 - The current lifecycle state of a proposal is tracked via labels on the issue and PR. Apply the matching label (`#draft`, `#proposed`, `#accepted`, `#rejected`, `#released`, `#deprecated`) as the proposal advances.
 

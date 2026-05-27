@@ -56,10 +56,10 @@ Do NOT use this skill to advance a proposal's state (use [`advance-proposal`](..
 
 6.  **Check the specification edits.**
 
-    List all files changed on this branch relative to `prod`:
+    List all files changed on this branch relative to `main`:
 
     ```sh
-    git diff prod --name-only
+    git diff main --name-only
     ```
 
     For each changed file in `specification/`:

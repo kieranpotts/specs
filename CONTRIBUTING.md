@@ -4,9 +4,9 @@ Anyone with write access to this repository may propose changes to the functiona
 
 ## Branch conventions
 
-The default branch of this repository is `prod`. This name is intentional. The `prod` trunk always reflects the as-is state of the production system. The [specification sections](./specification/) on `prod` are the authoritative record of what the system currently does in production. Proposals that have not yet shipped to production are never merged into `prod`.
+The default branch of this repository is `main`. The `main` trunk always reflects the as-is state of the production system. The [specification sections](./specification/) on `main` are the authoritative record of what the system currently does in production. Proposals that have not yet shipped to production are never merged into `main`. It is not enough for a proposal to be approved by the product managers — it must also be built and released to production before the proposal is considered "done".
 
-All proposal branches are cut from `prod` and merged back into `prod` — but only once the proposed changes have been released to real users. See the [lifecycle](#proposal-lifecycle) section below for the full set of conditions that must be met before a proposal is merged.
+All proposal branches are cut from `main` and merged back into `main` — but only once the proposed changes have been released to real users. See the [lifecycle](#proposal-lifecycle) section below for the full set of conditions that must be met before a proposal is merged.
 
 ## Proposing a change
 
@@ -34,7 +34,7 @@ A pull request is the formal vehicle for a proposal. It MAY be opened at any poi
 
 Follow these steps to prepare the pull request:
 
-1. Branch off `prod` using the naming convention `proposal/[description]`, where `[description]` is a short hyphen-delimited slug. For example, `proposal/user-session-timeout`.
+1. Branch off `main` using the naming convention `proposal/[description]`, where `[description]` is a short hyphen-delimited slug. For example, `proposal/user-session-timeout`.
 
 2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/[description].md` and fill it out. If an issue was opened, set the `Issue` field to link back to it. Describe the change in full detail: the rationale, the expected impact on the business and its customers, and the alternatives that were considered.
 
@@ -75,7 +75,7 @@ The states are:
 
 - **Rejected**: The proposal will not be taken forward. The accompanying edits to the specification sections are reverted before merge, so the system itself is unchanged. But the proposal document is preserved permanently in [`proposals/`](./proposals/) as the record of the decision and its rationale.
 
-- **Released**: The implementation is live in production. The proposal's edits to the specification sections have been merged into `prod`.
+- **Released**: The implementation is live in production. The proposal's edits to the specification sections have been merged into `main`.
 
 - **Deprecated**: A previously released proposal that is no longer in effect — for example, because a later proposal superseded or removed the feature.
 

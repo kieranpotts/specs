@@ -4,7 +4,7 @@ Scaffolds a new proposal for a change to the software requirements specification
 
 ## What it does
 
-Creates a `proposal/<slug>` branch from `prod`, copies `proposals/TEMPLATE.md` to `proposals/<slug>.md`, fills in the metadata header (authors, dates, issue link), sets the initial status, and identifies the specification section files that will need to be edited.
+Creates a `proposal/<slug>` branch from `main`, copies `proposals/TEMPLATE.md` to `proposals/<slug>.md`, fills in the metadata header (authors, dates, issue link), sets the initial status, and identifies the specification section files that will need to be edited.
 
 ## How to invoke
 

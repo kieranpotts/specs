@@ -6,7 +6,7 @@ license: MIT
 
 # Reject proposal
 
-Use this skill to handle the rejection path for a proposal. The key distinction from acceptance is that spec section edits must be reverted before merge, so that only the proposal document itself is added to `prod`. The decision and its rationale are preserved permanently; the system itself is unchanged.
+Use this skill to handle the rejection path for a proposal. The key distinction from acceptance is that spec section edits must be reverted before merge, so that only the proposal document itself is added to `main`. The decision and its rationale are preserved permanently; the system itself is unchanged.
 
 Do NOT use this skill to advance a proposal to any state other than `#rejected`. For the acceptance path, use [`advance-proposal`](../advance-proposal/SKILL.md). For auditing, use [`check-proposal`](../check-proposal/SKILL.md).
 
@@ -22,20 +22,20 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 
 3.  **Identify the specification edits to revert.**
 
-    List all changes to `specification/` introduced by this proposal branch relative to `prod`:
+    List all changes to `specification/` introduced by this proposal branch relative to `main`:
 
     ```sh
-    git diff prod --name-only -- specification/
+    git diff main --name-only -- specification/
     ```
 
     Present the list to the user for confirmation before reverting.
 
 4.  **Revert the specification edits.**
 
-    For each changed file in `specification/`, restore the `prod` version:
+    For each changed file in `specification/`, restore the `main` version:
 
     ```sh
-    git checkout prod -- specification/<path/to/file>
+    git checkout main -- specification/<path/to/file>
     ```
 
     If any new files were added to `specification/` by this branch, delete them:
@@ -72,7 +72,7 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 
 8.  **Confirm the PR is ready to merge.**
 
-    The PR should now contain only the proposal document (no spec section changes). Confirm with the user that it is ready to merge into `prod`. Do not merge without explicit instruction.
+    The PR should now contain only the proposal document (no spec section changes). Confirm with the user that it is ready to merge into `main`. Do not merge without explicit instruction.
 
 ## Rules
 
@@ -94,7 +94,7 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 
 ## Success criteria
 
--   **No files under `specification/` are changed** on this branch relative to `prod` after the revert.
+-   **No files under `specification/` are changed** on this branch relative to `main` after the revert.
 
 -   **The GitHub PR label is `#rejected`** and `Last updated` in the proposal document is today's date.
 

@@ -19,7 +19,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 2.  **Create the branch.**
 
     ```sh
-    git checkout prod
+    git checkout main
     git pull
     git checkout -b proposal/<slug>
     ```
@@ -62,9 +62,9 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
     Never bundle multiple proposals into a single branch. If the user describes changes that span multiple independent concerns, scaffold separate proposal branches.
 
--   **Branch from `prod`, not from any other branch.**
+-   **Branch from `main`, not from any other branch.**
 
-    Proposals are always cut from `prod`. If the local `prod` is behind the remote, pull first.
+    Proposals are always cut from `main`. If the local `main` is behind the remote, pull first.
 
 -   **Do not assign a numeric ID.**
 
