@@ -16,7 +16,7 @@ Technical decisions about _how_ the solution works — its architecture and impl
 
 - [**Proposals**](./proposals/): The permanent archive of every proposed change to the specification, including those that were ultimately rejected.
 
-- [**Documentation**](./docs/): Instructions for shepherding proposals through their lifecycle, and for maintaining the specification.
+- [**Contributing**](./CONTRIBUTING.md): Instructions for shepherding proposals through their lifecycle, and for maintaining the specification.
 
 - [**Skills**](./skills/): AI skills for managing the proposal workflow, and other shared utilities for use in agent context windows.
 

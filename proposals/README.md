@@ -6,9 +6,9 @@ The [specification sections](../specification/) always describe the system as it
 
 ## How it works
 
-1. A proposal is opened as a pull request: a copy of [`TEMPLATE.md`](./TEMPLATE.md), authored on a `proposal/[short-description]` branch. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for lightweight early triage — if so, the proposer closes it when the PR is opened and links the two. See [the workflow](../docs/workflow.md) for the full process.
+1. A proposal is opened as a pull request: a copy of [`TEMPLATE.md`](./TEMPLATE.md), authored on a `proposal/[short-description]` branch. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for lightweight early triage — if so, the proposer closes it when the PR is opened and links the two. See the [contributing guide](../CONTRIBUTING.md) for the full process.
 
-2. The proposal moves through its [lifecycle](../docs/lifecycle.md): `draft → proposed → accepted|rejected → released → deprecated`.
+2. The proposal moves through its [lifecycle](../CONTRIBUTING.md#proposal-lifecycle): `draft → proposed → accepted|rejected → released → deprecated`.
 
 3. On merge, the project maintainers assign the proposal a sequential, zero-padded ID and rename its file to `NNNN-[description].md` (for example, `0002-private-browsing.md`).
 

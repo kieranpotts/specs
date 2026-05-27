@@ -100,7 +100,7 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
 
 ## References
 
-- [Proposal lifecycle](../../docs/lifecycle.md): State machine, permitted transitions, and immutability rules.
+- [Proposal lifecycle](../../CONTRIBUTING.md#proposal-lifecycle): State machine, permitted transitions, and immutability rules.
 
 - [PR checklist](../../.github/PULL_REQUEST_TEMPLATE.md): The gates that must be satisfied before each transition.
 

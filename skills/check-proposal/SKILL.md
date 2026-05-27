@@ -114,7 +114,7 @@ Do NOT use this skill to advance a proposal's state (use [`advance-proposal`](..
 
 ## References
 
-- [Proposal lifecycle](../../docs/lifecycle.md): State machine and gate conditions.
+- [Proposal lifecycle](../../CONTRIBUTING.md#proposal-lifecycle): State machine and gate conditions.
 
 - [PR checklist](../../.github/PULL_REQUEST_TEMPLATE.md): The authoritative checklist of gates per state transition.
 

@@ -7,7 +7,7 @@ Copy the "Summary" section from the proposal document here.
 
 ## Checklist
 
-This section is maintained by the project maintainers to track the proposal through its lifecycle. See the [proposal lifecycle docs](../docs/lifecycle.md) for the meaning of each state. Apply the matching lifecycle label to this PR as the proposal advances.
+This section is maintained by the project maintainers to track the proposal through its lifecycle. See the [proposal lifecycle](../CONTRIBUTING.md#proposal-lifecycle) for the meaning of each state. Apply the matching lifecycle label to this PR as the proposal advances.
 
 > [!IMPORTANT]
 > Do not merge this pull request until all checks below have been completed. The project maintainers will update this checklist as the proposal moves through its lifecycle, and will merge the PR only when the proposed changes have been released to users in production.

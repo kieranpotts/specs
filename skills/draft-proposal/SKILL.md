@@ -54,7 +54,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
 7.  **Remind the proposer of next steps.**
 
-    Once the document and spec edits are complete, the proposer should open a pull request titled `proposal: <slug>`. Apply the `#draft` or `#proposed` label to the PR to match the current status. See [the workflow](../../docs/workflow.md) for the full process.
+    Once the document and spec edits are complete, the proposer should open a pull request titled `proposal: <slug>`. Apply the `#draft` or `#proposed` label to the PR to match the current status. See the [contributing guide](../../CONTRIBUTING.md) for the full process.
 
 ## Rules
 
@@ -90,9 +90,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
 - [`proposals/TEMPLATE.md`](../../proposals/TEMPLATE.md): The proposal template to copy.
 
-- [Workflow](../../docs/workflow.md): Full end-to-end process for proposing a change.
-
-- [Proposal lifecycle](../../docs/lifecycle.md): State machine and permitted transitions.
+- [Contributing guide](../../CONTRIBUTING.md): Full end-to-end process for proposing a change, including the state machine and permitted transitions.
 
 - [`advance-proposal`](../advance-proposal/SKILL.md): For advancing a proposal through its lifecycle after it is drafted.
 

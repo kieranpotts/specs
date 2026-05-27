@@ -2,7 +2,7 @@
 
 This section documents the current specification of the production system — what the system does "as is".
 
-These sections always reflect the system's current state. Changes to that state are introduced through [proposals](../proposals/). See the [workflow docs](../docs/workflow.md) for how a change moves from a proposal into the sections below.
+These sections always reflect the system's current state. Changes to that state are introduced through [proposals](../proposals/). See the [contributing guide](../CONTRIBUTING.md) for how a change moves from a proposal into the sections below.
 
 ## Sections
 

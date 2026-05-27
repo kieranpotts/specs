@@ -28,7 +28,7 @@ Changes are introduced through proposals. The [specification](./specification/) 
 
 - `proposals/`: The permanent archive of every proposed change. `TEMPLATE.md` is the starting point for a new proposal.
 
-- `docs/`: Documentation about the proposal lifecycle and workflow.
+- `CONTRIBUTING.md`: Documentation about the proposal lifecycle and workflow.
 
 ## Rules
 
