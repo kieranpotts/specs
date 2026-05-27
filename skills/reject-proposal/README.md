@@ -20,5 +20,6 @@ Optionally name the proposal:
 
 ## Examples
 
-- `/reject-proposal` — agent identifies the current proposal from context and walks through the rejection path.
-- `/reject-proposal 0003-user-session-timeout` — rejects the named proposal, reverts its spec edits, and prepares the PR for merge.
+- `/reject-proposal`: Agent identifies the current proposal from context and walks through the rejection path.
+
+- `/reject-proposal 0003-user-session-timeout`: Rejects the named proposal, reverts its spec edits, and prepares the PR for merge.

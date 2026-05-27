@@ -14,17 +14,17 @@ Changes are introduced through proposals. The [specification](./specification/) 
 
 - `specification/`: The current agreed specification of the production system ("as is"), organized into the following sections:
 
-  - `specification/overview/`: Mission statement, problem statement, and project scope.
+  - `overview/`: Mission statement, problem statement, and project scope.
 
-  - `specification/model/`: Domain entities and their relationships.
+  - `model/`: Domain entities and their relationships.
 
-  - `specification/actors/`: The actors that interact with the system, and the permission hierarchy.
+  - `actors/`: The actors that interact with the system, and the permission hierarchy.
 
-  - `specification/journeys/`: User journeys, as wireframes and visual designs.
+  - `journeys/`: User journeys, as wireframes and visual designs.
 
-  - `specification/features/`: Functional requirements as Gherkin `.feature` files.
+  - `features/`: Functional requirements as Gherkin `.feature` files.
 
-  - `specification/performance/`: Non-functional requirements — quality attributes and performance targets.
+  - `performance/`: Non-functional requirements — quality attributes and performance targets.
 
 - `proposals/`: The permanent archive of every proposed change. `TEMPLATE.md` is the starting point for a new proposal.
 

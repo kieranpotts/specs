@@ -107,6 +107,9 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 ## References
 
 - [Proposal lifecycle](../../docs/lifecycle.md): State machine, rejection path, and immutability rules.
+
 - [PR checklist](../../.github/PULL_REQUEST_TEMPLATE.md): The rejection gate in the checklist.
+
 - [`check-proposal`](../check-proposal/SKILL.md): Run before rejecting to confirm the document is complete.
+
 - [`advance-proposal`](../advance-proposal/SKILL.md): For all other state transitions.

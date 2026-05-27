@@ -20,6 +20,8 @@ Optionally include the slug and type upfront:
 
 ## Examples
 
-- `/draft-proposal` — agent asks for the slug and type, then scaffolds the branch and document.
-- `/draft-proposal password-complexity-rules feature` — scaffolds immediately with the given slug.
-- `/draft-proposal api-response-time performance` — scaffolds a PERFORMANCE proposal.
+- `/draft-proposal`: Agent asks for the slug and type, then scaffolds the branch and document.
+
+- `/draft-proposal password-complexity-rules feature`: Scaffolds immediately with the given slug.
+
+- `/draft-proposal api-response-time performance`: Scaffolds a PERFORMANCE proposal.

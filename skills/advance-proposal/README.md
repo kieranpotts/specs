@@ -20,6 +20,8 @@ Optionally name the proposal and target state:
 
 ## Examples
 
-- `/advance-proposal` — agent identifies the current proposal from context and prompts for the target state.
-- `/advance-proposal user-session-timeout proposed` — advances the named proposal to `#proposed` after verifying gates.
-- `/advance-proposal 0003-user-session-timeout released` — marks as released once the implementation is live.
+- `/advance-proposal`: Agent identifies the current proposal from context and prompts for the target state.
+
+- `/advance-proposal user-session-timeout proposed`: Advances the named proposal to `#proposed` after verifying gates.
+
+- `/advance-proposal 0003-user-session-timeout released`: Marks as released once the implementation is live.

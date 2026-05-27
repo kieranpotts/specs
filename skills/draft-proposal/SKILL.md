@@ -89,7 +89,11 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 ## References
 
 - [`proposals/TEMPLATE.md`](../../proposals/TEMPLATE.md): The proposal template to copy.
+
 - [Workflow](../../docs/workflow.md): Full end-to-end process for proposing a change.
+
 - [Proposal lifecycle](../../docs/lifecycle.md): State machine and permitted transitions.
+
 - [`advance-proposal`](../advance-proposal/SKILL.md): For advancing a proposal through its lifecycle after it is drafted.
+
 - [`check-proposal`](../check-proposal/SKILL.md): For auditing a proposal before it advances to `#proposed`.

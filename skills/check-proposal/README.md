@@ -21,6 +21,8 @@ Optionally name the proposal file or PR number:
 
 ## Examples
 
-- `/check-proposal` — audits the most recently modified proposal in context.
-- `/check-proposal 0003-user-session-timeout` — audits the named proposal file.
-- `/check-proposal 42` — audits the proposal associated with PR #42.
+- `/check-proposal`: Audits the most recently modified proposal in context.
+
+- `/check-proposal 0003-user-session-timeout`: Audits the named proposal file.
+
+- `/check-proposal 42`: Audits the proposal associated with PR #42.

@@ -81,4 +81,5 @@ Do NOT use this skill to create or advance proposals — those are separate work
 ## References
 
 - [`proposals/README.md`](../../proposals/README.md): The file that contains the index table.
+
 - [`proposals/TEMPLATE.md`](../../proposals/TEMPLATE.md): Reference for the metadata field names to extract.
