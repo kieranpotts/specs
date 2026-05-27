@@ -46,9 +46,9 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `prod`, and open a pull request titled `proposal: [description]`. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the proposal document.
 
-- The current lifecycle state of a proposal is tracked via labels on the issue and PR. Apply the matching label (DRAFT, PROPOSED, ACCEPTED, REJECTED, RELEASED, DEPRECATED) as the proposal advances.
+- The current lifecycle state of a proposal is tracked via labels on the issue and PR. Apply the matching label (`#draft`, `#proposed`, `#accepted`, `#rejected`, `#released`, `#deprecated`) as the proposal advances.
 
-- Once a proposal is `ACCEPTED` or `REJECTED`, its document is immutable. To change a past decision, open a new proposal that supersedes it – do NOT edit the original.
+- Once a proposal is `#accepted` or `#rejected`, its document is immutable. To change a past decision, open a new proposal that supersedes it – do NOT edit the original.
 
 - Never delete a proposal document, including rejected ones.
 

@@ -10,10 +10,6 @@
 - Discussion thread:
 - Implementation trackers:
 
-## Status
-
-DRAFT | PROPOSED | ACCEPTED | REJECTED | RELEASED | DEPRECATED
-
 ## Related
 
 - Supersedes #...
