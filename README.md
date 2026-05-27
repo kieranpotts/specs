@@ -10,6 +10,9 @@ The SRS also encapsulates an immutable, append-only log of product decisions, in
 
 Technical decisions about _how_ the solution works — its architecture and implementation — are recorded separately. The SRS is implementation-agnostic and SHOULD NOT contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements.
 
+> [!NOTE]
+> The SRS covers product decisions. Technical decisions — _how_ the solution is constructed — are tracked separately in the companion [Requests for Comments (RFC)](https://github.com/kieranpotts/rfc) repository.
+
 ## Contents
 
 - [**Specification**](./specification/): Descriptions of the "as is" production system. Covers the mission statement, the domain model, both functional and non-functional requirements, and the actors and their journeys through the system.
