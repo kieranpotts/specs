@@ -1,11 +1,11 @@
 title: "[Type a brief description]"
-labels: ["FEATURE"] # Default to FEATURE label. Use may change to PERFORMANCE.
+labels: ["FEATURE"]
 body:
   - type: input
     id: issue
     attributes:
       label: Issue
-      description: Link to the originating FEATURE or PERFORMANCE issue
+      description: Link to the originating FEATURE issue
     validations:
       required: false
   - type: input
