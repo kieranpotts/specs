@@ -54,4 +54,14 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Skills
 
-- `../skills/`: Shared AI skills. See https://github.com/kieranpotts/skills.
+The following skills are defined in this repository for managing the proposal workflow:
+
+- [`draft-proposal`](./skills/draft-proposal/SKILL.md): Scaffold a new proposal branch and document.
+
+- [`check-proposal`](./skills/check-proposal/SKILL.md): Audit a proposal for completeness and process compliance before advancing it.
+
+- [`advance-proposal`](./skills/advance-proposal/SKILL.md): Transition a proposal to the next permitted lifecycle state.
+
+- [`reject-proposal`](./skills/reject-proposal/SKILL.md): Handle the rejection path — revert spec edits and prepare the PR for merge.
+
+- [`index-proposals`](./skills/index-proposals/SKILL.md): Regenerate the index table in `proposals/README.md`.

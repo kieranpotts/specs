@@ -18,7 +18,7 @@ Technical decisions about _how_ the solution works — its architecture and impl
 
 - [**Documentation**](./docs/): Instructions for shepherding proposals through their lifecycle, and for maintaining the specification.
 
-The [**skills**](./skills/) directory captures artifacts intended for injection into AI model context windows.
+- [**Skills**](./skills/): AI skills for managing the proposal workflow, and other shared utilities for use in agent context windows.
 
 -----
 
