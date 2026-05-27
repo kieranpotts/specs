@@ -4,7 +4,9 @@
 
 This repository is the home of the software requirements specification (SRS) for [Project Name]. It defines the major operations and business rules of the system, and the constraints within which the system is required to operate.
 
-The SRS describes _what_ the system does, in business terms. It is maintained by the product managers, with input from other stakeholders (both non-technical and technical).
+The SRS is a mutable living specification of _what_ the production system does, defined from the perspective of its users. The specification is maintained by the product managers, with input from other stakeholders (both non-technical and technical).
+
+The SRS also encapsulates an immutable, append-only log of product decisions, in the form of "proposals" that drive changes to the specification. Even proposals for new features that are ultimately rejected are recorded in the log, so that the rationale for the current state of the specification can be fully understood when it passes into the stewardship of new maintainers.
 
 Technical decisions about _how_ the solution works — its architecture and implementation — are recorded separately. The SRS is implementation-agnostic and SHOULD NOT contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements.
 
