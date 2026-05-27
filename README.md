@@ -2,7 +2,7 @@
 
 **A template for managing the lifecycle of software requirements via version control.**
 
-**🚧 Under reconstruction.**
+**🚧 Under construction.**
 
 ## 📓 Documentation
 
@@ -11,4 +11,4 @@
 
 -----
 
-Copyright © 2020-present Kieran Potts, [MIT license](./LICENSE.txt)
+Copyright © 2020-present Kieran Potts, [CC0 license](./LICENSE.txt)
