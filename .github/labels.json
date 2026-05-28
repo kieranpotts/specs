@@ -5,8 +5,8 @@
     "color": "2266EE"
   },
   {
-    "name": "PERFORMANCE",
-    "description": "A change to a constraint within which the system must perform",
+    "name": "QUALITY",
+    "description": "An idea for a new or changed non-functional requirement",
     "color": "008800"
   },
   {

@@ -4,13 +4,13 @@
 #
 
 title: "[Type a brief description]"
-labels: ["PERFORMANCE"]
+labels: ["QUALITY"]
 body:
   - type: input
     id: issue
     attributes:
       label: Issue
-      description: Link to the originating PERFORMANCE issue
+      description: Link to the originating QUALITY issue
     validations:
       required: false
   - type: input
