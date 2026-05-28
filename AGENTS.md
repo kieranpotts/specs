@@ -12,19 +12,29 @@ Changes are introduced through proposals. The [specification](./specification/) 
 
 ## Repository structure
 
-- `specification/`: The current agreed specification of the production system ("as is"), organized into the following sections:
+- `specification/`: The current agreed specification of the production system ("as is"), divided into descriptive **context** and prescriptive **requirements**:
 
-  - `overview/`: Mission statement, problem statement, and project scope.
+  - `context/overview/`: Mission statement, problem statement, and project scope.
 
-  - `model/`: Domain entities and their relationships.
+  - `context/constraints/`: Regulatory, legal, and business constraints, assumptions, and external dependencies.
 
-  - `actors/`: The actors that interact with the system, and the permission hierarchy.
+  - `context/glossary/`: The project's ubiquitous language.
 
-  - `journeys/`: User journeys, as wireframes and visual designs.
+  - `context/model/`: Domain entities and their relationships.
 
-  - `features/`: Functional requirements as Gherkin `.feature` files.
+  - `context/actors/`: The actors that interact with the system, and the hierarchy between them.
 
-  - `performance/`: Non-functional requirements — quality attributes and performance targets.
+  - `requirements/behaviors/access/`: The permission matrix — which actors may exercise which capabilities.
+
+  - `requirements/behaviors/rules/`: Business rules, invariants, and entity lifecycles.
+
+  - `requirements/behaviors/features/`: Functional requirements as Gherkin `.feature` files.
+
+  - `requirements/behaviors/journeys/`: User journeys, as wireframes and/or call-sequences.
+
+  - `requirements/behaviors/interfaces/`: The system's external contract — operations, resources, and events.
+
+  - `requirements/qualities/`: Non-functional requirements — quality attributes and performance targets.
 
 - `proposals/`: The permanent archive of every proposed change. `TEMPLATE.md` is the starting point for a new proposal.
 
@@ -44,7 +54,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - The default branch is `main`. It always reflects the as-is state of the production system. Nothing merges into `main` until real users are using the proposed change in production.
 
-- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `main`, and open a pull request titled `proposal: [description]`. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the proposal document.
+- A proposal MUST be a single atomic change. Author it on a `proposal/[description]` branch cut from `main`, and open a pull request titled `proposal: [description]`. A GitHub issue (FEATURE or QUALITY) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the proposal document.
 
 - The current lifecycle state of a proposal is tracked via labels on the issue and PR. Apply the matching label (`#draft`, `#proposed`, `#accepted`, `#rejected`, `#released`, `#deprecated`) as the proposal advances.
 

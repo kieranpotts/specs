@@ -1,10 +1,10 @@
-# Performance
+# Qualities
 
 This section sets out the system's non-functional requirements — its quality attributes and performance targets.
 
-Where [features](../features/) describe _what_ the system does, this section describes _how well_ it must do it, and the constraints (eg. hardware resources) within which it must operate.
+Where [features](../behaviors/features/) describe _what_ the system does, this section describes _how well_ it must do it, and the constraints (eg. hardware resources) within which it must operate.
 
-Performance requirements are architecturally significant. They have a big impact on the design of the system, and on the components and tools that can be used to build and deploy it.
+These requirements are architecturally significant. They have a big impact on the design of the system, and on the components and tools that can be used to build and deploy it.
 
 _State each requirement as a measurable, testable threshold rather than a general aspiration. Vague requirements cannot be verified._
 

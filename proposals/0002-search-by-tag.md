@@ -37,9 +37,9 @@ This change extends the API surface available to Authenticated Users. It does no
 
 This proposal adds the following specification artifact:
 
-- **[`specification/features/search-pets.feature`](../specification/features/search-pets.feature)**: New feature file specifying keyword search (case-insensitive match against name, breed, and description), tag-based search, combined keyword-and-tag search, empty result handling, and unauthenticated rejection.
+- **[`specification/requirements/behaviors/features/search-pets.feature`](../specification/requirements/behaviors/features/search-pets.feature)**: New feature file specifying keyword search (case-insensitive match against name, breed, and description), tag-based search, combined keyword-and-tag search, empty result handling, and unauthenticated rejection.
 
-No changes are required to the domain model, actor hierarchy, or performance requirements established in [proposal 0001](./0001-catalog-read-api.md). The latency threshold for the search endpoint is covered by the existing list/search threshold of 300ms at the 95th percentile.
+No changes are required to the domain model, actor hierarchy, or quality requirements established in [proposal 0001](./0001-catalog-read-api.md). The latency threshold for the search endpoint is covered by the existing list/search threshold of 300ms at the 95th percentile.
 
 ## Alternatives
 

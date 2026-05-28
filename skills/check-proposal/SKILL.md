@@ -66,8 +66,8 @@ Do NOT use this skill to advance a proposal's state (use [`advance-proposal`](..
 
     - Confirm the change is referenced in the `Proposed change` section of the proposal document.
     - Confirm the edit describes the intended *final state*, not a changelog or diff description.
-    - For `specification/features/` files: confirm scenarios are written as valid Gherkin.
-    - For `specification/performance/` files: confirm requirements are expressed as measurable thresholds, not aspirations.
+    - For `specification/requirements/behaviors/features/` files: confirm scenarios are written as valid Gherkin.
+    - For `specification/requirements/qualities/` files: confirm requirements are expressed as measurable thresholds, not aspirations.
 
 7.  **Check that the originating issue is closed (for `#proposed` or later).**
 

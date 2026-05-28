@@ -35,21 +35,39 @@ This proposal establishes the entire foundation of the system. It affects all cu
 
 ## Proposed change
 
-This proposal introduces the following specification artifacts:
+This proposal introduces the following specification artifacts.
 
-- **[`specification/overview/mission-statement.md`](../specification/overview/mission-statement.md)**: New content stating the core purpose of the Petstore API.
-- **[`specification/overview/problem-statement.md`](../specification/overview/problem-statement.md)**: New content describing the catalog data fragmentation problem and the API solution.
-- **[`specification/overview/scope.md`](../specification/overview/scope.md)**: New content bounding the system to catalog read operations; purchasing, inventory management, and user account management are explicitly out of scope.
-- **[`specification/model/README.md`](../specification/model/README.md)**: New domain model defining the `Pet` and `Category` entities, their attributes, and their relationship.
-- **[`specification/actors/README.md`](../specification/actors/README.md)**: Updated actor hierarchy. Anonymous Users have no access; Authenticated Users may list, search, and retrieve catalog data.
-- **[`specification/features/list-pets.feature`](../specification/features/list-pets.feature)**: New feature file specifying list and filter behavior, including pagination, status filter, species filter, price range filter, empty result, and unauthenticated rejection.
-- **[`specification/features/get-pet.feature`](../specification/features/get-pet.feature)**: New feature file specifying retrieval of a single pet by ID, including the not-found and unauthenticated cases.
-- **[`specification/performance/latency.md`](../specification/performance/latency.md)**: Petstore-specific latency thresholds for list/search (300ms p95) and get-by-ID (100ms p99).
-- **[`specification/performance/throughput.md`](../specification/performance/throughput.md)**: Minimum throughput of 200 req/s normal, 600 req/s peak.
-- **[`specification/performance/capacity.md`](../specification/performance/capacity.md)**: Support for 5,000 concurrent callers and a catalog of at least 50,000 records.
-- **[`specification/performance/compatibility.md`](../specification/performance/compatibility.md)**: API protocol compatibility commitments: any HTTP client, no proprietary SDK required, backwards-compatible within a major version.
-- **[`specification/performance/portability.md`](../specification/performance/portability.md)**: Deployable in local development and cloud-hosted production without code changes; no proprietary service lock-in.
-- **[`specification/performance/idempotence.md`](../specification/performance/idempotence.md)**: All read operations are idempotent; clients may safely retry on failure.
+### Context
+
+- [Mission statement](../specification/context/overview/mission-statement.md): New content stating the core purpose of the Petstore API.
+
+- [Problem statement](../specification/context/overview/problem-statement.md): New content describing the catalog data fragmentation problem and the API solution.
+
+- [Scope](../specification/context/overview/scope.md): New content bounding the system to catalog read operations; purchasing, inventory management, and user account management are explicitly out of scope.
+
+- [Domain model](../specification/context/model/README.md): New domain model defining the `Pet` and `Category` entities, their attributes, and their relationship.
+
+- [Actor hierarchy](../specification/context/actors/README.md): Updated actor hierarchy: Anonymous User and Authenticated User.
+
+### Requirements
+
+- [Permission matrix](../specification/requirements/behaviors/access/README.md): New permission matrix. Anonymous Users have no access; Authenticated Users may list, search, and retrieve catalog data.
+
+- [List pets feature](../specification/requirements/behaviors/features/list-pets.feature): New feature file specifying list and filter behavior, including pagination, status filter, species filter, price range filter, empty result, and unauthenticated rejection.
+
+- [Feature: Get pet by ID](../specification/requirements/behaviors/features/get-pet.feature)**: New feature file specifying retrieval of a single pet by ID, including the not-found and unauthenticated cases.
+
+- [Quality: Latency](../specification/requirements/qualities/latency.md): Petstore-specific latency thresholds for list/search (300ms p95) and get-by-ID (100ms p99).
+
+- [Quality: Throughput](../specification/requirements/qualities/throughput.md): Minimum throughput of 200 req/s normal, 600 req/s peak.
+
+- [Quality: Capacity](../specification/requirements/qualities/capacity.md): Support for 5,000 concurrent callers and a catalog of at least 50,000 records.
+
+- [Quality: Compatibility](../specification/requirements/qualities/compatibility.md): API protocol compatibility commitments: any HTTP client, no proprietary SDK required, backwards-compatible within a major version.
+
+- [Quality: Portability](../specification/requirements/qualities/portability.md): Deployable in local development and cloud-hosted production without code changes; no proprietary service lock-in.
+
+- [Quality: Idempotence](../specification/requirements/qualities/idempotence.md): All read operations are idempotent; clients may safely retry on failure.
 
 ## Alternatives
 
@@ -60,12 +78,15 @@ This proposal introduces the following specification artifacts:
 ## Tradeoffs and risks
 
 - **Read-only scope may frustrate early adopters**: Consumers who want to manage listings via the same API will need to use a separate administrative interface until write operations are specified and built. This may slow early adoption.
+
 - **Domain model is intentionally minimal**: The `Pet` entity omits health records, vaccination status, and lineage data that some retailers may consider essential. These can be added via future proposals, but early integrators building against the initial model may need to accommodate schema additions.
+
 - **Performance thresholds are estimates**: The latency and throughput targets in this proposal are based on comparable catalog APIs, not load testing against a running system. They should be validated during implementation.
 
 ## Questions
 
 - Should the catalog support multiple currencies, or is a single configured currency sufficient for the initial version?
+
 - What credential mechanism (eg. API key, OAuth 2.0 bearer token) will authentication use? This is out of scope for the specification but needs to be resolved before implementation.
 
 ## References

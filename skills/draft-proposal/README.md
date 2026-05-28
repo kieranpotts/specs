@@ -24,4 +24,4 @@ Optionally include the slug and type upfront:
 
 - `/draft-proposal password-complexity-rules feature`: Scaffolds immediately with the given slug.
 
-- `/draft-proposal api-response-time performance`: Scaffolds a PERFORMANCE proposal.
+- `/draft-proposal api-response-time quality`: Scaffolds a QUALITY proposal.

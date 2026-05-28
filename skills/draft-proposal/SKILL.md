@@ -14,7 +14,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
 1.  **Confirm the proposal slug and type.**
 
-    Establish a short, hyphen-delimited description slug for the proposal (eg. `user-session-timeout`). Also confirm whether this is a FEATURE proposal (new or changed functional requirement) or a PERFORMANCE proposal (new or changed non-functional requirement). If the user hasn't stated this, ask.
+    Establish a short, hyphen-delimited description slug for the proposal (eg. `user-session-timeout`). Also confirm whether this is a FEATURE proposal (new or changed functional requirement) or a QUALITY proposal (new or changed non-functional requirement). If the user hasn't stated this, ask.
 
 2.  **Create the branch.**
 
@@ -47,8 +47,8 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
     Based on the proposal type and description, locate the relevant files in `specification/`:
 
-    - Functional changes → `specification/features/` (Gherkin `.feature` files) and/or `specification/actors/`, `specification/journeys/`, `specification/model/`.
-    - Non-functional changes → `specification/performance/`.
+    - Functional changes → `specification/requirements/behaviors/features/` (Gherkin `.feature` files) and/or `specification/requirements/behaviors/` (`access/`, `rules/`, `journeys/`, `interfaces/`), `specification/context/actors/`, `specification/context/model/`.
+    - Non-functional changes → `specification/requirements/qualities/`.
 
     List these files in the `Proposed change` section of the proposal document as a starting point for the proposer. Do not edit the spec files yet — leave that for the proposer to fill in.
 

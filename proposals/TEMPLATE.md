@@ -29,11 +29,11 @@ Why should we make this change? What problem does it solve, and for whom? What i
 
 HIGH | MEDIUM | LOW
 
-Who is affected by this change — the business, the users, particular user roles — and what is the nature of the impact? Note any potential effect on existing [performance requirements](../specification/performance/), eg. latency, throughput, capacity, or compatibility.
+Who is affected by this change — the business, the users, particular user roles — and what is the nature of the impact? Note any potential effect on existing [qualities](../specification/requirements/qualities/), eg. latency, throughput, capacity, or compatibility.
 
 ## Proposed change
 
-Describe the change to the specification in detail. Which [features](../specification/features/), [actors](../specification/actors/), [journeys](../specification/journeys/), or [domain model](../specification/model/) entities are added, modified, or removed?
+Describe the change to the specification in detail. Which [features](../specification/requirements/behaviors/features/), [actors](../specification/context/actors/), [journeys](../specification/requirements/behaviors/journeys/), or [domain model](../specification/context/model/) entities are added, modified, or removed?
 
 Reference the specific edits this proposal makes to the specification sections.
 

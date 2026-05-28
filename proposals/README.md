@@ -6,7 +6,7 @@ The [specification sections](../specification/) always describe the system as it
 
 ## How it works
 
-1. A proposal is opened as a pull request: a copy of [`TEMPLATE.md`](./TEMPLATE.md), authored on a `proposal/[short-description]` branch. A GitHub issue (FEATURE or PERFORMANCE) MAY be opened first for lightweight early triage — if so, the proposer closes it when the PR is opened and links the two. See the [contributing guide](../CONTRIBUTING.md) for the full process.
+1. A proposal is opened as a pull request: a copy of [`TEMPLATE.md`](./TEMPLATE.md), authored on a `proposal/[short-description]` branch. A GitHub issue (FEATURE or QUALITY) MAY be opened first for lightweight early triage — if so, the proposer closes it when the PR is opened and links the two. See the [contributing guide](../CONTRIBUTING.md) for the full process.
 
 2. The proposal moves through its [lifecycle](../CONTRIBUTING.md#proposal-lifecycle): `draft → proposed → accepted|rejected → released → deprecated`.
 

@@ -16,7 +16,7 @@ Before writing a full proposal, the proposer MAY open a GitHub issue to gather e
 
 - **FEATURE**: To canvass opinion on a new or changed functional requirement.
 
-- **PERFORMANCE**: To canvass opinion on a new or changed non-functional requirement.
+- **QUALITY**: To canvass opinion on a new or changed non-functional requirement.
 
 The issue is a lightweight way to surface the idea to stakeholders and get initial triage from the product managers without committing to a full proposal. When the proposer decides to move forward, they close the issue and open a pull request (see step 3). If the idea is not pursued, the issue is simply closed without further action.
 
@@ -40,7 +40,7 @@ Follow these steps to prepare the pull request:
 
 3. Edit the specification sections to reflect the intended final state of the system after the change ships. You may add, modify, or delete artifacts as necessary. Treat the spec sections as the destination, not a changelog.
 
-4. Commit your changes and open a pull request titled `feature: [description]` (for functional changes) or `performance: [description]` (for performance changes). Each pull request MUST be focused on a single atomic change — one feature or performance requirement that can be reviewed, decided, and shipped independently of any other. If you have multiple changes to propose, open multiple pull requests.
+4. Commit your changes and open a pull request titled `feature: [description]` (for functional changes) or `quality: [description]` (for non-functional changes). Each pull request MUST be focused on a single atomic change — one feature or quality requirement that can be reviewed, decided, and shipped independently of any other. If you have multiple changes to propose, open multiple pull requests.
 
 The pull request MAY be opened at `#draft` status while the proposal document and specification edits are still being refined, or at `#proposed` status when it is ready for full stakeholder review.
 

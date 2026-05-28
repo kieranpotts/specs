@@ -10,6 +10,6 @@ Pet retailers and online marketplaces need accurate, up-to-date catalog data —
 
 ## The solution
 
-_Describe, in business terms, how the system solves that problem. Keep this at the level of outcomes and capabilities — the detailed functional requirements belong in [features](../features/)._
+_Describe, in business terms, how the system solves that problem. Keep this at the level of outcomes and capabilities — the detailed functional requirements belong in [features](../../requirements/behaviors/features/)._
 
 The Petstore API provides a single, authoritative source of pet catalog data accessible to both human operators and automated systems. Authenticated callers can list all available pets, search and filter the catalog by species, breed, price range, or availability, and retrieve the full details of any individual listing. The API is designed to be consumed by web applications, mobile clients, and machine-to-machine integrations alike.
