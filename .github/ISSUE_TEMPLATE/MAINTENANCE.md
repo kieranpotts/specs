@@ -1,6 +1,6 @@
 ---
 name: Maintenance
-about: Plan a routine housekeeping chore, scoped to this repository only
+about: Plan a routine housekeeping chore, scoped to this repository only.
 title: ""
 labels: MAINTENANCE
 assignees: ""

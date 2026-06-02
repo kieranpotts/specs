@@ -1,6 +1,6 @@
 ---
 name: Feature
-about: Canvass early feedback on an idea for a new or changed functional requirement
+about: Canvass early feedback on an idea for a new or changed functional requirement.
 title: ""
 labels: FEATURE
 assignees: ""
