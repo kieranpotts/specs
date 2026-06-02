@@ -1,6 +1,6 @@
 # Specification
 
-This section documents the current specification of the production system — what the system does "as is".
+This section documents the current specification of the production system — what the system does as-is.
 
 These sections always reflect the system's current state. Changes to that state are introduced through [proposals](../proposals/). See the [contributing guide](../CONTRIBUTING.md) to understand the lifecycle from proposal to specification.
 
