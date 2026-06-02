@@ -12,7 +12,7 @@ The [specification sections](../specification/) always describe the system as it
 
 3. On merge, the project maintainers assign the proposal a sequential, zero-padded ID and rename its file to `NNNN-[description].md` (for example, `0002-private-browsing.md`).
 
-4. Once a proposal is `#accepted` or `#rejected`, its document is immutable. Only its status may change thereafter. To revisit a decision, open a new proposal that supersedes the original, and cross-reference the two using the `Supersedes` / `Superseded by` fields in the template.
+4. A proposal document becomes immutable once its PR is merged into `main`. While a proposal is still open, its document may be updated at any point — including during the `#accepted` implementation phase, in response to technical feedback, implementation discoveries, or feedback from real users during beta testing. To revisit a decision that has already been merged, open a new proposal that supersedes the original, and cross-reference the two using the `Supersedes` / `Superseded by` fields in the template.
 
 ## Index
 
