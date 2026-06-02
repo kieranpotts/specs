@@ -9,18 +9,18 @@ Verifies the implementation is in production and the spec matches it, assigns th
 ## How to invoke
 
 ```
-/release-proposal
+/release-spec
 ```
 
 Optionally name the proposal or PR number:
 
 ```
-/release-proposal user-session-timeout
-/release-proposal 42
+/release-spec user-session-timeout
+/release-spec 42
 ```
 
 ## Examples
 
-- `/release-proposal`: Verifies the proposal in context is live, numbers it, and prepares the merge.
+- `/release-spec`: Verifies the proposal in context is live, numbers it, and prepares the merge.
 
-- `/release-proposal 42`: Releases the proposal on PR #42 once its implementation has shipped.
+- `/release-spec 42`: Releases the proposal on PR #42 once its implementation has shipped.

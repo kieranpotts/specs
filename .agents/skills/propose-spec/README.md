@@ -9,18 +9,18 @@ Confirms the proposal document and specification edits are complete and free of 
 ## How to invoke
 
 ```
-/propose-proposal
+/propose-spec
 ```
 
 Optionally name the proposal or PR number:
 
 ```
-/propose-proposal user-session-timeout
-/propose-proposal 42
+/propose-spec user-session-timeout
+/propose-spec 42
 ```
 
 ## Examples
 
-- `/propose-proposal`: Verifies the most recent proposal in context, then marks its PR ready.
+- `/propose-spec`: Verifies the most recent proposal in context, then marks its PR ready.
 
-- `/propose-proposal 42`: Verifies and proposes the proposal on PR #42.
+- `/propose-spec 42`: Verifies and proposes the proposal on PR #42.

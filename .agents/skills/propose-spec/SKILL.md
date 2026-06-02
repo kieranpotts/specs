@@ -1,5 +1,5 @@
 ---
-name: propose-proposal
+name: propose-spec
 description: Remove the draft status from a proposal pull request, marking it ready for stakeholder review. Use when the user says "propose this", "this proposal is ready for review", "mark the proposal ready", or "take it out of draft".
 license: MIT
 ---
@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to move a proposal from draft to **proposed**: confirm the document and specification edits are complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draft-proposal/SKILL.md)) or to decide one (use [`accept-proposal`](../accept-proposal/SKILL.md), [`release-proposal`](../release-proposal/SKILL.md), or [`reject-proposal`](../reject-proposal/SKILL.md)).
+Do NOT use this skill to scaffold a new proposal (use [`draft-spec`](../draft-spec/SKILL.md)) or to decide one (use [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), or [`reject-spec`](../reject-spec/SKILL.md)).
 
 ## Transition rules (draft → proposed)
 
@@ -80,6 +80,6 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 - [Contributing guide](../../../CONTRIBUTING.md): The full proposal lifecycle.
 
-- [`draft-proposal`](../draft-proposal/SKILL.md): Scaffolds the proposal and opens the draft PR.
+- [`draft-spec`](../draft-spec/SKILL.md): Scaffolds the proposal and opens the draft PR.
 
-- [`accept-proposal`](../accept-proposal/SKILL.md) / [`reject-proposal`](../reject-proposal/SKILL.md): Decide a proposed proposal.
+- [`accept-spec`](../accept-spec/SKILL.md) / [`reject-spec`](../reject-spec/SKILL.md): Decide a proposed proposal.

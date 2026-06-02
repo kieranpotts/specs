@@ -1,5 +1,5 @@
 ---
-name: reject-proposal
+name: reject-spec
 description: Reject a proposed proposal — revert its specification edits, record its number in the index, set its status to rejected, close its discussion, and prepare the pull request for merge as a permanent record. Use when the user says "reject this proposal" or "the proposal was not approved".
 license: MIT
 ---
@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to move a proposal from **proposed** to **rejected**. The key distinction from acceptance is that the specification edits MUST be reverted before merge, so only the proposal document itself is added to `main`. The decision and its rationale are preserved permanently; the system is unchanged.
 
-Do NOT use this skill for any other transition — for the acceptance path use [`accept-proposal`](../accept-proposal/SKILL.md), and to scaffold or propose use [`draft-proposal`](../draft-proposal/SKILL.md) / [`propose-proposal`](../propose-proposal/SKILL.md).
+Do NOT use this skill for any other transition — for the acceptance path use [`accept-spec`](../accept-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
 
 ## Transition rules (proposed → rejected)
 
@@ -114,4 +114,4 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 - [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md): The rejection gates.
 
-- [`accept-proposal`](../accept-proposal/SKILL.md): The acceptance path.
+- [`accept-spec`](../accept-spec/SKILL.md): The acceptance path.

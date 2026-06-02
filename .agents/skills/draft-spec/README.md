@@ -9,19 +9,19 @@ Creates a `proposal/<slug>` branch from `main`, copies `proposals/TEMPLATE.md` t
 ## How to invoke
 
 ```
-/draft-proposal
+/draft-spec
 ```
 
 Optionally include the slug and type upfront:
 
 ```
-/draft-proposal user-session-timeout feature
+/draft-spec user-session-timeout feature
 ```
 
 ## Examples
 
-- `/draft-proposal`: Agent asks for the slug and type, then scaffolds the branch, document, draft PR, and discussion.
+- `/draft-spec`: Agent asks for the slug and type, then scaffolds the branch, document, draft PR, and discussion.
 
-- `/draft-proposal password-complexity-rules feature`: Scaffolds immediately as a FEATURE proposal.
+- `/draft-spec password-complexity-rules feature`: Scaffolds immediately as a FEATURE proposal.
 
-- `/draft-proposal api-response-time quality`: Scaffolds a QUALITY proposal.
+- `/draft-spec api-response-time quality`: Scaffolds a QUALITY proposal.

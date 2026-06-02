@@ -9,18 +9,18 @@ Verifies the approval gates, sets the document to `ACCEPTED` (filling in `Approv
 ## How to invoke
 
 ```
-/accept-proposal
+/accept-spec
 ```
 
 Optionally name the proposal or PR number:
 
 ```
-/accept-proposal user-session-timeout
-/accept-proposal 42
+/accept-spec user-session-timeout
+/accept-spec 42
 ```
 
 ## Examples
 
-- `/accept-proposal`: Verifies the gates for the proposal in context and accepts it.
+- `/accept-spec`: Verifies the gates for the proposal in context and accepts it.
 
-- `/accept-proposal 42`: Accepts the proposal on PR #42 after its gates pass.
+- `/accept-spec 42`: Accepts the proposal on PR #42 after its gates pass.

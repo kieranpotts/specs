@@ -9,18 +9,18 @@ Confirms the rejection decision, reverts all `specification/` changes introduced
 ## How to invoke
 
 ```
-/reject-proposal
+/reject-spec
 ```
 
 Optionally name the proposal or PR number:
 
 ```
-/reject-proposal user-session-timeout
-/reject-proposal 42
+/reject-spec user-session-timeout
+/reject-spec 42
 ```
 
 ## Examples
 
-- `/reject-proposal`: Walks through the rejection path for the proposal in context.
+- `/reject-spec`: Walks through the rejection path for the proposal in context.
 
-- `/reject-proposal 42`: Rejects the proposal on PR #42, reverts its spec edits, and prepares the merge.
+- `/reject-spec 42`: Rejects the proposal on PR #42, reverts its spec edits, and prepares the merge.

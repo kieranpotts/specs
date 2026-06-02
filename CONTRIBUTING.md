@@ -79,7 +79,7 @@ A pull request is the formal vehicle for a proposal. Open it as soon as you are 
 5. Keep the pull request in draft while you refine it. When the document and spec edits are complete and ready for full stakeholder review, mark the pull request **ready for review** and apply the `#proposed` label.
 
 > [!TIP]
-> You don't have to do this by hand: [`/draft-proposal`](./.agents/skills/draft-proposal/) scaffolds the document, opens the draft pull request, applies the type label, and opens the discussion thread; [`/propose-proposal`](./.agents/skills/propose-proposal/) then marks it ready for review once it is complete.
+> You don't have to do this by hand: [`/draft-spec`](./.agents/skills/draft-spec/) scaffolds the document, opens the draft pull request, applies the type label, and opens the discussion thread; [`/propose-spec`](./.agents/skills/propose-spec/) then marks it ready for review once it is complete.
 
 ## Proposal lifecycle
 
@@ -118,11 +118,11 @@ The proposer drives a proposal up to `proposed` — drafting it, then marking th
 
 | From | To | Skill | Condition |
 | --- | --- | --- | --- |
-| _(new PR)_ | `draft` | [`/draft-proposal`](./.agents/skills/draft-proposal/) | A draft pull request is opened with the scaffolded document, a type label, and a discussion thread. |
-| `draft` | `#proposed` | [`/propose-proposal`](./.agents/skills/propose-proposal/) | Document and spec edits complete and free of template boilerplate; PR marked ready for review and labeled `#proposed`. |
-| `#proposed` | `#accepted` | [`/accept-proposal`](./.agents/skills/accept-proposal/) | Stakeholder review and final-comment period concluded; `Depends on` proposals accepted; approved; discussion closed. |
-| `#proposed` | `#rejected` | [`/reject-proposal`](./.agents/skills/reject-proposal/) | Review concluded; not approved; spec edits reverted; number added to `INDEX.md`; discussion closed; merged as record. |
-| `#accepted` | `#released` | [`/release-proposal`](./.agents/skills/release-proposal/) | Implementation shipped to production; number added to `INDEX.md`; spec edits merged. |
+| _(new PR)_ | `draft` | [`/draft-spec`](./.agents/skills/draft-spec/) | A draft pull request is opened with the scaffolded document, a type label, and a discussion thread. |
+| `draft` | `#proposed` | [`/propose-spec`](./.agents/skills/propose-spec/) | Document and spec edits complete and free of template boilerplate; PR marked ready for review and labeled `#proposed`. |
+| `#proposed` | `#accepted` | [`/accept-spec`](./.agents/skills/accept-spec/) | Stakeholder review and final-comment period concluded; `Depends on` proposals accepted; approved; discussion closed. |
+| `#proposed` | `#rejected` | [`/reject-spec`](./.agents/skills/reject-spec/) | Review concluded; not approved; spec edits reverted; number added to `INDEX.md`; discussion closed; merged as record. |
+| `#accepted` | `#released` | [`/release-spec`](./.agents/skills/release-spec/) | Implementation shipped to production; number added to `INDEX.md`; spec edits merged. |
 | `#released` | `#deprecated` | _(manual)_ | A later proposal has superseded or removed the feature. |
 
 Transitions not listed are not permitted. A proposal MUST NOT move backwards (eg. from `#proposed` back to draft) and MUST NOT skip states (eg. from draft directly to `#accepted`).
@@ -139,10 +139,10 @@ To revisit a past decision already merged to `main`, open a new proposal that su
 
 This repository ships a set of **agent skills** — invoked as slash commands through agentic tools such as Claude Code — that automate the proposal workflow, with **one skill per state transition**. They live in [`.agents/skills/`](./.agents/skills/); each knows the gate rules for its own transition and will not proceed until they are met. You can always perform any step by hand instead.
 
-- [`/draft-proposal`](./.agents/skills/draft-proposal/) — _start a new proposal_: scaffold the branch and document, open a draft pull request with a type label, and open the discussion thread.
-- [`/propose-proposal`](./.agents/skills/propose-proposal/) — _draft → proposed_: confirm the document and spec edits are complete, apply `#proposed`, and take the pull request out of draft.
-- [`/accept-proposal`](./.agents/skills/accept-proposal/) — _proposed → accepted_: verify the approval gates, set the document to `ACCEPTED`, label `#accepted`, and close the discussion thread.
-- [`/release-proposal`](./.agents/skills/release-proposal/) — _accepted → released_: once the implementation is live, record the number in `INDEX.md`, set the document to `RELEASED`, and prepare the pull request for merge.
-- [`/reject-proposal`](./.agents/skills/reject-proposal/) — _proposed → rejected_: revert the spec edits, record the number in `INDEX.md`, set the document to `REJECTED`, close the discussion, and prepare the pull request for merge as a permanent record.
+- [`/draft-spec`](./.agents/skills/draft-spec/) — _start a new proposal_: scaffold the branch and document, open a draft pull request with a type label, and open the discussion thread.
+- [`/propose-spec`](./.agents/skills/propose-spec/) — _draft → proposed_: confirm the document and spec edits are complete, apply `#proposed`, and take the pull request out of draft.
+- [`/accept-spec`](./.agents/skills/accept-spec/) — _proposed → accepted_: verify the approval gates, set the document to `ACCEPTED`, label `#accepted`, and close the discussion thread.
+- [`/release-spec`](./.agents/skills/release-spec/) — _accepted → released_: once the implementation is live, record the number in `INDEX.md`, set the document to `RELEASED`, and prepare the pull request for merge.
+- [`/reject-spec`](./.agents/skills/reject-spec/) — _proposed → rejected_: revert the spec edits, record the number in `INDEX.md`, set the document to `REJECTED`, close the discussion, and prepare the pull request for merge as a permanent record.
 
 Each skill's directory holds a `README.md` (how to invoke it, with examples) and a `SKILL.md` (the full instructions and transition rules).

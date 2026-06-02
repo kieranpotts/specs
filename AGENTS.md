@@ -83,19 +83,19 @@ Permitted transitions (any other transition is forbidden — no moving backwards
 
 | From | To | Skill | Condition |
 | --- | --- | --- | --- |
-| _(new PR)_ | `draft` | `draft-proposal` | Draft PR opened with scaffolded document, type label, and discussion thread. |
-| `draft` | `#proposed` | `propose-proposal` | Document and spec edits complete; PR marked ready for review and labeled `#proposed`. |
-| `#proposed` | `#accepted` | `accept-proposal` | Review concluded; approved; discussion closed. |
-| `#proposed` | `#rejected` | `reject-proposal` | Review concluded; not taken forward; spec edits reverted; number in `INDEX.md`; merged. |
-| `#accepted` | `#released` | `release-proposal` | Implementation shipped to production; number in `INDEX.md`; spec edits merged. |
+| _(new PR)_ | `draft` | `draft-spec` | Draft PR opened with scaffolded document, type label, and discussion thread. |
+| `draft` | `#proposed` | `propose-spec` | Document and spec edits complete; PR marked ready for review and labeled `#proposed`. |
+| `#proposed` | `#accepted` | `accept-spec` | Review concluded; approved; discussion closed. |
+| `#proposed` | `#rejected` | `reject-spec` | Review concluded; not taken forward; spec edits reverted; number in `INDEX.md`; merged. |
+| `#accepted` | `#released` | `release-spec` | Implementation shipped to production; number in `INDEX.md`; spec edits merged. |
 | `#released` | `#deprecated` | _(manual)_ | Feature removed or superseded by a later proposal. |
 
 ## Skills
 
 The [`.agents/skills/`](./.agents/skills/) directory provides on-demand skills for managing the proposal workflow — one per state transition. Each skill carries the gate rules for its own transition.
 
-- [`draft-proposal`](./.agents/skills/draft-proposal/SKILL.md): scaffold a new proposal, open it as a draft PR, and open the associated discussion thread.
-- [`propose-proposal`](./.agents/skills/propose-proposal/SKILL.md): `draft → proposed` — verify the document and spec edits are complete, then remove the PR's draft status and apply `#proposed`.
-- [`accept-proposal`](./.agents/skills/accept-proposal/SKILL.md): `proposed → accepted` (also closes the discussion thread).
-- [`release-proposal`](./.agents/skills/release-proposal/SKILL.md): `accepted → released` — record the number in `INDEX.md` and prepare for merge.
-- [`reject-proposal`](./.agents/skills/reject-proposal/SKILL.md): `proposed → rejected` — revert spec edits, record the number, close the discussion, and prepare for merge.
+- [`draft-spec`](./.agents/skills/draft-spec/SKILL.md): scaffold a new proposal, open it as a draft PR, and open the associated discussion thread.
+- [`propose-spec`](./.agents/skills/propose-spec/SKILL.md): `draft → proposed` — verify the document and spec edits are complete, then remove the PR's draft status and apply `#proposed`.
+- [`accept-spec`](./.agents/skills/accept-spec/SKILL.md): `proposed → accepted` (also closes the discussion thread).
+- [`release-spec`](./.agents/skills/release-spec/SKILL.md): `accepted → released` — record the number in `INDEX.md` and prepare for merge.
+- [`reject-spec`](./.agents/skills/reject-spec/SKILL.md): `proposed → rejected` — revert spec edits, record the number, close the discussion, and prepare for merge.

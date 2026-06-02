@@ -1,5 +1,5 @@
 ---
-name: draft-proposal
+name: draft-spec
 description: Scaffold a new proposal for a change to the software requirements specification and open it as a draft pull request. Use when the user wants to propose a new feature or a changed functional/non-functional requirement, or says "draft a proposal", "new proposal", or "start a proposal".
 license: MIT
 ---
@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to start a new proposal: scaffold the branch and document from the template, then open a **draft pull request** with the artifacts in place, ready for the proposer to complete.
 
-This is the entry point to the proposal lifecycle. The PR stays a GitHub draft while the proposer writes it; [`propose-proposal`](../propose-proposal/SKILL.md) removes the draft status once the document and spec edits are ready for review. Do NOT use this skill to advance an existing proposal — see [`propose-proposal`](../propose-proposal/SKILL.md), [`accept-proposal`](../accept-proposal/SKILL.md), [`release-proposal`](../release-proposal/SKILL.md), or [`reject-proposal`](../reject-proposal/SKILL.md).
+This is the entry point to the proposal lifecycle. The PR stays a GitHub draft while the proposer writes it; [`propose-spec`](../propose-spec/SKILL.md) removes the draft status once the document and spec edits are ready for review. Do NOT use this skill to advance an existing proposal — see [`propose-spec`](../propose-spec/SKILL.md), [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), or [`reject-spec`](../reject-spec/SKILL.md).
 
 ## Instructions
 
@@ -59,7 +59,7 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
     gh pr edit <number> --add-label "<FEATURE|QUALITY>"
     ```
 
-    Do not apply a lifecycle label yet: the draft PR represents work in progress, and `#proposed` is applied later by [`propose-proposal`](../propose-proposal/SKILL.md).
+    Do not apply a lifecycle label yet: the draft PR represents work in progress, and `#proposed` is applied later by [`propose-spec`](../propose-spec/SKILL.md).
 
 7.  **Open the associated discussion thread.**
 
@@ -135,4 +135,4 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
 - [Contributing guide](../../../CONTRIBUTING.md): The full end-to-end process and the state machine.
 
-- [`propose-proposal`](../propose-proposal/SKILL.md): Removes the draft status once the document is complete.
+- [`propose-spec`](../propose-spec/SKILL.md): Removes the draft status once the document is complete.

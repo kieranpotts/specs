@@ -1,5 +1,5 @@
 ---
-name: release-proposal
+name: release-spec
 description: Mark an accepted proposal as released once its implementation is live in production — assign its number in the index, set its status to released, label the PR, and prepare it for merge. Use when the user says "release this proposal", "this proposal is live", or "the implementation shipped".
 license: MIT
 ---
@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to move a proposal from **accepted** to **released**, once its implementation is live in production. This is the point at which the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), its specification edits become part of `main`, and the pull request is prepared for merge.
 
-Do NOT use this skill for any other transition — see [`accept-proposal`](../accept-proposal/SKILL.md), [`reject-proposal`](../reject-proposal/SKILL.md), [`propose-proposal`](../propose-proposal/SKILL.md), or [`draft-proposal`](../draft-proposal/SKILL.md).
+Do NOT use this skill for any other transition — see [`accept-spec`](../accept-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), [`propose-spec`](../propose-spec/SKILL.md), or [`draft-spec`](../draft-spec/SKILL.md).
 
 ## Transition rules (accepted → released)
 
@@ -78,4 +78,4 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
 - [Contributing guide](../../../CONTRIBUTING.md): The full lifecycle and immutability rules.
 
-- [`accept-proposal`](../accept-proposal/SKILL.md): The transition that precedes release.
+- [`accept-spec`](../accept-spec/SKILL.md): The transition that precedes release.

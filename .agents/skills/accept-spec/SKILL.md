@@ -1,14 +1,14 @@
 ---
-name: accept-proposal
+name: accept-spec
 description: Approve a proposed proposal — set its status to accepted, label the PR, and close its discussion thread. The PR stays open through implementation until release. Use when the user says "accept this proposal", "approve this proposal", or "mark this proposal accepted".
 license: MIT
 ---
 
 # Accept proposal
 
-Use this skill to move a proposal from **proposed** to **accepted**: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-proposal`](../release-proposal/SKILL.md)) — only at that point is a number assigned and the spec merged.
+Use this skill to move a proposal from **proposed** to **accepted**: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-spec`](../release-spec/SKILL.md)) — only at that point is a number assigned and the spec merged.
 
-Do NOT use this skill for any other transition — to reject use [`reject-proposal`](../reject-proposal/SKILL.md), to mark a shipped proposal released use [`release-proposal`](../release-proposal/SKILL.md), and to scaffold or propose use [`draft-proposal`](../draft-proposal/SKILL.md) / [`propose-proposal`](../propose-proposal/SKILL.md).
+Do NOT use this skill for any other transition — to reject use [`reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released use [`release-spec`](../release-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
 
 ## Transition rules (proposed → accepted)
 
@@ -35,7 +35,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
     - Fill in `Approvers` and `Approval date`.
     - Confirm `Proposal PR` is set, and link any `Implementation trackers` as they are created.
 
-    Do **not** assign a number — that happens at merge, in [`release-proposal`](../release-proposal/SKILL.md).
+    Do **not** assign a number — that happens at merge, in [`release-spec`](../release-spec/SKILL.md).
 
 4.  **Apply the label.**
 
@@ -69,7 +69,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 7.  **Queue the implementation.**
 
-    Remind the user that the work now needs to be designed, built, tested, and shipped to production. The PR stays open through this phase; the document and spec edits MAY continue to evolve in response to implementation feedback. When the change is live, run [`release-proposal`](../release-proposal/SKILL.md).
+    Remind the user that the work now needs to be designed, built, tested, and shipped to production. The PR stays open through this phase; the document and spec edits MAY continue to evolve in response to implementation feedback. When the change is live, run [`release-spec`](../release-spec/SKILL.md).
 
 ## Rules
 
@@ -93,6 +93,6 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 - [Contributing guide](../../../CONTRIBUTING.md): The full lifecycle and immutability rules.
 
-- [`release-proposal`](../release-proposal/SKILL.md): Run once the implementation is live in production.
+- [`release-spec`](../release-spec/SKILL.md): Run once the implementation is live in production.
 
-- [`reject-proposal`](../reject-proposal/SKILL.md): The other decision transition.
+- [`reject-spec`](../reject-spec/SKILL.md): The other decision transition.
