@@ -1,10 +1,10 @@
 # Reject proposal
 
-Handles the rejection path for a proposal: reverts specification section edits, updates the proposal document status, and prepares the pull request for merge.
+Rejects a proposed proposal (proposed → rejected), preserving it permanently as a record.
 
 ## What it does
 
-Confirms the rejection decision, runs a pre-rejection audit, reverts all `specification/` changes introduced by the proposal branch (leaving only the proposal document), applies the `#rejected` label, assigns the proposal its sequential ID, and commits everything ready for merge into `main`.
+Confirms the rejection decision, reverts all `specification/` changes introduced by the branch (leaving only the proposal document), sets the document to `REJECTED`, records the next sequential number in `proposals/INDEX.md`, closes the associated discussion thread, applies the `#rejected` label, and prepares the pull request for merge into `main`.
 
 ## How to invoke
 
@@ -12,14 +12,15 @@ Confirms the rejection decision, runs a pre-rejection audit, reverts all `specif
 /reject-proposal
 ```
 
-Optionally name the proposal:
+Optionally name the proposal or PR number:
 
 ```
 /reject-proposal user-session-timeout
+/reject-proposal 42
 ```
 
 ## Examples
 
-- `/reject-proposal`: Agent identifies the current proposal from context and walks through the rejection path.
+- `/reject-proposal`: Walks through the rejection path for the proposal in context.
 
-- `/reject-proposal 0003-user-session-timeout`: Rejects the named proposal, reverts its spec edits, and prepares the PR for merge.
+- `/reject-proposal 42`: Rejects the proposal on PR #42, reverts its spec edits, and prepares the merge.

@@ -20,11 +20,6 @@
     "color": "AA6600"
   },
   {
-    "name": "#draft",
-    "description": "A preliminary proposal, put forward for early feedback.",
-    "color": "FFFFFF"
-  },
-  {
     "name": "#proposed",
     "description": "A proposal being negotiated with stakeholders.",
     "color": "FFFFFF"
