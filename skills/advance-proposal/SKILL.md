@@ -76,9 +76,9 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
 
     The state machine is strictly forward-only. If a correction is needed, open a new proposal that supersedes the original.
 
--   **Once `#accepted` or `#rejected`, the document is immutable.**
+-   **The document is immutable only after the PR is merged to `main`.**
 
-    After those states are reached, only the GitHub label may change. Do not edit any part of the document.
+    While a proposal is open — including during the `#accepted` implementation phase — its document and specification edits may be updated. Documents become immutable once the PR is merged: after `#released` for accepted proposals, after the merge following `#rejected` for rejected ones. To revisit a merged decision, open a new superseding proposal rather than editing the archived document.
 
 -   **Gate verification is mandatory.**
 
