@@ -10,6 +10,11 @@
     "color": "008800"
   },
   {
+    "name": "EPIC",
+    "description": "A container for a group of interdependent proposals.",
+    "color": "0088AA"
+  },
+  {
     "name": "MAINTENANCE",
     "description": "A routine housekeeping chore in this repository only",
     "color": "AA6600"
