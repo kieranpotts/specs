@@ -10,13 +10,13 @@ body:
     id: issue
     attributes:
       label: Issue
-      description: Link to the originating QUALITY issue
+      description: Link to the originating QUALITY issue.
     validations:
       required: false
   - type: input
     id: pr
     attributes:
       label: PR
-      description: Link to the pull request, once opened
+      description: Link to the pull request, once opened.
     validations:
       required: false
