@@ -23,6 +23,8 @@ Technical decisions about _how_ the solution works — its architecture and impl
 
 - [**Agents**](./AGENTS.md): Instructions for agentic tools to maintain the specifications and to manage the lifecycle of proposals with a high degree of autonomy. Includes links to domain-specific skills.
 
+- [**Documentation**](./docs/): Further guidance on the SRS process — its benefits, and best practices for scoping proposals and writing testable requirements.
+
 -----
 
 Copyright © 2020-present Kieran Potts, [CC0 license](./LICENSE.txt)

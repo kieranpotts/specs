@@ -14,4 +14,4 @@ _Define the boundaries of this epic._
 
 ## Proposals
 
-_Add sub-issues via the GitHub interface, one for each discrete proposal within this epic. An epic may span multiple FEATURE and QUALITY proposals._
+_List the proposal pull requests that make up this epic, one per discrete proposal. An epic may span multiple feature and quality proposals._

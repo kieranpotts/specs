@@ -7,16 +7,9 @@ title: "[Type a brief description]"
 labels: ["FEATURE"]
 body:
   - type: input
-    id: issue
-    attributes:
-      label: Issue
-      description: Link to the originating FEATURE issue.
-    validations:
-      required: false
-  - type: input
     id: pr
     attributes:
       label: PR
-      description: Link to the pull request, once opened.
+      description: Link to the proposal pull request, once opened.
     validations:
       required: false
