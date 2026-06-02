@@ -19,7 +19,7 @@ A proposal's directory holds its `README.md` (the proposal itself, copied from [
 
 ## How it works
 
-1. A proposal is opened as a **draft pull request**, on a `proposal/<slug>` branch, with its document at `proposals/<slug>/README.md`. The PR carries exactly one type label (`FEATURE` or `QUALITY`) and an associated discussion thread for all review feedback. (The issue tracker is not used for proposals; it is reserved for repository maintenance and `EPIC` groupings.)
+1. A proposal is opened as a **draft pull request**, on a `proposal/<slug>` branch for a feature or quality proposal, or an `epic/<slug>` branch for an epic. The document lives at `proposals/<slug>/README.md`. The PR carries exactly one type label (`FEATURE`, `QUALITY`, or `EPIC`) and an associated discussion thread for all review feedback. (The issue tracker is not used for proposals; it is reserved for repository maintenance only.)
 
 2. The proposal moves through its [lifecycle](../CONTRIBUTING.md#proposal-lifecycle): `draft → proposed → accepted | rejected`, then an accepted proposal becomes `released` once live in production, and may later be `deprecated`.
 

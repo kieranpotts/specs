@@ -45,7 +45,11 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - SHOULD specify non-functional requirements as measurable thresholds, not vague aspirations.
 
-- A proposal MUST be a single atomic change. Author it on a `proposal/<slug>` branch cut from `main`, and open a PR titled `feature: <slug>` or `quality: <slug>`, carrying exactly one type label (`FEATURE` or `QUALITY`).
+- Every proposal pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
+
+- A `FEATURE` or `QUALITY` proposal MUST be a single atomic change — one requirement reviewable, decidable, and shippable independently. Author it on a `proposal/<slug>` branch cut from `main`, with a PR titled `feature: <slug>` or `quality: <slug>`.
+
+- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives (eg. a greenfield system). Author it on an `epic/<slug>` branch cut from `main`, with a PR titled `epic: <slug>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
 - Every proposal PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all review feedback. Close it when the proposal is accepted or rejected.
 
@@ -57,7 +61,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - Never delete a proposal document, including rejected ones.
 
-- The GitHub issue tracker is used only for repository maintenance (`MAINTENANCE`) and for grouping interdependent proposals (`EPIC`). Proposals run entirely through pull requests; open-ended brainstorming happens in [discussions](https://github.com/kieranpotts/specs/discussions).
+- The GitHub issue tracker is used only for repository maintenance (`MAINTENANCE`). Proposals run entirely through pull requests; open-ended brainstorming happens in [discussions](https://github.com/kieranpotts/specs/discussions).
 
 ## Proposing a change
 

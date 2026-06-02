@@ -1,6 +1,6 @@
 ---
 name: draft-spec
-description: Scaffold a new proposal for a change to the software requirements specification and open it as a draft pull request. Use when the user wants to propose a new feature or a changed functional/non-functional requirement, or says "draft a proposal", "new proposal", or "start a proposal".
+description: Scaffold a new proposal for a change to the software requirements specification and open it as a draft pull request. Use when the user wants to propose a new feature, a changed non-functional requirement, or a large-scale epic initiative, or says "draft a proposal", "new proposal", or "start a proposal".
 license: MIT
 ---
 
@@ -14,14 +14,16 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
 1.  **Confirm the proposal slug and type.**
 
-    Establish a short, hyphen-delimited slug (eg. `user-session-timeout`). Confirm the type: `FEATURE` (a new or changed functional requirement) or `QUALITY` (a new or changed non-functional requirement). If the user hasn't stated these, ask.
+    Establish a short, hyphen-delimited slug (eg. `user-session-timeout`). Confirm the type: `FEATURE` (a new or changed functional requirement), `QUALITY` (a new or changed non-functional requirement), or `EPIC` (a large-scale initiative spanning multiple feature and quality proposals). If the user hasn't stated these, ask.
 
 2.  **Create the branch.**
+
+    For `FEATURE` and `QUALITY` proposals use a `proposal/<slug>` branch; for `EPIC` proposals use `epic/<slug>`:
 
     ```sh
     git checkout main
     git pull
-    git checkout -b proposal/<slug>
+    git checkout -b proposal/<slug>   # or epic/<slug> for EPIC
     ```
 
 3.  **Create the proposal directory from the template.**
@@ -48,22 +50,22 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
     ```sh
     git add proposals/<slug>/
-    git commit -m "<type>: <slug>"          # feature: <slug> or quality: <slug>
-    git push -u origin proposal/<slug>
+    git commit -m "<type>: <slug>"          # feature: <slug>, quality: <slug>, or epic: <slug>
+    git push -u origin proposal/<slug>      # or epic/<slug> for EPIC
     gh pr create --draft --title "<type>: <slug>" --fill
     ```
 
-    Then apply exactly one type label — `FEATURE` or `QUALITY` — matching step 1:
+    Then apply exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching step 1:
 
     ```sh
-    gh pr edit <number> --add-label "<FEATURE|QUALITY>"
+    gh pr edit <number> --add-label "<FEATURE|QUALITY|EPIC>"
     ```
 
     Do not apply a lifecycle label yet: the draft PR represents work in progress, and `#proposed` is applied later by [`propose-spec`](../propose-spec/SKILL.md).
 
 7.  **Open the associated discussion thread.**
 
-    Every proposal PR MUST have an associated discussion thread, where all review feedback is gathered. `gh` has no native discussion command, so use the GraphQL API. Look up the repository ID and the discussion category matching the proposal's type (`Features` or `Qualities`):
+    Every proposal PR MUST have an associated discussion thread, where all review feedback is gathered. `gh` has no native discussion command, so use the GraphQL API. Look up the repository ID and the discussion category matching the proposal's type (`Features`, `Qualities`, or `Epics`):
 
     ```sh
     gh api graphql -f query='
@@ -109,7 +111,7 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
     A new proposal is not yet ready for review; it MUST be opened as a GitHub draft pull request.
 
--   **Every proposal PR has an associated discussion thread**, opened with the PR (even as a draft) and linked from both the document and the PR. All review feedback belongs in the discussion, not the PR's comments.
+-   **Every proposal PR has an associated discussion thread**, opened with the PR (even as a draft) using the matching discussion category (`Features`, `Qualities`, or `Epics`), and linked from both the document and the PR. All review feedback belongs in the discussion, not the PR's comments.
 
 -   **Do not assign a numeric ID.**
 
@@ -125,7 +127,7 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
 -   **`proposals/<slug>/README.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: PROPOSED`.
 
--   **A draft pull request is open** (titled `feature: <slug>` or `quality: <slug>`), carrying exactly one type label and no lifecycle label.
+-   **A draft pull request is open** (titled `feature: <slug>`, `quality: <slug>`, or `epic: <slug>`), carrying exactly one type label and no lifecycle label.
 
 -   **An associated discussion thread is open**, linked from the document's `Discussion thread` field and from the PR.
 

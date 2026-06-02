@@ -12,9 +12,11 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - The [`specification/`](./specification/) directory on `main` MUST describe the production system as it exists now. It is the authoritative record of the current state of the system.
 
-- A proposal MUST be a single, atomic change — one feature or quality requirement that can be reviewed, decided, and shipped independently of any other. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <slug>` or `quality: <slug>`.
+- Every proposal pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
 
-- Every proposal pull request MUST carry exactly one type label — `FEATURE` or `QUALITY` — matching the kind of change.
+- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change — one requirement that can be reviewed, decided, and shipped independently of any other. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <slug>` or `quality: <slug>`.
+
+- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives — for example, specifying a greenfield system from scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull request titled `epic: <slug>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
 - Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed once the proposal is accepted or rejected.
 
@@ -24,7 +26,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - Once a proposal is merged into `main`, its document is immutable. To revisit a decision, open a new proposal that supersedes the original.
 
-- The GitHub issue tracker is used only for maintenance work on this repository itself (the `MAINTENANCE` template) and for grouping interdependent proposals (the `EPIC` template). Proposals themselves are proposed, decided, and archived entirely through pull requests; open-ended brainstorming happens in [discussions](https://github.com/kieranpotts/specs/discussions).
+- The GitHub issue tracker is used only for maintenance work on this repository itself (the `MAINTENANCE` template). Proposals are proposed, decided, and archived entirely through pull requests; open-ended brainstorming happens in [discussions](https://github.com/kieranpotts/specs/discussions).
 
 ## Branching-and-merging workflow
 
@@ -44,7 +46,7 @@ Use the commit message shown for each lifecycle step below, so the history reads
 
 | Step | Commit message |
 | --- | --- |
-| Scaffold a new proposal | `feature: <slug>` or `quality: <slug>` |
+| Scaffold a new proposal | `feature: <slug>`, `quality: <slug>`, or `epic: <slug>` |
 | Link the discussion thread | `chore: link discussion thread for <slug>` |
 | Mark ready for review (draft → proposed) | `chore: mark <slug> ready for review` |
 | Accept (proposed → accepted) | `chore: accept <slug>` |
@@ -60,21 +62,21 @@ Use the commit message shown for each lifecycle step below, so the history reads
 
 Every proposal has an associated **discussion thread**, and it is where _all_ review feedback is gathered — not the pull request's own comments. This keeps the pull request focused on the evolution of the proposal document and the specification edits.
 
-Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (Feature or Quality). You MAY open it early, to brainstorm before a firm proposal exists, but it MUST exist by the time the pull request is opened (even a draft pull request). Link the discussion and the pull request to each other. The thread stays open for the life of the proposal and is closed once the proposal is accepted or rejected.
+Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (Feature, Quality, or Epic). You MAY open it early, to brainstorm before a firm proposal exists, but it MUST exist by the time the pull request is opened (even a draft pull request). Link the discussion and the pull request to each other. The thread stays open for the life of the proposal and is closed once the proposal is accepted or rejected.
 
-(The GitHub issue tracker is _not_ used for proposals — it is reserved for repository maintenance and for `EPIC` groupings of interdependent proposals.)
+(The GitHub issue tracker is _not_ used for proposals — it is reserved for repository maintenance only.)
 
 ### Step 2: Open a pull request (REQUIRED to progress a proposal)
 
 A pull request is the formal vehicle for a proposal. Open it as soon as you are ready to start writing the proposal document; its associated discussion thread (step 1) MUST exist by this point.
 
-1. Branch off `main` as `proposal/<slug>`.
+1. Branch off `main`: as `proposal/<slug>` for a feature or quality proposal, or as `epic/<slug>` for an epic.
 
 2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`. The proposal lives in its own directory, so you may add supporting artifacts — wireframes, mock-ups, data — alongside the `README.md` and link them from its `References` section. Fill it out: link the discussion thread (step 1) via the `Discussion thread` field, and describe the change in full — the rationale, the impact on the business and its customers, and the alternatives considered.
 
 3. Edit the contents of [`specification/`](./specification/) to reflect the intended final state of the system after the change ships. You may add, modify, or delete specification artifacts as needed to describe the desired end state. (A rejected proposal's edits are reverted before merge; see below.)
 
-4. Commit your changes and open the pull request **as a GitHub draft**, titled `feature: <slug>` or `quality: <slug>`. Apply exactly one type label — `FEATURE` or `QUALITY`. Fill out the top of the PR template (above the horizontal rule) and link the discussion thread; leave the checklist below the rule for the product managers.
+4. Commit your changes and open the pull request **as a GitHub draft**, titled `feature: <slug>`, `quality: <slug>`, or `epic: <slug>`. Apply exactly one type label — `FEATURE`, `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the horizontal rule) and link the discussion thread; leave the checklist below the rule for the product managers.
 
 5. Keep the pull request in draft while you refine it. When the document and spec edits are complete and ready for full stakeholder review, mark the pull request **ready for review** and apply the `#proposed` label.
 

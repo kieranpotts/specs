@@ -1,0 +1,15 @@
+#
+# GitHub Discussions - form configuration.
+# https://docs.github.com/en/discussions/managing-discussions-for-your-community/creating-discussion-category-forms
+#
+
+title: "[Type a brief description]"
+labels: ["EPIC"]
+body:
+  - type: input
+    id: pr
+    attributes:
+      label: PR
+      description: Link to the proposal pull request, once opened.
+    validations:
+      required: false

@@ -13,7 +13,7 @@ The product managers will update this checklist as the proposal moves through it
 
 On opening this PR (open it as a draft):
 
-- [ ] Exactly one type label — `FEATURE` or `QUALITY` — is applied.
+- [ ] Exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — is applied.
 - [ ] An associated discussion thread is opened and linked (both above and in the proposal document).
 
 Mark this PR ready for review, and apply the `#proposed` label, when:

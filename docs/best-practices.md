@@ -6,7 +6,7 @@ Practical guidance for writing proposals and maintaining the specification. The 
 
 A proposal should capture one feature or one quality requirement that can be reviewed, decided, and shipped independently of any other. Atomic proposals are easier to reason about, quicker to decide, and cleaner to record in the log. If you find yourself writing "and also…", that is a second proposal.
 
-When several changes genuinely depend on one another, keep them as separate proposals and group them with an `EPIC` issue, linking each proposal to the epic. Resist the urge to bundle — a large, multi-part proposal is hard to review and impossible to partially accept.
+When several changes genuinely depend on one another, keep them as separate proposals and group them under an `EPIC` pull request, linking each child proposal to the epic via its `Depends on` field. Resist the urge to bundle — a large, multi-part proposal is hard to review and impossible to partially accept.
 
 ## Specify the end state, not a changelog
 
