@@ -5,9 +5,8 @@
 - Last updated: 2024-03-20
 - Approvers: Kieran Potts
 - Approval date: 2024-03-18
-- Issue: #1
 - Proposal PR: #2
-- Discussion thread:
+- Discussion thread: https://github.com/kieranpotts/specs/discussions/3
 - Implementation trackers: #5
 
 ## Status
@@ -43,41 +42,41 @@ This proposal introduces the following specification artifacts.
 
 ### Context
 
-- [Mission statement](../specification/context/overview/mission-statement.md): New content stating the core purpose of the Petstore API.
+- [Mission statement](../../specification/context/overview/mission-statement.md): New content stating the core purpose of the Petstore API.
 
-- [Problem statement](../specification/context/overview/problem-statement.md): New content describing the catalog data fragmentation problem and the API solution.
+- [Problem statement](../../specification/context/overview/problem-statement.md): New content describing the catalog data fragmentation problem and the API solution.
 
-- [Scope](../specification/context/overview/scope.md): New content bounding the system to catalog read operations; purchasing, inventory management, and user account management are explicitly out of scope.
+- [Scope](../../specification/context/overview/scope.md): New content bounding the system to catalog read operations; purchasing, inventory management, and user account management are explicitly out of scope.
 
-- [Constraints](../specification/context/constraints/README.md): New content recording the external givens — the dependency on a separate identity service, and the assumption that catalog data is maintained by an administrative function outside this system.
+- [Constraints](../../specification/context/constraints/README.md): New content recording the external givens — the dependency on a separate identity service, and the assumption that catalog data is maintained by an administrative function outside this system.
 
-- [Glossary](../specification/context/glossary/README.md): New content defining the project's ubiquitous language — caller, catalog, category, credential, listing, and reservation.
+- [Glossary](../../specification/context/glossary/README.md): New content defining the project's ubiquitous language — caller, catalog, category, credential, listing, and reservation.
 
-- [Domain model](../specification/context/model/README.md): New domain model defining the `Pet` and `Category` entities, their attributes, and their relationship.
+- [Domain model](../../specification/context/model/README.md): New domain model defining the `Pet` and `Category` entities, their attributes, and their relationship.
 
-- [Actor hierarchy](../specification/context/actors/README.md): Updated actor hierarchy: Anonymous User and Authenticated User.
+- [Actor hierarchy](../../specification/context/actors/README.md): Updated actor hierarchy: Anonymous User and Authenticated User.
 
 ### Requirements
 
-- [Permission matrix](../specification/requirements/behaviors/access/README.md): New permission matrix. Anonymous Users have no access; Authenticated Users may list and retrieve catalog data.
+- [Permission matrix](../../specification/requirements/behaviors/access/README.md): New permission matrix. Anonymous Users have no access; Authenticated Users may list and retrieve catalog data.
 
-- [Rules](../specification/requirements/behaviors/rules/README.md): New business rules and the `Pet` status lifecycle — the single-status invariant, the read-only-to-callers invariant, and the `available → reserved → sold` state machine.
+- [Rules](../../specification/requirements/behaviors/rules/README.md): New business rules and the `Pet` status lifecycle — the single-status invariant, the read-only-to-callers invariant, and the `available → reserved → sold` state machine.
 
-- [List pets feature](../specification/requirements/behaviors/features/list-pets.feature): New feature file specifying list and filter behavior, including pagination, status filter, species filter, price range filter, empty result, and unauthenticated rejection.
+- [List pets feature](../../specification/requirements/behaviors/features/list-pets.feature): New feature file specifying list and filter behavior, including pagination, status filter, species filter, price range filter, empty result, and unauthenticated rejection.
 
-- [Get pet by ID feature](../specification/requirements/behaviors/features/get-pet.feature): New feature file specifying retrieval of a single pet by ID, including the not-found and unauthenticated cases.
+- [Get pet by ID feature](../../specification/requirements/behaviors/features/get-pet.feature): New feature file specifying retrieval of a single pet by ID, including the not-found and unauthenticated cases.
 
-- [Quality: Latency](../specification/requirements/qualities/latency.md): Petstore-specific latency thresholds for list/search (300ms p95) and get-by-ID (100ms p99).
+- [Quality: Latency](../../specification/requirements/qualities/latency.md): Petstore-specific latency thresholds for list/search (300ms p95) and get-by-ID (100ms p99).
 
-- [Quality: Throughput](../specification/requirements/qualities/throughput.md): Minimum throughput of 200 req/s normal, 600 req/s peak.
+- [Quality: Throughput](../../specification/requirements/qualities/throughput.md): Minimum throughput of 200 req/s normal, 600 req/s peak.
 
-- [Quality: Capacity](../specification/requirements/qualities/capacity.md): Support for 5,000 concurrent callers and a catalog of at least 50,000 records.
+- [Quality: Capacity](../../specification/requirements/qualities/capacity.md): Support for 5,000 concurrent callers and a catalog of at least 50,000 records.
 
-- [Quality: Compatibility](../specification/requirements/qualities/compatibility.md): API protocol compatibility commitments: any HTTP client, no proprietary SDK required, backwards-compatible within a major version.
+- [Quality: Compatibility](../../specification/requirements/qualities/compatibility.md): API protocol compatibility commitments: any HTTP client, no proprietary SDK required, backwards-compatible within a major version.
 
-- [Quality: Portability](../specification/requirements/qualities/portability.md): Deployable in local development and cloud-hosted production without code changes; no proprietary service lock-in.
+- [Quality: Portability](../../specification/requirements/qualities/portability.md): Deployable in local development and cloud-hosted production without code changes; no proprietary service lock-in.
 
-- [Quality: Idempotence](../specification/requirements/qualities/idempotence.md): All read operations are idempotent; clients may safely retry on failure.
+- [Quality: Idempotence](../../specification/requirements/qualities/idempotence.md): All read operations are idempotent; clients may safely retry on failure.
 
 ## Alternatives
 
