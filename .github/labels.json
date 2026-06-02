@@ -1,12 +1,12 @@
 [
   {
     "name": "FEATURE",
-    "description": "An idea for a new or improved operation or behavior",
+    "description": "An idea for a new or improved operation or behavior.",
     "color": "2266EE"
   },
   {
     "name": "QUALITY",
-    "description": "An idea for a new or changed non-functional requirement",
+    "description": "An idea for a new or changed non-functional requirement.",
     "color": "008800"
   },
   {
@@ -16,37 +16,37 @@
   },
   {
     "name": "MAINTENANCE",
-    "description": "A routine housekeeping chore in this repository only",
+    "description": "A routine housekeeping chore in this repository only.",
     "color": "AA6600"
   },
   {
     "name": "#draft",
-    "description": "A preliminary proposal, put forward for early feedback",
+    "description": "A preliminary proposal, put forward for early feedback.",
     "color": "FFFFFF"
   },
   {
     "name": "#proposed",
-    "description": "A proposal being negotiated with stakeholders",
+    "description": "A proposal being negotiated with stakeholders.",
     "color": "FFFFFF"
   },
   {
     "name": "#accepted",
-    "description": "A proposal approved and queued for implementation",
+    "description": "A proposal approved and queued for implementation.",
     "color": "FFFFFF"
   },
   {
     "name": "#rejected",
-    "description": "A proposal that will not be taken forward",
+    "description": "A proposal that will not be taken forward.",
     "color": "FFFFFF"
   },
   {
     "name": "#released",
-    "description": "A proposal whose changes are live in production",
+    "description": "A proposal whose changes are live in production.",
     "color": "FFFFFF"
   },
   {
     "name": "#deprecated",
-    "description": "A previously released proposal that is no longer in effect",
+    "description": "A previously released proposal that is no longer in effect.",
     "color": "FFFFFF"
   }
 ]
