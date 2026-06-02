@@ -4,7 +4,7 @@ Transitions a proposal from its current lifecycle state to the next permitted st
 
 ## What it does
 
-Verifies that all checklist gates for the target state are satisfied, updates the `Status` field and `Last updated` date in the proposal document, applies the matching GitHub label to the PR, assigns the sequential ID on acceptance, and reverts specification edits on rejection.
+Verifies that all checklist gates for the target state are satisfied, updates the `## Status` section and `Last updated` date in the proposal document, applies the matching GitHub label to the PR, assigns the sequential ID on release, and reverts specification edits on rejection.
 
 ## How to invoke
 

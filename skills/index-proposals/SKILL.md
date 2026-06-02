@@ -27,7 +27,7 @@ Do NOT use this skill to create or advance proposals — those are separate work
     - **ID**: the zero-padded numeric prefix of the filename (eg. `0003` from `0003-user-session-timeout.md`). For un-merged proposals without a numeric prefix, leave the ID cell blank.
     - **Title**: the top-level `#` heading (the first `#` line in the document).
     - **Authors**: the value of the `Authors:` field in the metadata header.
-    - **Status**: the value of the `Status:` field in the metadata header (eg. `#accepted`, `#released`).
+    - **Status**: the value of the `## Status` section (eg. `ACCEPTED`, `RELEASED`).
 
 3.  **Sort the rows.**
 
@@ -42,9 +42,9 @@ Do NOT use this skill to create or advance proposals — those are separate work
 
     | ID | Title | Author | Status |
     | ---- | ----- | ------ | ------ |
-    | 0001 | Proposal title here | Author Name | #released |
-    | 0002 | Another proposal | Author Name | #accepted |
-    |      | Draft proposal slug | Author Name | #draft |
+    | 0001 | Proposal title here | Author Name | RELEASED |
+    | 0002 | Another proposal | Author Name | ACCEPTED |
+    |      | Draft proposal slug | Author Name | DRAFT |
     ```
 
     Use four-character-wide ID cells (padded with spaces if needed) to keep the table readable in source.
@@ -66,7 +66,7 @@ Do NOT use this skill to create or advance proposals — those are separate work
 
 -   **Do not infer status from the filename or PR labels.**
 
-    Read the `Status:` field directly from each proposal document. That is the authoritative source.
+    Read the `## Status` section directly from each proposal document. That is the authoritative source.
 
 ## Success criteria
 

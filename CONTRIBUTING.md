@@ -8,7 +8,7 @@ Anyone with write access to this repository may propose changes to the functiona
 
 The `main` trunk is the default branch of this repository. The contents of the [specification directory](./specification/) on `main` is the authoritative record of the current state of the system as it exists in production right now.
 
-Proposals to change the system's specification are developed in `proposal/*` branches cut from `main`. The updated specifications are integrated into `main` via pull requests. Those PRs stay open until the necessary changes in code and configuration are in production. It is not enough for a proposal to be approved by the product managers. The corresponding changes MUST also be designed, built, tested, and released to production before a proposal is considered "done" and its PRs is merged. Thus, the `main` specification stays current with production.
+Proposals to change the system's specification are developed in `proposal/*` branches cut from `main`. The updated specifications are integrated into `main` via pull requests. Those PRs stay open until the necessary changes in code and configuration are in production. It is not enough for a proposal to be approved by the product managers. The corresponding changes MUST also be designed, built, tested, and released to production before a proposal is considered "done" and its PR is merged. Thus, the `main` specification stays current with production.
 
 See the [lifecycle](#proposal-lifecycle) section below for the full set of conditions that must be met before a proposal can be merged.
 
@@ -84,11 +84,11 @@ The states have the following meanings:
 
 - **Proposed**: The proposal is complete and is being formally reviewed and negotiated with the relevant stakeholders. No further material changes should be made to the proposal document during this period, unless requested by the product managers.
 
-- **Accepted**: The proposal has been approved by the product managers, who assign a sequential ID and queue the work for implementation. This may involve, for example, opening issues against the relevant code repositories and creating cross-references between the proposal and those issues. The PR remains open until the implementation is released to production. The proposal document and the accompanying specification edits may continue to evolve during this period — for example, in response to feedback from technical stakeholders, discoveries made during implementation, or feedback from real users during beta testing or staged roll-outs.
+- **Accepted**: The proposal has been approved by the product managers, who queue the work for implementation. This may involve, for example, opening issues against the relevant code repositories and creating cross-references between the proposal and those issues. The PR remains open until the implementation is released to production. The proposal document and the accompanying specification edits may continue to evolve during this period — for example, in response to feedback from technical stakeholders, discoveries made during implementation, or feedback from real users during beta testing or staged roll-outs.
 
-- **Rejected**: The proposal will not be taken forward. The accompanying edits to the specification are reverted before merging the rejected proposal document to `main`. The system itself is unchanged, so it's specification does not change. But the proposal document is preserved permanently in [`proposals/`](./proposals/) as a record of the decision and its rationale.
+- **Rejected**: The proposal will not be taken forward. The accompanying edits to the specification are reverted before merging the rejected proposal document to `main`. The system itself is unchanged, so its specification does not change. But the proposal document is preserved permanently in [`proposals/`](./proposals/) as a record of the decision and its rationale. As with any merged proposal, it is assigned its sequential ID and renamed `NNNN-<slug>.md` at merge time.
 
-- **Released**: The implementation is live in production. The proposal's edits to the specification have been merged into `main`. The proposal document is also persisted.
+- **Released**: The implementation is live in production. The proposal's edits to the specification are merged into `main`. At merge time the product managers assign the proposal its sequential ID and rename the document `NNNN-<slug>.md`, so the archived proposal sits in the permanent, ordered log.
 
 - **Deprecated**: A previously released proposal that is no longer in effect, for example because a later proposal superseded or removed the feature.
 

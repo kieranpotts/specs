@@ -4,7 +4,7 @@ Handles the rejection path for a proposal: reverts specification section edits, 
 
 ## What it does
 
-Confirms the rejection decision, runs a pre-rejection audit, reverts all `specification/` changes introduced by the proposal branch (leaving only the proposal document), applies the `#rejected` label, and commits everything ready for merge into `main`.
+Confirms the rejection decision, runs a pre-rejection audit, reverts all `specification/` changes introduced by the proposal branch (leaving only the proposal document), applies the `#rejected` label, assigns the proposal its sequential ID, and commits everything ready for merge into `main`.
 
 ## How to invoke
 

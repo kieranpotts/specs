@@ -10,6 +10,10 @@
 - Discussion thread:
 - Implementation trackers: #11
 
+## Status
+
+RELEASED
+
 ## Related
 
 - Supersedes #...

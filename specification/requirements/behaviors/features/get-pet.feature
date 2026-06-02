@@ -4,16 +4,16 @@ Feature: Get pet by ID
   I want to retrieve a single pet record by its unique identifier
 
   Scenario: Retrieve an existing pet
-    Given an Authenticated User is authenticated
+    Given an authenticated caller
       And a pet with id "abc123" exists in the catalog
-     When the user requests the pet with id "abc123"
+     When the caller requests the pet with id "abc123"
      Then the response contains the full pet record
       And the record includes id, name, species, breed, age, price, status, description, photoUrls, tags, and category
 
   Scenario: Pet not found
-    Given an Authenticated User is authenticated
+    Given an authenticated caller
       And no pet with id "xyz999" exists in the catalog
-     When the user requests the pet with id "xyz999"
+     When the caller requests the pet with id "xyz999"
      Then the response status indicates the resource was not found
       And no pet data is returned
 

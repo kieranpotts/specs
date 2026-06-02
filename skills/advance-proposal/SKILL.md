@@ -6,7 +6,7 @@ license: MIT
 
 # Advance proposal
 
-Use this skill to move a proposal through its lifecycle state machine. It verifies that the gates for the target state are met, updates the proposal document's `Status` field and `Last updated` date, and applies the matching GitHub label to the PR.
+Use this skill to move a proposal through its lifecycle state machine. It verifies that the gates for the target state are met, updates the proposal document's `## Status` section and `Last updated` date, and applies the matching GitHub label to the PR.
 
 Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draft-proposal/SKILL.md)) or to audit a proposal's content for completeness (use [`check-proposal`](../check-proposal/SKILL.md)). Do NOT move a proposal backwards or skip states — those transitions are not permitted.
 
@@ -14,7 +14,7 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
 
 1.  **Identify the proposal and its current state.**
 
-    If not already open, read the proposal document in `proposals/`. Check the `Status` field and confirm it matches the current `#label` on the PR (run `gh pr view <number> --json labels` if needed).
+    If not already open, read the proposal document in `proposals/`. Check the `## Status` section and confirm it matches the current `#label` on the PR (eg. `PROPOSED` ↔ `#proposed`; run `gh pr view <number> --json labels` if needed).
 
 2.  **Determine the target state.**
 
@@ -23,9 +23,9 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
     | From | To | Key gate |
     | --- | --- | --- |
     | `#draft` | `#proposed` | Document complete; originating issue closed |
-    | `#proposed` | `#accepted` | Stakeholder review concluded; ID assigned |
+    | `#proposed` | `#accepted` | Stakeholder review concluded; approved |
     | `#proposed` | `#rejected` | Stakeholder review concluded; spec edits reverted |
-    | `#accepted` | `#released` | Implementation shipped to production |
+    | `#accepted` | `#released` | Implementation shipped to production; sequential ID assigned |
     | `#released` | `#deprecated` | Feature removed or superseded |
 
     If the user requests an unlisted transition (eg. `#proposed` back to `#draft`), refuse and explain why.
@@ -34,9 +34,9 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
 
     Run [`check-proposal`](../check-proposal/SKILL.md) against the proposal and confirm the relevant checklist gates in `.github/PULL_REQUEST_TEMPLATE.md` are satisfied. Report any unmet gates to the user and pause for direction before proceeding.
 
-4.  **For `#proposed → #accepted`: assign the sequential ID.**
+4.  **For `#accepted → #released`: assign the sequential ID.**
 
-    Find the highest existing numeric ID in `proposals/` (eg. `0003-foo.md` → `0003`). Increment by one, zero-padded to four digits. Rename the file:
+    The ID is assigned at merge time, as the released proposal enters the permanent log. Find the highest existing numeric ID in `proposals/` (eg. `0003-foo.md` → `0003`). Increment by one, zero-padded to four digits. Rename the file:
 
     ```sh
     git mv proposals/<slug>.md proposals/<NNNN>-<slug>.md
@@ -50,6 +50,7 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
 
 6.  **Update the proposal document.**
 
+    - Set the `## Status` section to the target state, in uppercase (eg. `ACCEPTED`, `RELEASED`).
     - Update `Last updated` to today's date.
     - For `#accepted`: fill in `Approvers` and `Approval date`.
     - For `#released`: confirm that `Implementation trackers` links are present.
@@ -86,13 +87,13 @@ Do NOT use this skill to scaffold a new proposal (use [`draft-proposal`](../draf
 
 ## Success criteria
 
--   **The proposal document's `Status` matches the new state.**
+-   **The proposal document's `## Status` section matches the new state** (uppercase).
 
 -   **`Last updated` is set to today's date.**
 
 -   **The GitHub PR label is updated** to the matching `#<state>` label.
 
--   **For `#accepted`: the file has been renamed** to `NNNN-<slug>.md` with the correct sequential ID.
+-   **For `#released`: the file has been renamed** to `NNNN-<slug>.md` with the correct sequential ID.
 
 -   **For `#rejected`: spec section edits have been reverted** and the commit is clean — only the proposal document remains.
 

@@ -22,8 +22,8 @@ Do NOT use this skill to advance a proposal's state (use [`advance-proposal`](..
 
     - `Authors` — at least one name present.
     - `Created` and `Last updated` — valid `YYYY-MM-DD` dates; `Last updated` is not older than `Created`.
-    - `Status` — one of `#draft`, `#proposed`, `#accepted`, `#rejected`, `#released`, `#deprecated`.
-    - `Proposal PR` — either a linked PR number or a note that the PR is not yet open (acceptable for `#draft`).
+    - `## Status` section — one of `DRAFT`, `PROPOSED`, `ACCEPTED`, `REJECTED`, `RELEASED`, or `DEPRECATED`.
+    - `Proposal PR` — either a linked PR number or a note that the PR is not yet open (acceptable while `DRAFT`).
     - `Issue` — either a linked issue number or the default `_(if applicable)_` placeholder.
 
 3.  **Check the label alignment.**
@@ -34,7 +34,7 @@ Do NOT use this skill to advance a proposal's state (use [`advance-proposal`](..
     gh pr view <number> --json labels,state
     ```
 
-    Confirm that the PR carries the label matching the document's `Status` field (eg. `#proposed` when `Status: #proposed`), and that the PR is open (not merged or closed) unless the proposal is `#released` or `#rejected`.
+    Confirm that the PR carries the label matching the document's `## Status` (eg. the `#proposed` label when `## Status` reads `PROPOSED`), and that the PR is open (not merged or closed) unless the proposal is `RELEASED` or `REJECTED`.
 
 4.  **Check the required prose sections.**
 

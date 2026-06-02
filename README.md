@@ -8,10 +8,10 @@ The SRS is a mutable living specification of _what_ the production system does. 
 
 The SRS also encapsulates an immutable, append-only log of product decisions, in the form of "proposals" that drive changes to the specification. Proposals that are ultimately rejected are also recorded in the log. The objective is for the evolution of the system to be fully recorded, so the rationale for its current state is justified by that decision log. When stewardship passes to new people, they should have a deep appreciation for why the system is where it is now.
 
-Technical decisions about _how_ the solution works — its architecture and implementation — are out of scope. The SRS is implementation-agnostic. It should not contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements. If the system were re-platformed to another technology stack, it's specification should not need to change.
+Technical decisions about _how_ the solution works — its architecture and implementation — are out of scope. The SRS is implementation-agnostic. It should not contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements. If the system were re-platformed to another technology stack, its specification should not need to change.
 
-> [!NOTE]
-> The SRS covers product decisions. Technical decisions — _how_ the solution is constructed — are tracked separately in the companion [Requests for Comments (RFC)](https://github.com/kieranpotts/rfc) repository.
+> [!IMPORTANT]
+> The SRS covers product decisions. Technical decisions — _how_ the solution is constructed — are tracked separately in the companion [requests for comments (RFC)](https://github.com/kieranpotts/rfc) repository.
 
 ## Contents
 

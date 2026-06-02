@@ -13,7 +13,7 @@ Changes are introduced through proposals. The [specification](./specification/) 
 - `specification/`: Describes the current production system.
   - `context/`: Problem space and domain model. Descriptive.
     - `overview/`: Mission statement, problem statement, project scope.
-    - `glossary/`: The domains's ubiquitous language.
+    - `glossary/`: The domain's ubiquitous language.
     - `model/`: Domain entities and their relationships.
     - `actors/`: Actors that interact with the system.
     - `constraints/`: Regulatory and legal constraints, dependencies.
@@ -36,7 +36,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - The [specification artifacts](./specification/) on the `main` trunk (the default branch) MUST describe the production system as it exists now.
 
-- Changes to specification artifacts MUST be introduced via proposal PRs. The specification changes MUST describe the intended final state after the changes are shipped. Proposal PRS MUST NOT specify a changelog of how to get to that end state – that's an implementation detail.
+- Changes to specification artifacts MUST be introduced via proposal PRs. The specification changes MUST describe the intended final state after the changes are shipped. Proposal PRs MUST NOT specify a changelog of how to get to that end state – that's an implementation detail.
 
 - MUST NOT merge accepted proposals into `main` until real users are using the proposed changes in production.
 
@@ -54,13 +54,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Proposing a change
 
-<!--
-
-Author it on a `proposal/[description]` branch cut from `main`, and open a PR titled `feature: [description]` or `quality: [description]`. A GitHub issue (labelled `FEATURE` or `QUALITY`) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field.
-
--->
-
-A proposer MAY first open a GitHub issue (labelled `FEATURE` or `QUALITY`) for early triage, and MAY open a [discussion](https://github.com/kieranpotts/specs/discussions) for open-ended brainstorming. Both are optional. If an issue is opened first, close it when the PR is opened and link the two via the `Issue` field. Discussions opened alongside an issue MUST be cross-referenced with it.
+A proposer MAY first open a GitHub issue (labeled `FEATURE` or `QUALITY`) for early triage, and MAY open a [discussion](https://github.com/kieranpotts/specs/discussions) for open-ended brainstorming. Both are optional. If an issue is opened first, close it when the PR is opened and link the two via the `Issue` field. Discussions opened alongside an issue MUST be cross-referenced with it.
 
 To open a proposal:
 
@@ -76,19 +70,7 @@ To open a proposal:
 
 Each proposal moves through a state machine tracked by a label on its PR. Only product managers advance state.
 
-State meanings:
-
-- `#draft`: PR opened, proposal still being refined. Proposer MAY solicit early feedback.
-
-- `#proposed`: Document complete and under formal stakeholder review. No further material changes SHOULD be made unless requested by the product managers.
-
-- `#accepted`: Approved. A sequential ID is assigned, implementation tickets are opened in the relevant code repositories, and the PR stays open until shipped. Document and spec edits MAY continue to evolve in response to feedback from technical stakeholders, implementation discoveries, or beta/staged-rollout feedback from real users.
-
-- `#rejected`: Will not be taken forward. Spec edits MUST be reverted before merging — only the proposal document is added to `main`, preserving the decision and rationale.
-
-- `#released`: Implementation is live in production. Spec edits are merged into `main`.
-
-- `#deprecated`: A previously released proposal no longer in effect, eg. superseded by a later proposal.
+Each state's full meaning, gate conditions, and immutability rules are defined once, canonically, in the [contributing guide](./CONTRIBUTING.md#proposal-lifecycle) — consult it rather than relying on a duplicate here. In brief: `#draft` → being refined; `#proposed` → under stakeholder review; `#accepted` → approved and queued for implementation (the PR stays open and spec edits MAY still evolve); `#rejected` → not taken forward (spec edits reverted, only the document merges); `#released` → live in production (spec edits merged); `#deprecated` → a released proposal no longer in effect. The sequential ID is assigned, and the document renamed `NNNN-<slug>.md`, at merge time.
 
 Permitted transitions (any other transition is forbidden — no moving backwards, no skipping states):
 

@@ -10,12 +10,16 @@
 - Discussion thread:
 - Implementation trackers: #5
 
+## Status
+
+RELEASED
+
 ## Related
 
 - Supersedes #...
 - Superseded by #...
 - Depends on #...
-- Related to #2
+- Related to #...
 
 ## Summary
 
@@ -25,7 +29,7 @@ Introduce the foundational Petstore API: a read-only digital service that allows
 
 Pet retailers and marketplace operators need a reliable, programmatic way to access catalog data. Without a shared API, each consuming application must maintain its own copy of catalog data, leading to duplication, staleness, and fragile bespoke integrations. A read API that is accessible to both human-operated clients and automated systems eliminates this duplication and provides a single authoritative source of truth for catalog state.
 
-The API must be accessible to two distinct caller types: human operators using a client application, and automated systems making machine-to-machine requests. Both are modelled as Authenticated Users in the actor hierarchy.
+The API must be accessible to two distinct caller types: human operators using a client application, and automated systems making machine-to-machine requests. Both are modeled as Authenticated Users in the actor hierarchy.
 
 ## Impact
 
@@ -45,17 +49,23 @@ This proposal introduces the following specification artifacts.
 
 - [Scope](../specification/context/overview/scope.md): New content bounding the system to catalog read operations; purchasing, inventory management, and user account management are explicitly out of scope.
 
+- [Constraints](../specification/context/constraints/README.md): New content recording the external givens — the dependency on a separate identity service, and the assumption that catalog data is maintained by an administrative function outside this system.
+
+- [Glossary](../specification/context/glossary/README.md): New content defining the project's ubiquitous language — caller, catalog, category, credential, listing, and reservation.
+
 - [Domain model](../specification/context/model/README.md): New domain model defining the `Pet` and `Category` entities, their attributes, and their relationship.
 
 - [Actor hierarchy](../specification/context/actors/README.md): Updated actor hierarchy: Anonymous User and Authenticated User.
 
 ### Requirements
 
-- [Permission matrix](../specification/requirements/behaviors/access/README.md): New permission matrix. Anonymous Users have no access; Authenticated Users may list, search, and retrieve catalog data.
+- [Permission matrix](../specification/requirements/behaviors/access/README.md): New permission matrix. Anonymous Users have no access; Authenticated Users may list and retrieve catalog data.
+
+- [Rules](../specification/requirements/behaviors/rules/README.md): New business rules and the `Pet` status lifecycle — the single-status invariant, the read-only-to-callers invariant, and the `available → reserved → sold` state machine.
 
 - [List pets feature](../specification/requirements/behaviors/features/list-pets.feature): New feature file specifying list and filter behavior, including pagination, status filter, species filter, price range filter, empty result, and unauthenticated rejection.
 
-- [Feature: Get pet by ID](../specification/requirements/behaviors/features/get-pet.feature)**: New feature file specifying retrieval of a single pet by ID, including the not-found and unauthenticated cases.
+- [Get pet by ID feature](../specification/requirements/behaviors/features/get-pet.feature): New feature file specifying retrieval of a single pet by ID, including the not-found and unauthenticated cases.
 
 - [Quality: Latency](../specification/requirements/qualities/latency.md): Petstore-specific latency thresholds for list/search (300ms p95) and get-by-ID (100ms p99).
 

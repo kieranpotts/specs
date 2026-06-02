@@ -10,7 +10,7 @@ _Copy the "Summary" section from the proposal document here._
 
 ## Checklist
 
-The project maintainers will update this checklist as the proposal moves through its lifecycle. They will merge this PR only when the proposal is ultimately released to users in production. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for requirements specifications.
+The project maintainers will update this checklist as the proposal moves through its lifecycle. They will merge this PR only when the proposal is released to users in production, or when it is rejected. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for requirements specifications.
 
 Move from **`#draft`** to **`#proposed`** when:
 
@@ -27,14 +27,14 @@ Move from **`#proposed`** to **`#accepted`** when:
 - [ ] Final comments have been solicited for at least ___ days.
 - [ ] The specification has not materially changed during this time.
 - [ ] The proposal doc's status is set to `ACCEPTED`.
-- [ ] Implementation tickets are captured in the `Depends on` field.
+- [ ] Implementation tickets are captured in the `Implementation trackers` field.
 
 Move from **`#accepted`** to **`#released`**, and merge this PR, when:
 
-- [ ] All blocking dependencies (`Depends on`) are resolved.
+- [ ] All implementation trackers (`Implementation trackers`) are resolved.
 - [ ] The implementation is released into production.
 - [ ] The specification matches the final implementation in production.
-- [ ] The document is given a sequential prefix: `rfcs/NNNN-[slug].md`.
+- [ ] The document is given a sequential prefix: `proposals/NNNN-[slug].md`.
 
 Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:
 
@@ -43,9 +43,9 @@ Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:
 - [ ] Final comments have been solicited for at least ___ days.
 - [ ] The updates to the specification artifacts are reverted.
 - [ ] Only the proposal document exists in the diff with `main`.
-- [ ] The proposal docs's status is set to `REJECTED`.
+- [ ] The proposal doc's status is set to `REJECTED`.
 - [ ] The proposal doc captures the rationale for its `REJECTED` status.
-- [ ] The document is given a sequential prefix: `rfcs/NNNN-[slug].md`.
+- [ ] The document is given a sequential prefix: `proposals/NNNN-[slug].md`.
 
 > [!IMPORTANT]
 > Rejected specifications MUST NOT be merged to `main`, because the `main` trunk represents the as-is state of the production system. Only the `REJECTED` proposal document should be merged, capturing the rationale for the decision and preserving the history of the proposal's evolution.

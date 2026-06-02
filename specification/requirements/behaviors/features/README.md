@@ -6,7 +6,7 @@ Features are organized by actor. Because of the [actor hierarchy](../../../conte
 
 We use [Gherkin](https://cucumber.io/docs/gherkin/) notation to specify the system's functions. Each feature lives in its own `.feature` file. Writing requirements as Gherkin scenarios keeps them concrete and testable. Each scenario is an acceptance criterion that can be verified against the running system.
 
-See [`changelog.feature`](./changelog.feature) for an example of the notation.
+See [`get-pet.feature`](./get-pet.feature) for an example of the notation.
 
 ## Features
 

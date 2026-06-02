@@ -41,7 +41,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
 5.  **Set the initial status.**
 
-    If the proposal document and any planned specification edits are ready for stakeholder review, set the status to `#proposed`. Otherwise leave it at `#draft`.
+    Set the `## Status` section of the new document. If the proposal and any planned specification edits are ready for stakeholder review, set it to `PROPOSED`. Otherwise leave it at `DRAFT`.
 
 6.  **Identify the specification sections to edit.**
 
@@ -54,7 +54,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
 7.  **Remind the proposer of next steps.**
 
-    Once the document and spec edits are complete, the proposer should open a pull request titled `proposal: <slug>`. Apply the `#draft` or `#proposed` label to the PR to match the current status. See the [contributing guide](../../CONTRIBUTING.md) for the full process.
+    Once the document and spec edits are complete, the proposer should open a pull request titled `feature: <slug>` (for a functional change) or `quality: <slug>` (for a non-functional change). Apply the `#draft` or `#proposed` label to the PR to match the current status. See the [contributing guide](../../CONTRIBUTING.md) for the full process.
 
 ## Rules
 
@@ -80,7 +80,7 @@ Do NOT use this skill to advance a proposal that already exists (use [`advance-p
 
 -   **`proposals/<slug>.md` exists** and is a copy of `TEMPLATE.md` with metadata fields populated.
 
--   **Status is either `#draft` or `#proposed`**, consistent with the readiness of the document.
+-   **The `## Status` section is either `DRAFT` or `PROPOSED`**, consistent with the readiness of the document.
 
 -   **`Authors`, `Created`, and `Last updated` fields are filled in.**
 

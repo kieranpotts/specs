@@ -53,24 +53,33 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 5.  **Update the proposal document.**
 
     - Update `Last updated` to today's date.
+    - Set the `## Status` section to `REJECTED`.
     - Do not alter any other field — the document is now immutable after this point.
 
-6.  **Apply the GitHub label.**
+6.  **Assign the sequential ID.**
+
+    A rejected proposal is archived in the ordered log like any other, so it takes the next ID at merge time. Find the highest existing numeric ID in `proposals/` (eg. `0003-foo.md` → `0003`), increment by one, zero-padded to four digits, and rename:
+
+    ```sh
+    git mv proposals/<slug>.md proposals/<NNNN>-<slug>.md
+    ```
+
+7.  **Apply the GitHub label.**
 
     ```sh
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-7.  **Commit the changes.**
+8.  **Commit the changes.**
 
-    Commit the reverted spec files and the updated proposal document together:
+    Commit the reverted spec files and the renamed, updated proposal document together:
 
     ```sh
-    git add proposals/<slug>.md
+    git add proposals/ specification/
     git commit -m "chore: reject proposal <slug>"
     ```
 
-8.  **Confirm the PR is ready to merge.**
+9.  **Confirm the PR is ready to merge.**
 
     The PR should now contain only the proposal document (no spec section changes). Confirm with the user that it is ready to merge into `main`. Do not merge without explicit instruction.
 
@@ -96,7 +105,9 @@ Do NOT use this skill to advance a proposal to any state other than `#rejected`.
 
 -   **No files under `specification/` are changed** on this branch relative to `main` after the revert.
 
--   **The GitHub PR label is `#rejected`** and `Last updated` in the proposal document is today's date.
+-   **The GitHub PR label is `#rejected`**, the `## Status` section reads `REJECTED`, and `Last updated` in the proposal document is today's date.
+
+-   **The proposal file has been renamed** to `NNNN-<slug>.md` with the next sequential ID.
 
 -   **The commit contains only the proposal document** (plus any spec reverts as separate staged changes committed together).
 
