@@ -4,7 +4,7 @@ Rejects a proposed proposal (proposed → rejected), preserving it permanently a
 
 ## What it does
 
-Confirms the rejection decision, reverts all `specification/` changes introduced by the branch (leaving only the proposal document), sets the document to `REJECTED`, records the next sequential number in `proposals/INDEX.md`, closes the associated discussion thread, applies the `#rejected` label, and prepares the pull request for merge into `main`.
+Confirms the rejection decision, reverts all `specification/` changes introduced by the branch (leaving only the proposal document), sets the document to `REJECTED`, records the next sequential number in `proposals/INDEX.md`, closes the associated discussion thread, applies the `#rejected` label, and squash-merges the pull request into `main` on your confirmation.
 
 ## How to invoke
 

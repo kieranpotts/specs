@@ -4,7 +4,7 @@ Scaffolds a new proposal and opens it as a draft pull request.
 
 ## What it does
 
-Creates a `proposal/<slug>` branch (or `epic/<slug>` for EPICs) from `main`, copies `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`, fills in the metadata header (authors, dates, `Status: PROPOSED`), identifies the specification files that will need editing, opens a **draft pull request** with one type label (`FEATURE`, `QUALITY`, or `EPIC`), and opens the associated discussion thread.
+Creates a `proposal/<slug>` branch (or `epic/<slug>` for EPICs) from `main`, copies `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`, fills in the metadata header (authors, dates, `Status: DRAFT`), identifies the specification files that will need editing, opens a **draft pull request** with one type label (`FEATURE`, `QUALITY`, or `EPIC`), and opens the associated discussion thread.
 
 ## How to invoke
 

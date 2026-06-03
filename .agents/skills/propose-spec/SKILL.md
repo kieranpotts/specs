@@ -28,9 +28,9 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 -   **No leftover template text.** No italic placeholder prompts and no unfilled tokens (`#...`, `YYYY-MM-DD`) remain in any completed section.
 
--   **The metadata header is filled in.** `Authors`, `Created`, `Last updated`, and `Proposal PR` are set; `Status` is `PROPOSED`; the `Discussion thread` field links the thread.
+-   **The metadata header is filled in.** `Authors`, `Created`, `Last updated`, and `Proposal PR` are set; `Status` is `DRAFT` (this skill advances it to `PROPOSED`); the `Discussion thread` field links the thread.
 
--   **Exactly one type label** (`FEATURE` or `QUALITY`) is on the PR.
+-   **Exactly one type label** (`FEATURE`, `QUALITY`, or `EPIC`) is on the PR.
 
 ## Instructions
 
@@ -40,7 +40,7 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 2.  **Verify the transition rules above.** Read the document in full, check each gate, and report any failures. Stop if unmet.
 
-3.  **Update the document.** Set `Last updated` to today's date, and confirm `Status` is `PROPOSED`.
+3.  **Update the document.** Set `Status` to `PROPOSED` and `Last updated` to today's date.
 
 4.  **Apply the `#proposed` label.**
 
@@ -59,7 +59,7 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 6.  **Commit any document change.**
 
     ```sh
-    git commit -am "chore: mark <slug> ready for review"
+    git commit -am "chore: mark <short lowercase proposal description> ready for review"
     ```
 
 ## Rules

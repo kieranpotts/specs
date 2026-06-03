@@ -4,7 +4,7 @@ Marks an accepted proposal as released once its implementation is live (accepted
 
 ## What it does
 
-Verifies the implementation is in production and the spec matches it, assigns the next sequential number in `proposals/INDEX.md`, sets the document to `RELEASED`, swaps the `#accepted` label for `#released`, and prepares the pull request (specification edits and all) for merge into `main`.
+Verifies the implementation is in production and the spec matches it, assigns the next sequential number in `proposals/INDEX.md`, sets the document to `RELEASED`, swaps the `#accepted` label for `#released`, and squash-merges the pull request (specification edits and all) into `main` on your confirmation.
 
 ## How to invoke
 

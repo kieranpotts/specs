@@ -8,7 +8,7 @@ These on-demand agent skills manage the proposal workflow — one per state tran
 
 - [`accept-spec`](./accept-spec/): Approve a proposed proposal and close its discussion (`proposed → accepted`). The PR stays open through implementation.
 
-- [`release-spec`](./release-spec/): Once the implementation is live, assign the proposal's number and prepare it for merge (`accepted → released`).
+- [`release-spec`](./release-spec/): Once the implementation is live, assign the proposal's number and squash-merge it (`accepted → released`).
 
 - [`reject-spec`](./reject-spec/): Reject a proposed proposal, revert its spec edits, and preserve it permanently as a record (`proposed → rejected`).
 

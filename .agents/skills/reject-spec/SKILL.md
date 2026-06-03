@@ -1,6 +1,6 @@
 ---
 name: reject-spec
-description: Reject a proposed proposal — revert its specification edits, record its number in the index, set its status to rejected, close its discussion, and prepare the pull request for merge as a permanent record. Use when the user says "reject this proposal" or "the proposal was not approved".
+description: Reject a proposed proposal — revert its specification edits, record its number in the index, set its status to rejected, close its discussion, and squash-merge the pull request as a permanent record. Use when the user says "reject this proposal" or "the proposal was not approved".
 license: MIT
 ---
 
@@ -67,7 +67,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
     gh api graphql -f query='
       mutation($id:ID!) {
-        closeDiscussion(input:{discussionId:$id, reason:OUTDATED}) { discussion { closed } }
+        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
       }' -F id=<discussionId>
     ```
 
@@ -77,14 +77,22 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-9.  **Commit and prepare for merge.**
+9.  **Commit.**
 
     ```sh
     git add proposals/ specification/
-    git commit -m "chore: reject <slug> (proposal <NNNN>)"
+    git commit -m "chore: reject <short lowercase proposal description> (proposal <NNNN>)"
     ```
 
-    The PR should now contain only the proposal document and the index row (no spec changes). Confirm with the user that it is ready to merge into `main`. Do not merge without explicit instruction.
+    The PR should now contain only the proposal document and the index row (no spec changes).
+
+10. **Merge the pull request.**
+
+    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `<type>: <short lowercase proposal description> - REJECTED` (where `<type>` is `feature`, `quality`, or `epic`):
+
+    ```sh
+    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED"
+    ```
 
 ## Rules
 

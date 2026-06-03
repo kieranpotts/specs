@@ -47,15 +47,17 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - Every proposal pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
 
-- A `FEATURE` or `QUALITY` proposal MUST be a single atomic change — one requirement reviewable, decidable, and shippable independently. Author it on a `proposal/<slug>` branch cut from `main`, with a PR titled `feature: <slug>` or `quality: <slug>`.
+- A `FEATURE` or `QUALITY` proposal MUST be a single atomic change — one requirement reviewable, decidable, and shippable independently. Author it on a `proposal/<slug>` branch cut from `main`, with a PR titled `feature: <description>` or `quality: <description>`. The `<description>` is a short prose title of the proposal, written full lowercase — not the hyphenated branch slug (eg. PR title `feature: time out idle user sessions`, branch `proposal/user-session-timeout`). The slug is used only for the branch name and the proposal directory (`proposals/<slug>/`).
 
-- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives (eg. a greenfield system). Author it on an `epic/<slug>` branch cut from `main`, with a PR titled `epic: <slug>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
+- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives (eg. a greenfield system). Author it on an `epic/<slug>` branch cut from `main`, with a PR titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
 - Every proposal PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all review feedback. Close it when the proposal is accepted or rejected.
 
 - The current lifecycle state of a proposal is tracked via a label on the PR: `#proposed`, `#accepted`, `#rejected`, `#released`, or `#deprecated`. A new PR is opened as a GitHub **draft** while the document is refined; this draft state — not a label — represents work in progress.
 
 - A sequential number is assigned at merge and recorded in [`proposals/INDEX.md`](./proposals/INDEX.md). The number lives only in the index; no proposal directory is ever renamed.
+
+- Proposal branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is the prose proposal title, not the branch slug (eg. `feature: time out idle user sessions - RELEASED`). Released proposals merge at `#released`; rejected ones at `#rejected`.
 
 - While a proposal PR is open, its document and accompanying spec edits MAY be updated at any point. Once merged into `main` — so after `#released` for accepted proposals, or following the `#rejected` decision for rejected ones — it MUST be treated as immutable. To revisit a decision already merged to `main`, open a new proposal that supersedes the original.
 
@@ -75,7 +77,7 @@ Every proposal has an associated discussion thread (the channel for all review f
 
 4.  Edit the [specification artifacts](./specification/) to describe the intended final state after the change ships.
 
-5.  Open the PR **as a GitHub draft**, titled `feature: <slug>` or `quality: <slug>`, with one type label applied. Mark it ready for review and apply `#proposed` once it is complete.
+5.  Open the PR **as a GitHub draft**, titled `feature: <description>` or `quality: <description>` (a short prose title, not the slug), with one type label applied. Mark it ready for review and apply `#proposed` once it is complete.
 
 ## Proposal lifecycle
 
@@ -101,5 +103,5 @@ The [`.agents/skills/`](./.agents/skills/) directory provides on-demand skills f
 - [`draft-spec`](./.agents/skills/draft-spec/SKILL.md): scaffold a new proposal, open it as a draft PR, and open the associated discussion thread.
 - [`propose-spec`](./.agents/skills/propose-spec/SKILL.md): `draft → proposed` — verify the document and spec edits are complete, then remove the PR's draft status and apply `#proposed`.
 - [`accept-spec`](./.agents/skills/accept-spec/SKILL.md): `proposed → accepted` (also closes the discussion thread).
-- [`release-spec`](./.agents/skills/release-spec/SKILL.md): `accepted → released` — record the number in `INDEX.md` and prepare for merge.
-- [`reject-spec`](./.agents/skills/reject-spec/SKILL.md): `proposed → rejected` — revert spec edits, record the number, close the discussion, and prepare for merge.
+- [`release-spec`](./.agents/skills/release-spec/SKILL.md): `accepted → released` — record the number in `INDEX.md` and squash-merge.
+- [`reject-spec`](./.agents/skills/reject-spec/SKILL.md): `proposed → rejected` — revert spec edits, record the number, close the discussion, and squash-merge.

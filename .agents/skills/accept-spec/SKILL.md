@@ -64,7 +64,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 6.  **Commit.**
 
     ```sh
-    git commit -am "chore: accept <slug>"
+    git commit -am "chore: accept <short lowercase proposal description>"
     ```
 
 7.  **Queue the implementation.**

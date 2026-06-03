@@ -34,7 +34,7 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
     - `Authors`: the Git user's name and GitHub handle (run `git config user.name` if needed).
     - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
-    - `Status`: `PROPOSED`.
+    - `Status`: `DRAFT`.
     - Leave `Approvers`, `Approval date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
 
     Leave the prose sections as the template placeholders for the proposer to complete.
@@ -50,9 +50,9 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
     ```sh
     git add proposals/<slug>/
-    git commit -m "<type>: <slug>"          # feature: <slug>, quality: <slug>, or epic: <slug>
+    git commit -m "<type>: <short lowercase proposal description>"   # eg. feature: filter catalog by species
     git push -u origin proposal/<slug>      # or epic/<slug> for EPIC
-    gh pr create --draft --title "<type>: <slug>" --fill
+    gh pr create --draft --title "<type>: <short lowercase proposal description>" --fill
     ```
 
     Then apply exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching step 1:
@@ -86,14 +86,14 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
           discussion { url }
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
-        -f title="<type>: <slug>" \
-        -f body="Discussion thread for the **<slug>** proposal (PR #<number>). Please leave all feedback here, not on the pull request."
+        -f title="<type>: <short lowercase proposal description>" \
+        -f body="Discussion thread for the **<short lowercase proposal description>** proposal (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
     Record the returned URL in the proposal's `Discussion thread` field and in the pull request body, then commit and push:
 
     ```sh
-    git commit -am "chore: link discussion thread for <slug>"
+    git commit -am "chore: link discussion thread for <short lowercase proposal description>"
     git push
     ```
 
@@ -125,9 +125,9 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
 -   **Branch `proposal/<slug>` exists and is checked out.**
 
--   **`proposals/<slug>/README.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: PROPOSED`.
+-   **`proposals/<slug>/README.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
 
--   **A draft pull request is open** (titled `feature: <slug>`, `quality: <slug>`, or `epic: <slug>`), carrying exactly one type label and no lifecycle label.
+-   **A draft pull request is open** (titled `feature: <short lowercase proposal description>`, `quality: …`, or `epic: …`), carrying exactly one type label and no lifecycle label.
 
 -   **An associated discussion thread is open**, linked from the document's `Discussion thread` field and from the PR.
 

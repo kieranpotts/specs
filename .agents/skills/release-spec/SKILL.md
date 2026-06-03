@@ -1,12 +1,12 @@
 ---
 name: release-spec
-description: Mark an accepted proposal as released once its implementation is live in production — assign its number in the index, set its status to released, label the PR, and prepare it for merge. Use when the user says "release this proposal", "this proposal is live", or "the implementation shipped".
+description: Mark an accepted proposal as released once its implementation is live in production — assign its number in the index, set its status to released, label the PR, and squash-merge it. Use when the user says "release this proposal", "this proposal is live", or "the implementation shipped".
 license: MIT
 ---
 
 # Release proposal
 
-Use this skill to move a proposal from **accepted** to **released**, once its implementation is live in production. This is the point at which the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), its specification edits become part of `main`, and the pull request is prepared for merge.
+Use this skill to move a proposal from **accepted** to **released**, once its implementation is live in production. This is the point at which the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), its specification edits become part of `main`, and the pull request is squash-merged.
 
 Do NOT use this skill for any other transition — see [`accept-spec`](../accept-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), [`propose-spec`](../propose-spec/SKILL.md), or [`draft-spec`](../draft-spec/SKILL.md).
 
@@ -47,12 +47,18 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 6.  **Commit.**
 
     ```sh
-    git commit -am "chore: release <slug> (proposal <NNNN>)"
+    git commit -am "chore: release <short lowercase proposal description> (proposal <NNNN>)"
     ```
 
-7.  **Prepare for merge.**
+7.  **Merge the pull request.**
 
-    The specification edits and the proposal document are now ready to land on `main`. Confirm with the user that the PR is ready to merge. Do not merge without explicit instruction. A released proposal stays in effect until a later proposal deprecates it.
+    The specification edits and the proposal document are now ready to land on `main`. Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `<type>: <short lowercase proposal description> - RELEASED` (where `<type>` is `feature`, `quality`, or `epic`):
+
+    ```sh
+    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - RELEASED"
+    ```
+
+    A released proposal stays in effect until a later proposal deprecates it.
 
 ## Rules
 
@@ -72,7 +78,7 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
 -   **The PR carries `#released`** (and its type label), not `#accepted`.
 
--   **The specification edits are intact** on the branch, ready to merge into `main`.
+-   **The specification edits are intact** on the branch, squash-merged into `main`.
 
 ## References
 
