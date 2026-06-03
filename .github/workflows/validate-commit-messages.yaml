@@ -2,10 +2,11 @@
 # Validate commit message formats.
 #
 # A repository-specific variant of the shared
-# `kieranpotts/actions/validate-commit-messages` action, inlined here so the
-# set of allowed commit types can be tailored to this repository: a subset of
-# the standard TS-3 revision types, plus custom prefixes — `feature`, `quality`,
-# and `epic`, used to scaffold a new proposal on its branch.
+# `kieranpotts/actions/validate-commit-messages` action,
+# inlined here so the set of allowed commit types can be
+# tailored to this repository: a subset of the standard
+# revision types, plus custom prefixes — `epic`, `feature`,
+# and `quality`.
 #
 
 name: Validate commit messages
@@ -51,9 +52,8 @@ jobs:
         run: |
           # Allowed commit types:
           #   Standard (subset of TS-3) : chore, fix, format, maintenance, refactor, revert
-          #   Custom (this repository)  : feature, quality, epic — used to scaffold a new
-          #                               proposal on its branch
-          types="chore|epic|feature|fix|format|maintenance|quality|refactor|revert"
+          #   Custom (this repository)  : epic, feature, quality
+          types="chore|fix|format|maintenance|refactor|revert|epic|feature|quality"
           re="^($types): [a-z].*$"
 
           echo "$GIT_LOG_OUTPUT" | while read -r line; do

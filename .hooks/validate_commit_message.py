@@ -18,14 +18,16 @@ import sys
 
 VALID_TYPES = [
     "chore",
-    "epic",
-    "feature",
     "fix",
     "format",
     "maintenance",
-    "quality",
     "refactor",
     "revert",
+
+    # Repository-specific commit types:
+    "epic",
+    "feature",
+    "quality",
 ]
 
 PATTERN = rf"^({'|'.join(VALID_TYPES)}): [a-z].*"
