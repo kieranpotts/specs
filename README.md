@@ -4,20 +4,15 @@
 
 This repository is the home of the software requirements specification (SRS) for [Project Name]. It defines the major operations and business rules of the system, and the constraints within which the system is required to operate.
 
+The SRS is a mutable, living specification of _what_ the production system does. It is kept close to the code and configuration it specifies, maintained through the same version control system used to manage change in the software itself. This keeps it deeply integrated with the regular development lifecycle, so the system and its specification stay synchronized. A change in requirements is merged into the `main` trunk _at the same time_ as the corresponding code and configuration are shipped to production. The specification therefore never drifts from reality.
 
-The SRS is a mutable living specification of _what_ the production system does. The specification is kept close to the code and configuration of the system that it specifies. The specification is maintained through the same version control system used to manage change in the software itself, meaning it can be deeply integrated with the regular development lifecycle. The system and its specification thus remain synchronized. The specification is updated – merged into the `main` trunk – with each production release, preventing drift from reality. Thus, changes in requirements gets merged to the `main` production trunk _at the same time_ as the corresponding changes in software code and configuration are shipped to production.
+The specification is maintained through collaboration between product managers and technical leads. It is _not_ a product requirements document (PRD), which is a precursor artifact generated through discovery workshops with users. The SRS translates that product vision into precise, testable functional and non-functional requirements. See [PRD versus SRS](./docs/prd.md) for more on the distinction.
 
-The software requirements specification is maintained through collaboration between product managers and the technical leads. It is _not_ a product requirements document (PRD), which is a precursor artifact generated through discovery workshops with users. The software requirements specification translates the product vision into precise, testable functional and non-functional specifications.
+This repository also holds an immutable, append-only log of product decisions, in the form of "proposals" that drive changes to the specification. Proposals that are ultimately _rejected_ are recorded too. The objective is for the evolution of the system to be fully recorded, so its current state is justified by the decision log. Even when stewardship passes to people with no prior knowledge of the project's history, they inherit a deep appreciation for why the system is the way it is.
 
-<!--
+## Scope
 
-The other insurance gate is involvement of technical stakeholders. Although product managers are ultimately responsible for the management of the lifecycle of requirements specifications, technical stakeholders are required to sign-off on requirements specifications. For example, acceptance criteria will not be approved for implementation until they are written in a testable form.
-
--->
-
-This repository also encapsulates an immutable, append-only log of product decisions, in the form of "proposals" that drive changes to the specification. Proposals that are ultimately rejected are also recorded in the log. The objective is for the evolution of the system to be fully recorded, so the rationale for its current state is justified by that decision log. Even when stewardship of the project passes to new people with no prior knowledge of the project's history, they will nonetheless inherit a deep appreciation for why the system is where it is now.
-
-Technical decisions about _how_ the solution works — its architecture and implementation — are out of scope. Those are tracked separately in the companion [requests for comments (RFC)](https://github.com/kieranpotts/rfc) repository. The SRS is implementation-agnostic. It should not contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements. If the system were re-platformed to another technology stack tomorrow, its specification should not need to change.
+The SRS is implementation-agnostic. Technical decisions about _how_ the solution works — its architecture and implementation — are out of scope, and are tracked separately in the companion [requests for comments (RFC)](https://github.com/kieranpotts/rfc) repository. The specification should contain no technical detail beyond what is strictly necessary to understand the system's functional and non-functional requirements. If the system were re-platformed to another technology stack tomorrow, its specification should not need to change.
 
 ## Contents
 

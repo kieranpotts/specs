@@ -1,6 +1,8 @@
-# Benefits
+# Overview
 
 A software requirements specification (SRS) is two things at once: a **living description** of what the production system does today, and a **permanent decision log** of how it came to be that way. This repository keeps both in version control, next to each other, so that the current state of the system and the rationale behind it never drift apart.
+
+This page explains the model and why it is worth the effort. For the day-to-day mechanics — branches, the proposal lifecycle, the state machine — see the [contributing guide](../CONTRIBUTING.md).
 
 ## Why a living specification
 
@@ -18,7 +20,7 @@ This is the institutional memory of the product. When someone asks "why doesn't 
 
 ## Separation of product and implementation
 
-This repository is deliberately implementation-agnostic. It records _what_ the system does and _why_, in the language of the business — not _how_ it is built. Technical decisions live in the companion [RFC repository](https://github.com/kieranpotts/rfc).
+This repository is deliberately implementation-agnostic. It records _what_ the system does and _why_, in the language of the business — not _how_ it is built. Technical decisions live separately (see the [README](../README.md#scope) for the boundary).
 
 Keeping the two apart means the specification survives re-platforming: if the system were rebuilt on an entirely different technology stack, its SRS would not need to change. It also keeps the right people in charge of the right decisions — product managers own the requirements; technical stakeholders own the architecture.
 
