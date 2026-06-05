@@ -1,6 +1,6 @@
 # Release proposal
 
-Marks an accepted proposal as released once its implementation is live (accepted → released).
+Marks an accepted proposal as released once its implementation is live (`ACCEPTED` → `RELEASED`).
 
 ## What it does
 

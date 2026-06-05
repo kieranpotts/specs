@@ -1,17 +1,21 @@
 # Skills
 
-These on-demand agent skills manage the proposal workflow — one per state transition in the lifecycle (`draft → proposed → accepted → released`, or `proposed → rejected`):
+This repository ships a small set of [agent skills](https://agentskills.io/) — invoked as slash commands through agentic tools such as Claude Code — that automate the proposal workflow.
 
-- [`draft-spec`](./draft-spec/): Scaffold a new proposal and open it as a draft pull request, with a type label and a discussion thread.
+There is one skill per proposal state transition: `DRAFT` → `PROPOSED` → `ACCEPTED` → `RELEASED`, plus `PROPOSED` → `REJECTED` and `RELEASED` → `SUPERSEDED`. Each skill knows the gate rules for its own transition and will not proceed until they are met, which keeps the process consistent whether a human or an agent is driving it.
 
-- [`propose-spec`](./propose-spec/): Remove a PR's draft status, marking the proposal ready for review (`draft → proposed`).
+The skills are, in lifecycle order:
 
-- [`accept-spec`](./accept-spec/): Approve a proposed proposal and close its discussion (`proposed → accepted`). The PR stays open through implementation.
+- **[`/draft-spec`](./draft-spec/)**: Starts a new proposal as a `DRAFT` — scaffolds the branch and document from the template, opens a draft pull request with one type label applied, and opens the associated discussion thread — ready for you to complete.
 
-- [`release-spec`](./release-spec/): Once the implementation is live, assign the proposal's number and squash-merge it (`accepted → released`).
+- **[`/propose-spec`](./propose-spec/)**: `DRAFT` → `PROPOSED` — confirms the proposal document and specification edits are complete and free of leftover template text, applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
 
-- [`reject-spec`](./reject-spec/): Reject a proposed proposal, revert its spec edits, and preserve it permanently as a record (`proposed → rejected`).
+- **[`/accept-spec`](./accept-spec/)**: `PROPOSED` → `ACCEPTED` — verifies the approval gates, sets the document's `Status` to `ACCEPTED`, labels the pull request `#accepted`, and closes the discussion thread. The pull request stays open through implementation until release.
 
-Each skill carries the gate rules for its own transition; there is no separate audit step. The `released → deprecated` transition is performed by hand when a later proposal supersedes or removes a feature.
+- **[`/release-spec`](./release-spec/)**: `ACCEPTED` → `RELEASED` — once the implementation is live in production, assigns the proposal's number in `INDEX.md`, sets `Status` to `RELEASED`, labels the pull request `#released`, and squash-merges it (on your confirmation).
 
-A typical journey runs `/draft-spec` → _(write the proposal)_ → `/propose-spec` → _(stakeholder review)_ → `/accept-spec` → _(implementation)_ → `/release-spec`, or `/reject-spec` if the decision is not to proceed.
+- **[`/reject-spec`](./reject-spec/)**: `PROPOSED` → `REJECTED` — records the rejection: reverts the specification edits, assigns the proposal's number in `INDEX.md`, sets `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges the document (on your confirmation) as a permanent record.
+
+- **[`/supersede-spec`](./supersede-spec/)**: `RELEASED` → `SUPERSEDED` — marks a released proposal as retired once a later (`RELEASED`) proposal has replaced or removed its feature, and sets up cross-references between the two.
+
+A typical journey runs `/draft-spec` → you write the proposal → `/propose-spec` → stakeholder review → `/accept-spec` → implementation → `/release-spec`, or `/reject-spec` if the decision is not to proceed. Much later, `/supersede-spec` retires a feature that a newer proposal has replaced.

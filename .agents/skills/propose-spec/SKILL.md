@@ -6,15 +6,18 @@ license: MIT
 
 # Propose proposal
 
-Use this skill to move a proposal from draft to **proposed**: confirm the document and specification edits are complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
+Use this skill to move a proposal from `DRAFT` to `PROPOSED`: confirm the document and specification edits are complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
 
 Do NOT use this skill to scaffold a new proposal (use [`draft-spec`](../draft-spec/SKILL.md)) or to decide one (use [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), or [`reject-spec`](../reject-spec/SKILL.md)).
 
-## Transition rules (draft → proposed)
+## Transition gates: `DRAFT` → `PROPOSED`
 
 Before removing draft status, confirm **all** of the following. If any fails, report it and pause — do not mark the PR ready.
 
--   **The document is reasonably complete.** Every required section contains substantive, change-specific content — not the generic placeholder prose carried over from `TEMPLATE.md`:
+-   **The document is reasonably complete.**
+
+    Every required section contains substantive, change-specific content — not the generic placeholder prose carried over from `TEMPLATE.md`:
+
     - `Summary` — a concise description of the change.
     - `Motivation` — the problem and who it affects.
     - `Impact` — `HIGH`, `MEDIUM`, or `LOW`, plus what is affected.
@@ -22,15 +25,24 @@ Before removing draft status, confirm **all** of the following. If any fails, re
     - `Alternatives` — at least one alternative considered.
     - `Tradeoffs and risks` — an honest account of the downsides.
 
--   **The specification edits are present and coherent.** The branch actually edits `specification/` to describe the intended end state, and those edits match the `Proposed change` section. Run `git diff main --name-only -- specification/` to confirm.
+-   **The specification edits are present and coherent.**
+
+    The branch actually edits `specification/` to describe the intended end state, and those edits match the `Proposed change` section. Run `git diff main --name-only -- specification/` to confirm.
+
     - For `features/` files: scenarios are valid Gherkin, each a concrete acceptance criterion.
     - For `qualities/` files: requirements are measurable thresholds, not aspirations.
 
--   **No leftover template text.** No italic placeholder prompts and no unfilled tokens (`#...`, `YYYY-MM-DD`) remain in any completed section.
+-   **No leftover template text.**
 
--   **The metadata header is filled in.** `Authors`, `Created`, `Last updated`, and `Proposal PR` are set; `Status` is `DRAFT` (this skill advances it to `PROPOSED`); the `Discussion thread` field links the thread.
+    No italic placeholder prompts and no unfilled tokens (`#...`, `YYYY-MM-DD`) remain in any completed section.
 
--   **Exactly one type label** (`FEATURE`, `QUALITY`, or `EPIC`) is on the PR.
+-   **The metadata header is filled in.**
+
+    `Authors`, `Created`, `Last updated`, and `Proposal PR` are set; `Status` is `DRAFT` (this skill advances it to `PROPOSED`); the `Discussion thread` field links the thread.
+
+-   **Exactly one type label on the PR.**
+
+    `FEATURE`, `QUALITY`, or `EPIC`.
 
 ## Instructions
 
@@ -38,9 +50,13 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
     Read `proposals/<slug>/README.md` and find its PR (`gh pr view <number> --json isDraft,labels` if needed).
 
-2.  **Verify the transition rules above.** Read the document in full, check each gate, and report any failures. Stop if unmet.
+2.  **Verify the transition gates above.**
 
-3.  **Update the document.** Set `Status` to `PROPOSED` and `Last updated` to today's date.
+    Read the document in full, check each gate, and report any failures. Stop if unmet.
+
+3.  **Update the document.**
+
+    Set `Status` to `PROPOSED` and `Last updated` to today's date.
 
 4.  **Apply the `#proposed` label.**
 
@@ -64,17 +80,21 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 ## Rules
 
--   **Do not mark a PR ready until the document and spec edits are complete.** An incomplete or boilerplate-laden proposal wastes reviewers' time. The completeness gate is mandatory.
+-   **Do not mark a PR ready until the document and spec edits are complete.**
 
--   **Forward only.** This skill only moves draft → proposed. It does not decide the proposal.
+    An incomplete or boilerplate-laden proposal wastes reviewers' time. The completeness gate is mandatory.
+
+-   **Forward only.**
+
+    This skill only moves `DRAFT` → `PROPOSED`. It does not decide the proposal.
 
 ## Success criteria
 
--   **The PR is no longer a draft** (`isDraft: false`).
+- The PR is no longer a draft (`isDraft: false`).
 
--   **The `#proposed` label is applied**, alongside the type label.
+- The `#proposed` label is applied, alongside the type label.
 
--   **`Last updated` is today's date** and `Status` is `PROPOSED`.
+- `Last updated` is today's date and `Status` is `PROPOSED`.
 
 ## References
 

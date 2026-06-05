@@ -111,7 +111,9 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
     A new proposal is not yet ready for review; it MUST be opened as a GitHub draft pull request.
 
--   **Every proposal PR has an associated discussion thread**, opened with the PR (even as a draft) using the matching discussion category (`Features`, `Qualities`, or `Epics`), and linked from both the document and the PR. All review feedback belongs in the discussion, not the PR's comments.
+-   **Every proposal PR has an associated discussion thread.**
+
+    Opened with the PR (even as a draft) using the matching discussion category (`Features`, `Qualities`, or `Epics`), and linked from both the document and the PR. All review feedback belongs in the discussion, not the PR's comments.
 
 -   **Do not assign a numeric ID.**
 
@@ -123,13 +125,13 @@ This is the entry point to the proposal lifecycle. The PR stays a GitHub draft w
 
 ## Success criteria
 
--   **Branch `proposal/<slug>` exists and is checked out.**
+- Branch `proposal/<slug>` exists and is checked out.
 
--   **`proposals/<slug>/README.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
+- `proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
 
--   **A draft pull request is open** (titled `feature: <short lowercase proposal description>`, `quality: …`, or `epic: …`), carrying exactly one type label and no lifecycle label.
+- A draft pull request is open (titled `feature: <short lowercase proposal description>`, `quality: …`, or `epic: …`), carrying exactly one type label and no lifecycle label.
 
--   **An associated discussion thread is open**, linked from the document's `Discussion thread` field and from the PR.
+- An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
 
 ## References
 

@@ -6,18 +6,27 @@ license: MIT
 
 # Reject proposal
 
-Use this skill to move a proposal from **proposed** to **rejected**. The key distinction from acceptance is that the specification edits MUST be reverted before merge, so only the proposal document itself is added to `main`. The decision and its rationale are preserved permanently; the system is unchanged.
+Use this skill to move a proposal from `PROPOSED` to `REJECTED`. The key distinction from acceptance is that the specification edits MUST be reverted before merge, so only the proposal document itself is added to `main`. The decision and its rationale are preserved permanently; the system is unchanged.
 
-Do NOT use this skill for any other transition — for the acceptance path use [`accept-spec`](../accept-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
+Do NOT use this skill for any other transition — for the acceptance path use [`accept-spec`](../accept-spec/SKILL.md), to mark a shipped proposal released use [`release-spec`](../release-spec/SKILL.md), to retire a released proposal use [`supersede-spec`](../supersede-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
 
-## Transition rules (proposed → rejected)
+## Transition gates: `PROPOSED` → `REJECTED`
 
 The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`). Confirm **all** of the following before rejecting. If any is unmet, report it and pause.
 
--   **Stakeholder review has concluded**, with feedback gathered from all relevant stakeholders.
+-   **Stakeholder review has concluded.**
+
+    Feedback gathered from all relevant stakeholders.
+
 -   **There is consensus the proposal should not be implemented.**
--   **The document is a complete record.** `Motivation`, `Proposed change`, `Alternatives`, and `Tradeoffs and risks` are substantive — the document will be archived permanently as the record of this decision.
--   **Only product managers may reject.** If there is any indication the current user is not a product manager, ask for confirmation first.
+
+-   **The document is a complete record.**
+
+    `Motivation`, `Proposed change`, `Alternatives`, and `Tradeoffs and risks` are substantive — the document will be archived permanently as the record of this decision.
+
+-   **Only product managers may reject.**
+
+    If there is any indication the current user is not a product manager, ask for confirmation first.
 
 ## Instructions
 
@@ -25,7 +34,9 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
     Identify `proposals/<slug>/README.md` and its PR. Confirm with the user that the review is concluded and the decision is to reject. Do not proceed until this is explicit.
 
-2.  **Verify the transition rules above.** Report any unmet gate and stop.
+2.  **Verify the transition gates above.**
+
+    Report any unmet gate and stop.
 
 3.  **Identify the specification edits to revert.**
 
@@ -53,7 +64,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 6.  **Assign the number in the index.**
 
-    A rejected proposal is archived in the ordered log like any other, so it takes the next number at merge. Find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, zero-pad to four digits, and add a row — its number, title, type, `Rejected` status, the rejection date, and a link to its directory (`proposals/<slug>/`). The proposal directory is never renamed.
+    A rejected proposal is archived in the ordered log like any other, so it takes the next number at merge. Find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, zero-pad to four digits, and add a row — its number, title, type, `REJECTED` status, the rejection date, and a link to its directory (`proposals/<slug>/`). The proposal directory is never renamed.
 
 7.  **Close the associated discussion thread.**
 
@@ -96,25 +107,31 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 ## Rules
 
--   **Never delete the proposal document.** Rejected proposals are permanently archived in `proposals/` as the record of the decision and its rationale.
+-   **Never delete the proposal document.**
 
--   **Revert spec edits precisely.** Only revert changes introduced by this branch; do not touch unrelated changes.
+    Rejected proposals are permanently archived in `proposals/` as the record of the decision and its rationale.
 
--   **The document is immutable after `#rejected`.** To revisit the decision, open a new proposal that supersedes this one.
+-   **Revert spec edits precisely.**
+
+    Only revert changes introduced by this branch; do not touch unrelated changes.
+
+-   **The document is immutable after `#rejected`.**
+
+    To revisit the decision, open a new proposal that supersedes this one.
 
 -   **Do not merge without instruction.**
 
 ## Success criteria
 
--   **No files under `specification/` are changed** on this branch relative to `main` after the revert.
+- No files under `specification/` are changed on this branch relative to `main` after the revert.
 
--   **A `proposals/INDEX.md` row is added** with the next sequential number and `Rejected` status.
+- A `proposals/INDEX.md` row is added with the next sequential number and `REJECTED` status.
 
--   **The PR carries `#rejected`** (and its type label), the `## Status` section reads `REJECTED`, and `Last updated` is today's date.
+- The PR carries `#rejected` (and its type label), the `## Status` section reads `REJECTED`, and `Last updated` is today's date.
 
--   **The associated discussion thread is closed.**
+- The associated discussion thread is closed.
 
--   **The user has explicitly confirmed** the rejection decision before any changes were made.
+- The user has explicitly confirmed the rejection decision before any changes were made.
 
 ## References
 

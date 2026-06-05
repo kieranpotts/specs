@@ -1,6 +1,6 @@
 # Propose proposal
 
-Marks a proposal pull request ready for stakeholder review (draft → proposed).
+Marks a proposal pull request ready for stakeholder review (`DRAFT` → `PROPOSED`).
 
 ## What it does
 

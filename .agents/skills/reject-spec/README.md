@@ -1,6 +1,6 @@
 # Reject proposal
 
-Rejects a proposed proposal (proposed → rejected), preserving it permanently as a record.
+Rejects a proposed proposal (`PROPOSED` → `REJECTED`), preserving it permanently as a record.
 
 ## What it does
 

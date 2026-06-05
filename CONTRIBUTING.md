@@ -2,63 +2,63 @@
 
 <!-- Agents MUST read ./AGENTS.md. This document is for humans. -->
 
-Anyone with write access to this repository may propose changes to the functional and non-functional requirements of the system. The product managers are ultimately responsible for accepting or rejecting proposals, for managing their lifecycle, and for maintaining the specification. Automation and agentic tools may be used to support parts of this process — see [Skills](#skills).
+These contributing guidelines provide step-by-step instructions for iterating on product specifications. The focus here is on the mechanics and guardrails of the proposal process.  See the [documentation](./docs/) for more general guidance on how to get the most out of the SRS process.
 
-## Rules
+Product managers are responsible for accepting or rejecting proposals, for managing their lifecycle, and for maintaining the specification of the "as-is" system. However, anyone with write access to this repository may propose changes to the functional and non-functional requirements of the system, for product consideration.
 
-The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+> [!NOTE]
+> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-- MUST write in American English.
+## The proposal lifecycle
 
-- The [`specification/`](./specification/) directory on `main` MUST describe the production system as it exists now. It is the authoritative record of the current state of the system.
+The [specification artifacts](./specification/) always reflect the current state of the system as experienced by real users in production right now. Changes to that state are introduced through proposals.
 
-- Every proposal pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
+Each proposal moves through a defined state machine. Product managers are responsible for applying. The current state of a proposal is shown in the document's `Status` field. In addition, to make it easier to search and filter pending proposals, corresponding labels are applied to open pull requests: `#proposed`, `#accepted`, etc.
 
-- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change — one requirement that can be reviewed, decided, and shipped independently of any other. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <description>` or `quality: <description>` (a short prose title, not the slug).
+The states are:
 
-- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives — for example, specifying a greenfield system from scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
+- `DRAFT`: The proposal is being written. Its pull request is open as a draft, which means it's not yet ready for review. Early feedback may be solicited via the discussion thread.
 
-- Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed once the proposal is accepted or rejected.
+- `PROPOSED`: The proposal is complete and open for a decision. The idea is now formally reviewed and negotiated with relevant stakeholders (both technical and non-technical). From this point, the author SHOULD NOT make further material changes to the proposed specifications, except in response to reviewer feedback.
 
-- The current lifecycle state of a proposal is tracked via a label on its pull request (`#proposed`, `#accepted`, `#rejected`, `#released`, `#deprecated`). A pull request is opened as a GitHub **draft** while the document is still being refined; this draft state — not a label — represents work in progress.
+- `ACCEPTED`: The proposal has been approved by the product managers. The discussion thread is closed. The pull request remains open until the implementation is released to production. The specifications documents may continue to evolve during this period — in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs.
 
-- A proposal is assigned a sequential number at merge, recorded in [`proposals/INDEX.md`](./proposals/INDEX.md). The number lives only in the index; no proposal directory is ever renamed.
+- `REJECTED`: The proposal will not be taken forward. The accompanying specification edits are reverted, but the proposal document is preserved and merged to `main`. After merge, the proposal is given a unique reference and listed in the [proposals index](./proposals/INDEX.md). Thus, all proposed changes to the software requirements specifications, whether ultimately accepted or rejected, are preserved indefinitely as a record of the decision and its rationale. But the actual requirements specification in `main` always reflects the current "as-is" production system and captures no traces of rejected or superseded specifications.
 
-- Proposal branches are squash-merged into `main`. The message of the squash commit MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is a short prose title of the proposal, written full lowercase (eg. `feature: time out idle user sessions - RELEASED`) — not the hyphenated branch slug. A released proposal merges at the `#released` state; a rejected one at `#rejected`.
+- `RELEASED`: An accepted change request is now live in production. Both the proposal document and the changes to the specification artifacts are merged into `main`. After merge, the proposal is given a unique reference and listed in the [proposals index](./proposals/INDEX.md). A released proposal stays in effect until a later proposal supersedes it.
 
-- Once a proposal is merged into `main`, its document is immutable. To revisit a decision, open a new proposal that supersedes the original.
+- `SUPERSEDED`: A previously released proposal that is no longer in effect, because a later proposal replaced or removed the feature.
 
-- The GitHub issue tracker is used only for maintenance work on this repository itself (the `MAINTENANCE` template). Proposals are proposed, decided, and archived entirely through pull requests; open-ended brainstorming happens in [discussions](https://github.com/kieranpotts/specs/discussions).
+```mermaid
+stateDiagram-v2
+  direction LR
+  [*] --> DRAFT
+  DRAFT --> PROPOSED
+  PROPOSED --> ACCEPTED
+  PROPOSED --> REJECTED
+  ACCEPTED --> RELEASED
+  RELEASED --> SUPERSEDED
+  REJECTED --> [*]
+  SUPERSEDED --> [*]
+```
 
-## Branching-and-merging workflow
+The proposer drives a proposal up to `PROPOSED` — drafting it, then marking the pull request ready for review. Only the product managers take the decision transitions.
 
-The `main` trunk is the default branch. The contents of [`specification/`](./specification/) on `main` is the authoritative record of the system as it exists in production right now.
+| From    | To              | Condition                                |
+| ------- | --------------- | ---------------------------------------- |
+| _(new)_ | `DRAFT`         | Initial state, scaffolding the document. |
+| `DRAFT` | `PROPOSED`      | Proposal and spec edits complete.        |
+| `PROPOSED` | `ACCEPTED`   | Final comments concluded. Accepted.      |
+| `PROPOSED` | `REJECTED`   | Final comments concluded. Rejected.      |
+| `ACCEPTED` | `RELEASED`   | Implementation shipped to production.    |
+| `RELEASED` | `SUPERSEDED` | Superseded by a later proposal.          |
 
-Proposals are developed on `proposal/<slug>` branches cut from `main`, and integrated back into `main` via pull requests. A proposal's pull request stays open until the corresponding changes in code and configuration are in production: it is not enough for a proposal to be _approved_ by the product managers; the change MUST also be designed, built, tested, and released before the proposal is considered "done" and its pull request is merged. Thus the `main` specification stays current with production.
+Transitions not listed are not permitted. A proposal MUST NOT move backwards (eg. from `PROPOSED` back to `DRAFT`) and MUST NOT skip states (eg. from `DRAFT` directly to `ACCEPTED`).
 
-The one exception is a **rejected** proposal: its specification edits are reverted, and only the proposal document is merged — the system is unchanged, so its specification does not change.
+> [!TIP]
+> This repository includes a suite of [agent skills](./.agents/skills/) that automate the state transitions and enforce the gate rules. It is RECOMMENDED to get AI agents to apply state transitions, by prompting the agents to use these skills. Doing so helps to keep the process consistent.
 
-See the [lifecycle](#proposal-lifecycle) section for the full set of gates that must be met before a proposal can be merged.
-
-## Branch, pull request, and commit conventions
-
-A proposal is authored on a `proposal/<slug>` branch, where `<slug>` is a short, hyphen-delimited description (eg. `proposal/user-session-timeout`). The hyphenated slug is used **only** for the branch name and the proposal directory (`proposals/<slug>/`). Everywhere a commit message or pull request title appears, use a short prose **description** of the proposal, written full lowercase — not the slug (eg. the PR title is `feature: time out idle user sessions`, not `feature: user-session-timeout`).
-
-Use the commit message shown for each lifecycle step below, so the history reads identically whether a human or an agent drove the change. The [skills](#skills) write these for you. Each `<description>` is the prose proposal title, lowercase.
-
-| Step | Commit message |
-| --- | --- |
-| Scaffold a new proposal | `feature: <description>`, `quality: <description>`, or `epic: <description>` |
-| Link the discussion thread | `chore: link discussion thread for <description>` |
-| Mark ready for review (draft → proposed) | `chore: mark <description> ready for review` |
-| Accept (proposed → accepted) | `chore: accept <description>` |
-| Release (accepted → released) | `chore: release <description> (proposal <NNNN>)` |
-| Reject (proposed → rejected) | `chore: reject <description> (proposal <NNNN>)` |
-| Deprecate (released → deprecated) | `chore: deprecate <description>` |
-
-`<NNNN>` is the four-digit number assigned in [`INDEX.md`](./proposals/INDEX.md) at merge — the highest existing number plus one, zero-padded (eg. `0007`).
-
-## Proposing a change
+## Workflow
 
 ### Step 1: Open a discussion thread (REQUIRED)
 
@@ -85,68 +85,75 @@ A pull request is the formal vehicle for a proposal. Open it as soon as you are 
 > [!TIP]
 > You don't have to do this by hand: [`/draft-spec`](./.agents/skills/draft-spec/) scaffolds the document, opens the draft pull request, applies the type label, and opens the discussion thread; [`/propose-spec`](./.agents/skills/propose-spec/) then marks it ready for review once it is complete.
 
-## Proposal lifecycle
+## Rules
 
-The [specification artifacts](./specification/) always reflect the current state of the system as experienced by real users in production right now. Changes to that state are introduced through proposals.
+- MUST write in American English.
 
-Each proposal moves through a defined state machine. From `proposed` onward, the current state is shown by a lifecycle label on the pull request; before that, the proposal is simply an open **draft** pull request. Only the product managers may take the decision transitions (`accepted`, `rejected`, `released`, `deprecated`).
+- The [`specification/`](./specification/) directory on `main` MUST describe the production system as it exists now. It is the authoritative record of the current state of the system.
 
-- **Draft**: The proposal is being written. Its pull request is open as a GitHub draft and carries only its type label — there is no `#draft` label; "draft" is the pull request's own draft flag. Not yet ready for review. The proposer MAY solicit early feedback in the discussion thread.
+- Every proposal pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
 
-- **Proposed**: The proposal is complete and open for a decision. The proposer has marked the pull request ready for review and labeled it `#proposed`. It is now formally reviewed and negotiated with stakeholders; from this point, the author should not make further material changes unless reviewers request them.
+- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change — one requirement that can be reviewed, decided, and shipped independently of any other. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <description>` or `quality: <description>` (a short prose title, not the slug).
 
-- **Accepted**: The proposal has been approved by the product managers, who queue the work for implementation (eg. opening issues against the relevant code repositories and cross-referencing them from the proposal). The discussion thread is closed. The pull request remains open until the implementation is released to production; the document and the accompanying specification edits MAY continue to evolve during this period — in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs.
+- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives — for example, specifying a greenfield system from scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
-- **Rejected**: The proposal will not be taken forward. The accompanying specification edits are reverted, the proposal is assigned its number in [`INDEX.md`](./proposals/INDEX.md), the discussion thread is closed, and the proposal document is merged into `main` — preserved permanently in [`proposals/`](./proposals/) as the record of the decision and its rationale. The system is unchanged, so its specification does not change.
+- Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed once the proposal is accepted or rejected.
 
-- **Released**: The implementation is live in production. The proposal's specification edits are merged into `main`, and the proposal is assigned its number in [`INDEX.md`](./proposals/INDEX.md). An accepted decision stays in effect until a later proposal deprecates it.
+- The current lifecycle state of a proposal is tracked via a label on its pull request (`#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`). A pull request is opened as a GitHub **draft** while the document is still being refined; this draft state — not a label — represents work in progress.
 
-- **Deprecated**: A previously released proposal that is no longer in effect, for example because a later proposal superseded or removed the feature.
+- A proposal is assigned a sequential number at merge, recorded in [`proposals/INDEX.md`](./proposals/INDEX.md). The number lives only in the index; no proposal directory is ever renamed.
 
-```mermaid
-stateDiagram-v2
-  direction LR
-  [*] --> draft
-  draft --> proposed
-  proposed --> accepted
-  proposed --> rejected
-  accepted --> released
-  released --> deprecated
-  rejected --> [*]
-  deprecated --> [*]
-```
+- Proposal branches are squash-merged into `main`. The message of the squash commit MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is a short prose title of the proposal, written full lowercase (eg. `feature: time out idle user sessions - RELEASED`) — not the hyphenated branch slug. A released proposal merges at `#released`; a rejected one at `#rejected`.
 
-### Permitted transitions
+- Once a proposal is merged into `main`, its document is immutable. To revisit a decision, open a new proposal that supersedes the original.
 
-The proposer drives a proposal up to `proposed` — drafting it, then marking the pull request ready for review. Only the product managers take the decision transitions. Each transition has its own [skill](#skills) that verifies the gates for that transition and applies the matching label.
+- The GitHub issue tracker is used only for maintenance work on this repository itself (the `MAINTENANCE` template). Proposals are proposed, decided, and archived entirely through pull requests; open-ended brainstorming happens in [discussions](https://github.com/kieranpotts/specs/discussions).
 
-| From | To | Skill | Condition |
-| --- | --- | --- | --- |
-| _(new PR)_ | `draft` | [`/draft-spec`](./.agents/skills/draft-spec/) | A draft pull request is opened with the scaffolded document, a type label, and a discussion thread. |
-| `draft` | `#proposed` | [`/propose-spec`](./.agents/skills/propose-spec/) | Document and spec edits complete and free of template boilerplate; PR marked ready for review and labeled `#proposed`. |
-| `#proposed` | `#accepted` | [`/accept-spec`](./.agents/skills/accept-spec/) | Stakeholder review and final-comment period concluded; `Depends on` proposals accepted; approved; discussion closed. |
-| `#proposed` | `#rejected` | [`/reject-spec`](./.agents/skills/reject-spec/) | Review concluded; not approved; spec edits reverted; number added to `INDEX.md`; discussion closed; merged as record. |
-| `#accepted` | `#released` | [`/release-spec`](./.agents/skills/release-spec/) | Implementation shipped to production; number added to `INDEX.md`; spec edits merged. |
-| `#released` | `#deprecated` | _(manual)_ | A later proposal has superseded or removed the feature. |
-
-Transitions not listed are not permitted. A proposal MUST NOT move backwards (eg. from `#proposed` back to draft) and MUST NOT skip states (eg. from draft directly to `#accepted`).
-
+<!--
 ### Immutability
 
-A proposal document is treated as immutable once its pull request is merged into `main`. For accepted proposals, this happens at the `#released` state, after the implementation ships to production; for rejected proposals, shortly after the rejection decision.
+A proposal document is treated as immutable once its pull request is merged into `main`. For accepted proposals, this happens at the `RELEASED` state, after the implementation ships to production; for rejected proposals, shortly after the rejection decision.
 
-While a proposal is still open — including throughout the `#accepted` implementation phase — its document and the accompanying specification edits may be updated as needed. This accommodates the feedback loops that naturally arise during implementation.
+While a proposal is still open — including throughout the `ACCEPTED` implementation phase — its document and the accompanying specification edits may be updated as needed. This accommodates the feedback loops that naturally arise during implementation.
 
 To revisit a past decision already merged to `main`, open a new proposal that supersedes the original and cross-reference the two using the `Supersedes` / `Superseded by` fields.
 
-## Skills
+## Branching-and-merging workflow
 
-This repository ships a set of **agent skills** — invoked as slash commands through agentic tools such as Claude Code — that automate the proposal workflow, with **one skill per state transition**. They live in [`.agents/skills/`](./.agents/skills/); each knows the gate rules for its own transition and will not proceed until they are met. You can always perform any step by hand instead.
+The `main` trunk is the default branch. The contents of [`specification/`](./specification/) on `main` is the authoritative record of the system as it exists in production right now.
 
-- [`/draft-spec`](./.agents/skills/draft-spec/) — _start a new proposal_: scaffold the branch and document, open a draft pull request with a type label, and open the discussion thread.
-- [`/propose-spec`](./.agents/skills/propose-spec/) — _draft → proposed_: confirm the document and spec edits are complete, apply `#proposed`, and take the pull request out of draft.
-- [`/accept-spec`](./.agents/skills/accept-spec/) — _proposed → accepted_: verify the approval gates, set the document to `ACCEPTED`, label `#accepted`, and close the discussion thread.
-- [`/release-spec`](./.agents/skills/release-spec/) — _accepted → released_: once the implementation is live, record the number in `INDEX.md`, set the document to `RELEASED`, and squash-merge the pull request.
-- [`/reject-spec`](./.agents/skills/reject-spec/) — _proposed → rejected_: revert the spec edits, record the number in `INDEX.md`, set the document to `REJECTED`, close the discussion, and squash-merge the pull request as a permanent record.
+Proposals are developed on `proposal/<slug>` branches cut from `main`, and integrated back into `main` via pull requests. A proposal's pull request stays open until the corresponding changes in code and configuration are in production: it is not enough for a proposal to be _approved_ by the product managers; the change MUST also be designed, built, tested, and released before the proposal is considered "done" and its pull request is merged. Thus the `main` specification stays current with production.
 
-Each skill's directory holds a `README.md` (how to invoke it, with examples) and a `SKILL.md` (the full instructions and transition rules).
+The one exception is a **rejected** proposal: its specification edits are reverted, and only the proposal document is merged — the system is unchanged, so its specification does not change.
+
+See the [lifecycle](#the-proposal-lifecycle) section for the full set of gates that must be met before a proposal can be merged.
+
+## Branch, pull request, and commit conventions
+
+A proposal is authored on a `proposal/<slug>` branch, where `<slug>` is a short, hyphen-delimited description (eg. `proposal/user-session-timeout`). The hyphenated slug is used **only** for the branch name and the proposal directory (`proposals/<slug>/`). Everywhere a commit message or pull request title appears, use a short prose **description** of the proposal, written full lowercase — not the slug (eg. the PR title is `feature: time out idle user sessions`, not `feature: user-session-timeout`).
+
+Use the commit message shown for each lifecycle step below, so the history reads identically whether a human or an agent drove the change. The [agent skills](./.agents/skills/) write these for you. Each `<description>` is the prose proposal title, lowercase.
+
+| Step | Commit message |
+| --- | --- |
+| Scaffold a new proposal | `feature: <description>`, `quality: <description>`, or `epic: <description>` |
+| Link the discussion thread | `chore: link discussion thread for <description>` |
+| Mark ready for review (`DRAFT` → `PROPOSED`) | `chore: mark <description> ready for review` |
+| Accept (`PROPOSED` → `ACCEPTED`) | `chore: accept <description>` |
+| Release (`ACCEPTED` → `RELEASED`) | `chore: release <description> (proposal <NNNN>)` |
+| Reject (`PROPOSED` → `REJECTED`) | `chore: reject <description> (proposal <NNNN>)` |
+| Supersede (`RELEASED` → `SUPERSEDED`) | `chore: supersede <description>` |
+
+`<NNNN>` is the four-digit number assigned in [`INDEX.md`](./proposals/INDEX.md) at merge — the highest existing number plus one, zero-padded (eg. `0007`).-->
+
+## Contributor license agreement
+
+<!-- Delete this for closed source projects. -->
+
+By opening a pull request to this repository, you accept and agree to the following terms and conditions:
+
+- You agree that your contribution may be distributed under the terms of the [CC0 1.0 Universal license](./LICENSE.txt), effectively releasing it to the public domain.
+
+- You certify that your contribution is either created in whole by you and you have the right to distribute it under the designated license, or is based on a previous work with a compatible license that permits distribution and modification under the designated license.
+
+- You understand and agree that your contribution is public and that a record of it, including all personal information you submit with it, is maintained indefinitely and may be redistributed consistent with the designated license.

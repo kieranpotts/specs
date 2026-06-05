@@ -4,14 +4,11 @@
 
 This repository is the home of the software requirements specification (SRS) for [Project Name]. It defines the major operations and business rules of the system, and the constraints within which the system is required to operate.
 
-The SRS is a mutable living specification of _what_ the production system does. The specification is maintained by the product managers, with input from other stakeholders – both non-technical and technical. The specification evolves alongside the system. The specification changes with each production release.
+The SRS is a mutable living specification of _what_ the production system does. The specification is maintained by the product managers, with input from other stakeholders – both technical and non-technical. The specification evolves alongside the system, changing with each production release.
 
 This repository also encapsulates an immutable, append-only log of product decisions, in the form of "proposals" that drive changes to the specification. Proposals that are ultimately rejected are also recorded in the log. The objective is for the evolution of the system to be fully recorded, so the rationale for its current state is justified by that decision log. When stewardship passes to new people, they should have a deep appreciation for why the system is where it is now.
 
-Technical decisions about _how_ the solution works — its architecture and implementation — are out of scope. The SRS is implementation-agnostic. It should not contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements. If the system were re-platformed to another technology stack, its specification should not need to change.
-
-> [!IMPORTANT]
-> The SRS covers product decisions. Technical decisions — _how_ the solution is constructed — are tracked separately in the companion [requests for comments (RFC)](https://github.com/kieranpotts/rfc) repository.
+Technical decisions about _how_ the solution works — its architecture and implementation — are out of scope. Those are tracked separately in the companion [requests for comments (RFC)](https://github.com/kieranpotts/rfc) repository. The SRS is implementation-agnostic. It should not contain any technical details that are not strictly necessary to understand the system's functional and non-functional requirements. If the system were re-platformed to another technology stack tomorrow, its specification should not need to change.
 
 ## Contents
 
@@ -19,11 +16,15 @@ Technical decisions about _how_ the solution works — its architecture and impl
 
 - [**Proposals**](./proposals/): A permanent archive of every major proposed change to the specification, including those that were ultimately rejected.
 
+  - The [`INDEX`](./proposals/INDEX.md) lists all merged proposals — released, rejected, and superseded. (Open proposals are tracked via the pull requests system.)
+
+  - The [`TEMPLATE`](./proposals/TEMPLATE.md) is the starting point for a new proposal.
+
 - [**Contributing**](./CONTRIBUTING.md): Instructions for shepherding proposals through their lifecycle, and for maintaining the specification.
 
-- [**Agents**](./AGENTS.md): Instructions for agentic tools to maintain the specifications and to manage the lifecycle of proposals with a high degree of autonomy. Includes links to domain-specific skills.
+- [**Agents**](./AGENTS.md): Instructions for agentic tools to maintain the specification, and to manage the lifecycle of proposals with a high degree of autonomy.
 
-- [**Documentation**](./docs/): Further guidance on the SRS process — its benefits, and best practices for scoping proposals and writing testable requirements.
+- [**Documentation**](./docs/): Further guidance on the SRS process, including best practices for scoping proposals and writing testable requirements.
 
 -----
 

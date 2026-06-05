@@ -1,6 +1,6 @@
 # Accept proposal
 
-Approves a proposed proposal (proposed → accepted).
+Approves a proposed proposal (`PROPOSED` → `ACCEPTED`).
 
 ## What it does
 

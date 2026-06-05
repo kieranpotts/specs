@@ -40,8 +40,8 @@
     "color": "FFFFFF"
   },
   {
-    "name": "#deprecated",
-    "description": "A previously released proposal that is no longer in effect.",
+    "name": "#superseded",
+    "description": "A previously released proposal that is no longer in effect, replaced or removed by a later one.",
     "color": "FFFFFF"
   }
 ]

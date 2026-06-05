@@ -1,6 +1,6 @@
 # Proposals
 
-This directory is the permanent archive of every proposed change to the software requirements specification — released, rejected, and deprecated alike. Nothing here is ever deleted; rejected proposals remain as a record of the decision and its rationale, so that the same ground is not needlessly covered again later.
+This directory is the permanent archive of every proposed change to the software requirements specification — released, rejected, and superseded alike. Nothing here is ever deleted; rejected proposals remain as a record of the decision and its rationale, so that the same ground is not needlessly covered again later.
 
 ## Layout
 
@@ -21,7 +21,7 @@ A proposal's directory holds its `README.md` (the proposal itself, copied from [
 
 1. A proposal is opened as a **draft pull request**, on a `proposal/<slug>` branch for a feature or quality proposal, or an `epic/<slug>` branch for an epic. The document lives at `proposals/<slug>/README.md`. The PR carries exactly one type label (`FEATURE`, `QUALITY`, or `EPIC`) and an associated discussion thread for all review feedback. (The issue tracker is not used for proposals; it is reserved for repository maintenance only.)
 
-2. The proposal moves through its [lifecycle](../CONTRIBUTING.md#proposal-lifecycle): `draft → proposed → accepted | rejected`, then an accepted proposal becomes `released` once live in production, and may later be `deprecated`.
+2. The proposal moves through its [lifecycle](../CONTRIBUTING.md#proposal-lifecycle): `DRAFT` → `PROPOSED` → `ACCEPTED` | `REJECTED`, then an accepted proposal becomes `RELEASED` once live in production, and may later be `SUPERSEDED`.
 
 3. On merge, the product managers assign the proposal a sequential, zero-padded number and record it in [`INDEX.md`](./INDEX.md). The number appears only in the index — no directory is ever renamed.
 

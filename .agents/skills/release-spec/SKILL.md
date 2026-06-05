@@ -6,18 +6,29 @@ license: MIT
 
 # Release proposal
 
-Use this skill to move a proposal from **accepted** to **released**, once its implementation is live in production. This is the point at which the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), its specification edits become part of `main`, and the pull request is squash-merged.
+Use this skill to move a proposal from `ACCEPTED` to `RELEASED`, once its implementation is live in production. This is the point at which the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), its specification edits become part of `main`, and the pull request is squash-merged.
 
 Do NOT use this skill for any other transition — see [`accept-spec`](../accept-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), [`propose-spec`](../propose-spec/SKILL.md), or [`draft-spec`](../draft-spec/SKILL.md).
 
-## Transition rules (accepted → released)
+## Transition gates: `ACCEPTED` → `RELEASED`
 
 The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm **all** of the following before releasing. If any is unmet, report it and pause.
 
--   **The implementation is live in production** — the change is being experienced by real users right now.
--   **The specification edits match the final implementation.** Any drift discovered during implementation has been reconciled back into the spec, so `main` will describe the system as it actually is.
--   **Blocking proposals are resolved** — every proposal listed under `Depends on` is itself released.
--   **Only product managers may release.** If there is any indication the current user is not a product manager, ask for confirmation first.
+-   **The implementation is live in production.**
+
+    The change is being experienced by real users right now.
+
+-   **The specification edits match the final implementation.**
+
+    Any drift discovered during implementation has been reconciled back into the spec, so `main` will describe the system as it actually is.
+
+-   **Blocking proposals are resolved.**
+
+    Every proposal listed under `Depends on` is itself released.
+
+-   **Only product managers may release.**
+
+    If there is any indication the current user is not a product manager, ask for confirmation first.
 
 ## Instructions
 
@@ -25,7 +36,9 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
     Read `proposals/<slug>/README.md`; check `Status` is `ACCEPTED` and the PR carries `#accepted` (`gh pr view <number> --json labels`).
 
-2.  **Verify the transition rules above.** Report any unmet gate and stop.
+2.  **Verify the transition gates above.**
+
+    Report any unmet gate and stop.
 
 3.  **Assign the number in the index.**
 
@@ -58,27 +71,33 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
     gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - RELEASED"
     ```
 
-    A released proposal stays in effect until a later proposal deprecates it.
+    A released proposal stays in effect until a later proposal supersedes it.
 
 ## Rules
 
--   **Only product managers may release.** If unsure of the user's role, ask first.
+-   **Only product managers may release.**
 
--   **Only from `ACCEPTED`.** Never release a draft, proposed, or rejected proposal.
+    If unsure of the user's role, ask first.
 
--   **Release means production.** Do not mark a proposal released until its change is actually live for real users — that is what keeps `main` honest.
+-   **Only from `ACCEPTED`.**
+
+    Never release a draft, proposed, or rejected proposal.
+
+-   **Release means production.**
+
+    Do not mark a proposal released until its change is actually live for real users — that is what keeps `main` honest.
 
 -   **Do not merge without instruction.**
 
 ## Success criteria
 
--   **A `proposals/INDEX.md` row is added** for the proposal, with the next sequential number and `Released` status.
+- A `proposals/INDEX.md` row is added for the proposal, with the next sequential number and `RELEASED` status.
 
--   **`Status` is `RELEASED`** and `Last updated` is today's date.
+- `Status` is `RELEASED` and `Last updated` is today's date.
 
--   **The PR carries `#released`** (and its type label), not `#accepted`.
+- The PR carries `#released` (and its type label), not `#accepted`.
 
--   **The specification edits are intact** on the branch, squash-merged into `main`.
+- The specification edits are intact on the branch, squash-merged into `main`.
 
 ## References
 
