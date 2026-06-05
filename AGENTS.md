@@ -13,17 +13,17 @@ Changes are introduced through proposals. The [specification](./specification/) 
 - `specification/`: Describes the current production system.
   - `context/`: Problem space and domain model. Descriptive.
     - `overview/`: Mission statement, problem statement, project scope.
+    - `constraints/`: Regulatory and legal constraints, dependencies.
     - `glossary/`: The domain's ubiquitous language.
     - `model/`: Domain entities and their relationships.
-    - `actors/`: Actors that interact with the system.
-    - `constraints/`: Regulatory and legal constraints, dependencies.
+    - `actors/`: Actors that interact with the system (definitions only — no permissions).
   - `requirements/`: Expected behaviors and qualities. Prescriptive.
     - `behaviors/`: Capabilities exposed and rules enforced.
-      - `features/`: Functional requirements, Gherkin notation.
+      - `access/`: Permissions matrix — which actors may exercise which capabilities.
       - `rules/`: Business rules, invariants, entity lifecycles.
-      - `access/`: Permissions matrix.
-      - `interfaces/`: External contract, including events.
+      - `features/`: Functional requirements, Gherkin notation.
       - `journeys/`: User journeys – wireframes or call-sequences.
+      - `interfaces/`: External contract — the behavioral contract only; wire formats and protocols are technical decisions, recorded in the RFC repository.
     - `qualities/`: Non-functional requirements.
 - `proposals/`: Permanent archive of every proposed change. Each proposal is a directory (`proposals/<slug>/`) holding its `README.md` and any supporting artifacts.
   - `proposals/INDEX.md` is the numbered catalog of merged proposals.

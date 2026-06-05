@@ -19,7 +19,7 @@ The states are:
 
 - `DRAFT`: The proposal is being written. Its pull request is open as a draft, which means it's not yet ready for review. Early feedback may be solicited via the discussion thread.
 
-- `PROPOSED`: The proposal is complete and open for a decision. The idea is now formally reviewed and negotiated with relevant stakeholders (both technical and non-technical). From this point, the author SHOULD NOT make further material changes to the proposed specifications, except in response to reviewer feedback.
+- `PROPOSED`: The proposal is complete and open for a decision. The idea is now formally reviewed and negotiated with relevant stakeholders (both technical and non-technical).
 
 - `ACCEPTED`: The proposal has been approved by the product managers. The discussion thread is closed. The pull request remains open until the implementation is released to production. The specifications documents may continue to evolve during this period — in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs.
 
@@ -100,6 +100,8 @@ A pull request is the formal vehicle for a proposal. Open it as soon as you are 
 - Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed once the proposal is accepted or rejected.
 
 - The current lifecycle state of a proposal is tracked via a label on its pull request (`#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`). A pull request is opened as a GitHub **draft** while the document is still being refined; this draft state — not a label — represents work in progress.
+
+- Once a requirement is `PROPOSED`, from this point on in its lifecycle, the author SHOULD NOT make further material changes to the proposed specifications, except in response to reviewer feedback.
 
 - A proposal is assigned a sequential number at merge, recorded in [`proposals/INDEX.md`](./proposals/INDEX.md). The number lives only in the index; no proposal directory is ever renamed.
 
