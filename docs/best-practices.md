@@ -36,6 +36,8 @@ Cross-cutting invariants that constrain many features ("a pet is never in two st
 
 A quality requirement that cannot be measured cannot be verified, and an unverifiable requirement is just a wish. Better to specify quality requirements as concrete, testable thresholds, ideally at a named percentile and load: "list responses within 300 ms at the 95th percentile under normal load," not "the API should be fast."
 
+These are the system's _dynamic_ qualities — what it must achieve at runtime, observable to its users. _Static_ qualities of the code and design – readability, modularity, and the like – are a design concern, so not something the specification states.
+
 Vague qualities give the false comfort of a requirement without the substance of one.
 
 ## Keep the description and the reasoning in their proper homes

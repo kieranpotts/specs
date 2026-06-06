@@ -10,6 +10,9 @@ The specification is maintained through collaboration between product managers a
 
 This repository also holds an immutable, append-only log of product decisions, in the form of "proposals" that drive changes to the specification. Proposals that are ultimately _rejected_ are recorded too. The objective is for the evolution of the system to be fully recorded, so its current state is justified by the decision log. Even when stewardship passes to people with no prior knowledge of the project's history, they inherit a deep appreciation for why the system is the way it is.
 
+> [!NOTE]
+> This repository is the reference implementation of [**TS-1: Requirements Specification**](https://github.com/kieranpotts/standards/tree/dev/src/001), the technical standard that defines both _what_ a good specification contains and _how_ it is managed over time. Refer to TS-1 for the underlying rationale. This repository is the ready-to-use template that puts it into practice.
+
 ## Contents
 
 - [**Specification**](./specification/): Descriptions of the as-is production system. Covers the mission statement, the domain model, functional and non-functional requirements, and the actors and their journeys through the system.

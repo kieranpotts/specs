@@ -6,4 +6,4 @@ Requirements divide into two kinds:
 
 - [**Behaviors**](./behaviors/) — the system's functional requirements: _what_ it does.
 
-- [**Qualities**](./qualities/) — the system's non-functional requirements: _how well_ it does it.
+- [**Qualities**](./qualities/) — the system's non-functional requirements: _how well_ it does it at runtime. Scope is the system's dynamic (runtime, externally-observable) qualities only. Static qualities of the code and design are out of scope.

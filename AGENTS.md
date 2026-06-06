@@ -24,7 +24,7 @@ Changes are introduced through proposals. The [specification](./specification/) 
       - `features/`: Functional requirements, Gherkin notation.
       - `journeys/`: User journeys – wireframes or call-sequences.
       - `interfaces/`: External contract — the behavioral contract only; wire formats and protocols are technical decisions, recorded in the RFC repository.
-    - `qualities/`: Non-functional requirements.
+    - `qualities/`: Dynamic qualities, aka. non-functional requirements.
 - `proposals/`: Permanent archive of every proposed change. Each proposal is a directory (`proposals/<slug>/`) holding its `README.md` and any supporting artifacts.
   - `proposals/INDEX.md` is the numbered catalog of merged proposals.
   - `proposals/TEMPLATE.md` is the starting point for a new proposal.
@@ -64,7 +64,7 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - Functional requirements MUST be specified as Gherkin scenarios. Each scenario MUST be a concrete, testable acceptance criterion.
 
-- Non-functional requirements SHOULD be specified as measurable thresholds, not vague aspirations.
+- Non-functional requirements SHOULD be specified as measurable thresholds, not vague aspirations. Scope is the system's dynamic (runtime, externally-observable) qualities only — not static qualities of the code and design, which are out of scope for the specification.
 
 - Every proposal pull request MUST be labeled with exactly one type — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
 
