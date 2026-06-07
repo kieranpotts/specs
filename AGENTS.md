@@ -60,6 +60,8 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - Changes to specification artifacts MUST be introduced via proposal PRs. The specification changes MUST describe the intended final state after the changes are shipped, NOT a changelog of how to get to that end state — that's an implementation detail.
 
+- A proposal MUST NOT be accepted unless its requirement meets the *Definition of Ready*: requirements are clear and unambiguous, functional ACs are stated as testable Gherkin scenarios, quality requirements are stated as measurable thresholds, and the work is implementable in small increments. A sound-but-not-ready proposal is sent back for refinement, not accepted.
+
 - An accepted proposal MUST NOT be merged into `main` until real users are using the proposed changes in production.
 
 - Functional requirements MUST be specified as Gherkin scenarios. Each scenario MUST be a concrete, testable acceptance criterion.

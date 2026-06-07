@@ -48,7 +48,7 @@ The proposer drives a proposal up to `PROPOSED` — drafting it, then marking th
 | ------- | --------------- | ---------------------------------------- |
 | _(new)_ | `DRAFT`         | Initial state, scaffolding the document. |
 | `DRAFT` | `PROPOSED`      | Proposal and spec edits complete.        |
-| `PROPOSED` | `ACCEPTED`   | Final comments concluded. Accepted.      |
+| `PROPOSED` | `ACCEPTED`   | Final comments wrapped. Ready. Accepted. |
 | `PROPOSED` | `REJECTED`   | Final comments concluded. Rejected.      |
 | `ACCEPTED` | `RELEASED`   | Implementation shipped to production.    |
 | `RELEASED` | `SUPERSEDED` | Superseded by a later proposal.          |

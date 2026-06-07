@@ -30,6 +30,18 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
     They describe the system as it will be after the change ships.
 
+-   **The requirement meets the Definition of Ready.**
+
+    Acceptance queues the work for implementation, so the requirement MUST be ready to build. Confirm:
+
+    - The requirements are clear and sufficiently unambiguous.
+
+    - Functional acceptance criteria are stated as testable Gherkin scenarios; quality (non-functional) requirements are stated as measurable thresholds.
+
+    - The work can be implemented in small increments.
+
+    If the proposal is sound in principle but not yet ready to build, send it back for refinement rather than accepting it.
+
 -   **Blocking proposals are resolved.**
 
     Every proposal listed under `Depends on` is itself accepted (or further along).
@@ -117,6 +129,8 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 ## References
 
 - [Contributing guide](../../../CONTRIBUTING.md): The full lifecycle and immutability rules.
+
+- [TS-1: Requirements Specification](https://github.com/kieranpotts/standards/tree/dev/src/001), §Definition of Ready: the readiness criteria a requirement must meet before it is accepted for implementation.
 
 - [`release-spec`](../release-spec/SKILL.md): Run once the implementation is live in production.
 

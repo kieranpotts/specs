@@ -60,6 +60,18 @@ A rejected proposal is not a failure to be hidden. It is a decision worth rememb
 
 Write the `Motivation`, `Alternatives`, and `Tradeoffs and risks` sections of a doomed proposal with the same care as a winning one.
 
+## Accept only what is ready to build
+
+Accepting a proposal queues it for implementation, so a proposal SHOULD NOT be accepted until its requirement is ready to be built. This is the *Definition of Ready* — a short checklist confirming the requirement is well-formed, applied at the `PROPOSED` → `ACCEPTED` gate:
+
+- The requirements are clear and sufficiently unambiguous.
+
+- Functional acceptance criteria are stated as testable Gherkin scenarios; quality requirements are stated as measurable thresholds.
+
+- The work can be implemented in small increments.
+
+A proposal can be a good idea yet not be ready to build. When that is the case, send it back for refinement rather than accepting it.
+
 ## Keep the specification honest
 
 The specification's value rests entirely on one promise: that `main` describes production. Protect that promise. Do not merge an accepted proposal until its change is actually live.
