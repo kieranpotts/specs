@@ -6,7 +6,7 @@ Enforces commit messages follow the format:
   <type>: <description>
 
 Where <type> is one of the allowed revision types: a subset of the standard
-TS-3 revision types, plus prefixes specific to this repository — `feature`,
+TS-9 revision types, plus prefixes specific to this repository — `feature`,
 `quality`, and `epic`, used to scaffold a new proposal on its branch.
 
 Keep VALID_TYPES in sync with the CI workflow at
