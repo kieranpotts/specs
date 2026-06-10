@@ -39,3 +39,93 @@ A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats", "Birds
 
 - A `Pet` belongs to exactly one `Category`.
 - A `Category` may contain zero or more `Pets`.
+- A `Pet` has at most one active `Reservation` — present only while its `status` is `reserved` (see [rule R3](../../requirements/behaviors/rules/)).
+- A `Reservation` is held by exactly one [`Partner`](../actors/) actor.
+
+## Entity-relationship diagram
+
+The diagram summarises the entities above and the cardinality of their relationships. `Reservation` is shown as a separate node for clarity, but it is an embedded value on `Pet` (the `reservation` attribute), not an independently-addressable record. `Partner` is an [actor](../actors/), not a stored entity; it appears here only to show what a reservation references.
+
+```mermaid
+erDiagram
+    CATEGORY ||--o{ PET : "groups"
+    PET ||--o| RESERVATION : "is held by (0..1)"
+    RESERVATION }o--|| PARTNER : "held by"
+
+    CATEGORY {
+        id   id   PK
+        string name
+    }
+
+    PET {
+        id          id          PK
+        string      name
+        enum        species
+        string      breed       "optional"
+        object      age         "value + unit"
+        decimal     price
+        enum        status      "available | reserved | sold"
+        string      description
+        string_list photoUrls
+        string_list tags
+        id          categoryId  FK
+    }
+
+    RESERVATION {
+        id        heldBy    FK "references a Partner actor"
+        timestamp expiresAt
+    }
+
+    PARTNER {
+        id id PK "actor, not a stored entity"
+    }
+```
+
+The same model viewed as classes, which makes the embedded `Reservation` value object and the `status` enum more explicit:
+
+```mermaid
+classDiagram
+    class Pet {
+        +Id id
+        +String name
+        +Species species
+        +String breed
+        +Age age
+        +Decimal price
+        +Status status
+        +String description
+        +String[] photoUrls
+        +String[] tags
+        +Reservation reservation
+    }
+    class Category {
+        +Id id
+        +String name
+    }
+    class Reservation {
+        <<value object>>
+        +Id heldBy
+        +Timestamp expiresAt
+    }
+    class Age {
+        <<value object>>
+        +Number value
+        +Unit unit
+    }
+    class Status {
+        <<enumeration>>
+        available
+        reserved
+        sold
+    }
+
+    Category "1" --> "0..*" Pet : contains
+    Pet "1" --> "0..1" Reservation : holds
+    Pet *-- Age : embeds
+    Pet ..> Status : has
+    Reservation ..> Partner : heldBy
+
+    class Partner {
+        <<actor>>
+    }
+```

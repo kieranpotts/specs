@@ -19,3 +19,20 @@ The current actor hierarchy is as follows:
 - **Partner**: An Authenticated User belonging to an organisation that holds a signed partner agreement (see [constraints](../constraints/)). A Partner inherits every read capability of an Authenticated User, and additionally may place and release [reservations](../glossary/) on pets — the only caller-facing operations that change catalog state. Partner status is asserted by a claim in the caller's [credential](../glossary/), issued by the identity service.
 
 _Add further actor types as needed, ordered from lowest to highest privilege._
+
+The diagram below shows the inheritance chain. Each actor holds every capability of the actor below it, plus those granted to it directly; the [access](../../requirements/behaviors/access/) matrix records exactly what each adds.
+
+```mermaid
+flowchart BT
+    Anon["Anonymous User<br/><i>no capabilities</i>"]
+    Auth["Authenticated User<br/><i>+ read the catalog</i>"]
+    Partner["Partner<br/><i>+ reserve / release</i>"]
+
+    Anon -->|"authenticates"| Auth
+    Auth -->|"+ partner agreement"| Partner
+
+    classDef tier fill:#f5f5f5,stroke:#999,color:#222;
+    class Anon,Auth,Partner tier;
+```
+
+Read bottom-to-top as increasing privilege: an Anonymous User who authenticates becomes an Authenticated User; an Authenticated User whose credential asserts a partner claim is a Partner. Capabilities accumulate up the chain.

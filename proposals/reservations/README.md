@@ -42,13 +42,15 @@ This proposal introduces the following specification artifacts.
 
 ### Context
 
-- [Actors](../../specification/context/actors/README.md): New **Partner** tier above Authenticated User, asserted by a credential claim, holding the reservation capabilities.
+- [Actors](../../specification/context/actors/README.md): New **Partner** tier above Authenticated User, asserted by a credential claim, holding the reservation capabilities; the actor-hierarchy diagram is extended to include it.
 
 - [Scope](../../specification/context/overview/scope.md): Reservations added to _in scope_; the _out of scope_ purchasing note clarified — a reservation holds a pet but does not buy it.
 
 - [Glossary](../../specification/context/glossary/README.md): New terms — **Partner**, **Hold window**, **Idempotency key** — and the **Reservation** definition revised to reflect caller-managed holds.
 
-- [Domain model](../../specification/context/model/README.md): `Pet` gains an optional `reservation` attribute (`heldBy`, `expiresAt`), present only while `reserved`.
+- [Domain model](../../specification/context/model/README.md): `Pet` gains an optional `reservation` attribute (`heldBy`, `expiresAt`), present only while `reserved`; the embedded `Reservation` value object and its link to the Partner actor are added to the ER and class diagrams.
+
+- [System context](../../specification/context/overview/system-context.md): The Partner caller and its reserve/release interaction are added to the context diagram.
 
 - [Constraints](../../specification/context/constraints/README.md): New business constraint recording that reservations require a signed partner agreement.
 
