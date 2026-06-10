@@ -17,3 +17,9 @@ See [`get-pet.feature`](./get-pet.feature) for an example of the notation.
 - [`search-pets.feature`](./search-pets.feature): Search the catalog by keyword and tag.
 
 - [`get-pet.feature`](./get-pet.feature): Retrieve the full details of a single pet by ID.
+
+### Partner
+
+- [`reserve-pet.feature`](./reserve-pet.feature): Place a temporary hold on an available pet.
+
+- [`release-reservation.feature`](./release-reservation.feature): Release a reservation the Partner holds.

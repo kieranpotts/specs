@@ -14,6 +14,8 @@ The current actor hierarchy is as follows:
 
 - **Anonymous User**: A caller who has not authenticated.
 
-- **Authenticated User**: A caller who has presented a valid credential — either a human operator using a client application, or an automated system making machine-to-machine requests.
+- **Authenticated User**: A caller who has presented a valid credential — either a human operator using a client application, or an automated system making machine-to-machine requests. Authenticated Users may read the catalog but may not change its state.
+
+- **Partner**: An Authenticated User belonging to an organisation that holds a signed partner agreement (see [constraints](../constraints/)). A Partner inherits every read capability of an Authenticated User, and additionally may place and release [reservations](../glossary/) on pets — the only caller-facing operations that change catalog state. Partner status is asserted by a claim in the caller's [credential](../glossary/), issued by the identity service.
 
 _Add further actor types as needed, ordered from lowest to highest privilege._

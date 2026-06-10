@@ -10,4 +10,6 @@ For the Petstore API:
 
 - The **get pet by ID** endpoint MUST return a response within 100ms at the 99th percentile under normal load.
 
+- The **reserve** and **release** endpoints MUST return a response within 400ms at the 95th percentile under normal load. The slightly higher budget reflects the write path's need to acquire a hold and persist state.
+
 - Under peak load, latency for all endpoints MUST NOT exceed 1 second at the 99th percentile.

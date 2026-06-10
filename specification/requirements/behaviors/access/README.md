@@ -8,12 +8,16 @@ _Replace the capabilities and actors below with your own. One row per capability
 
 ## Permission matrix
 
-| Capability | Anonymous User | Authenticated User |
-| ---------- | :------------: | :----------------: |
-| List and filter the catalog | — | ✓ |
-| Search the catalog | — | ✓ |
-| Retrieve a single pet by ID | — | ✓ |
+| Capability | Anonymous User | Authenticated User | Partner |
+| ---------- | :------------: | :----------------: | :-----: |
+| List and filter the catalog | — | ✓ | ✓ |
+| Search the catalog | — | ✓ | ✓ |
+| Retrieve a single pet by ID | — | ✓ | ✓ |
+| Reserve an available pet | — | — | ✓ |
+| Release a reservation it holds | — | — | ✓ |
 
 ✓ = permitted, and inherited by all higher-privileged actors. — = not permitted.
 
 Anonymous Users hold no capabilities: every operation requires a valid [credential](../../../context/glossary/), so unauthenticated requests are rejected.
+
+The reservation capabilities are stated once, against [Partner](../../../context/actors/) — the lowest-privileged actor that holds them. A Partner may only release a reservation it placed itself; releasing another Partner's reservation is not permitted, a finer-grained condition governed by [rule R4](../rules/).

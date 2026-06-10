@@ -10,6 +10,8 @@ _List the capabilities, user groups, and domains that the system is responsible 
 
 - **Catalog retrieval**: Fetching the full details of a single pet listing by ID.
 
+- **Reservations**: Allowing Partner callers to place a temporary hold on an available pet, and to release a hold they own. This is the only caller-facing capability that changes catalog state.
+
 - **Authentication**: Verifying caller identity before granting access to catalog data.
 
 - **API consumers**: Human operators accessing the catalog via a client application; automated systems (eg. partner platforms, internal services) consuming the API programmatically.
@@ -18,7 +20,7 @@ _List the capabilities, user groups, and domains that the system is responsible 
 
 _List anything that might reasonably be assumed to be part of the system but is deliberately excluded. Recording what is out of scope is as important as recording what is in scope: it prevents scope creep and sets clear expectations with stakeholders._
 
-- **Purchasing and orders**: The API does not support placing orders, managing a basket, or processing payments.
+- **Purchasing and orders**: The API does not support placing orders, managing a basket, or processing payments. A reservation holds a pet but does not buy it; converting a reservation to a sale is an administrative function outside this service.
 
 - **Inventory management**: Catalog data is read-only. Adding, editing, or removing pet listings is an administrative function outside this service.
 

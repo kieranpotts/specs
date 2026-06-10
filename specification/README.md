@@ -16,17 +16,22 @@ The specification is divided into two parts:
 specification/
 ├── context/                  ← descriptive: the problem space
 │   ├── overview/             mission, problem, scope
-│   ├── constraints/          regulatory/legal/business constraints + assumptions + dependencies
+│   ├── constraints/          regulatory/legal/business constraints
+│   │                           + assumptions + dependencies
 │   ├── glossary/             ubiquitous language
 │   ├── model/                domain entities, relationships, ERD
-│   └── actors/               participants + hierarchy (definitions only — no permissions)
+│   └── actors/               participants + hierarchy
+│                               (definitions only — no permissions)
 └── requirements/             ← prescriptive: the contract
     ├── behaviors/            functional requirements
-    │   ├── access/           permission matrix: which actors may exercise which capabilities
-    │   ├── rules/            invariants, policies, lifecycle transitions
+    │   ├── access/           permission matrix: which actors may
+    │   │                       exercise which capabilities
+    │   ├── rules/            invariants, policies, entity
+    │   │                       lifecycle transitions
     │   ├── features/         Gherkin scenarios
     │   ├── journeys/         wireframes and/or call-sequences
-    │   └── interfaces/       external contract: operations, resources, events
+    │   └── interfaces/       external contracts: operations,
+    │                           resources, events
     └── qualities/            non-functional requirements
         ├── latency.md
         └── …

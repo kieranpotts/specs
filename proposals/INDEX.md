@@ -8,3 +8,5 @@ A proposal earns its number only once it is decided and merged. While a proposal
 | --- | --- | --- | --- | --- |
 | [0001](./catalog-read-api/) | Catalog read API | Feature | Released | 2024-03-18 |
 | [0002](./search-by-tag/) | Search by tag | Feature | Released | 2024-05-12 |
+| [0003](./reservations/) | Reservations | Feature | Released | 2024-08-19 |
+| [0004](./checkout-and-payments/) | Checkout and payments | Feature | Rejected | 2024-10-28 |

@@ -24,6 +24,7 @@ A `Pet` is a single animal available in the catalog. It is the primary entity in
 | `description` | String | Free-text description of the animal, its temperament, and care requirements. |
 | `photoUrls` | Array of strings | One or more URLs pointing to images of the animal. |
 | `tags` | Array of strings | Freeform labels for search and filtering (eg. "hypoallergenic", "house-trained"). |
+| `reservation` | Object | Present only while `status` is `reserved`. Records the holding [`Partner`](../actors/) and the time at which the [hold window](../glossary/) expires: `{ heldBy: PartnerId, expiresAt: timestamp }`. Absent when the pet is `available` or `sold`. |
 
 ### Category
 
