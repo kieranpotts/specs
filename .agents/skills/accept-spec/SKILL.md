@@ -6,7 +6,7 @@ license: MIT
 
 # Accept proposal
 
-Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-spec`](../release-spec/SKILL.md)) — only at that point is a number assigned and the spec merged.
+Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-spec`](../release-spec/SKILL.md)) — only at that point is the spec merged and a number assigned.
 
 Do NOT use this skill for any other transition — to reject use [`reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released use [`release-spec`](../release-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
 
@@ -30,15 +30,9 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
     They describe the system as it will be after the change ships.
 
--   **The requirement meets the Definition of Ready.**
+-   **The requirement meets the [Definition of Ready](../../../docs/definition-of-ready.md).**
 
-    Acceptance queues the work for implementation, so the requirement MUST be ready to build. Confirm:
-
-    - The requirements are clear and sufficiently unambiguous.
-
-    - Functional acceptance criteria are stated as testable Gherkin scenarios; quality (non-functional) requirements are stated as measurable thresholds.
-
-    - The work can be implemented in small increments.
+    Acceptance queues the work for implementation, so the requirement MUST be ready to build. Work through the full checklist in that document; in summary, confirm the requirements are clear and unambiguous, functional acceptance criteria are testable Gherkin scenarios and quality requirements are measurable thresholds, the stakeholders are known, and the work is independent and implementable in small increments.
 
     If the proposal is sound in principle but not yet ready to build, send it back for refinement rather than accepting it.
 
@@ -54,7 +48,13 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 1.  **Identify the proposal and confirm it is `PROPOSED`.**
 
-    Read `proposals/<slug>/README.md`; check `Status` is `PROPOSED` and the PR carries `#proposed` and is not a draft (`gh pr view <number> --json labels,isDraft`).
+    Infer the target from the current checked-out branch (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's description to infer the target proposal if they gave one; otherwise list the open `#proposed` pull requests and ask the user to choose:
+
+    ```sh
+    gh pr list --label "#proposed" --json number,title,headRefName
+    ```
+
+    Read the document. Check `Status` is `PROPOSED` and the PR carries `#proposed` and is not a draft (`gh pr view <number> --json labels,isDraft`).
 
 2.  **Verify the transition gates above.**
 
@@ -116,6 +116,10 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
     Acceptance is a decision, not a release. The PR stays open until the implementation ships.
 
+-   **Proposals are immutable after merge.**
+
+    While the PR is open — including through implementation — the document and its spec edits MAY still evolve. Once merged at `#released`, only the `Status` field, `Last updated` date, cross-references to related proposals, and implementation trackers may change.
+
 ## Success criteria
 
 - `Status` is `ACCEPTED`, `Last updated` is today's date, and `Approvers` / `Approval date` are filled in.
@@ -128,10 +132,6 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 ## References
 
-- [Contributing guide](../../../CONTRIBUTING.md): The full lifecycle and immutability rules.
+- [General reference information for agents](../../../AGENTS.md)
 
-- [TS-1: Requirements Specification](https://github.com/kieranpotts/standards/tree/dev/src/001), §Definition of Ready: the readiness criteria a requirement must meet before it is accepted for implementation.
-
-- [`release-spec`](../release-spec/SKILL.md): Run once the implementation is live in production.
-
-- [`reject-spec`](../reject-spec/SKILL.md): The other decision transition.
+- [Definition of Ready](../../../docs/definition-of-ready.md): the full readiness checklist this skill verifies at the `PROPOSED` → `ACCEPTED` gate.

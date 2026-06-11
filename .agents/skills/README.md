@@ -1,4 +1,4 @@
-# Skills
+# Agent skills
 
 This repository ships a small set of [agent skills](https://agentskills.io/) — invoked as slash commands through agentic tools such as Claude Code — that automate the proposal workflow.
 
@@ -6,16 +6,16 @@ There is one skill per proposal state transition: `DRAFT` → `PROPOSED` → `AC
 
 The skills are, in lifecycle order:
 
-- **[`/draft-spec`](./draft-spec/)**: Starts a new proposal as a `DRAFT` — scaffolds the branch and document from the template, opens a draft pull request with one type label applied, and opens the associated discussion thread — ready for you to complete.
+- **[`/draft-spec`](./draft-spec/)**: Scaffolds a new draft proposal, ready for the user to complete. Sets up the branch and proposal document from the template, opens a draft pull request and an associated discussion thread.
 
-- **[`/propose-spec`](./propose-spec/)**: `DRAFT` → `PROPOSED` — confirms the proposal document and specification edits are complete and free of leftover template text, applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
+- **[`/propose-spec`](./propose-spec/)**: `DRAFT` → `PROPOSED` — Confirms the proposal document and specification edits are complete and free of leftover template text. Applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
 
-- **[`/accept-spec`](./accept-spec/)**: `PROPOSED` → `ACCEPTED` — verifies the approval gates, sets the document's `Status` to `ACCEPTED`, labels the pull request `#accepted`, and closes the discussion thread. The pull request stays open through implementation until release.
+- **[`/accept-spec`](./accept-spec/)**: `PROPOSED` → `ACCEPTED` — Verifies the approval gates, sets the document's `Status` to `ACCEPTED`, labels the pull request `#accepted`, and closes the discussion thread. The pull request stays open through implementation until release – it is not merged here.
 
-- **[`/release-spec`](./release-spec/)**: `ACCEPTED` → `RELEASED` — once the implementation is live in production, assigns the proposal's number in `INDEX.md`, sets `Status` to `RELEASED`, labels the pull request `#released`, and squash-merges it (on your confirmation).
+- **[`/release-spec`](./release-spec/)**: `ACCEPTED` → `RELEASED` — Sets the document's `Status` to `RELEASED`, labels the pull request `#released`, and squash-merges it to `main`. After the merge, the proposal is assigned a unique number and listed in the proposals index – `proposals/INDEX.md`.
 
-- **[`/reject-spec`](./reject-spec/)**: `PROPOSED` → `REJECTED` — records the rejection: reverts the specification edits, assigns the proposal's number in `INDEX.md`, sets `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges the document (on your confirmation) as a permanent record.
+- **[`/reject-spec`](./reject-spec/)**: `PROPOSED` → `REJECTED` — Reverts the specification edits, sets the document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges it to `main`. After the merge, the proposal is given a unique reference number and listed in the proposals index.
 
-- **[`/supersede-spec`](./supersede-spec/)**: `RELEASED` → `SUPERSEDED` — marks a released proposal as retired once a later (`RELEASED`) proposal has replaced or removed its feature, and sets up cross-references between the two.
+- **[`/supersede-spec`](./supersede-spec/)**: `RELEASED` → `SUPERSEDED` — Marks a released proposal as retired once a newer proposal has replaced or overridden it. Sets up cross-references between the two.
 
-A typical journey runs `/draft-spec` → you write the proposal → `/propose-spec` → stakeholder review → `/accept-spec` → implementation → `/release-spec`, or `/reject-spec` if the decision is not to proceed. Much later, `/supersede-spec` retires a feature that a newer proposal has replaced.
+A typical journey runs `/draft-spec` → the user writes the proposal → `/propose-spec` → stakeholder review → `/accept-spec` (or `/reject-spec` if the decision is not to proceed) → implementation → `/release-spec`. Much later, `/supersede-spec` retires a feature that a newer proposal has replaced.

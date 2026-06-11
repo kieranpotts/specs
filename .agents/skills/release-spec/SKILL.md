@@ -1,12 +1,12 @@
 ---
 name: release-spec
-description: Mark an accepted proposal as released once its implementation is live in production — assign its number in the index, set its status to released, label the PR, and squash-merge it. Use when the user says "release this proposal", "this proposal is live", or "the implementation shipped".
+description: Mark an accepted proposal as released once its implementation is live in production — set its status to released, label the PR, squash-merge it, and assign its number in the index. Use when the user says "release this proposal", "this proposal is live", or "the implementation shipped".
 license: MIT
 ---
 
 # Release proposal
 
-Use this skill to move a proposal from `ACCEPTED` to `RELEASED`, once its implementation is live in production. This is the point at which the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), its specification edits become part of `main`, and the pull request is squash-merged.
+Use this skill to move a proposal from `ACCEPTED` to `RELEASED`, once its implementation is live in production. This is the point at which the proposal's pull request is squash-merged into `main` — its specification edits becoming part of `main` — and the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md).
 
 Do NOT use this skill for any other transition — see [`accept-spec`](../accept-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), [`propose-spec`](../propose-spec/SKILL.md), or [`draft-spec`](../draft-spec/SKILL.md).
 
@@ -34,22 +34,24 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
 1.  **Identify the proposal and confirm it is `ACCEPTED`.**
 
-    Read `proposals/<slug>/README.md`; check `Status` is `ACCEPTED` and the PR carries `#accepted` (`gh pr view <number> --json labels`).
+    Infer the target from the current checked-out branch (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's description to infer the target proposal if they gave one, otherwise list the open `#accepted` pull requests and ask the user to choose:
+
+    ```sh
+    gh pr list --label "#accepted" --json number,title,headRefName
+    ```
+
+    Read the document. Check `Status` is `ACCEPTED` and the PR carries `#accepted` (`gh pr view <number> --json labels`).
 
 2.  **Verify the transition gates above.**
 
     Report any unmet gate and stop.
 
-3.  **Assign the number in the index.**
-
-    Find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this proposal — its number, title, type (`Feature` or `Quality`), `Released` status, the decision (approval) date, and a link to its directory (`proposals/<slug>/`). The number lives only in the index; the proposal's directory is never renamed.
-
-4.  **Update the document.**
+3.  **Update the document.**
 
     - Set `Status` to `RELEASED` and `Last updated` to today's date.
     - Confirm `Implementation trackers` are linked.
 
-5.  **Apply the label.**
+4.  **Apply the label.**
 
     ```sh
     gh pr edit <number> --add-label "#released" --remove-label "#accepted"
@@ -57,18 +59,29 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
     This swaps only the lifecycle label; leave the type label in place.
 
-6.  **Commit.**
+5.  **Commit.**
 
     ```sh
-    git commit -am "chore: release <short lowercase proposal description> (proposal <NNNN>)"
+    git commit -am "chore: release <short lowercase proposal description>"
     ```
 
-7.  **Merge the pull request.**
+6.  **Merge the pull request.**
 
     The specification edits and the proposal document are now ready to land on `main`. Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `<type>: <short lowercase proposal description> - RELEASED` (where `<type>` is `feature`, `quality`, or `epic`):
 
     ```sh
     gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - RELEASED"
+    ```
+
+7.  **After merge, assign the number.**
+
+    The proposal number is assigned only after merge. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this proposal — its number, title, type (`Feature` or `Quality`), `Released` status, the decision (approval) date, and a link to its directory (`proposals/<slug>/`). The number lives only in the index; the proposal's directory is never renamed.
+
+    Commit this directly to `main`, and push:
+
+    ```sh
+    git commit -am "chore: assign proposal <number>"
+    git push
     ```
 
     A released proposal stays in effect until a later proposal supersedes it.
@@ -91,16 +104,14 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
 ## Success criteria
 
-- A `proposals/INDEX.md` row is added for the proposal, with the next sequential number and `RELEASED` status.
-
 - `Status` is `RELEASED` and `Last updated` is today's date.
 
 - The PR carries `#released` (and its type label), not `#accepted`.
 
-- The specification edits are intact on the branch, squash-merged into `main`.
+- The specification edits and the proposal document are squash-merged into `main`.
+
+- After merge: a `proposals/INDEX.md` entry is added on `main`, with the next sequential number and `Released` status.
 
 ## References
 
-- [Contributing guide](../../../CONTRIBUTING.md): The full lifecycle and immutability rules.
-
-- [`accept-spec`](../accept-spec/SKILL.md): The transition that precedes release.
+- [General reference information for agents](../../../AGENTS.md)

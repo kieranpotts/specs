@@ -6,21 +6,23 @@ Practical guidance for writing proposals and maintaining the specification.
 
 A proposal SHOULD capture one feature or one quality requirement that can be reviewed, decided, and shipped independently of any other. Atomic proposals are easier to reason about, quicker to decide, and cleaner to record in the log.
 
-When several changes genuinely depend on one another, keep them as separate proposals and group them under an `EPIC` pull request, linking each child proposal into the epic via the epic's `Depends on` field.
+When several changes genuinely depend on one another, keep them as separate proposals and group them under an epic, linking each child proposal into the epic via the epic's `Depends on` field.
 
 ## Specify the end state, not a changelog
 
 A proposal's specification edits SHOULD describe the system as it will be once the change has shipped. It SHOULD NOT specify the steps necessary to get to that end state.
 
-Write "authenticated callers can filter the catalog by species," not "we will add a species filter."
-
 The diff against `main` already shows what is changing. The prose SHOULD read as a description of the destination, so that when the proposal is released the specification is simply true.
 
 How the change is rolled out — migration steps, sequencing, feature flags — is an implementation concern and does not belong in the SRS.
 
+## Write from the perspective of users
+
+Write "authenticated callers can filter the catalog by species," not "we will add a species filter."
+
 ## Write functional requirements as testable scenarios
 
-Functional requirements SHOULD be defined as [Gherkin](https://cucumber.io/docs/gherkin/) scenarios. Each scenario is an acceptance criterion, a concrete, observable behavior that can be checked against the running system.
+Functional requirements SHOULD be defined as [Gherkin](https://cucumber.io/docs/gherkin/) scenarios. Each scenario is an acceptance criterion -- a concrete, observable behavior that can be checked against the running system.
 
 Keep scenarios concrete. Prefer "then the response contains at most 10 pet records" over "then a reasonable number of records is returned."
 
@@ -62,13 +64,7 @@ Write the `Motivation`, `Alternatives`, and `Tradeoffs and risks` sections of a 
 
 ## Accept only what is ready to build
 
-Accepting a proposal queues it for implementation, so a proposal SHOULD NOT be accepted until its requirement is ready to be built. This is the *Definition of Ready* — a short checklist confirming the requirement is well-formed, applied at the `PROPOSED` → `ACCEPTED` gate:
-
-- The requirements are clear and sufficiently unambiguous.
-
-- Functional acceptance criteria are stated as testable Gherkin scenarios; quality requirements are stated as measurable thresholds.
-
-- The work can be implemented in small increments.
+Accepting a proposal queues it for implementation, so a proposal SHOULD NOT be accepted until its requirement is ready to be built. This is checked at the `PROPOSED` → `ACCEPTED` gate against the [Definition of Ready](./definition-of-ready.md) — a short checklist confirming the requirement is clear, testable, and buildable.
 
 A proposal can be a good idea yet not be ready to build. When that is the case, send it back for refinement rather than accepting it.
 

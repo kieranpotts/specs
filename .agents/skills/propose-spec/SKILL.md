@@ -48,7 +48,13 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 1.  **Identify the proposal and its PR.**
 
-    Read `proposals/<slug>/README.md` and find its PR (`gh pr view <number> --json isDraft,labels` if needed).
+    Infer the target from the current checked-out branch (`proposal/<slug>` or `epic/<slug>`). If on `main`, list all open draft pull requests and ask the user to choose:
+
+    ```sh
+    gh pr list --draft --json number,title,headRefName
+    ```
+
+    Then checkout the branch, read the proposal document (`proposals/<slug>/README.md`), and confirm its PR (`gh pr view <number> --json isDraft,labels`) if needed.
 
 2.  **Verify the transition gates above.**
 
@@ -76,6 +82,7 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
     ```sh
     git commit -am "chore: mark <short lowercase proposal description> ready for review"
+    git push
     ```
 
 ## Rules
@@ -98,8 +105,6 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 ## References
 
-- [Contributing guide](../../../CONTRIBUTING.md): The full proposal lifecycle.
+- [General reference information for agents](../../../AGENTS.md)
 
-- [`draft-spec`](../draft-spec/SKILL.md): Scaffolds the proposal and opens the draft PR.
-
-- [`accept-spec`](../accept-spec/SKILL.md) / [`reject-spec`](../reject-spec/SKILL.md): Decide a proposed proposal.
+- [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md)

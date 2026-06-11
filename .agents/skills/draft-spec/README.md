@@ -4,7 +4,14 @@ Scaffolds a new proposal and opens it as a draft pull request.
 
 ## What it does
 
-Creates a `proposal/<slug>` branch (or `epic/<slug>` for EPICs) from `main`, copies `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`, fills in the metadata header (authors, dates, `Status: DRAFT`), identifies the specification files that will need editing, opens a **draft pull request** with one type label (`FEATURE`, `QUALITY`, or `EPIC`), and opens the associated discussion thread.
+- Creates a `proposal/<slug>` branch (or `epic/<slug>` for EPICs).
+- Copies `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`.
+- Fills in the metadata header (authors, dates, `Status: DRAFT`).
+- Identifies the specification files that will need editing.
+- Commits and pushes the change.
+- Opens a draft pull request with one type label: `FEATURE`, `QUALITY`, or `EPIC`.
+- Opens a discussion thread.
+- Creates cross-references between the discussion and the PR.
 
 ## How to invoke
 
@@ -12,18 +19,16 @@ Creates a `proposal/<slug>` branch (or `epic/<slug>` for EPICs) from `main`, cop
 /draft-spec
 ```
 
-Optionally include the slug and type upfront:
+Optionally describe the requirement:
 
 ```
-/draft-spec user-session-timeout feature
+/draft-spec user session timeout
 ```
 
 ## Examples
 
-- `/draft-spec`: Agent asks for the slug and type, then scaffolds the branch, document, draft PR, and discussion.
+- `/draft-spec`: Agent will prompt you for the information it needs to prepare a draft PR, then scaffolds the branch, document, PR, and discussion.
 
-- `/draft-spec password-complexity-rules feature`: Scaffolds immediately as a FEATURE proposal.
+- `/draft-spec <Description>`: Scaffolds immediately based on your description of the requirement.
 
-- `/draft-spec api-response-time quality`: Scaffolds a QUALITY proposal.
-
-- `/draft-spec petstore-v2 epic`: Scaffolds an EPIC proposal on an `epic/petstore-v2` branch.
+You will need to complete the proposal document and specification edits yourself. Once you've done that, use [`propose-spec`](../propose-spec/README.md) to mark the PR as "ready for review".

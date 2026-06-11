@@ -100,6 +100,6 @@ The proposal being superseded MUST currently be `RELEASED`. Confirm **all** of t
 
 ## References
 
-- [Contributing guide](../../../CONTRIBUTING.md): The full lifecycle and immutability rules.
+- [General reference information for agents](../../../AGENTS.md)
 
 - [`release-spec`](../release-spec/SKILL.md): How both the superseded proposal and its successor reached `#released`.

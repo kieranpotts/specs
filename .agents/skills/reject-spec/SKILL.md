@@ -32,7 +32,13 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 1.  **Confirm the proposal and the decision.**
 
-    Identify `proposals/<slug>/README.md` and its PR. Confirm with the user that the review is concluded and the decision is to reject. Do not proceed until this is explicit.
+    Infer the target from the current checked-out branch (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's description to infer the target proposal if they gave one; otherwise list the open `#proposed` pull requests and ask the user to choose:
+
+    ```sh
+    gh pr list --label "#proposed" --json number,title,headRefName
+    ```
+
+    Identify the document and PR. Confirm with the user that review is concluded and the decision is to reject. Do not proceed until this is explicit.
 
 2.  **Verify the transition gates above.**
 
@@ -62,11 +68,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
     - Ensure the document captures the rationale for the rejection.
     - Do not alter any other field — the document is immutable after this point.
 
-6.  **Assign the number in the index.**
-
-    A rejected proposal is archived in the ordered log like any other, so it takes the next number at merge. Find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, zero-pad to four digits, and add a row — its number, title, type, `REJECTED` status, the rejection date, and a link to its directory (`proposals/<slug>/`). The proposal directory is never renamed.
-
-7.  **Close the associated discussion thread.**
+6.  **Close the associated discussion thread.**
 
     A decided proposal's discussion is closed. Find the discussion linked in the `Discussion thread` field and close it as resolved via the GraphQL API:
 
@@ -82,27 +84,38 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
       }' -F id=<discussionId>
     ```
 
-8.  **Apply the label.**
+7.  **Apply the label.**
 
     ```sh
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-9.  **Commit.**
+8.  **Commit.**
 
     ```sh
     git add proposals/ specification/
-    git commit -m "chore: reject <short lowercase proposal description> (proposal <NNNN>)"
+    git commit -m "chore: reject <short lowercase proposal description>"
     ```
 
-    The PR should now contain only the proposal document and the index row (no spec changes).
+    The PR should now contain only the proposal document (no spec changes).
 
-10. **Merge the pull request.**
+9.  **Merge the pull request.**
 
     Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `<type>: <short lowercase proposal description> - REJECTED` (where `<type>` is `feature`, `quality`, or `epic`):
 
     ```sh
     gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED"
+    ```
+
+10. **After merge, assign the number.**
+
+    The proposal number is assigned only after merge. A rejected proposal is archived in the ordered log like any other, so it takes the next number. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits. Add a row — its number, title, type, `Rejected` status, the rejection date, and a link to its directory (`proposals/<slug>/`). The proposal directory is never renamed.
+
+    Commit this directly to `main`, and push:
+
+    ```sh
+    git commit -am "chore: assign next proposal number"
+    git push
     ```
 
 ## Rules
@@ -125,18 +138,16 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 - No files under `specification/` are changed on this branch relative to `main` after the revert.
 
-- A `proposals/INDEX.md` row is added with the next sequential number and `REJECTED` status.
-
 - The PR carries `#rejected` (and its type label), the `## Status` section reads `REJECTED`, and `Last updated` is today's date.
 
 - The associated discussion thread is closed.
+
+- The proposal document is squash-merged into `main`.
+
+- After merge: a `proposals/INDEX.md` entry is added on `main`, with the next sequential number and `Rejected` status.
 
 - The user has explicitly confirmed the rejection decision before any changes were made.
 
 ## References
 
-- [Contributing guide](../../../CONTRIBUTING.md): The lifecycle, rejection path, and immutability rules.
-
-- [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md): The rejection gates.
-
-- [`accept-spec`](../accept-spec/SKILL.md): The acceptance path.
+- [General reference information for agents](../../../AGENTS.md)
