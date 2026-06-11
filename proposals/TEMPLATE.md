@@ -3,7 +3,7 @@
 - Authors: Your Name [@your-github-handle], ...
 - Created: YYYY-MM-DD
 - Last updated: YYYY-MM-DD
-- Approvers:
+- Decided by:
 - Decision date:
 - Proposal PR: #...
 - Discussion thread:
@@ -15,12 +15,12 @@ DRAFT | PROPOSED | ACCEPTED | REJECTED | RELEASED | SUPERSEDED
 
 ## Related
 
-<!-- Reference other proposals by their proposals/INDEX.md number, eg. 0001 (no `#` — that prefix is reserved for GitHub PRs and issues). A proposal earns its number only after merge, so leave these blank until the referenced proposal is merged. -->
+<!-- Reference a merged proposal by its proposals/INDEX.md number, eg. 0001; reference a proposal that is not yet merged (so has no index number) by its pull request number, eg. #42. `Supersedes`/`Superseded by` always point to merged proposals, so use index numbers. `Depends on`/`Related to` usually point to proposals still in flight, so use PR numbers. -->
 
 - Supersedes NNNN
 - Superseded by NNNN
-- Depends on NNNN
-- Related to NNNN
+- Depends on #...
+- Related to #...
 
 ## Summary
 

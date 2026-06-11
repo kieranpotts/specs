@@ -53,7 +53,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
     - `Authors`: the Git user's name and GitHub handle (run `git config user.name` if needed).
     - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
-    - Leave `Approvers`, `Decision date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
+    - Leave `Decided by`, `Decision date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
 
     Leave the prose sections as the template placeholders for the proposer to complete.
 

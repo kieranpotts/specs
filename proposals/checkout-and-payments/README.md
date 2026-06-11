@@ -3,7 +3,7 @@
 - Authors: Kieran Potts [@kieranpotts]
 - Created: 2024-09-10
 - Last updated: 2024-10-30
-- Approvers: Kieran Potts
+- Decided by: Kieran Potts
 - Decision date: 2024-10-28
 - Proposal PR: #21
 - Discussion thread: https://github.com/kieranpotts/specs/discussions/22
@@ -17,8 +17,8 @@ REJECTED
 
 - Supersedes NNNN
 - Superseded by NNNN
-- Depends on 0003
-- Related to 0001
+- Depends on #14
+- Related to #2
 
 ## Summary
 
