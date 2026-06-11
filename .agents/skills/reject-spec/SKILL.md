@@ -65,6 +65,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 5.  **Update the document.**
 
     - Set `Status` to `REJECTED` and `Last updated` to today's date.
+    - Set `Decision date` to the date the rejection was decided.
     - Ensure the document captures the rationale for the rejection.
     - Do not alter any other field — the document is immutable after this point.
 
@@ -109,7 +110,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 10. **After merge, assign the number.**
 
-    The proposal number is assigned only after merge. A rejected proposal is archived in the ordered log like any other, so it takes the next number. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits. Add a row — its number, title, type, `Rejected` status, the rejection date, and a link to its directory (`proposals/<slug>/`). The proposal directory is never renamed.
+    The proposal number is assigned only after merge. A rejected proposal is archived in the ordered log like any other, so it takes the next number. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits. Add a row — its number, title, type, `Rejected` status, the decision date (its `Decision date`, ie. the rejection date), and a link to its directory (`proposals/<slug>/`). The proposal directory is never renamed.
 
     Commit this directly to `main`, and push:
 

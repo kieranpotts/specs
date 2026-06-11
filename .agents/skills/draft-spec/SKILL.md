@@ -53,7 +53,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
     - `Authors`: the Git user's name and GitHub handle (run `git config user.name` if needed).
     - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
-    - Leave `Approvers`, `Approval date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
+    - Leave `Approvers`, `Decision date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
 
     Leave the prose sections as the template placeholders for the proposer to complete.
 
@@ -148,7 +148,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
 -   **Do not assign a numeric ID.**
 
-    Proposal numbers are assigned only in `proposals/INDEX.md`, at merge.
+    Proposal numbers are assigned only in `proposals/INDEX.md`, after merge.
 
 -   **The specification edits describe the final state, not a diff.**
 

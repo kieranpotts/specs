@@ -4,7 +4,7 @@
 - Created: YYYY-MM-DD
 - Last updated: YYYY-MM-DD
 - Approvers:
-- Approval date:
+- Decision date:
 - Proposal PR: #...
 - Discussion thread:
 - Implementation trackers:
@@ -15,10 +15,12 @@ DRAFT | PROPOSED | ACCEPTED | REJECTED | RELEASED | SUPERSEDED
 
 ## Related
 
-- Supersedes #...
-- Superseded by #...
-- Depends on #...
-- Related to #...
+<!-- Reference other proposals by their proposals/INDEX.md number, eg. 0001 (no `#` — that prefix is reserved for GitHub PRs and issues). A proposal earns its number only after merge, so leave these blank until the referenced proposal is merged. -->
+
+- Supersedes NNNN
+- Superseded by NNNN
+- Depends on NNNN
+- Related to NNNN
 
 ## Summary
 

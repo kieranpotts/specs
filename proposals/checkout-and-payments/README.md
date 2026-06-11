@@ -4,7 +4,7 @@
 - Created: 2024-09-10
 - Last updated: 2024-10-30
 - Approvers: Kieran Potts
-- Approval date: 2024-10-28
+- Decision date: 2024-10-28
 - Proposal PR: #21
 - Discussion thread: https://github.com/kieranpotts/specs/discussions/22
 - Implementation trackers: —
@@ -15,10 +15,10 @@ REJECTED
 
 ## Related
 
-- Supersedes #...
-- Superseded by #...
-- Depends on #14
-- Related to #1
+- Supersedes NNNN
+- Superseded by NNNN
+- Depends on 0003
+- Related to 0001
 
 ## Summary
 

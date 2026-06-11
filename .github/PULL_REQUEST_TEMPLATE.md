@@ -37,8 +37,8 @@ Move from **`#accepted`** to **`#released`**, and merge this PR, when:
 - [ ] The implementation is released into production.
 - [ ] The specification matches the final implementation in production.
 - [ ] The proposal document's status is set to `RELEASED`.
-- [ ] The proposal is added to `proposals/INDEX.md` with the next sequential number.
 - [ ] The PR is squash-merged, with subject `<type>: <description> - RELEASED`.
+- [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on `main` with the next sequential number.
 
 Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:
 
@@ -48,9 +48,9 @@ Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:
 - [ ] The updates to the specification artifacts are reverted.
 - [ ] Only the proposal document remains in the diff with `main`.
 - [ ] The proposal document's status is set to `REJECTED`, and it captures the rationale for that decision.
-- [ ] The proposal is added to `proposals/INDEX.md` with the next sequential number.
 - [ ] The associated discussion thread is closed.
 - [ ] The PR is squash-merged, with subject `<type>: <description> - REJECTED`.
+- [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on `main` with the next sequential number.
 
 > [!IMPORTANT]
 > Rejected proposals' specification edits MUST NOT be merged to `main`, because the `main` trunk represents the as-is state of the production system. Only the `REJECTED` proposal document is merged, capturing the rationale for the decision and preserving the history of the proposal's evolution.

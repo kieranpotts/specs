@@ -75,7 +75,7 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 
 7.  **After merge, assign the number.**
 
-    The proposal number is assigned only after merge. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this proposal — its number, title, type (`Feature` or `Quality`), `Released` status, the decision (approval) date, and a link to its directory (`proposals/<slug>/`). The number lives only in the index; the proposal's directory is never renamed.
+    The proposal number is assigned only after merge. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this proposal — its number, title, type (`Feature` or `Quality`), `Released` status, the proposal's `Decision date`, and a link to its directory (`proposals/<slug>/`). The number lives only in the index; the proposal's directory is never renamed.
 
     Commit this directly to `main`, and push:
 

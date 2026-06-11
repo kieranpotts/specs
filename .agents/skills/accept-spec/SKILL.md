@@ -63,7 +63,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 3.  **Update the document.**
 
     - Set `Status` to `ACCEPTED` and `Last updated` to today's date.
-    - Fill in `Approvers` and `Approval date`.
+    - Fill in `Approvers` and `Decision date` (the approval date).
     - Confirm `Proposal PR` is set, and link any `Implementation trackers` as they are created.
 
     Do **not** assign a number — that happens at merge, in [`release-spec`](../release-spec/SKILL.md).
@@ -122,7 +122,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 ## Success criteria
 
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Approvers` / `Approval date` are filled in.
+- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Approvers` / `Decision date` are filled in.
 
 - The PR carries `#accepted` (and its type label), not `#proposed`, and remains open.
 

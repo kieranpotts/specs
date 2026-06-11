@@ -88,7 +88,7 @@ A pull request is the formal vehicle for a proposal. Open it as soon as you are 
 
 - MUST write in American English.
 
-- The `main` trunk is the default branch. The artifacts in the[`specification/`](./specification/) directory on `main` are the authoritative record of the system as it exists in production right now. This is the authoritative record of the current state of the system.
+- The `main` trunk is the default branch. The artifacts in the [`specification/`](./specification/) directory on `main` are the authoritative record of the system as it exists in production right now.
 
 - Proposals are developed on `proposal/<slug>` branches cut from `main`, and integrated back into `main` via pull requests. A proposal's pull request stays open until the corresponding changes in code and configuration are in production. It is not enough for a proposal to be approved; the changes MUST also be designed, built, tested, and released before the proposal is considered "done" and its pull request is merged. Thus the `main` specification stays current with production.
 
@@ -106,7 +106,7 @@ A pull request is the formal vehicle for a proposal. Open it as soon as you are 
 
 - Once a requirement is `PROPOSED`, from this point on in its lifecycle, the author SHOULD NOT make further material changes to the proposed specifications, except in response to reviewer feedback.
 
-- A proposal is assigned a sequential number at merge, recorded in [`proposals/INDEX.md`](./proposals/INDEX.md). The number lives only in the index.
+- A proposal is assigned a sequential number after merge, recorded in [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-`main` commit. The number lives only in the index.
 
 - Proposal branches are squash-merged into `main`. The message of the squash commit MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is a short prose title of the proposal, written full lowercase (eg. `feature: time out idle user sessions - RELEASED`). A released proposal merges at `#released`; a rejected one at `#rejected`.
 

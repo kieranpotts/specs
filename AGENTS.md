@@ -40,9 +40,9 @@ Each proposal moves through a defined state machine:
 
 - `ACCEPTED`: The proposal is approved and the work is queued for implementation. The discussion thread is closed. The pull request stays open until the implementation reaches production. The proposal document and accompanying specification edits MAY continue to evolve during the implementation period.
 
-- `REJECTED`: The proposal is not being taken forward. Its specification edits are reverted, its number is recorded in `proposals/INDEX.md`, and only the proposal document is merged into `main`, preserved permanently as the record of the decision and its rationale.
+- `REJECTED`: The proposal is not being taken forward. Its specification edits are reverted, and only the proposal document is merged into `main`, preserved permanently as the record of the decision and its rationale. After the merge, its number is recorded in `proposals/INDEX.md`.
 
-- `RELEASED`: The implementation is live in production. The specification edits are merged into `main`, and the proposal is given its number in `proposals/INDEX.md`. A released decision stays in effect until a later proposal supersedes it.
+- `RELEASED`: The implementation is live in production. The specification edits are merged into `main`, and after the merge the proposal is given its number in `proposals/INDEX.md`. A released decision stays in effect until a later proposal supersedes it.
 
 - `SUPERSEDED`: The proposal was previously released but is no longer in effect, because a later released proposal has replaced or removed its feature.
 
@@ -87,7 +87,7 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - A proposal MUST NOT be merged into `main` until it has been decided — either released or rejected.
 
-- A sequential number is assigned at merge and recorded in [`proposals/INDEX.md`](./proposals/INDEX.md). The number lives only in the index.
+- A sequential number is assigned after merge and recorded in [`proposals/INDEX.md`](./proposals/INDEX.md), in a direct-to-`main` commit. The number lives only in the index.
 
 - Proposal branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is the prose proposal title, not the branch slug (eg. `feature: time out idle user sessions - RELEASED`). Released proposals merge at `#released`; rejected ones at `#rejected`.
 

@@ -4,7 +4,7 @@ Approves a proposed proposal (`PROPOSED` → `ACCEPTED`).
 
 ## What it does
 
-Verifies the approval gates, sets the document to `ACCEPTED` (filling in `Approvers` and `Approval date`), swaps the `#proposed` label for `#accepted`, and closes the associated discussion thread. The pull request **stays open** through implementation; no number is assigned until release.
+Verifies the approval gates, sets the document to `ACCEPTED` (filling in `Approvers` and `Decision date`), swaps the `#proposed` label for `#accepted`, and closes the associated discussion thread. The pull request **stays open** through implementation; no number is assigned until release.
 
 ## How to invoke
 
