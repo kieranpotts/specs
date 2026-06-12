@@ -23,7 +23,7 @@ The states are:
 
 - `PROPOSED`: The proposal is complete and open for a decision. The idea is now formally reviewed and negotiated with relevant stakeholders (both technical and non-technical).
 
-- `ACCEPTED`: The proposal has been approved by the product managers. The pull request remains open until the implementation is released to production. The specification documents may continue to evolve during this period — in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs — with feedback continuing on the still-open discussion thread.
+- `ACCEPTED`: The proposal has been approved by the product managers. The pull request remains open until the implementation is released to production. The specification documents may continue to evolve during this period – in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs – with feedback continuing on the still-open discussion thread.
 
 - `REJECTED`: The proposal will not be taken forward. The accompanying specification edits are reverted, but the proposal document is preserved and merged to `main`. After merge, the proposal is given a unique reference and listed in the [proposals index](./proposals/INDEX.md). Thus, all proposed changes to the software requirements specifications, whether ultimately accepted or rejected, are preserved indefinitely as a record of the decision and its rationale. But the actual requirements specification in `main` always reflects the current as-is production system, and captures no traces of rejected or superseded specifications.
 
@@ -68,19 +68,19 @@ A pull request is the formal vehicle for a proposal. Open it as a draft as soon 
 
 1. Branch off `main` as `proposal/<slug>` for a feature or quality proposal, or as `epic/<slug>` for an epic. (An epic is a special case, encapsulating multiple interdependent proposals for easier tracking of dependencies.)
 
-2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`. The proposal lives in its own directory, so you may add supporting artifacts — wireframes, mock-ups, data — alongside the `README.md` and link them from its `References` section. Fill it out, describing the change in full — the rationale, the impact on the business and its customers, and the alternatives considered. (You will link the discussion thread, opened in step 2, via the `Discussion thread` field.)
+2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`. The proposal lives in its own directory, so you may add supporting artifacts – wireframes, mock-ups, data – alongside the `README.md` and link them from its `References` section. Fill it out, describing the change in full – the rationale, the impact on the business and its customers, and the alternatives considered. (You will link the discussion thread, opened in step 2, via the `Discussion thread` field.)
 
 3. Edit the [`specification/`](./specification/) artifacts to reflect the intended final state of the system after the change ships. You may add, modify, or delete specification artifacts as needed to describe the desired end state.
 
-4. Commit your changes and open the pull request as a draft, titled `feature: <description>`, `quality: <description>`, or `epic: <description>`, where `<description>` is a short prose title, written full lower case. Apply exactly one type label to the PR — `FEATURE`, `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the horizontal rule). Leave the checklist for now.
+4. Commit your changes and open the pull request as a draft, titled `feature: <description>`, `quality: <description>`, or `epic: <description>`, where `<description>` is a short prose title, written full lower case. Apply exactly one type label to the PR – `FEATURE`, `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the horizontal rule). Leave the checklist for now.
 
 ### Step 2: Open a discussion thread (REQUIRED)
 
 Every proposal has an associated discussion thread where _all_ review feedback is gathered. This keeps the pull request focused on the evolution of the proposal document and the specification edits.
 
-Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (feature, quality, or epic). It MUST exist by the time the pull request is marked ready for review; you MAY open it earlier — even before the pull request — to brainstorm before a firm proposal exists. Link the discussion and the pull request to each other, recording the thread in the proposal document's `Discussion thread` field. The thread stays open for the life of the proposal and is closed when the PR is merged.
+Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (feature, quality, or epic). It MUST exist by the time the pull request is marked ready for review; you MAY open it earlier – even before the pull request – to brainstorm before a firm proposal exists. Link the discussion and the pull request to each other, recording the thread in the proposal document's `Discussion thread` field. The thread stays open for the life of the proposal and is closed when the PR is merged.
 
-(The GitHub issue tracker is _not_ used for proposals — it is reserved for repository maintenance only.)
+(The GitHub issue tracker is _not_ used for proposals – it is reserved for repository maintenance only.)
 
 ### Step 3: Request a decision
 
@@ -96,11 +96,11 @@ Keep the pull request in draft while you refine it. When the document and spec e
 
 - If a product proposal is ultimately rejected, the proposal document is merged to `main` but any edits made via the PR to the specification artifacts are reverted before the merge. A rejected proposal leaves the system unchanged. The system's specification did not change, though we capture the decision anyway.
 
-- Every proposal pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
+- Every proposal pull request MUST carry exactly one type label – `FEATURE`, `QUALITY`, or `EPIC` – matching the kind of change.
 
-- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change — one requirement that can be reviewed, decided, and shipped independently of any other. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <description>` or `quality: <description>`.
+- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change – one requirement that can be reviewed, decided, and shipped independently of any other. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <description>` or `quality: <description>`.
 
-- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives — for example, specifying a greenfield system from scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
+- An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives – for example, specifying a greenfield system from scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
 - Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed when the PR is merged.
 

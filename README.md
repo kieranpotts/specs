@@ -29,7 +29,7 @@ This repository is one of four that form a coherent, version-controlled document
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
-This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository — a small utility library, say — it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
+This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository – a small utility library, say – it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
 
 ## Contents
 
@@ -37,7 +37,7 @@ This separation into dedicated repositories is intended for application software
 
 - [**Proposals**](./proposals/): A permanent archive of every major proposed change to the specification, including those that were ultimately rejected.
 
-  - The [`INDEX`](./proposals/INDEX.md) lists all merged proposals — released, rejected, and superseded. (Open proposals are tracked via the [pull requests](https://github.com/kieranpotts/specs/pulls) system.)
+  - The [`INDEX`](./proposals/INDEX.md) lists all merged proposals – released, rejected, and superseded. (Open proposals are tracked via the [pull requests](https://github.com/kieranpotts/specs/pulls) system.)
 
   - The [`TEMPLATE`](./proposals/TEMPLATE.md) is the starting point for a new proposal.
 

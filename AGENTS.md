@@ -1,10 +1,10 @@
-# [Project Name] — Software Requirements Specification
+# [Project Name] – Software Requirements Specification
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and [agent skills](./.agents/skills/) definitions, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Project overview
 
-This repository holds the software requirements specification (SRS) for [Project Name] — _what_ the system does, defined in business terms. It is documentation, not code. There's nothing to build, lint, or run.
+This repository holds the software requirements specification (SRS) for [Project Name] – _what_ the system does, defined in business terms. It is documentation, not code. There's nothing to build, lint, or run.
 
 The SRS is implementation-agnostic. Decisions about _how_ the system is built are recorded separately. It SHOULD be possible to implement the system in any technology stack without changing the specification.
 
@@ -18,10 +18,10 @@ Changes are introduced through proposals. The [specification](./specification/) 
     - `constraints/`: Regulatory and legal constraints, dependencies.
     - `glossary/`: The domain's ubiquitous language.
     - `model/`: Domain entities and their relationships.
-    - `actors/`: Actors that interact with the system (definitions only — no permissions).
+    - `actors/`: Actors that interact with the system (definitions only – no permissions).
   - `requirements/`: Expected behaviors and qualities. Prescriptive.
     - `behaviors/`: Capabilities exposed and rules enforced.
-      - `access/`: Permissions matrix — which actors have which capabilities.
+      - `access/`: Permissions matrix – which actors have which capabilities.
       - `rules/`: Business rules, invariants, entity lifecycles.
       - `features/`: Functional requirements, Gherkin notation.
       - `journeys/`: User journeys – wireframes or call-sequences.
@@ -65,7 +65,7 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - The [specification artifacts](./specification/) on the `main` trunk (the default branch) MUST describe the production system as it exists now. It is the authoritative record of the current state of the system.
 
-- Changes to specification artifacts MUST be introduced via proposal PRs. The specification changes MUST describe the intended final state after the changes are shipped, NOT a changelog of how to get to that end state — that's an implementation detail.
+- Changes to specification artifacts MUST be introduced via proposal PRs. The specification changes MUST describe the intended final state after the changes are shipped, NOT a changelog of how to get to that end state – that's an implementation detail.
 
 - A proposal MUST NOT be accepted unless its requirement meets the [Definition of Ready](./docs/definition-of-ready.md). A sound-but-incomplete proposal is sent back for refinement, not accepted.
 
@@ -73,27 +73,27 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - Functional requirements MUST be specified as Gherkin scenarios. Each scenario MUST be a concrete, testable acceptance criterion.
 
-- Non-functional requirements SHOULD be specified as measurable thresholds, not vague aspirations. Scope is the system's dynamic (runtime, externally-observable) qualities only — not static qualities of the code and design, which are out of scope for the specification.
+- Non-functional requirements SHOULD be specified as measurable thresholds, not vague aspirations. Scope is the system's dynamic (runtime, externally-observable) qualities only – not static qualities of the code and design, which are out of scope for the specification.
 
-- Every proposal pull request MUST be labeled with exactly one type — `FEATURE`, `QUALITY`, or `EPIC` — matching the kind of change.
+- Every proposal pull request MUST be labeled with exactly one type – `FEATURE`, `QUALITY`, or `EPIC` – matching the kind of change.
 
-- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change — one requirement reviewable, decidable, and shippable independently. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <description>` or `quality: <description>`. The `<description>` is a short prose title of the proposal, written full lowercase — not the hyphenated branch slug (eg. PR title `feature: time out idle user sessions`, branch `proposal/user-session-timeout`). The slug is used only for the branch name and the proposal directory (`proposals/<slug>/`).
+- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change – one requirement reviewable, decidable, and shippable independently. Author it on a `proposal/<slug>` branch cut from `main`, and open a pull request titled `feature: <description>` or `quality: <description>`. The `<description>` is a short prose title of the proposal, written full lowercase – not the hyphenated branch slug (eg. PR title `feature: time out idle user sessions`, branch `proposal/user-session-timeout`). The slug is used only for the branch name and the proposal directory (`proposals/<slug>/`).
 
 - An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives (eg. a greenfield system). Author it on an `epic/<slug>` branch cut from `main`, with a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
 - Every proposal pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft) and used for all review feedback. The thread is closed when the PR is merged.
 
-- The current lifecycle state of a proposal is tracked via a lifecycle label on the PR — `#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`. A pull request is opened initially as a draft while the document is refined.
+- The current lifecycle state of a proposal is tracked via a lifecycle label on the PR – `#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`. A pull request is opened initially as a draft while the document is refined.
 
 - A pull request MUST be opened initially as a draft. The author marks the PR ready for review, and applies the `#proposed` label, once the document and spec edits are complete.
 
-- A proposal MUST NOT be merged into `main` until it has been decided — either released or rejected.
+- A proposal MUST NOT be merged into `main` until it has been decided – either released or rejected.
 
 - A sequential number is assigned after merge and recorded in [`proposals/INDEX.md`](./proposals/INDEX.md), in a direct-to-`main` commit. The number lives only in the index.
 
 - Proposal branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is the prose proposal title, not the branch slug (eg. `feature: time out idle user sessions - RELEASED`). Released proposals merge at `#released`; rejected ones at `#rejected`.
 
-- While a proposal PR is open, its document and accompanying spec edits MAY be updated at any point. Once merged into `main` — so after `#released` for accepted proposals, or following the `#rejected` decision for rejected ones — it MUST be treated as immutable. To revisit a decision already merged to `main`, open a new proposal that supersedes the original.
+- While a proposal PR is open, its document and accompanying spec edits MAY be updated at any point. Once merged into `main` – so after `#released` for accepted proposals, or following the `#rejected` decision for rejected ones – it MUST be treated as immutable. To revisit a decision already merged to `main`, open a new proposal that supersedes the original.
 
 - Never delete a proposal document, including rejected ones.
 
