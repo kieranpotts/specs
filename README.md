@@ -19,13 +19,13 @@ The SRS is distinct from a PRD. A product requirements document is a precursor a
 
 This repository is one of four that form a coherent, version-controlled documentation ecosystem modeling the software development lifecycle. Each is the reference implementation of an opinionated workflow, and answers a different question about the system:
 
-- **📋 Software requirements specification (SRS)**: Records _what_ the system does, in business terms (this repository).
+- **📋 Software Requirements Specification (SRS)**: Records _what_ the system does, in business terms (this repository).
 
-- [**💬 Requests for comments (RFC)**](https://github.com/kieranpotts/rfc): Records _how_ significant technical decisions were made, and _why_.
+- [**💬 Requests for Comments (RFC)**](https://github.com/kieranpotts/rfc): Records _how_ significant technical decisions were made, and _why_.
 
-- [**📐 Design docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
+- [**📐 Design Docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
 
-- [**🗺️ Implementation plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
+- [**🗺️ Implementation Plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
