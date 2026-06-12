@@ -38,7 +38,7 @@ Each proposal moves through a defined state machine:
 
 - `PROPOSED`: The proposal is complete and open for a decision. The pull request is marked ready for review and labeled `#proposed`. From this point, the author should not make further material changes except in response to reviewer feedback.
 
-- `ACCEPTED`: The proposal is approved and the work is queued for implementation. The discussion thread is closed. The pull request stays open until the implementation reaches production. The proposal document and accompanying specification edits MAY continue to evolve during the implementation period.
+- `ACCEPTED`: The proposal is approved and the work is queued for implementation. The pull request stays open until the implementation reaches production. The proposal document and accompanying specification edits MAY continue to evolve during the implementation period, with feedback continuing on the still-open discussion thread.
 
 - `REJECTED`: The proposal is not being taken forward. Its specification edits are reverted, and only the proposal document is merged into `main`, preserved permanently as the record of the decision and its rationale. After the merge, its number is recorded in `proposals/INDEX.md`.
 
@@ -79,7 +79,7 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives (eg. a greenfield system). Author it on an `epic/<slug>` branch cut from `main`, with a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
-- Every proposal pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft) and used for all review feedback. The thread is closed when the proposal is accepted or rejected.
+- Every proposal pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft) and used for all review feedback. The thread is closed when the PR is merged.
 
 - The current lifecycle state of a proposal is tracked via a lifecycle label on the PR — `#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`. A pull request is opened initially as a draft while the document is refined.
 

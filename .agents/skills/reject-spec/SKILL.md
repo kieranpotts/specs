@@ -69,9 +69,32 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
     - Ensure the document captures the rationale for the rejection.
     - Do not alter any other field — the document is immutable after this point.
 
-6.  **Close the associated discussion thread.**
+6.  **Apply the label.**
 
-    A decided proposal's discussion is closed. Find the discussion linked in the `Discussion thread` field and close it as resolved via the GraphQL API:
+    ```sh
+    gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
+    ```
+
+7.  **Commit.**
+
+    ```sh
+    git add proposals/ specification/
+    git commit -m "chore: reject <short lowercase proposal description>"
+    ```
+
+    The PR should now contain only the proposal document (no spec changes).
+
+8.  **Merge the pull request.**
+
+    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `<type>: <short lowercase proposal description> - REJECTED` (where `<type>` is `feature`, `quality`, or `epic`):
+
+    ```sh
+    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED"
+    ```
+
+9.  **Close the associated discussion thread.**
+
+    The proposal has merged, so its discussion is now closed. Find the discussion linked in the `Discussion thread` field and close it as resolved via the GraphQL API:
 
     ```sh
     gh api graphql -f query='
@@ -83,29 +106,6 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
       mutation($id:ID!) {
         closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
       }' -F id=<discussionId>
-    ```
-
-7.  **Apply the label.**
-
-    ```sh
-    gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
-    ```
-
-8.  **Commit.**
-
-    ```sh
-    git add proposals/ specification/
-    git commit -m "chore: reject <short lowercase proposal description>"
-    ```
-
-    The PR should now contain only the proposal document (no spec changes).
-
-9.  **Merge the pull request.**
-
-    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `<type>: <short lowercase proposal description> - REJECTED` (where `<type>` is `feature`, `quality`, or `epic`):
-
-    ```sh
-    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED"
     ```
 
 10. **After merge, assign the number.**

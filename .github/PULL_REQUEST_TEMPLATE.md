@@ -29,7 +29,6 @@ Move from **`#proposed`** to **`#accepted`** when:
 - [ ] Final comments have been solicited for at least ___ days, with no material change during that time.
 - [ ] The proposal document's status is set to `ACCEPTED`.
 - [ ] Implementation trackers are captured in the `Implementation trackers` field.
-- [ ] The associated discussion thread is closed.
 
 Move from **`#accepted`** to **`#released`**, and merge this PR, when:
 
@@ -38,6 +37,7 @@ Move from **`#accepted`** to **`#released`**, and merge this PR, when:
 - [ ] The specification matches the final implementation in production.
 - [ ] The proposal document's status is set to `RELEASED`.
 - [ ] The PR is squash-merged, with subject `<type>: <description> - RELEASED`.
+- [ ] The associated discussion thread is closed.
 - [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on `main` with the next sequential number.
 
 Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:

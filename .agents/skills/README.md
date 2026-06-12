@@ -10,9 +10,9 @@ The skills are, in lifecycle order:
 
 - **[`/propose-spec`](./propose-spec/)**: `DRAFT` → `PROPOSED` — Confirms the proposal document and specification edits are complete and free of leftover template text. Applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
 
-- **[`/accept-spec`](./accept-spec/)**: `PROPOSED` → `ACCEPTED` — Verifies the approval gates, sets the document's `Status` to `ACCEPTED`, labels the pull request `#accepted`, and closes the discussion thread. The pull request stays open through implementation until release – it is not merged here.
+- **[`/accept-spec`](./accept-spec/)**: `PROPOSED` → `ACCEPTED` — Verifies the approval gates, sets the document's `Status` to `ACCEPTED`, and labels the pull request `#accepted`. The pull request and its discussion thread stay open through implementation until release – it is not merged here.
 
-- **[`/release-spec`](./release-spec/)**: `ACCEPTED` → `RELEASED` — Sets the document's `Status` to `RELEASED`, labels the pull request `#released`, and squash-merges it to `main`. After the merge, the proposal is assigned a unique number and listed in the proposals index – `proposals/INDEX.md`.
+- **[`/release-spec`](./release-spec/)**: `ACCEPTED` → `RELEASED` — Sets the document's `Status` to `RELEASED`, labels the pull request `#released`, squash-merges it to `main`, and closes the discussion thread. After the merge, the proposal is assigned a unique number and listed in the proposals index – `proposals/INDEX.md`.
 
 - **[`/reject-spec`](./reject-spec/)**: `PROPOSED` → `REJECTED` — Reverts the specification edits, sets the document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges it to `main`. After the merge, the proposal is given a unique reference number and listed in the proposals index.
 

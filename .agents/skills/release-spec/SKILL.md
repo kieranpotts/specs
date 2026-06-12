@@ -73,7 +73,23 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
     gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - RELEASED"
     ```
 
-7.  **After merge, assign the number.**
+7.  **Close the associated discussion thread.**
+
+    The proposal has merged, so its discussion is now closed. Find the discussion linked in the `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
+
+    ```sh
+    gh api graphql -f query='
+      query($owner:String!, $name:String!, $number:Int!) {
+        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
+      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
+
+    gh api graphql -f query='
+      mutation($id:ID!) {
+        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
+      }' -F id=<discussionId>
+    ```
+
+8.  **After merge, assign the number.**
 
     The proposal number is assigned only after merge. On `main`, find the highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this proposal — its number, title, type (`Feature` or `Quality`), `Released` status, the proposal's `Decision date`, and a link to its directory (`proposals/<slug>/`). The number lives only in the index; the proposal's directory is never renamed.
 
@@ -109,6 +125,8 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm *
 - The PR carries `#released` (and its type label), not `#accepted`.
 
 - The specification edits and the proposal document are squash-merged into `main`.
+
+- The associated discussion thread is closed.
 
 - After merge: a `proposals/INDEX.md` entry is added on `main`, with the next sequential number and `Released` status.
 

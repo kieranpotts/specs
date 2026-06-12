@@ -23,7 +23,7 @@ The states are:
 
 - `PROPOSED`: The proposal is complete and open for a decision. The idea is now formally reviewed and negotiated with relevant stakeholders (both technical and non-technical).
 
-- `ACCEPTED`: The proposal has been approved by the product managers. The discussion thread is closed, but the pull request remains open until the implementation is released to production. The specification documents may continue to evolve during this period — in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs.
+- `ACCEPTED`: The proposal has been approved by the product managers. The pull request remains open until the implementation is released to production. The specification documents may continue to evolve during this period — in response to technical feedback, implementation discoveries, or feedback from real users in beta tests or staged roll-outs — with feedback continuing on the still-open discussion thread.
 
 - `REJECTED`: The proposal will not be taken forward. The accompanying specification edits are reverted, but the proposal document is preserved and merged to `main`. After merge, the proposal is given a unique reference and listed in the [proposals index](./proposals/INDEX.md). Thus, all proposed changes to the software requirements specifications, whether ultimately accepted or rejected, are preserved indefinitely as a record of the decision and its rationale. But the actual requirements specification in `main` always reflects the current as-is production system, and captures no traces of rejected or superseded specifications.
 
@@ -66,7 +66,7 @@ Transitions not listed are not permitted. A proposal MUST NOT move backwards (eg
 
 Every proposal has an associated discussion thread where _all_ review feedback is gathered. This keeps the pull request focused on the evolution of the proposal document and the specification edits.
 
-Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (feature, quality, or epic). You MAY open it early, to brainstorm before a firm proposal exists, but it MUST exist by the time the pull request is opened (even a draft pull request). Link the discussion and the pull request to each other. The thread stays open for the life of the proposal and is closed once the proposal is accepted or rejected.
+Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (feature, quality, or epic). You MAY open it early, to brainstorm before a firm proposal exists, but it MUST exist by the time the pull request is opened (even a draft pull request). Link the discussion and the pull request to each other. The thread stays open for the life of the proposal and is closed when the PR is merged.
 
 (The GitHub issue tracker is _not_ used for proposals — it is reserved for repository maintenance only.)
 
@@ -100,7 +100,7 @@ A pull request is the formal vehicle for a proposal. Open it as soon as you are 
 
 - An `EPIC` proposal spans multiple feature and quality requirements and is used for large-scale initiatives — for example, specifying a greenfield system from scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull request titled `epic: <description>`. Individual feature and quality proposals that are part of an epic reference it via their `Depends on` field.
 
-- Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed once the proposal is accepted or rejected.
+- Every proposal pull request MUST have an associated discussion thread, opened with the pull request and used for all review feedback. The thread is closed when the PR is merged.
 
 - The current lifecycle state of a proposal is tracked via a label on its pull request (`#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`). A pull request is opened as a draft while the document is still being refined.
 

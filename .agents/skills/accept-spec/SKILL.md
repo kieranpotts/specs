@@ -1,12 +1,12 @@
 ---
 name: accept-spec
-description: Approve a proposed proposal — set its status to accepted, label the PR, and close its discussion thread. The PR stays open through implementation until release. Use when the user says "accept this proposal", "approve this proposal", or "mark this proposal accepted".
+description: Approve a proposed proposal — set its status to accepted and label the PR. The PR and its discussion thread stay open through implementation until release. Use when the user says "accept this proposal", "approve this proposal", or "mark this proposal accepted".
 license: MIT
 ---
 
 # Accept proposal
 
-Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-spec`](../release-spec/SKILL.md)) — only at that point is the spec merged and a number assigned.
+Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-spec`](../release-spec/SKILL.md)) — only at that point is the spec merged, the discussion thread closed, and a number assigned. The discussion thread stays open through implementation, as feedback may continue while the proposal evolves.
 
 Do NOT use this skill for any other transition — to reject use [`reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released use [`release-spec`](../release-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
 
@@ -74,33 +74,17 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
     gh pr edit <number> --add-label "#accepted" --remove-label "#proposed"
     ```
 
-    This swaps only the lifecycle label; leave the type label in place. Keep the PR **open** — do not merge.
+    This swaps only the lifecycle label; leave the type label in place. Keep the PR **open** — do not merge. Leave the discussion thread open too; it stays open through implementation and is closed only when the PR is merged at release.
 
-5.  **Close the associated discussion thread.**
-
-    A decided proposal's discussion is closed. Find the discussion linked in the `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
-
-    ```sh
-    gh api graphql -f query='
-      query($owner:String!, $name:String!, $number:Int!) {
-        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
-      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
-
-    gh api graphql -f query='
-      mutation($id:ID!) {
-        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
-      }' -F id=<discussionId>
-    ```
-
-6.  **Commit.**
+5.  **Commit.**
 
     ```sh
     git commit -am "chore: accept <short lowercase proposal description>"
     ```
 
-7.  **Queue the implementation.**
+6.  **Queue the implementation.**
 
-    Remind the user that the work now needs to be designed, built, tested, and shipped to production. The PR stays open through this phase; the document and spec edits MAY continue to evolve in response to implementation feedback. When the change is live, run [`release-spec`](../release-spec/SKILL.md).
+    Remind the user that the work now needs to be designed, built, tested, and shipped to production. The PR stays open through this phase; the document and spec edits MAY continue to evolve in response to implementation feedback, with feedback continuing on the still-open discussion thread. When the change is live, run [`release-spec`](../release-spec/SKILL.md).
 
 ## Rules
 
@@ -126,7 +110,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 - The PR carries `#accepted` (and its type label), not `#proposed`, and remains open.
 
-- The associated discussion thread is closed.
+- The associated discussion thread remains open — it is closed when the PR is merged at release.
 
 - No number has been assigned — that waits for release.
 
