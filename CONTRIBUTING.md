@@ -62,27 +62,29 @@ Transitions not listed are not permitted. A proposal MUST NOT move backwards (eg
 
 ## Workflow
 
-### Step 1: Open a discussion thread (REQUIRED)
+### Step 1: Open a pull request (REQUIRED)
 
-Every proposal has an associated discussion thread where _all_ review feedback is gathered. This keeps the pull request focused on the evolution of the proposal document and the specification edits.
-
-Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (feature, quality, or epic). You MAY open it early, to brainstorm before a firm proposal exists, but it MUST exist by the time the pull request is opened (even a draft pull request). Link the discussion and the pull request to each other. The thread stays open for the life of the proposal and is closed when the PR is merged.
-
-(The GitHub issue tracker is _not_ used for proposals — it is reserved for repository maintenance only.)
-
-### Step 2: Open a pull request (REQUIRED to progress a proposal)
-
-A pull request is the formal vehicle for a proposal. Open it as soon as you are ready to start writing the proposal document. Its associated discussion thread (step 1) MUST exist by this point.
+A pull request is the formal vehicle for a proposal. Open it as a draft as soon as you are ready to start writing the proposal document.
 
 1. Branch off `main` as `proposal/<slug>` for a feature or quality proposal, or as `epic/<slug>` for an epic. (An epic is a special case, encapsulating multiple interdependent proposals for easier tracking of dependencies.)
 
-2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`. The proposal lives in its own directory, so you may add supporting artifacts — wireframes, mock-ups, data — alongside the `README.md` and link them from its `References` section. Fill it out. Link the discussion thread (step 1) via the `Discussion thread` field, and describe the change in full — the rationale, the impact on the business and its customers, and the alternatives considered.
+2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`. The proposal lives in its own directory, so you may add supporting artifacts — wireframes, mock-ups, data — alongside the `README.md` and link them from its `References` section. Fill it out, describing the change in full — the rationale, the impact on the business and its customers, and the alternatives considered. (You will link the discussion thread, opened in step 2, via the `Discussion thread` field.)
 
 3. Edit the [`specification/`](./specification/) artifacts to reflect the intended final state of the system after the change ships. You may add, modify, or delete specification artifacts as needed to describe the desired end state.
 
-4. Commit your changes and open the pull request as a draft, titled `feature: <description>`, `quality: <description>`, or `epic: <description>`, where `<description>` is a short prose title, written full lower case. Apply exactly one type label to the PR — `FEATURE`, `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the horizontal rule) and link the discussion thread. Leave the checklist for now.
+4. Commit your changes and open the pull request as a draft, titled `feature: <description>`, `quality: <description>`, or `epic: <description>`, where `<description>` is a short prose title, written full lower case. Apply exactly one type label to the PR — `FEATURE`, `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the horizontal rule). Leave the checklist for now.
 
-5. Keep the pull request in draft while you refine it. When the document and spec edits are complete and ready for full stakeholder review, mark the PR as ready for review (which takes it out of draft) and apply the `#proposed` label.
+### Step 2: Open a discussion thread (REQUIRED)
+
+Every proposal has an associated discussion thread where _all_ review feedback is gathered. This keeps the pull request focused on the evolution of the proposal document and the specification edits.
+
+Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the form for the proposal's type (feature, quality, or epic). It MUST exist by the time the pull request is marked ready for review; you MAY open it earlier — even before the pull request — to brainstorm before a firm proposal exists. Link the discussion and the pull request to each other, recording the thread in the proposal document's `Discussion thread` field. The thread stays open for the life of the proposal and is closed when the PR is merged.
+
+(The GitHub issue tracker is _not_ used for proposals — it is reserved for repository maintenance only.)
+
+### Step 3: Request a decision
+
+Keep the pull request in draft while you refine it. When the document and spec edits are complete and ready for full stakeholder review, mark the PR as ready for review (which takes it out of draft) and apply the `#proposed` label.
 
 ## Rules
 
