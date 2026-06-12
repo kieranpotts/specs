@@ -1,5 +1,7 @@
 # [Project Name] — Software Requirements Specification
 
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and [agent skills](./.agents/skills/) definitions, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
 ## Project overview
 
 This repository holds the software requirements specification (SRS) for [Project Name] — _what_ the system does, defined in business terms. It is documentation, not code. There's nothing to build, lint, or run.
