@@ -2,6 +2,8 @@
 name: reject-spec
 description: Reject a proposed proposal — revert its specification edits, record its number in the index, set its status to rejected, close its discussion, and squash-merge the pull request as a permanent record. Use when the user says "reject this proposal" or "the proposal was not approved".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/reject-spec`

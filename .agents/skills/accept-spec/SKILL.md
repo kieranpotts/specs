@@ -2,6 +2,8 @@
 name: accept-spec
 description: Approve a proposed proposal — set its status to accepted and label the PR. The PR and its discussion thread stay open through implementation until release. Use when the user says "accept this proposal", "approve this proposal", or "mark this proposal accepted".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/accept-spec`

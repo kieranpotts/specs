@@ -2,6 +2,8 @@
 name: draft-spec
 description: Scaffold a new proposal for a change to the software requirements specification and open it as a draft pull request. Use when the user wants to propose a new feature, a changed non-functional requirement, or a large-scale epic initiative, or says "draft a proposal", "new proposal", or "start a proposal".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/draft-spec`

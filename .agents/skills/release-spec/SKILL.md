@@ -2,6 +2,8 @@
 name: release-spec
 description: Mark an accepted proposal as released once its implementation is live in production — set its status to released, label the PR, squash-merge it, and assign its number in the index. Use when the user says "release this proposal", "this proposal is live", or "the implementation shipped".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/release-spec`

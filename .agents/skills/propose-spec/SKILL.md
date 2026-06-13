@@ -2,6 +2,8 @@
 name: propose-spec
 description: Remove the draft status from a proposal pull request, marking it ready for stakeholder review. Use when the user says "propose this", "this proposal is ready for review", "mark the proposal ready", or "take it out of draft".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/propose-spec`

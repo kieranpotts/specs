@@ -2,6 +2,8 @@
 name: write-spec
 description: Author or edit the specification artifacts for a proposal – functional requirements as testable Gherkin acceptance criteria, non-functional requirements as measurable thresholds – and check them against the Definition of Ready. Use when writing the specification edits for a proposal, not when transitioning its lifecycle state.
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/write-spec`

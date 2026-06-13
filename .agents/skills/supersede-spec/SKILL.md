@@ -2,6 +2,8 @@
 name: supersede-spec
 description: Supersede a previously-released proposal once a later proposal has replaced or removed its feature. Use when the user says "supersede this proposal", "this proposal is superseded by ...", or retires a released feature in favor of a newer one.
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/supersede-spec`
