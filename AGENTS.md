@@ -75,7 +75,7 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - Non-functional requirements SHOULD be specified as measurable thresholds, not vague aspirations. Scope is the system's dynamic (runtime, externally-observable) qualities only – not static qualities of the code and design, which are out of scope for the specification.
 
-- The detailed rules for *writing* the specification content – the Gherkin conventions, the measurable-threshold forms, and the problem-not-solution discipline – are owned by the [`write-spec`](./.agents/skills/write-spec/SKILL.md) skill, which applies the [Definition of Ready](./.agents/skills/write-spec/references/definition-of-ready.md). Apply `write-spec` when authoring or editing specification artifacts. A project tunes its content standards by editing that skill.
+- The detailed rules for *writing* the specification content – the Gherkin conventions, the measurable-threshold forms, and the problem-not-solution discipline – are owned by the [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill, which applies the [Definition of Ready](./.agents/skills/write-spec/references/definition-of-ready.md). Apply `/write-spec` when authoring or editing specification artifacts. A project tunes its content standards by editing that skill.
 
 - Every proposal pull request MUST be labeled with exactly one type – `FEATURE`, `QUALITY`, or `EPIC` – matching the kind of change.
 

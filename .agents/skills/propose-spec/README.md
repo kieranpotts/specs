@@ -1,4 +1,4 @@
-# Propose proposal
+# `/propose-spec`
 
 Marks a proposal pull request ready for stakeholder review (`DRAFT` → `PROPOSED`).
 
@@ -34,4 +34,4 @@ Alternatively, describe the proposal and let the agent look it up.
 
 - `/propose-spec 42`: Verifies and proposes the proposal on PR #42.
 
-Once the proposal is `PROPOSED` and stakeholders have reviewed it, the decision is made with [`accept-spec`](../accept-spec/README.md) (to move it to `ACCEPTED`) or [`reject-spec`](../reject-spec/README.md) (if it will not be taken forward).
+Once the proposal is `PROPOSED` and stakeholders have reviewed it, the decision is made with [`/accept-spec`](../accept-spec/README.md) (to move it to `ACCEPTED`) or [`/reject-spec`](../reject-spec/README.md) (if it will not be taken forward).

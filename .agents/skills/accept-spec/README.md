@@ -1,4 +1,4 @@
-# Accept proposal
+# `/accept-spec`
 
 Approves a proposed proposal (`PROPOSED` → `ACCEPTED`).
 

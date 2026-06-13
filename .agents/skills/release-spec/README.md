@@ -1,4 +1,4 @@
-# Release proposal
+# `/release-spec`
 
 Marks an accepted proposal as released once its implementation is live (`ACCEPTED` → `RELEASED`).
 

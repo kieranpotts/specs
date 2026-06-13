@@ -1,4 +1,4 @@
-# Supersede proposal
+# `/supersede-spec`
 
 Retires a previously-released proposal once a later proposal has replaced or removed its feature (`RELEASED` → `SUPERSEDED`).
 

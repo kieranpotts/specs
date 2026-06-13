@@ -4,11 +4,11 @@ description: Mark an accepted proposal as released once its implementation is li
 license: MIT
 ---
 
-# Release proposal
+# `/release-spec`
 
 Use this skill to move a proposal from `ACCEPTED` to `RELEASED`, once its implementation is live in production. This is the point at which the proposal's pull request is squash-merged into `main` — its specification edits becoming part of `main` — and the proposal is assigned its number in [`proposals/INDEX.md`](../../../proposals/INDEX.md).
 
-Do NOT use this skill for any other transition — see [`accept-spec`](../accept-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), [`propose-spec`](../propose-spec/SKILL.md), or [`draft-spec`](../draft-spec/SKILL.md).
+Do NOT use this skill for any other transition — see [`/accept-spec`](../accept-spec/SKILL.md), [`/reject-spec`](../reject-spec/SKILL.md), [`/propose-spec`](../propose-spec/SKILL.md), or [`/draft-spec`](../draft-spec/SKILL.md).
 
 ## Transition gates: `ACCEPTED` → `RELEASED`
 

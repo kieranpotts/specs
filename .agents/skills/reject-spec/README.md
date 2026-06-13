@@ -1,4 +1,4 @@
-# Reject proposal
+# `/reject-spec`
 
 Rejects a proposed proposal (`PROPOSED` → `REJECTED`), preserving it permanently as a record.
 

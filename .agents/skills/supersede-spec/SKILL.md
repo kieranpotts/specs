@@ -4,13 +4,13 @@ description: Supersede a previously-released proposal once a later proposal has 
 license: MIT
 ---
 
-# Supersede proposal
+# `/supersede-spec`
 
 Use this skill to move a proposal from `RELEASED` to `SUPERSEDED`, once a later, released proposal has replaced or removed its feature. This is the only transition out of `#released`. The superseded document remains in `proposals/` permanently as part of the historical record; nothing is deleted.
 
 A released proposal is already merged into `main`, so its document is immutable — only its `Status` field, `Last updated` date, and the `Superseded by` cross-reference may change. The actual specification edits that remove or replace the feature ride on the **successor proposal's** own pull request, through its normal `DRAFT` → … → `RELEASED` cycle; this skill does not touch `specification/`.
 
-Do NOT use this skill for any other transition — see [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), [`propose-spec`](../propose-spec/SKILL.md), or [`draft-spec`](../draft-spec/SKILL.md).
+Do NOT use this skill for any other transition — see [`/accept-spec`](../accept-spec/SKILL.md), [`/release-spec`](../release-spec/SKILL.md), [`/reject-spec`](../reject-spec/SKILL.md), [`/propose-spec`](../propose-spec/SKILL.md), or [`/draft-spec`](../draft-spec/SKILL.md).
 
 ## Transition gates: `RELEASED` → `SUPERSEDED`
 
@@ -102,4 +102,4 @@ The proposal being superseded MUST currently be `RELEASED`. Confirm **all** of t
 
 - [General reference information for agents](../../../AGENTS.md)
 
-- [`release-spec`](../release-spec/SKILL.md): How both the superseded proposal and its successor reached `#released`.
+- [`/release-spec`](../release-spec/SKILL.md): How both the superseded proposal and its successor reached `#released`.

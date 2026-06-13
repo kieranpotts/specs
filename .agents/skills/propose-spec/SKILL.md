@@ -4,11 +4,11 @@ description: Remove the draft status from a proposal pull request, marking it re
 license: MIT
 ---
 
-# Propose proposal
+# `/propose-spec`
 
 Use this skill to move a proposal from `DRAFT` to `PROPOSED`: confirm the document and specification edits are complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new proposal (use [`draft-spec`](../draft-spec/SKILL.md)) or to decide one (use [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), or [`reject-spec`](../reject-spec/SKILL.md)).
+Do NOT use this skill to scaffold a new proposal (use [`/draft-spec`](../draft-spec/SKILL.md)) or to decide one (use [`/accept-spec`](../accept-spec/SKILL.md), [`/release-spec`](../release-spec/SKILL.md), or [`/reject-spec`](../reject-spec/SKILL.md)).
 
 ## Transition gates: `DRAFT` → `PROPOSED`
 
@@ -87,7 +87,7 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 7.  **Hand off to stakeholder review and the decision.**
 
-    The proposal is now `PROPOSED` and open for review, with feedback gathered in its discussion thread. The next transition is the decision: once stakeholders agree, use [`accept-spec`](../accept-spec/SKILL.md) to move it to `ACCEPTED`; if it will not be taken forward, use [`reject-spec`](../reject-spec/SKILL.md). Both are out of scope for this skill.
+    The proposal is now `PROPOSED` and open for review, with feedback gathered in its discussion thread. The next transition is the decision: once stakeholders agree, use [`/accept-spec`](../accept-spec/SKILL.md) to move it to `ACCEPTED`; if it will not be taken forward, use [`/reject-spec`](../reject-spec/SKILL.md). Both are out of scope for this skill.
 
 ## Rules
 

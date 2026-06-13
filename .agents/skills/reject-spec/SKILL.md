@@ -4,11 +4,11 @@ description: Reject a proposed proposal — revert its specification edits, reco
 license: MIT
 ---
 
-# Reject proposal
+# `/reject-spec`
 
 Use this skill to move a proposal from `PROPOSED` to `REJECTED`. The key distinction from acceptance is that the specification edits MUST be reverted before merge, so only the proposal document itself is added to `main`. The decision and its rationale are preserved permanently; the system is unchanged.
 
-Do NOT use this skill for any other transition — for the acceptance path use [`accept-spec`](../accept-spec/SKILL.md), to mark a shipped proposal released use [`release-spec`](../release-spec/SKILL.md), to retire a released proposal use [`supersede-spec`](../supersede-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
+Do NOT use this skill for any other transition — for the acceptance path use [`/accept-spec`](../accept-spec/SKILL.md), to mark a shipped proposal released use [`/release-spec`](../release-spec/SKILL.md), to retire a released proposal use [`/supersede-spec`](../supersede-spec/SKILL.md), and to scaffold or propose use [`/draft-spec`](../draft-spec/SKILL.md) / [`/propose-spec`](../propose-spec/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `REJECTED`
 

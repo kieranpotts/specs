@@ -78,6 +78,6 @@ A specification that is _mostly_ true is one nobody can trust.
 
 ## Related
 
-- [`write-spec` skill](../.agents/skills/write-spec/SKILL.md): The agent-facing skill that applies these practices when authoring specification content. This page is the human-readable rationale; `write-spec` is what agents follow.
+- [`/write-spec` skill](../.agents/skills/write-spec/SKILL.md): The agent-facing skill that applies these practices when authoring specification content. This page is the human-readable rationale; `/write-spec` is what agents follow.
 
 - [Definition of Ready](./definition-of-ready.md): The readiness checklist enforced at the `PROPOSED` → `ACCEPTED` gate.

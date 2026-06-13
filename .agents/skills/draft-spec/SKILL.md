@@ -4,13 +4,13 @@ description: Scaffold a new proposal for a change to the software requirements s
 license: MIT
 ---
 
-# Draft proposal
+# `/draft-spec`
 
 Use this skill to start a new proposal: scaffold the branch and document from the template, then open a draft pull request with the artifacts in place, ready for the user to complete.
 
 This is the entry point to the requirement proposal lifecycle. The PR stays a draft while the user writes it.
 
-Do NOT use this skill to advance an existing proposal, draft or otherwise. See [`propose-spec`](../propose-spec/SKILL.md), [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), or [`reject-spec`](../reject-spec/SKILL.md).
+Do NOT use this skill to advance an existing proposal, draft or otherwise. See [`/propose-spec`](../propose-spec/SKILL.md), [`/accept-spec`](../accept-spec/SKILL.md), [`/release-spec`](../release-spec/SKILL.md), or [`/reject-spec`](../reject-spec/SKILL.md).
 
 ## Instructions
 
@@ -59,7 +59,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
 7.  **Identify the specification sections to edit.**
 
-    Based on the proposal type and description, locate the relevant files in `specification/` and list them in the `Proposed change` section as a starting point. Do not edit the spec files here — the authoring is done with [`write-spec`](../write-spec/SKILL.md) once the proposal is scaffolded.
+    Based on the proposal type and description, locate the relevant files in `specification/` and list them in the `Proposed change` section as a starting point. Do not edit the spec files here — the authoring is done with [`/write-spec`](../write-spec/SKILL.md) once the proposal is scaffolded.
 
     - Functional changes → `specification/requirements/behaviors/` (`features/`, `access/`, `rules/`, `journeys/`, `interfaces/`), `specification/context/actors/`, `specification/context/model/`.
 
@@ -124,9 +124,9 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
     git push
     ```
 
-11. **Hand off to [`write-spec`](../write-spec/SKILL.md).**
+11. **Hand off to [`/write-spec`](../write-spec/SKILL.md).**
 
-    The scaffold is now in place: branch, document, draft PR, and discussion thread. The next step is to author the actual specification content – the functional and non-functional requirements. Direct the user to [`write-spec`](../write-spec/SKILL.md) for that, and once the spec edits are complete, to [`propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for review.
+    The scaffold is now in place: branch, document, draft PR, and discussion thread. The next step is to author the actual specification content – the functional and non-functional requirements. Direct the user to [`/write-spec`](../write-spec/SKILL.md) for that, and once the spec edits are complete, to [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for review.
 
 ## Rules
 
@@ -168,7 +168,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
 - An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
 
-- The user has been directed to [`write-spec`](../write-spec/SKILL.md) to author the specification content.
+- The user has been directed to [`/write-spec`](../write-spec/SKILL.md) to author the specification content.
 
 ## References
 

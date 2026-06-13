@@ -8,7 +8,7 @@ The DoR judges _readiness_, not _merit_. Whether the change is worth making is s
 
 ## The checklist
 
-The checklist is maintained in one canonical place: [`definition-of-ready.md`](../.agents/skills/write-spec/references/definition-of-ready.md) in the `write-spec` skill, which both humans and agents work from. In summary, a proposal is ready to accept when _all_ of the following hold:
+The checklist is maintained in one canonical place: [`definition-of-ready.md`](../.agents/skills/write-spec/references/definition-of-ready.md) in the `/write-spec` skill, which both humans and agents work from. In summary, a proposal is ready to accept when _all_ of the following hold:
 
 - The requirements are clear and sufficiently unambiguous, in the project's [ubiquitous language](../specification/context/glossary/).
 - Functional acceptance criteria are stated as testable Gherkin scenarios, covering the unhappy paths.
@@ -29,8 +29,8 @@ If any criterion is unmet, the proposal is not yet ready to accept. Report the s
 
 - [Contributing guide](../CONTRIBUTING.md): The full proposal lifecycle and the state machine this gate sits within.
 
-- [Canonical Definition of Ready](../.agents/skills/write-spec/references/definition-of-ready.md): The single source of this checklist, in the `write-spec` skill's references. This page is the human-readable companion; that file is what agents apply.
+- [Canonical Definition of Ready](../.agents/skills/write-spec/references/definition-of-ready.md): The single source of this checklist, in the `/write-spec` skill's references. This page is the human-readable companion; that file is what agents apply.
 
-- [`accept-spec` skill](../.agents/skills/accept-spec/SKILL.md): The agentic workflow that verifies this checklist when moving a proposal from `PROPOSED` to `ACCEPTED`.
+- [`/accept-spec` skill](../.agents/skills/accept-spec/SKILL.md): The agentic workflow that verifies this checklist when moving a proposal from `PROPOSED` to `ACCEPTED`.
 
 - [TS-1: Requirements Specification](https://github.com/kieranpotts/standards/tree/dev/src/001): The upstream standard these criteria derive from.

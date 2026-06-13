@@ -4,11 +4,11 @@ description: Approve a proposed proposal — set its status to accepted and labe
 license: MIT
 ---
 
-# Accept proposal
+# `/accept-spec`
 
-Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`release-spec`](../release-spec/SKILL.md)) — only at that point is the spec merged, the discussion thread closed, and a number assigned. The discussion thread stays open through implementation, as feedback may continue while the proposal evolves.
+Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`/release-spec`](../release-spec/SKILL.md)) — only at that point is the spec merged, the discussion thread closed, and a number assigned. The discussion thread stays open through implementation, as feedback may continue while the proposal evolves.
 
-Do NOT use this skill for any other transition — to reject use [`reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released use [`release-spec`](../release-spec/SKILL.md), and to scaffold or propose use [`draft-spec`](../draft-spec/SKILL.md) / [`propose-spec`](../propose-spec/SKILL.md).
+Do NOT use this skill for any other transition — to reject use [`/reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released use [`/release-spec`](../release-spec/SKILL.md), and to scaffold or propose use [`/draft-spec`](../draft-spec/SKILL.md) / [`/propose-spec`](../propose-spec/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `ACCEPTED`
 
@@ -66,7 +66,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
     - Fill in `Decided by` and `Decision date` (the approval date).
     - Confirm `Proposal PR` is set, and link any `Implementation trackers` as they are created.
 
-    Do **not** assign a number — that happens at merge, in [`release-spec`](../release-spec/SKILL.md).
+    Do **not** assign a number — that happens at merge, in [`/release-spec`](../release-spec/SKILL.md).
 
 4.  **Apply the label.**
 
@@ -84,7 +84,7 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 6.  **Queue the implementation.**
 
-    Remind the user that the work now needs to be designed, built, tested, and shipped to production. The PR stays open through this phase; the document and spec edits MAY continue to evolve in response to implementation feedback, with feedback continuing on the still-open discussion thread. When the change is live, run [`release-spec`](../release-spec/SKILL.md).
+    Remind the user that the work now needs to be designed, built, tested, and shipped to production. The PR stays open through this phase; the document and spec edits MAY continue to evolve in response to implementation feedback, with feedback continuing on the still-open discussion thread. When the change is live, run [`/release-spec`](../release-spec/SKILL.md).
 
 ## Rules
 
@@ -120,4 +120,4 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 - [Definition of Ready](../write-spec/references/definition-of-ready.md): the canonical readiness checklist this skill verifies at the `PROPOSED` → `ACCEPTED` gate.
 
-- [`write-spec`](../write-spec/SKILL.md): owns the specification-content rules and authors content to meet the Definition of Ready.
+- [`/write-spec`](../write-spec/SKILL.md): owns the specification-content rules and authors content to meet the Definition of Ready.

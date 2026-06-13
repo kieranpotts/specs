@@ -4,11 +4,11 @@ description: Author or edit the specification artifacts for a proposal – funct
 license: MIT
 ---
 
-# Write specification
+# `/write-spec`
 
 Use this skill to author or edit the content of the specification artifacts in the [`specification/`](../../../specification/) directory: the functional and non-functional requirements a proposal introduces or changes. It owns *what the specification should contain and how it is written*. It is the authoring counterpart to the lifecycle skills, which own *how a proposal moves through its states*.
 
-Do NOT use this skill to scaffold, advance, or merge a proposal. To start one, use [`draft-spec`](../draft-spec/SKILL.md); to transition its state, use [`propose-spec`](../propose-spec/SKILL.md), [`accept-spec`](../accept-spec/SKILL.md), [`release-spec`](../release-spec/SKILL.md), [`reject-spec`](../reject-spec/SKILL.md), or [`supersede-spec`](../supersede-spec/SKILL.md).
+Do NOT use this skill to scaffold, advance, or merge a proposal. To start one, use [`/draft-spec`](../draft-spec/SKILL.md); to transition its state, use [`/propose-spec`](../propose-spec/SKILL.md), [`/accept-spec`](../accept-spec/SKILL.md), [`/release-spec`](../release-spec/SKILL.md), [`/reject-spec`](../reject-spec/SKILL.md), or [`/supersede-spec`](../supersede-spec/SKILL.md).
 
 This skill is the authoritative, agent-facing source for the project's specification-content rules. A project MAY adjust these rules to its own standards by editing this skill. Anything an agent needs in order to write a conforming specification lives here or in [`AGENTS.md`](../../../AGENTS.md) – not in the human-facing `docs/`.
 
@@ -65,11 +65,11 @@ This skill is the authoritative, agent-facing source for the project's specifica
 
 5.  **Check against the Definition of Ready.**
 
-    Before the specification edits are complete, confirm they satisfy every criterion in the [Definition of Ready](./references/definition-of-ready.md) – the canonical readiness checklist, also verified by [`accept-spec`](../accept-spec/SKILL.md) at the `PROPOSED` → `ACCEPTED` gate. In summary: the requirements are clear and unambiguous, functional acceptance criteria are testable Gherkin scenarios, quality requirements are measurable thresholds, the stakeholders are known, and the work is independent and implementable in small increments. Read the reference for the full criteria, and report any unmet one as a specific gap.
+    Before the specification edits are complete, confirm they satisfy every criterion in the [Definition of Ready](./references/definition-of-ready.md) – the canonical readiness checklist, also verified by [`/accept-spec`](../accept-spec/SKILL.md) at the `PROPOSED` → `ACCEPTED` gate. In summary: the requirements are clear and unambiguous, functional acceptance criteria are testable Gherkin scenarios, quality requirements are measurable thresholds, the stakeholders are known, and the work is independent and implementable in small increments. Read the reference for the full criteria, and report any unmet one as a specific gap.
 
-6.  **Hand off to [`propose-spec`](../propose-spec/SKILL.md).**
+6.  **Hand off to [`/propose-spec`](../propose-spec/SKILL.md).**
 
-    Once the specification content is authored and meets the Definition of Ready, the proposal is ready to leave `DRAFT`. Direct the user to [`propose-spec`](../propose-spec/SKILL.md), which verifies completeness and marks the pull request ready for stakeholder review. (If the proposal has not yet been scaffolded – no branch, document, or draft PR – use [`draft-spec`](../draft-spec/SKILL.md) first.)
+    Once the specification content is authored and meets the Definition of Ready, the proposal is ready to leave `DRAFT`. Direct the user to [`/propose-spec`](../propose-spec/SKILL.md), which verifies completeness and marks the pull request ready for stakeholder review. (If the proposal has not yet been scaffolded – no branch, document, or draft PR – use [`/draft-spec`](../draft-spec/SKILL.md) first.)
 
 ## Rules
 
@@ -105,7 +105,7 @@ This skill is the authoritative, agent-facing source for the project's specifica
 
 - The specification edits satisfy every Definition-of-Ready criterion, or each unmet criterion is reported as a specific gap.
 
-- Once the content is complete, the user has been directed to [`propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for review.
+- Once the content is complete, the user has been directed to [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for review.
 
 ## References
 
@@ -113,6 +113,6 @@ This skill is the authoritative, agent-facing source for the project's specifica
 
 - [AGENTS.md](../../../AGENTS.md): The repository's agent-facing rules and the proposal lifecycle this content feeds into.
 
-- [`draft-spec`](../draft-spec/SKILL.md): Scaffolds the proposal and identifies which `specification/` files to edit; hands off to this skill for the authoring.
+- [`/draft-spec`](../draft-spec/SKILL.md): Scaffolds the proposal and identifies which `specification/` files to edit; hands off to this skill for the authoring.
 
-- [`accept-spec`](../accept-spec/SKILL.md): Verifies the Definition of Ready at the `PROPOSED` → `ACCEPTED` gate.
+- [`/accept-spec`](../accept-spec/SKILL.md): Verifies the Definition of Ready at the `PROPOSED` → `ACCEPTED` gate.
