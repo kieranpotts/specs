@@ -8,6 +8,9 @@
 - Proposal PR: #...
 - Discussion thread:
 - Implementation trackers:
+- Origin: ./product-requirements.md
+
+<!-- `Origin` preserves the product-requirements document (PRD) this proposal was specified from — the business-language statement of need, frozen as the input it was. It is committed alongside this README as `product-requirements.md` and is immutable: the proposal evolves, its originating PRD does not. A PRD may come from a discovery session or be supplied directly; if this proposal did not originate from a PRD, remove this field. -->
 
 ## Status
 

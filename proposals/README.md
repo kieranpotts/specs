@@ -11,11 +11,14 @@ proposals/
 ├── INDEX.md          # the numbered catalog of merged proposals
 ├── TEMPLATE.md       # the starting point for a new proposal
 └── <slug>/
-    ├── README.md     # the proposal document
-    └── …             # wireframes, mock-ups, or other supporting artifacts
+    ├── README.md                 # the proposal document
+    ├── product-requirements.md   # the originating PRD, preserved (if any)
+    └── …                         # wireframes, mock-ups, or other supporting artifacts
 ```
 
 A proposal's directory holds its `README.md` (the proposal itself, copied from [`TEMPLATE.md`](./TEMPLATE.md)) plus any supporting artifacts.
+
+Where a proposal originates from a **product-requirements document** (PRD) — a business-language statement of the need, such as a discovery report — that PRD is preserved verbatim as `product-requirements.md` alongside the proposal, and linked from the proposal's `Origin` field. It is a *frozen origin record*: the requirement exactly as it arrived, before specification. The proposal and its spec edits evolve through review and implementation; the preserved PRD does not. Not every proposal has one — a small or internally-motivated change may be specified directly — in which case the `Origin` field is omitted.
 
 ## How it works
 

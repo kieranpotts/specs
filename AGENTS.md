@@ -30,6 +30,7 @@ Changes are introduced through proposals. The [specification](./specification/) 
 - `proposals/`: Permanent archive of every proposed change. Each proposal is a directory (`proposals/<slug>/`) holding its `README.md` and any supporting artifacts.
   - `proposals/INDEX.md` is the numbered catalog of merged proposals.
   - `proposals/TEMPLATE.md` is the starting point for a new proposal.
+  - `proposals/<slug>/product-requirements.md`, when present, is the originating product-requirements document (PRD) — the business-language statement of need this proposal was specified from, preserved verbatim and linked from the proposal's `Origin` field. It is a frozen origin record: immutable once written, even while the proposal itself evolves. A proposal specified directly, with no PRD, omits it.
 - `docs/`: General guidelines for humans to get the most out of the SRS process.
 
 ## Proposal lifecycle
@@ -96,6 +97,8 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 - Proposal branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `<type>: <description> - RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is the prose proposal title, not the branch slug (eg. `feature: time out idle user sessions - RELEASED`). Released proposals merge at `#released`; rejected ones at `#rejected`.
 
 - While a proposal PR is open, its document and accompanying spec edits MAY be updated at any point. Once merged into `main` – so after `#released` for accepted proposals, or following the `#rejected` decision for rejected ones – it MUST be treated as immutable. To revisit a decision already merged to `main`, open a new proposal that supersedes the original.
+
+- The preserved `product-requirements.md` (the `Origin` PRD) is immutable from the moment it is written – stricter than the proposal document, which stays editable while the PR is open. It records the requirement *as it arrived, before specification*; refining it would destroy that. Capture any change of understanding in the proposal `README.md` or the spec edits, never by editing the preserved PRD.
 
 - Never delete a proposal document, including rejected ones.
 

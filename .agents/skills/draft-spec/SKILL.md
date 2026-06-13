@@ -50,16 +50,25 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
     The proposal lives in its own directory, so the user can add supporting artifacts (wireframes, mock-ups, data) alongside the `README.md` and link them from its `References` section.
 
-6.  **Fill in the metadata header.**
+6.  **Preserve the originating PRD, if there is one.**
+
+    If a product-requirements document (PRD) was supplied as the input for this proposal — a discovery report, or any business-language statement of the requirement — write it **verbatim** to `proposals/<slug>/product-requirements.md`, alongside the `README.md`. This is the proposal's *origin*: the need it was specified from, preserved for posterity.
+
+    The PRD is a **frozen input**. Save it as-supplied and do not edit, summarize, or reformat it — its value is that it captures the requirement exactly as it arrived, before specification. The proposal (`README.md`) and the specification edits evolve; this file does not.
+
+    If no PRD exists (the change is small enough to specify directly, or originates from a bug or internal decision rather than a stated requirement), skip this step and remove the `Origin` field from the metadata header.
+
+7.  **Fill in the metadata header.**
 
     - `Authors`: the Git user's name and GitHub handle (run `git config user.name` if needed).
     - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
-    - Leave `Decided by`, `Decision date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
+    - `Origin`: `./product-requirements.md` if a PRD was preserved in step 6; otherwise remove the field.
+    - Leave `Decided by`, `Decision date`, `Proposal PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at the discussion-thread step.
 
     Leave the prose sections as the template placeholders for the proposer to complete.
 
-7.  **Identify the specification sections to edit.**
+8.  **Identify the specification sections to edit.**
 
     Based on the proposal type and description, locate the relevant files in `specification/` and list them in the `Proposed change` section as a starting point. Do not edit the spec files here — the authoring is done with [`/write-spec`](../write-spec/SKILL.md) once the proposal is scaffolded.
 
@@ -67,7 +76,9 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
     - Non-functional changes → `specification/requirements/qualities/`.
 
-8.  **Commit and open a draft pull request.**
+9.  **Commit and open a draft pull request.**
+
+    The `git add proposals/<slug>/` below stages the whole proposal directory, so the preserved `product-requirements.md` is committed alongside the `README.md`.
 
     ```sh
     git add proposals/<slug>/
@@ -76,7 +87,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
     gh pr create --draft --title "<type>: <short lowercase proposal description>" --fill
     ```
 
-9.  **Apply the type label.**
+10. **Apply the type label.**
 
     ```sh
     gh pr edit <number> --add-label "<type>"
@@ -84,7 +95,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
     Apply exactly one type label to the PR, full uppercase: `FEATURE`, `QUALITY`, or `EPIC`.
 
-10. **Open a discussion thread.**
+11. **Open a discussion thread.**
 
     Every proposal PR MUST have an associated discussion thread, where all review feedback is gathered. `gh` has no native discussion command, so use the GraphQL API. Look up the repository ID and the discussion category matching the proposal's type (features, qualities, or epics):
 
@@ -126,7 +137,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
     git push
     ```
 
-11. **Hand off to [`/write-spec`](../write-spec/SKILL.md).**
+12. **Hand off to [`/write-spec`](../write-spec/SKILL.md).**
 
     The scaffold is now in place: branch, document, draft PR, and discussion thread. The next step is to author the actual specification content – the functional and non-functional requirements. Direct the user to [`/write-spec`](../write-spec/SKILL.md) for that, and once the spec edits are complete, to [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for review.
 
@@ -160,11 +171,17 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
     When helping draft them, write as if the change has already shipped — not "we will add…" or "currently X, changing to Y".
 
+-   **The preserved PRD is a frozen input.**
+
+    When a PRD is supplied, save it verbatim as `proposals/<slug>/product-requirements.md` and never edit, summarize, or reformat it. It is the origin record — the requirement exactly as it arrived, before specification — and its worth depends on staying faithful to that. The proposal and the spec edits evolve; the PRD does not.
+
 ## Success criteria
 
 - Branch `proposal/<slug>` exists and is checked out.
 
 - `proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
+
+- If a PRD was supplied, `proposals/<slug>/product-requirements.md` exists, holding it verbatim, and the `Origin` field links it. If no PRD was supplied, the `Origin` field is removed.
 
 - A draft pull request is open (titled `feature: <short lowercase proposal description>`, `quality: …`, or `epic: …`), carrying exactly one type label and no lifecycle label.
 
