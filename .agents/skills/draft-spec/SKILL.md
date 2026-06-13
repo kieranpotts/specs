@@ -59,7 +59,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 
 7.  **Identify the specification sections to edit.**
 
-    Based on the proposal type and description, locate the relevant files in `specification/` and list them in the `Proposed change` section as a starting point. Do not edit the spec files — leave that for the user.
+    Based on the proposal type and description, locate the relevant files in `specification/` and list them in the `Proposed change` section as a starting point. Do not edit the spec files here — the authoring is done with [`write-spec`](../write-spec/SKILL.md) once the proposal is scaffolded.
 
     - Functional changes → `specification/requirements/behaviors/` (`features/`, `access/`, `rules/`, `journeys/`, `interfaces/`), `specification/context/actors/`, `specification/context/model/`.
 
@@ -124,6 +124,10 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
     git push
     ```
 
+11. **Hand off to [`write-spec`](../write-spec/SKILL.md).**
+
+    The scaffold is now in place: branch, document, draft PR, and discussion thread. The next step is to author the actual specification content – the functional and non-functional requirements. Direct the user to [`write-spec`](../write-spec/SKILL.md) for that, and once the spec edits are complete, to [`propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for review.
+
 ## Rules
 
 -   **A proposal is for a deliberate change to the specification.**
@@ -163,6 +167,8 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See [
 - A draft pull request is open (titled `feature: <short lowercase proposal description>`, `quality: …`, or `epic: …`), carrying exactly one type label and no lifecycle label.
 
 - An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
+
+- The user has been directed to [`write-spec`](../write-spec/SKILL.md) to author the specification content.
 
 ## References
 

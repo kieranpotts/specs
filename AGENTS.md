@@ -67,13 +67,15 @@ Transitions not listed above are NOT permitted. A proposal MUST NOT move backwar
 
 - Changes to specification artifacts MUST be introduced via proposal PRs. The specification changes MUST describe the intended final state after the changes are shipped, NOT a changelog of how to get to that end state – that's an implementation detail.
 
-- A proposal MUST NOT be accepted unless its requirement meets the [Definition of Ready](./docs/definition-of-ready.md). A sound-but-incomplete proposal is sent back for refinement, not accepted.
+- A proposal MUST NOT be accepted unless its requirement meets the [Definition of Ready](./.agents/skills/write-spec/references/definition-of-ready.md). A sound-but-incomplete proposal is sent back for refinement, not accepted.
 
 - An accepted proposal MUST NOT be merged into `main` until real users are using the proposed changes in production.
 
 - Functional requirements MUST be specified as Gherkin scenarios. Each scenario MUST be a concrete, testable acceptance criterion.
 
 - Non-functional requirements SHOULD be specified as measurable thresholds, not vague aspirations. Scope is the system's dynamic (runtime, externally-observable) qualities only – not static qualities of the code and design, which are out of scope for the specification.
+
+- The detailed rules for *writing* the specification content – the Gherkin conventions, the measurable-threshold forms, and the problem-not-solution discipline – are owned by the [`write-spec`](./.agents/skills/write-spec/SKILL.md) skill, which applies the [Definition of Ready](./.agents/skills/write-spec/references/definition-of-ready.md). Apply `write-spec` when authoring or editing specification artifacts. A project tunes its content standards by editing that skill.
 
 - Every proposal pull request MUST be labeled with exactly one type – `FEATURE`, `QUALITY`, or `EPIC` – matching the kind of change.
 

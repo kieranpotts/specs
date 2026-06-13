@@ -58,7 +58,7 @@ Only the following transitions are allowed:
 Transitions not listed are not permitted. A proposal MUST NOT move backwards (eg. from `PROPOSED` back to `DRAFT`) and MUST NOT skip states (eg. from `DRAFT` directly to `ACCEPTED`).
 
 > [!TIP]
-> This repository includes a suite of [agent skills](./.agents/skills/) that automate the state transitions and enforce the gate rules. It is RECOMMENDED to get AI agents to apply state transitions, by prompting the agents to use these skills. Doing so helps to keep the process consistent.
+> This repository includes a suite of [agent skills](./.agents/skills/): one per state transition (to automate the transitions and enforce the gate rules), plus [`write-spec`](./.agents/skills/write-spec/) for authoring the specification content itself. It is RECOMMENDED to get AI agents to drive the workflow through these skills. Doing so helps to keep the process consistent.
 
 ## Workflow
 
@@ -70,7 +70,7 @@ A pull request is the formal vehicle for a proposal. Open it as a draft as soon 
 
 2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`. The proposal lives in its own directory, so you may add supporting artifacts – wireframes, mock-ups, data – alongside the `README.md` and link them from its `References` section. Fill it out, describing the change in full – the rationale, the impact on the business and its customers, and the alternatives considered. (You will link the discussion thread, opened in step 2, via the `Discussion thread` field.)
 
-3. Edit the [`specification/`](./specification/) artifacts to reflect the intended final state of the system after the change ships. You may add, modify, or delete specification artifacts as needed to describe the desired end state.
+3. Edit the [`specification/`](./specification/) artifacts to reflect the intended final state of the system after the change ships. You may add, modify, or delete specification artifacts as needed to describe the desired end state. The [`write-spec`](./.agents/skills/write-spec/) skill carries the content rules for this step – functional requirements as testable Gherkin acceptance criteria, non-functional requirements as measurable thresholds – and is the recommended way to author them.
 
 4. Commit your changes and open the pull request as a draft, titled `feature: <description>`, `quality: <description>`, or `epic: <description>`, where `<description>` is a short prose title, written full lower case. Apply exactly one type label to the PR – `FEATURE`, `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the horizontal rule). Leave the checklist for now.
 

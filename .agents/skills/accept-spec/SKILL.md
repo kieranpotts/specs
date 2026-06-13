@@ -30,9 +30,9 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
     They describe the system as it will be after the change ships.
 
--   **The requirement meets the [Definition of Ready](../../../docs/definition-of-ready.md).**
+-   **The requirement meets the [Definition of Ready](../write-spec/references/definition-of-ready.md).**
 
-    Acceptance queues the work for implementation, so the requirement MUST be ready to build. Work through the full checklist in that document; in summary, confirm the requirements are clear and unambiguous, functional acceptance criteria are testable Gherkin scenarios and quality requirements are measurable thresholds, the stakeholders are known, and the work is independent and implementable in small increments.
+    Acceptance queues the work for implementation, so the requirement MUST be ready to build. Work through the full checklist in the [Definition of Ready](../write-spec/references/definition-of-ready.md); in summary, confirm the requirements are clear and unambiguous, functional acceptance criteria are testable Gherkin scenarios and quality requirements are measurable thresholds, the stakeholders are known, and the work is independent and implementable in small increments.
 
     If the proposal is sound in principle but not yet ready to build, send it back for refinement rather than accepting it.
 
@@ -118,4 +118,6 @@ The proposal MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`).
 
 - [General reference information for agents](../../../AGENTS.md)
 
-- [Definition of Ready](../../../docs/definition-of-ready.md): the full readiness checklist this skill verifies at the `PROPOSED` → `ACCEPTED` gate.
+- [Definition of Ready](../write-spec/references/definition-of-ready.md): the canonical readiness checklist this skill verifies at the `PROPOSED` → `ACCEPTED` gate.
+
+- [`write-spec`](../write-spec/SKILL.md): owns the specification-content rules and authors content to meet the Definition of Ready.

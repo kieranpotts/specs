@@ -4,7 +4,9 @@ This repository ships a small set of [agent skills](https://agentskills.io/) —
 
 There is one skill per proposal state transition: `DRAFT` → `PROPOSED` → `ACCEPTED` → `RELEASED`, plus `PROPOSED` → `REJECTED` and `RELEASED` → `SUPERSEDED`. Each skill knows the gate rules for its own transition and will not proceed until they are met, which keeps the process consistent whether a human or an agent is driving it.
 
-The skills are, in lifecycle order:
+Alongside these lifecycle skills, one **content skill** – [`/write-spec`](./write-spec/) – owns *what the specification contains and how it is written* (the Gherkin conventions, measurable-threshold forms, and the Definition of Ready), rather than a state transition. It is the agent-facing home of the project's specification-content rules, and the place to tune them.
+
+The lifecycle skills are, in order:
 
 - **[`/draft-spec`](./draft-spec/)**: Scaffolds a new draft proposal, ready for the user to complete. Sets up the branch and proposal document from the template, opens a draft pull request and an associated discussion thread.
 
@@ -18,4 +20,8 @@ The skills are, in lifecycle order:
 
 - **[`/supersede-spec`](./supersede-spec/)**: `RELEASED` → `SUPERSEDED` — Marks a released proposal as retired once a newer proposal has replaced or overridden it. Sets up cross-references between the two.
 
-A typical journey runs `/draft-spec` → the user writes the proposal → `/propose-spec` → stakeholder review → `/accept-spec` (or `/reject-spec` if the decision is not to proceed) → implementation → `/release-spec`. Much later, `/supersede-spec` retires a feature that a newer proposal has replaced.
+And the content skill:
+
+- **[`/write-spec`](./write-spec/)**: Authors and edits the specification artifacts for a proposal – functional requirements as testable Gherkin acceptance criteria, non-functional requirements as measurable thresholds – and checks them against the Definition of Ready. Used during `DRAFT`, after scaffolding, to write the actual specification edits.
+
+A typical journey runs `/draft-spec` → `/write-spec` to write the proposal → `/propose-spec` → stakeholder review → `/accept-spec` (or `/reject-spec` if the decision is not to proceed) → implementation → `/release-spec`. Much later, `/supersede-spec` retires a feature that a newer proposal has replaced.

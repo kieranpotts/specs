@@ -31,4 +31,4 @@ Optionally describe the requirement:
 
 - `/draft-spec <Description>`: Scaffolds immediately based on your description of the requirement.
 
-You will need to complete the proposal document and specification edits yourself. Once you've done that, use [`propose-spec`](../propose-spec/README.md) to mark the PR as "ready for review".
+Next, use [`write-spec`](../write-spec/README.md) to author the specification content (the functional and non-functional requirements). Once that's complete, use [`propose-spec`](../propose-spec/README.md) to mark the PR as "ready for review".

@@ -14,7 +14,7 @@ A proposal's specification edits SHOULD describe the system as it will be once t
 
 The diff against `main` already shows what is changing. The prose SHOULD read as a description of the destination, so that when the proposal is released the specification is simply true.
 
-How the change is rolled out — migration steps, sequencing, feature flags — is an implementation concern and does not belong in the SRS.
+How the change is rolled out – migration steps, sequencing, feature flags – is an implementation concern and does not belong in the SRS.
 
 ## Write from the perspective of users
 
@@ -22,7 +22,7 @@ Write "authenticated callers can filter the catalog by species," not "we will ad
 
 ## Write functional requirements as testable scenarios
 
-Functional requirements SHOULD be defined as [Gherkin](https://cucumber.io/docs/gherkin/) scenarios. Each scenario is an acceptance criterion -- a concrete, observable behavior that can be checked against the running system.
+Functional requirements SHOULD be defined as [Gherkin](https://cucumber.io/docs/gherkin/) scenarios. Each scenario is an acceptance criterion – a concrete, observable behavior that can be checked against the running system.
 
 Keep scenarios concrete. Prefer "then the response contains at most 10 pet records" over "then a reasonable number of records is returned."
 
@@ -38,7 +38,7 @@ Cross-cutting invariants that constrain many features ("a pet is never in two st
 
 A quality requirement that cannot be measured cannot be verified, and an unverifiable requirement is just a wish. Better to specify quality requirements as concrete, testable thresholds, ideally at a named percentile and load: "list responses within 300 ms at the 95th percentile under normal load," not "the API should be fast."
 
-These are the system's _dynamic_ qualities — what it must achieve at runtime, observable to its users. _Static_ qualities of the code and design – readability, modularity, and the like – are a design concern, so not something the specification states.
+These are the system's _dynamic_ qualities – what it must achieve at runtime, observable to its users. _Static_ qualities of the code and design – readability, modularity, and the like – are a design concern, so not something the specification states.
 
 Vague qualities give the false comfort of a requirement without the substance of one.
 
@@ -64,7 +64,7 @@ Write the `Motivation`, `Alternatives`, and `Tradeoffs and risks` sections of a 
 
 ## Accept only what is ready to build
 
-Accepting a proposal queues it for implementation, so a proposal SHOULD NOT be accepted until its requirement is ready to be built. This is checked at the `PROPOSED` → `ACCEPTED` gate against the [Definition of Ready](./definition-of-ready.md) — a short checklist confirming the requirement is clear, testable, and buildable.
+Accepting a proposal queues it for implementation, so a proposal SHOULD NOT be accepted until its requirement is ready to be built. This is checked at the `PROPOSED` → `ACCEPTED` gate against the [Definition of Ready](./definition-of-ready.md) – a short checklist confirming the requirement is clear, testable, and buildable.
 
 A proposal can be a good idea yet not be ready to build. When that is the case, send it back for refinement rather than accepting it.
 
@@ -75,3 +75,9 @@ The specification's value rests entirely on one promise: that `main` describes p
 When implementation reveals that the real behavior differs from the proposed specification, reconcile the difference back into the spec before release, rather than shipping a specification you know to be wrong.
 
 A specification that is _mostly_ true is one nobody can trust.
+
+## Related
+
+- [`write-spec` skill](../.agents/skills/write-spec/SKILL.md): The agent-facing skill that applies these practices when authoring specification content. This page is the human-readable rationale; `write-spec` is what agents follow.
+
+- [Definition of Ready](./definition-of-ready.md): The readiness checklist enforced at the `PROPOSED` → `ACCEPTED` gate.

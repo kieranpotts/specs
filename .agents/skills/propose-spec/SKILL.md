@@ -85,6 +85,10 @@ Before removing draft status, confirm **all** of the following. If any fails, re
     git push
     ```
 
+7.  **Hand off to stakeholder review and the decision.**
+
+    The proposal is now `PROPOSED` and open for review, with feedback gathered in its discussion thread. The next transition is the decision: once stakeholders agree, use [`accept-spec`](../accept-spec/SKILL.md) to move it to `ACCEPTED`; if it will not be taken forward, use [`reject-spec`](../reject-spec/SKILL.md). Both are out of scope for this skill.
+
 ## Rules
 
 -   **Do not mark a PR ready until the document and spec edits are complete.**
