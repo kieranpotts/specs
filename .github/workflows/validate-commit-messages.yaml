@@ -9,7 +9,7 @@
 # and `quality`.
 #
 
-name: Validate commit messages
+name: Validate Commit Messages
 
 on:
   push:
