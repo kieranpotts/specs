@@ -25,7 +25,7 @@ This repository is one of four that form a coherent, version-controlled document
 
 - [**📐 Design Docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
 
-- [**🗺️ Implementation Plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
+- [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 

@@ -17,7 +17,7 @@ The checklist is maintained in one canonical place: [`definition-of-ready.md`](.
 - The work is independent, or its dependencies are themselves accepted and linked via `Depends on`.
 - The work is implementable in small increments.
 
-See the [canonical checklist](../.agents/skills/write-spec/references/definition-of-ready.md) for the full wording of each criterion. The criteria are deliberately generic, so they apply to any proposal regardless of subject. The emphasis throughout is on the readiness of the _requirements_ — not on the readiness of a design or an implementation plan, which are out of scope for the specification.
+See the [canonical checklist](../.agents/skills/write-spec/references/definition-of-ready.md) for the full wording of each criterion. The criteria are deliberately generic, so they apply to any proposal regardless of subject. The emphasis throughout is on the readiness of the _requirements_ — not on the readiness of a design or an delivery plan, which are out of scope for the specification.
 
 ## When a proposal is not ready
 

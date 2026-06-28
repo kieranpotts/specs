@@ -93,7 +93,7 @@ This skill is the authoritative, agent-facing source for the project's specifica
 
 -   **The DoR is generic by design.**
 
-    The Definition-of-Ready criteria apply to any proposal regardless of subject, and judge the readiness of the *requirements* – not of a design or an implementation plan, which are out of scope for the specification.
+    The Definition-of-Ready criteria apply to any proposal regardless of subject, and judge the readiness of the *requirements* – not of a design or a delivery plan, which are out of scope for the specification.
 
 ## Success criteria
 

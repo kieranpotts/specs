@@ -20,7 +20,7 @@ A proposal's specification edits are ready when *all* of the following hold:
 
 - **The work is implementable in small increments.** Buildable and shippable incrementally, not one large all-or-nothing delivery.
 
-These criteria are deliberately generic, so they apply to any proposal regardless of its subject. The emphasis throughout is on the readiness of the *requirements* – not on the readiness of a design or an implementation plan, which are out of scope for the specification.
+These criteria are deliberately generic, so they apply to any proposal regardless of its subject. The emphasis throughout is on the readiness of the *requirements* – not on the readiness of a design or a delivery plan, which are out of scope for the specification.
 
 ## When a proposal is not ready
 
