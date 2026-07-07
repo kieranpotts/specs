@@ -8,6 +8,8 @@ metadata:
 
 # `/accept-spec`
 
+<!-- TODO: Review these skills against the latest template. -->
+
 Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The proposal is now decided, but its pull request **stays open** until the implementation is released to production (see [`/release-spec`](../release-spec/SKILL.md)) — only at that point is the spec merged, the discussion thread closed, and a number assigned. The discussion thread stays open through implementation, as feedback may continue while the proposal evolves.
 
 Do NOT use this skill for any other transition — to reject use [`/reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released use [`/release-spec`](../release-spec/SKILL.md), and to scaffold or propose use [`/draft-spec`](../draft-spec/SKILL.md) / [`/propose-spec`](../propose-spec/SKILL.md).
