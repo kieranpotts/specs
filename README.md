@@ -17,7 +17,7 @@ The SRS is distinct from a PRD. A product requirements document is a precursor a
 
 ## Ecosystem
 
-This repository is one of four that form a coherent, version-controlled documentation ecosystem modeling the software development lifecycle. Each is the reference implementation of an opinionated workflow, and answers a different question about the system:
+This repository is one of five that form a coherent, version-controlled documentation ecosystem modeling the software development lifecycle. Each is the reference implementation of an opinionated workflow, and answers a different question about the system:
 
 - **📋 Software Requirements Specification (SRS)**: Records _what_ the system does, in business terms (this repository).
 
@@ -27,9 +27,11 @@ This repository is one of four that form a coherent, version-controlled document
 
 - [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
 
-The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
+- [**🔍 Audits**](https://github.com/kieranpotts/audits): Evaluates the as-built system on its own terms – architecture and security findings, point-in-time.
 
-This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository – a small utility library, say – it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
+The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all five.
+
+This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, plans, and audits are shared concerns that sit above any single codebase. For a standalone code repository – a small utility library, say – it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
 
 ## Contents
 
