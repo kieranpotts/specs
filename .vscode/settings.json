@@ -5,6 +5,8 @@
     80,
     100,
     120,
+    140,
+    160,
   ],
 
   /* By default, wrap long lines at the viewport or 120 characters,
@@ -12,17 +14,17 @@
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
 
-  "[asciidoc]": {
-    /* Wrap AsciiDoc files at 100 characters. */
-    "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 100,
+  "[markdown]": {
+    /* Wrap documentation files at the viewport width. Hard-wrapping
+    should be applied at 80 characters, except for tables and long URLs. */
+    "editor.wordWrap": "on",
 
-    /* Enable auto-formatting for Asciidoc files. */
+    /* Enable auto-formatting for Markdown files. */
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
 
-    /* Enable auto-fixes for Asciidoc files. */
+    /* Enable auto-fixes for Markdown files. */
     "editor.codeActionsOnSave": {
       "source.fixAll": "always",
     },
@@ -30,9 +32,8 @@
   },
 
   "[skill]": {
-    /* Same as Markdown. */
-    "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 100,
+    /* Matches Markdown skills. */
+    "editor.wordWrap": "on",
 
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
