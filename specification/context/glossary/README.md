@@ -1,8 +1,14 @@
 # Glossary
 
-This section defines the project's ubiquitous language — the domain terms used throughout the specification, each with a single agreed meaning. Consistent vocabulary is what keeps the [model](../model/), [actors](../actors/), and [requirements](../../requirements/) coherent; this glossary is the authoritative reference for every term.
+This section defines the project's ubiquitous language — the domain terms used
+throughout the specification, each with a single agreed meaning. Consistent
+vocabulary is what keeps the [model](../model/), [actors](../actors/), and
+[requirements](../../requirements/) coherent; this glossary is the authoritative
+reference for every term.
 
-Keep each definition short. For terms that are also domain entities, define the term briefly here and link to the [model](../model/) for the full structure — the glossary points, the model defines.
+Keep each definition short. For terms that are also domain entities, define the
+term briefly here and link to the [model](../model/) for the full structure —
+the glossary points, the model defines.
 
 _List terms alphabetically. Replace the examples below with your own._
 

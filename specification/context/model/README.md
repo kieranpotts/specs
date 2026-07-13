@@ -1,16 +1,25 @@
 # Model
 
-This section documents the entities in the system's domain model — the categories of information the system stores — and how each entity type relates to the others.
+This section documents the entities in the system's domain model — the
+categories of information the system stores — and how each entity type relates
+to the others.
 
-The domain model anchors the project's shared vocabulary (defined in full in the [glossary](../glossary/)). The [actors](../actors/) and [features](../../requirements/behaviors/features/) are derived from it, so keeping the model accurate and unambiguous pays off across the whole specification.
+The domain model anchors the project's shared vocabulary (defined in full in the
+[glossary](../glossary/)). The [actors](../actors/) and
+[features](../../requirements/behaviors/features/) are derived from it, so
+keeping the model accurate and unambiguous pays off across the whole
+specification.
 
-_Describe each entity, its meaningful attributes, and its relationships to other entities. An entity-relationship diagram may be embedded here to summarize the model visually._
+_Describe each entity, its meaningful attributes, and its relationships to other
+entities. An entity-relationship diagram may be embedded here to summarize the
+model visually._
 
 ## Entities
 
 ### Pet
 
-A `Pet` is a single animal available in the catalog. It is the primary entity in the domain.
+A `Pet` is a single animal available in the catalog. It is the primary entity in
+the domain.
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
@@ -28,7 +37,8 @@ A `Pet` is a single animal available in the catalog. It is the primary entity in
 
 ### Category
 
-A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats", "Birds"). A `Pet` belongs to exactly one `Category`.
+A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats",
+"Birds"). A `Pet` belongs to exactly one `Category`.
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
@@ -39,12 +49,17 @@ A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats", "Birds
 
 - A `Pet` belongs to exactly one `Category`.
 - A `Category` may contain zero or more `Pets`.
-- A `Pet` has at most one active `Reservation` — present only while its `status` is `reserved` (see [rule R3](../../requirements/behaviors/rules/)).
+- A `Pet` has at most one active `Reservation` — present only while its `status`
+  is `reserved` (see [rule R3](../../requirements/behaviors/rules/)).
 - A `Reservation` is held by exactly one [`Partner`](../actors/) actor.
 
 ## Entity-relationship diagram
 
-The diagram summarises the entities above and the cardinality of their relationships. `Reservation` is shown as a separate node for clarity, but it is an embedded value on `Pet` (the `reservation` attribute), not an independently-addressable record. `Partner` is an [actor](../actors/), not a stored entity; it appears here only to show what a reservation references.
+The diagram summarises the entities above and the cardinality of their
+relationships. `Reservation` is shown as a separate node for clarity, but it is
+an embedded value on `Pet` (the `reservation` attribute), not an
+independently-addressable record. `Partner` is an [actor](../actors/), not a
+stored entity; it appears here only to show what a reservation references.
 
 ```mermaid
 erDiagram
@@ -81,7 +96,8 @@ erDiagram
     }
 ```
 
-The same model viewed as classes, which makes the embedded `Reservation` value object and the `status` enum more explicit:
+The same model viewed as classes, which makes the embedded `Reservation` value
+object and the `status` enum more explicit:
 
 ```mermaid
 classDiagram

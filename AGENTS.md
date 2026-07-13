@@ -1,14 +1,14 @@
 # [Project Name] – Software Requirements Specification
 
-The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
-SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
-[IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
+OPTIONAL, and MAY are to be interpreted as described in [IETF RFC
+2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Project overview
 
-This repository holds the software requirements specification (SRS) for
-[Project Name] – _what_ the system does, defined in business terms. It is
-documentation, not code. There's nothing to build, lint, or run.
+This repository holds the software requirements specification (SRS) for [Project
+Name] – _what_ the system does, defined in business terms. It is documentation,
+not code. There's nothing to build, lint, or run.
 
 The SRS is implementation-agnostic. Decisions about _how_ the system is built
 are recorded separately. It SHOULD be possible to implement the system in any
@@ -141,8 +141,9 @@ backwards or skip states.
   implementation detail.
 
 - A proposal MUST NOT be accepted unless its requirement meets the
-  [Definition of Ready](./.agents/skills/write-spec/references/definition-of-ready.md).
-  A sound-but-incomplete proposal is sent back for refinement, not accepted.
+  [Definition of
+  Ready](./.agents/skills/write-spec/references/definition-of-ready.md). A
+  sound-but-incomplete proposal is sent back for refinement, not accepted.
 
 - An accepted proposal MUST NOT be merged into `main` until real users are using
   the proposed changes in production.
@@ -151,36 +152,36 @@ backwards or skip states.
   MUST be a concrete, testable acceptance criterion.
 
 - Non-functional requirements SHOULD be specified as measurable thresholds, not
-  vague aspirations. Scope is the system's dynamic (runtime, externally-observable)
-  qualities only – not static qualities of the code and design, which are out
-  of scope for the specification.
+  vague aspirations. Scope is the system's dynamic (runtime,
+  externally-observable) qualities only – not static qualities of the code and
+  design, which are out of scope for the specification.
 
 - The detailed rules for *writing* the specification content – the Gherkin
   conventions, the measurable-threshold forms, and the problem-not-solution
   discipline – are owned by the
   [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill, which applies the
-  the [Definition of Ready](./.agents/skills/write-spec/references/definition-of-ready.md).
-  Apply `/write-spec` when authoring or editing specification artifacts. A
-  project tunes its content standards by editing that skill.
+  the [Definition of
+  Ready](./.agents/skills/write-spec/references/definition-of-ready.md). Apply
+  `/write-spec` when authoring or editing specification artifacts. A project
+  tunes its content standards by editing that skill.
 
 - Every proposal pull request MUST be labeled with exactly one type –
   `FEATURE`, `QUALITY`, or `EPIC` – matching the kind of change.
 
 - A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change – one
-  requirement reviewable, decidable, and shippable independently. Author it
-  on a `proposal/<slug>` branch cut from `main`, and open a pull request
-  titled `feature: <description>` or `quality: <description>`. The
-  `<description>` is a short prose title of the proposal, written full
-  lowercase – not the hyphenated branch slug (eg. PR title
-  `feature: time out idle user sessions`, branch `proposal/user-session-timeout`).
-  The slug is used only for the branch name and the proposal directory
-  (`proposals/<slug>/`).
+  requirement reviewable, decidable, and shippable independently. Author it on a
+  `proposal/<slug>` branch cut from `main`, and open a pull request titled
+  `feature: <description>` or `quality: <description>`. The `<description>` is a
+  short prose title of the proposal, written full lowercase – not the hyphenated
+  branch slug (eg. PR title `feature: time out idle user sessions`, branch
+  `proposal/user-session-timeout`). The slug is used only for the branch name
+  and the proposal directory (`proposals/<slug>/`).
 
 - An `EPIC` proposal spans multiple feature and quality requirements and is
-  used for large-scale initiatives (eg. a greenfield system). Author it on
-  an `epic/<slug>` branch cut from `main`, with a pull request titled
-  `epic: <description>`. Individual feature and quality proposals that
-  are part of an epic reference it via their `Depends on` field.
+  used for large-scale initiatives (eg. a greenfield system). Author it on an
+  `epic/<slug>` branch cut from `main`, with a pull request titled `epic:
+  <description>`. Individual feature and quality proposals that are part of an
+  epic reference it via their `Depends on` field.
 
 - Every proposal pull request MUST have an associated discussion thread,
   opened when the PR is opened (even as a draft) and used for all review
@@ -202,11 +203,11 @@ backwards or skip states.
   The number lives only in the index.
 
 - Proposal branches MUST be squash-merged to `main`, and the squash commit
-  message MUST take the form `<type>: <description> - RELEASED|REJECTED`,
-  where `<type>` is `feature`, `quality`, or `epic`, and `<description>` is
-  the prose proposal title, not the branch slug (eg.
-  `feature: time out idle user sessions - RELEASED`). Released proposals
-  merge at `#released`; rejected ones at `#rejected`.
+  message MUST take the form `<type>: <description> - RELEASED|REJECTED`, where
+  `<type>` is `feature`, `quality`, or `epic`, and `<description>` is the prose
+  proposal title, not the branch slug (eg. `feature: time out idle user sessions
+  - RELEASED`). Released proposals merge at `#released`; rejected ones at
+  `#rejected`.
 
 - While a proposal PR is open, its document and accompanying spec edits MAY be
   updated at any point. Once merged into `main` – so after `#released` for
@@ -216,17 +217,17 @@ backwards or skip states.
 
 - The preserved `product-requirements.md` (the `Origin` PRD) is immutable from
   the moment it is written – stricter than the proposal document, which stays
-  editable while the PR is open. It records the requirement
-  *as it arrived, before specification*; refining it would destroy that.
-  Capture any change of understanding in the proposal `README.md` or the
-  spec edits, never by editing the preserved PRD.
+  editable while the PR is open. It records the requirement *as it arrived,
+  before specification*; refining it would destroy that. Capture any change of
+  understanding in the proposal `README.md` or the spec edits, never by editing
+  the preserved PRD.
 
 - Never delete a proposal document, including rejected ones.
 
 - The GitHub issue tracker is used only for maintenance work on this repository
-  itself (via the `MAINTENANCE` template). Proposals are proposed, decided,
-  and archived entirely through pull requests; open-ended brainstorming happens
-  in [discussions](https://github.com/kieranpotts/specs/discussions).
+  itself (via the `MAINTENANCE` template). Proposals are proposed, decided, and
+  archived entirely through pull requests; open-ended brainstorming happens in
+  [discussions](https://github.com/kieranpotts/specs/discussions).
 
 ## Skills
 
