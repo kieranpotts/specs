@@ -10,7 +10,7 @@ metadata:
   interactive: yes
 ---
 
-# `/supersede-spec`
+# Supersede spec
 
 Use this skill to move a proposal from `RELEASED` to `SUPERSEDED`, once a later,
 released proposal has replaced or removed its feature. This is the only

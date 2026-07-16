@@ -10,7 +10,7 @@ metadata:
   interactive: yes
 ---
 
-# `/propose-spec`
+# Propose spec
 
 Use this skill to move a proposal from `DRAFT` to `PROPOSED`: confirm the
 document and specification edits are complete, apply the `#proposed` label, and

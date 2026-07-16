@@ -11,7 +11,7 @@ metadata:
   interactive: yes
 ---
 
-# `/reject-spec`
+# Reject spec
 
 Use this skill to move a proposal from `PROPOSED` to `REJECTED`. The key
 distinction from acceptance is that the specification edits MUST be reverted

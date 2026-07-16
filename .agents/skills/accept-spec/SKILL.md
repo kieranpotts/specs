@@ -10,7 +10,7 @@ metadata:
   interactive: yes
 ---
 
-# `/accept-spec`
+# Accept spec
 
 <!-- TODO: Review these skills against the latest template. -->
 

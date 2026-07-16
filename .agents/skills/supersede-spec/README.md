@@ -1,4 +1,4 @@
-# `/supersede-spec`
+# Supersede spec
 
 Retires a previously-released proposal once a later proposal has replaced or
 removed its feature (`RELEASED` → `SUPERSEDED`).
@@ -15,15 +15,9 @@ feature ride on the successor proposal's own pull request. The change lands on
 
 ## How to invoke
 
-```
-/supersede-spec
-```
+> xxxxxx
 
-Optionally name the superseded proposal and its successor upfront:
-
-```
-/supersede-spec catalog-read-api superseded by catalog-read-api-v2
-```
+> The catalog read API is now superseded by the catalog read API v2.
 
 ## Examples
 

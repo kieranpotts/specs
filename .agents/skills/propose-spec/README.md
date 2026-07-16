@@ -1,4 +1,4 @@
-# `/propose-spec`
+# Propose spec
 
 Marks a proposal pull request ready for stakeholder review (`DRAFT` →
 `PROPOSED`).
@@ -13,24 +13,9 @@ Marks a proposal pull request ready for stakeholder review (`DRAFT` →
 
 ## How to invoke
 
-```
-/propose-spec
-```
+> Propose user-session-timeout
 
-The agent will determine the target from the current checked-out branch, else if
-will prompt you for more information. Alternatively, you can specify the
-proposal's slug or PR number:
-
-```
-/propose-spec user-session-timeout
-/propose-spec 42
-```
-
-Alternatively, describe the proposal and let the agent look it up.
-
-```
-/propose-spec user session timeout
-```
+> Propose 42
 
 ## Examples
 

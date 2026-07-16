@@ -1,4 +1,4 @@
-# `/accept-spec`
+# Accept spec
 
 Approves a proposed proposal (`PROPOSED` → `ACCEPTED`).
 
@@ -12,16 +12,9 @@ is assigned until release.
 
 ## How to invoke
 
-```
-/accept-spec
-```
+> Accept spec for user session timeout
 
-Optionally name the proposal or PR number:
-
-```
-/accept-spec user-session-timeout
-/accept-spec 42
-```
+> Accept 42
 
 ## Examples
 

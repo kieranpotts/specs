@@ -11,7 +11,7 @@ metadata:
   interactive: yes
 ---
 
-# `/release-spec`
+# Release spec
 
 Use this skill to move a proposal from `ACCEPTED` to `RELEASED`, once its
 implementation is live in production. This is the point at which the proposal's

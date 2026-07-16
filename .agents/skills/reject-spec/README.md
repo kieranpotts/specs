@@ -1,4 +1,4 @@
-# `/reject-spec`
+# Reject spec
 
 Rejects a proposed proposal (`PROPOSED` → `REJECTED`), preserving it permanently
 as a record.
@@ -14,16 +14,9 @@ After the merge, assigns the next sequential number in `proposals/INDEX.md` on
 
 ## How to invoke
 
-```
-/reject-spec
-```
+> Reject user-session-timeout
 
-Optionally name the proposal or PR number:
-
-```
-/reject-spec user-session-timeout
-/reject-spec 42
-```
+> Reject 42
 
 ## Examples
 

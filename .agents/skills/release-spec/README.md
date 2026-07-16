@@ -1,4 +1,4 @@
-# `/release-spec`
+# Release spec
 
 Marks an accepted proposal as released once its implementation is live
 (`ACCEPTED` → `RELEASED`).
@@ -14,16 +14,9 @@ proposal the next sequential number and logs it in `proposals/INDEX.md` on
 
 ## How to invoke
 
-```
-/release-spec
-```
+> Release user-session-timeout
 
-Optionally name the proposal or PR number:
-
-```
-/release-spec user-session-timeout
-/release-spec 42
-```
+> Release 42
 
 ## Examples
 

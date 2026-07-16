@@ -1,4 +1,4 @@
-# `/draft-spec`
+# Draft spec
 
 Scaffolds a new proposal and opens it as a draft pull request.
 
@@ -16,15 +16,7 @@ Scaffolds a new proposal and opens it as a draft pull request.
 
 ## How to invoke
 
-```
-/draft-spec
-```
-
-Optionally describe the requirement:
-
-```
-/draft-spec user session timeout
-```
+> Draft a spec for user session timeout.
 
 ## Examples
 

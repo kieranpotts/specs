@@ -11,7 +11,7 @@ metadata:
   interactive: yes
 ---
 
-# `/write-spec`
+# Write spec
 
 Use this skill to author or edit the content of the specification artifacts in
 the [`specification/`](../../../specification/) directory: the functional and
