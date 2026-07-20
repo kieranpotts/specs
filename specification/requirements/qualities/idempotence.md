@@ -31,3 +31,12 @@ MUST NOT create a second hold. The **release** operation is idempotent by
 nature — releasing a reservation the caller has already released (or that has
 lapsed) MUST succeed without error, provided the product is `available` and the
 caller was the holder.
+
+The **checkout** operation captures a card payment and moves money, so a
+duplicate must never double-charge a Shopper. Payment capture MUST accept a
+caller-supplied idempotency key: a retry carrying the same key MUST return the
+result of the original capture rather than authorizing a second charge, and MUST
+NOT create a second [`Payment`](../../context/model/) or a second
+[`Order`](../../context/model/). This guarantee is what makes a checkout safe to
+retry after a network failure or timeout (see
+[capture-payment](../behaviors/features/capture-payment.feature)).

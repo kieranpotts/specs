@@ -59,6 +59,30 @@ provided the caller holds the reservation. Requires a
 [`features/release-reservation.feature`](../features/release-reservation.feature),
 constrained by [rule R4](../rules/).
 
+### Manage a basket
+
+Adds or removes [`Product`](../../../context/model/) references on the caller's
+own [`Basket`](../../../context/model/), and returns its current contents.
+Requires a [Shopper](../../../context/actors/) caller.
+
+### Check out
+
+Converts the caller's [`Basket`](../../../context/model/) into an
+[`Order`](../../../context/model/): captures payment through the external
+provider and, on success, moves every purchased
+[`Product`](../../../context/model/) to `sold`. Requires a
+[Shopper](../../../context/actors/) caller. The payment step is idempotent under
+a caller-supplied key (see [idempotence](../../qualities/idempotence.md)).
+Behavior is specified in
+[`features/checkout.feature`](../features/checkout.feature) and
+[`features/capture-payment.feature`](../features/capture-payment.feature),
+constrained by [rules R6–R8](../rules/).
+
+### View orders
+
+Returns the [`Order`](../../../context/model/) records placed by the calling
+[Shopper](../../../context/actors/). A Shopper sees only its own orders.
+
 ## Resources
 
 - **Product** — the primary resource. See the
@@ -67,10 +91,24 @@ constrained by [rule R4](../rules/).
 - **Category** — a grouping of products. See the
   [`Category`](../../../context/model/) entity.
 
+- **Basket** — a Shopper's working collection before checkout. See the
+  [`Basket`](../../../context/model/) entity.
+
+- **Order** — the durable record of a purchase. See the
+  [`Order`](../../../context/model/) entity.
+
 ## Events
 
-_The Acme Catalog API emits no events. Reservation expiry ([rule R5](../rules/))
-changes a product's status internally and is observable only by polling its
-status; no notification is published. If a future proposal introduces event
-delivery (eg. a `reservation.expired` webhook), list each event here with its
-meaning and payload described in domain terms._
+The Acme Catalog API emits one event:
+
+- **`order.placed`** — published when a [checkout](#check-out) completes and its
+  [`Order`](../../../context/model/) is `paid`. Carries the order ID, the
+  purchased product IDs, and the order total in domain terms. It notifies
+  downstream consumers (eg. transactional email) of a completed sale; it is not
+  required for a caller to observe the result, which is already returned
+  synchronously by checkout.
+
+Reservation expiry ([rule R5](../rules/)) changes a product's status internally
+and is observable only by polling its status; no notification is published. If a
+future proposal introduces further events (eg. a `reservation.expired` webhook),
+list each here with its meaning and payload described in domain terms.

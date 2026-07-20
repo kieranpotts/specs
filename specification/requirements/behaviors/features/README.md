@@ -39,3 +39,11 @@ notation.
 
 - [`release-reservation.feature`](./release-reservation.feature): Release a
   reservation the Partner holds.
+
+### Shopper
+
+- [`checkout.feature`](./checkout.feature): Check out a basket, capturing
+  payment and moving the purchased products to `sold`.
+
+- [`capture-payment.feature`](./capture-payment.feature): Capture payment for an
+  order idempotently, so a retried checkout never double-charges.

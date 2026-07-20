@@ -1,10 +1,10 @@
 # Search by tag
 
 - Authors: Kieran Potts [@kieranpotts]
-- Created: 2024-04-02
-- Last updated: 2024-05-14
+- Created: 2025-06-25
+- Last updated: 2025-08-14
 - Decided by: Kieran Potts
-- Decision date: 2024-05-12
+- Decision date: 2025-08-12
 - Proposal PR: #9
 - Discussion thread: https://github.com/kieranpotts/specs/discussions/10
 - Implementation trackers: #11

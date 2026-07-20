@@ -1,10 +1,10 @@
 # Reservations
 
 - Authors: Kieran Potts [@kieranpotts]
-- Created: 2024-06-03
-- Last updated: 2024-08-21
+- Created: 2025-08-25
+- Last updated: 2025-10-21
 - Decided by: Kieran Potts
-- Decision date: 2024-08-19
+- Decision date: 2025-10-19
 - Proposal PR: #14
 - Discussion thread: https://github.com/kieranpotts/specs/discussions/15
 - Implementation trackers: #18

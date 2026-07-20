@@ -15,13 +15,13 @@ The actors are derived from the [domain model](../model/).
 
 ## Actor hierarchy
 
-There is a hierarchy of actors, ordered from lowest to highest privilege.
-Privileges are inherited down the hierarchy: an actor holds every capability of
-the actors below it, plus whatever is granted to it directly. The
-[access](../../requirements/behaviors/access/) matrix records exactly which
-capabilities each actor holds.
+Actors build on a common base. Every authenticated caller starts from the same
+read capabilities; specific credential claims then add capability sets on top.
+An actor holds every capability of the base it extends, plus whatever its claim
+grants directly. The [access](../../requirements/behaviors/access/) matrix
+records exactly which capabilities each actor holds.
 
-The current actor hierarchy is as follows:
+The current actors are as follows:
 
 - **Anonymous User:** A caller who has not authenticated.
 
@@ -33,31 +33,42 @@ The current actor hierarchy is as follows:
 - **Partner:** An Authenticated User belonging to an organization that holds a
   signed partner agreement (see [constraints](../constraints/)). A Partner
   inherits every read capability of an Authenticated User, and additionally may
-  place and release [reservations](../glossary/) on products — the only
-  caller-facing operations that change catalog state. Partner status is asserted
-  by a claim in the caller's [credential](../glossary/), issued by the identity
-  service.
+  place and release [reservations](../glossary/) on products. Partner status is
+  asserted by a claim in the caller's [credential](../glossary/), issued by the
+  identity service.
 
-_Add further actor types as needed, ordered from lowest to highest privilege._
+- **Shopper:** An Authenticated User purchasing for themselves. A Shopper
+  inherits every read capability of an Authenticated User, and additionally may
+  assemble a [basket](../glossary/), [check out](../glossary/), and pay — moving
+  the purchased products to `sold`. Shopper and Partner are two distinct
+  capability sets over the same Authenticated User base, not a privilege ladder:
+  a caller may hold either, both, or neither, according to the claims in its
+  [credential](../glossary/).
 
-The diagram below shows the inheritance chain. Each actor holds every capability
-of the actor below it, plus those granted to it directly; the
-[access](../../requirements/behaviors/access/) matrix records exactly what each
-adds.
+_Add further actor types as needed._
+
+Two caller-facing operations change catalog state: a Partner's reservation, and
+a Shopper's purchase. The diagram below shows how each actor extends the
+Authenticated User base; the [access](../../requirements/behaviors/access/)
+matrix records exactly what each adds.
 
 ```mermaid
 flowchart BT
     Anon["Anonymous User<br/><i>no capabilities</i>"]
     Auth["Authenticated User<br/><i>+ read the catalog</i>"]
     Partner["Partner<br/><i>+ reserve / release</i>"]
+    Shopper["Shopper<br/><i>+ basket / checkout / pay</i>"]
 
     Anon -->|"authenticates"| Auth
     Auth -->|"+ partner agreement"| Partner
+    Auth -->|"+ shopper claim"| Shopper
 
     classDef tier fill:#f5f5f5,stroke:#999,color:#222;
-    class Anon,Auth,Partner tier;
+    class Anon,Auth,Partner,Shopper tier;
 ```
 
-Read bottom-to-top as increasing privilege: an Anonymous User who authenticates
-becomes an Authenticated User; an Authenticated User whose credential asserts a
-partner claim is a Partner. Capabilities accumulate up the chain.
+Read bottom-to-top as increasing capability: an Anonymous User who authenticates
+becomes an Authenticated User; from there, a credential's claims determine
+whether the caller is also a Partner, a Shopper, or both. Read capabilities
+accumulate from the Authenticated User base; the reserve and purchase capability
+sets are held independently.

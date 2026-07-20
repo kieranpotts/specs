@@ -15,7 +15,7 @@ the proposal document.
 
 | # | Title | Type | Status | Decision date |
 | --- | --- | --- | --- | --- |
-| [0001](./catalog-read-api/) | Catalog read API | Feature | Released | 2024-03-18 |
-| [0002](./search-by-tag/) | Search by tag | Feature | Released | 2024-05-12 |
-| [0003](./reservations/) | Reservations | Feature | Released | 2024-08-19 |
-| [0004](./checkout-and-payments/) | Checkout and payments | Feature | Rejected | 2024-10-28 |
+| [0001](./catalog-read-api/) | Catalog read API | Feature | Released | 2025-06-18 |
+| [0002](./search-by-tag/) | Search by tag | Feature | Released | 2025-08-12 |
+| [0003](./reservations/) | Reservations | Feature | Released | 2025-10-19 |
+| [0004](./checkout-and-payments/) | Checkout and payments | Feature | Released | 2025-12-16 |

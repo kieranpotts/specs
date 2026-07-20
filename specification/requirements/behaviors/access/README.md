@@ -18,22 +18,29 @@ capability, one column per actor, ordered from lowest to highest privilege._
 
 ## Permission matrix
 
-| Capability | Anonymous User | Authenticated User | Partner |
-| ---------- | :------------: | :----------------: | :-----: |
-| List and filter the catalog | — | ✓ | ✓ |
-| Search the catalog | — | ✓ | ✓ |
-| Retrieve a single product by ID | — | ✓ | ✓ |
-| Reserve an available product | — | — | ✓ |
-| Release a reservation it holds | — | — | ✓ |
+| Capability | Anonymous User | Authenticated User | Partner | Shopper |
+| ---------- | :------------: | :----------------: | :-----: | :-----: |
+| List and filter the catalog | — | ✓ | ✓ | ✓ |
+| Search the catalog | — | ✓ | ✓ | ✓ |
+| Retrieve a single product by ID | — | ✓ | ✓ | ✓ |
+| Reserve an available product | — | — | ✓ | — |
+| Release a reservation it holds | — | — | ✓ | — |
+| Manage its own basket | — | — | — | ✓ |
+| Check out and pay | — | — | — | ✓ |
+| View its own orders | — | — | — | ✓ |
 
-✓ = permitted, and inherited by all higher-privileged actors. — = not permitted.
+✓ = permitted. — = not permitted. Read capabilities granted to the Authenticated
+User are inherited by both Partner and Shopper.
 
 Anonymous Users hold no capabilities: every operation requires a valid
 [credential](../../../context/glossary/), so unauthenticated requests are
 rejected.
 
-The reservation capabilities are stated once, against
-[Partner](../../../context/actors/) — the lowest-privileged actor that holds
-them. A Partner may only release a reservation it placed itself; releasing
-another Partner's reservation is not permitted, a finer-grained condition
-governed by [rule R4](../rules/).
+The read capabilities are stated once, against Authenticated User, and inherited
+by both Partner and Shopper. The reserve/release and basket/checkout capabilities
+are two independent sets over that base: a caller may hold either, both, or
+neither, according to the claims in its
+[credential](../../../context/actors/). A Partner may only release a reservation
+it placed itself ([rule R4](../rules/)); a Shopper may only check out its own
+basket and view its own orders. Neither set is a superset of the other, so they
+occupy separate columns rather than a single privilege ladder.

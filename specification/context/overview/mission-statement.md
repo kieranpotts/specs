@@ -6,7 +6,9 @@ changes rarely, and only in response to a fundamental shift in the product's
 direction._
 
 The Acme Catalog API exists to give retailers, marketplace operators, and their
-technology partners instant, reliable access to a curated catalog of products.
-By exposing this information through a well-defined digital interface, we
-enable businesses to build rich shopping experiences and automate procurement
-workflows without maintaining their own catalog infrastructure.
+technology partners instant, reliable access to a curated catalog of products —
+and to let shoppers buy from that catalog directly. Built on an authoritative
+catalog as its foundation, it exposes browsing, reservation, and purchasing
+through a single well-defined digital interface, so businesses can build rich
+shopping experiences and complete sales end-to-end without maintaining their own
+catalog or commerce infrastructure.

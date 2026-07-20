@@ -17,44 +17,53 @@ flowchart TB
         Human["Human operator<br/><i>via client app</i>"]
         Machine["Automated system<br/><i>machine-to-machine</i>"]
         PartnerOrg["Partner integration<br/><i>holds reservations</i>"]
+        Shopper["Shopper<br/><i>buys via client app</i>"]
     end
 
-    API["<b>Acme Catalog API</b><br/>Authoritative read-mostly<br/>catalog of products"]
+    API["<b>Acme Catalog API</b><br/>Authoritative catalog of<br/>products, with checkout"]
 
     Identity["Identity service<br/><i>issues &amp; verifies credentials</i>"]
+    Payments["Payment provider<br/><i>authorizes &amp; captures cards</i>"]
     Admin["Administrative function<br/><i>maintains catalog, records sales</i>"]
 
     Human -->|"reads catalog<br/>(authenticated)"| API
     Machine -->|"reads catalog<br/>(authenticated)"| API
     PartnerOrg -->|"reads + reserves /<br/>releases (Partner)"| API
+    Shopper -->|"reads + checks out /<br/>pays (Shopper)"| API
 
     API -->|"verifies credential<br/>on every request"| Identity
-    Admin -->|"writes listings,<br/>moves products to sold"| API
+    API -->|"authorizes + captures<br/>payment at checkout"| Payments
+    Admin -->|"writes listings,<br/>records sales"| API
 
     classDef sys fill:#e8f0fe,stroke:#4070c0,color:#13284b;
     classDef ext fill:#f5f5f5,stroke:#999,color:#222;
     classDef person fill:#fff5e6,stroke:#cc8800,color:#5a3d00;
     class API sys;
-    class Identity,Admin ext;
-    class Human,Machine,PartnerOrg person;
+    class Identity,Payments,Admin ext;
+    class Human,Machine,PartnerOrg,Shopper person;
 ```
 
 **How to read it:**
 
-- **Callers** sit on the left of the flow and only ever _read_ the catalog —
-  except a **Partner**, which may also reserve and release products. Every
-  caller is authenticated; an [Anonymous User](../actors/) reaches no further
-  than rejection and so is not shown as a successful interaction.
+- **Callers** sit on the left of the flow. Most _read_ the catalog; a
+  **Partner** may also reserve and release products, and a **Shopper** may also
+  check out and pay. Every caller is authenticated; an [Anonymous
+  User](../actors/) reaches no further than rejection and so is not shown as a
+  successful interaction.
 
-- The **Acme Catalog API** is the system this specification describes. It is
-  read-mostly: the only state callers can change is a product's reservation
-  hold.
+- The **Acme Catalog API** is the system this specification describes. Callers
+  change state in two ways: a Partner's reservation hold, and a Shopper's
+  purchase, which moves products to `sold`.
 
 - The **identity service** is an external [dependency](../constraints/): the API
   verifies a [credential](../glossary/) with it on every request and cannot
   authorize anything without it.
 
+- The **payment provider** is an external [dependency](../constraints/): the API
+  authorizes and captures card payment through it at checkout, and relies on it
+  to hold the cardholder data the system deliberately does not.
+
 - The **administrative function** is outside this system's [scope](./scope.md).
   It is the only source of catalog content (creating and editing listings) and
-  the only actor that moves a product to `sold`. The API exposes that data but
-  never originates it.
+  can also record sales. Callers now move products to `sold` through checkout,
+  but the API never originates catalog content.

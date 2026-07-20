@@ -1,10 +1,10 @@
 # Catalog read API
 
 - Authors: Kieran Potts [@kieranpotts]
-- Created: 2024-01-15
-- Last updated: 2024-03-20
+- Created: 2025-04-15
+- Last updated: 2025-06-20
 - Decided by: Kieran Potts
-- Decision date: 2024-03-18
+- Decision date: 2025-06-18
 - Proposal PR: #2
 - Discussion thread: https://github.com/kieranpotts/specs/discussions/3
 - Implementation trackers: #5

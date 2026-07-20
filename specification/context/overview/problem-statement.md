@@ -25,5 +25,9 @@ The Acme Catalog API provides a single, authoritative source of product catalog
 data accessible to both human operators and automated systems. Authenticated
 callers can list all available products, search and filter the catalog by
 type, variant, price range, or availability, and retrieve the full details of
-any individual listing. The API is designed to be consumed by web applications, mobile clients,
-and machine-to-machine integrations alike.
+any individual listing. Partners can hold products with a reservation while a
+sale is arranged, and shoppers can buy products directly — assembling a basket,
+checking out, and paying in a single flow — so the catalog is not only the
+source of truth for what is available but also the place a sale is completed.
+The API is designed to be consumed by web applications, mobile clients, and
+machine-to-machine integrations alike.

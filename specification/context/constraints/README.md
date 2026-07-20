@@ -32,10 +32,18 @@ apply to your system._
   testable [rule](../../requirements/behaviors/rules/) where it constrains
   responses.
 
-- **Data protection.** Any personal data incidentally associated with a listing
-  or a [reservation](../glossary/) — for example, a partner's contact reference
-  — MUST be processed in accordance with applicable data-protection law. The
-  catalog itself holds no consumer personal data.
+- **Data protection.** Any personal data associated with a listing, a
+  [reservation](../glossary/), or an [order](../glossary/) — for example, a
+  partner's contact reference, or a shopper's delivery details — MUST be
+  processed in accordance with applicable data-protection law.
+
+- **Payment card security (PCI-DSS).** Card payment MUST be handled in
+  accordance with PCI-DSS. The system MUST NOT store, process, or transmit raw
+  cardholder data itself: card details are captured directly by the external
+  [payment provider](#dependencies), and the system retains only a
+  provider-issued token and the payment result. This obligation is restated as a
+  testable [rule](../../requirements/behaviors/rules/) and exercised by the
+  [capture-payment feature](../../requirements/behaviors/features/capture-payment.feature).
 
 ## Business
 
@@ -74,3 +82,7 @@ External systems and services this system relies on to function.
 
 - **Identity service** — issues and verifies the [credentials](../glossary/)
   callers present. The system cannot authorize any request without it.
+
+- **Payment provider** — authorizes and captures card payments at
+  [checkout](../glossary/), and holds the cardholder data the system deliberately
+  does not. A checkout cannot complete without it.

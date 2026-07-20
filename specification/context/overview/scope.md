@@ -13,8 +13,15 @@ for._
   by ID.
 
 - **Reservations:** Allowing Partner callers to place a temporary hold on an
-  available product, and to release a hold they own. This is the only
-  caller-facing capability that changes catalog state.
+  available product, and to release a hold they own.
+
+- **Purchasing:** Allowing Shopper callers to assemble a basket, check out, and
+  pay for products, moving the purchased products to `sold`. Reservation and
+  purchasing are the two caller-facing capabilities that change catalog state.
+
+- **Payment capture:** Authorizing and capturing card payment for a checkout
+  through an external payment provider. The system stores no raw card data (see
+  [constraints](../constraints/)).
 
 - **Authentication:** Verifying caller identity before granting access to
   catalog data.
@@ -30,10 +37,9 @@ deliberately excluded. Recording what is out of scope is as important as
 recording what is in scope: it prevents scope creep and sets clear expectations
 with stakeholders._
 
-- **Purchasing and orders:** The API does not support placing orders, managing a
-  basket, or processing payments. A reservation holds a product but does not
-  buy it; converting a reservation to a sale is an administrative function
-  outside this service.
+- **Refunds, tax, and fraud:** Checkout captures payment, but refund handling,
+  tax calculation, and fraud screening are deliberately excluded from this
+  version and left to follow-up proposals.
 
 - **Inventory management:** Catalog data is read-only. Adding, editing, or
   removing product listings is an administrative function outside this
