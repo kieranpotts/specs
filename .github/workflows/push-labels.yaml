@@ -1,11 +1,7 @@
 #
 # Push changes made to .github/labels.json to rebuild
-# this repository's labels. This keeps my GitHub labels
+# this repository's labels. This keeps the GitHub labels
 # configuration defined in code.
-#
-# (Other repositories in my personal GitHub space
-# have workflows to synchronize their labels with this
-# repository's labels overnight.)
 #
 # https://github.com/EndBug/label-sync
 #
