@@ -55,7 +55,7 @@ A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats",
 
 ## Entity-relationship diagram
 
-The diagram summarises the entities above and the cardinality of their
+The diagram summarizes the entities above and the cardinality of their
 relationships. `Reservation` is shown as a separate node for clarity, but it is
 an embedded value on `Pet` (the `reservation` attribute), not an
 independently-addressable record. `Partner` is an [actor](../actors/), not a

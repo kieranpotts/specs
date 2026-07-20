@@ -159,7 +159,7 @@ backwards or skip states.
 - The detailed rules for *writing* the specification content – the Gherkin
   conventions, the measurable-threshold forms, and the problem-not-solution
   discipline – are owned by the
-  [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill, which applies the
+  [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill, which applies
   the [Definition of
   Ready](./.agents/skills/write-spec/references/definition-of-ready.md). Apply
   `/write-spec` when authoring or editing specification artifacts. A project
@@ -233,4 +233,4 @@ backwards or skip states.
 
 The [`.agents/skills/`](./.agents/skills/) directory provides on-demand skills
 for managing the proposal workflow. See the [README](./.agents/skills/README.md)
-for descriptions of the available skills
+for descriptions of the available skills.

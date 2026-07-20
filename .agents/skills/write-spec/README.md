@@ -1,7 +1,7 @@
 # Write spec
 
 This skill instructs agents to author and edit the specification content for
-a product requirement proposal, and to validation the specification against
+a product requirement proposal, and to validate the specification against
 the definition of ready.
 
 ## What it does

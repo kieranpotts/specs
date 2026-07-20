@@ -51,7 +51,7 @@ flowchart TB
 
 - The **identity service** is an external [dependency](../constraints/): the API
   verifies a [credential](../glossary/) with it on every request and cannot
-  authorise anything without it.
+  authorize anything without it.
 
 - The **administrative function** is outside this system's [scope](./scope.md).
   It is the only source of catalog content (creating and editing listings) and

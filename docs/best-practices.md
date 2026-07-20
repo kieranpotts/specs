@@ -73,13 +73,13 @@ one.
 ## Keep the description and the reasoning in their proper homes
 
 The specification artifacts say _what_ the system does, while the proposal
-documents says _why_ this change was made. Don't smuggle rationale into the
+documents say _why_ this change was made. Don't smuggle rationale into the
 specification – it is meant to read as a timeless description of the present.
 Likewise, don't restate the full specification in the proposal – instead, link
 to the artifacts it edits.
 
 The proposal is the place to be honest about motivation, alternatives
-considered, and trade-offs accepted. Focus on that – its what makes the log
+considered, and trade-offs accepted. Focus on that – it's what makes the log
 valuable years later.
 
 ## Use the discussion thread for debate

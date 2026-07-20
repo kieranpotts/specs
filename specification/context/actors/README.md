@@ -30,7 +30,7 @@ The current actor hierarchy is as follows:
   machine-to-machine requests. Authenticated Users may read the catalog but may
   not change its state.
 
-- **Partner**: An Authenticated User belonging to an organisation that holds a
+- **Partner**: An Authenticated User belonging to an organization that holds a
   signed partner agreement (see [constraints](../constraints/)). A Partner
   inherits every read capability of an Authenticated User, and additionally may
   place and release [reservations](../glossary/) on pets — the only

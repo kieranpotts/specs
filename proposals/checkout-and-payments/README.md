@@ -74,7 +74,7 @@ so the same ground is not re-covered.
 - **Scope inversion.** The system's mission
   ([overview](../../specification/context/overview/mission-statement.md)) is to
   be the authoritative _catalog_ — a read-mostly source of truth. Bolting on
-  payments would make commerce the centre of gravity and the catalog a
+  payments would make commerce the center of gravity and the catalog a
   sub-feature, contradicting the deliberate read-mostly scope reaffirmed as
   recently as the [reservations proposal](../reservations/README.md).
 

@@ -44,7 +44,7 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See
     A specification change MUST be exactly one of the following types:
 
     - `FEATURE`: A new or changed functional requirement.
-    - `QUALITY`: A new or changed non-functional requirements.
+    - `QUALITY`: A new or changed non-functional requirement.
     - `EPIC`: A large-scale initiative spanning multiple feature and quality
       proposals.
 

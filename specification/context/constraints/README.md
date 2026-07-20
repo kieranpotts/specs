@@ -22,7 +22,7 @@ apply to your system._
 - **Animal welfare advertising.** Catalog listings for live animals MUST comply
   with applicable animal-welfare and pet-advertising law in the jurisdictions
   the catalog serves — including, where required, the display of a seller
-  licence number and the animal's country of origin. The system treats these as
+  license number and the animal's country of origin. The system treats these as
   catalog data supplied by the administrative function; it does not originate
   them, but it MUST NOT suppress them.
 
@@ -50,7 +50,7 @@ apply to your system._
   any rate or egress limits those agreements impose.
 
 - **Partner agreement required for reservations.** Placing a
-  [reservation](../glossary/) is contractually restricted to organisations with
+  [reservation](../glossary/) is contractually restricted to organizations with
   a signed partner agreement. The system enforces this through the
   [Partner](../actors/) actor tier; the agreement itself is a business
   arrangement outside the system's control.

@@ -15,8 +15,8 @@ specification (SRS) process.
   evolves.
 
 - [**Definition of Ready**](./definition-of-ready.md): A useful set of criteria
-  against which to judge a proposal for its readiness for being taken forward
-  for approval and implementation.
+  against which to judge a proposal's readiness for being taken forward for
+  approval and implementation.
 
 For the mechanics of the workflow — branching, the proposal lifecycle, and the
 state machine — see the [contributing guide](../CONTRIBUTING.md). For available

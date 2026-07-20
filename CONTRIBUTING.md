@@ -4,7 +4,7 @@
 
 These contributing guidelines provide step-by-step instructions for iterating on
 product specifications. The focus here is on the mechanics and guardrails of the
-proposal process.  See the [documentation](./docs/) for more general guidance on
+proposal process. See the [documentation](./docs/) for more general guidance on
 how to get the most out of the SRS process.
 
 The SRS is maintained by technical teams, in collaboration with product
@@ -133,7 +133,7 @@ as you are ready to start writing the proposal document.
 
 4. Commit your changes and open the pull request as a draft, titled `feature:
    <description>`, `quality: <description>`, or `epic: <description>`, where
-   `<description>` is a short prose title, written full lower case. Apply
+   `<description>` is a short prose title, written full lowercase. Apply
    exactly one type label to the PR – `FEATURE`, `QUALITY`, or `EPIC`. Fill out
    the top of the PR template (above the horizontal rule). Leave the checklist
    for now.

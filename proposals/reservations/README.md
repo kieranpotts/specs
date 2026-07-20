@@ -41,7 +41,7 @@ any system.
 
 A reservation gives a trusted integrator a way to hold a pet for a bounded
 period while a sale is arranged, and to release it promptly if the sale falls
-through. Restricting this to vetted **Partner** organisations (those with a
+through. Restricting this to vetted **Partner** organizations (those with a
 signed partner agreement) keeps the privilege to hold inventory away from
 ordinary read-only consumers, and gives the business an audit point for who is
 holding what.
@@ -141,7 +141,7 @@ in `reserved` indefinitely. An automatic hold window bounds the damage from an
 abandoned reservation. The cost is the operational machinery to expire holds.
 
 **Model a `Reservation` as its own first-class entity.** A separate entity with
-its own lifecycle would generalise more cleanly to multiple concurrent holds or
+its own lifecycle would generalize more cleanly to multiple concurrent holds or
 a waitlist. Rejected for now as over-engineered: a pet holds at most one
 reservation at a time, so an optional attribute on `Pet` is sufficient. Revisit
 if waitlisting is ever proposed.
