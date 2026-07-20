@@ -3,9 +3,11 @@
 <!-- Agents MUST read ./AGENTS.md. This document is for humans. -->
 
 These contributing guidelines provide step-by-step instructions for iterating on
-product specifications. The focus here is on the mechanics and guardrails of the
-proposal process. See the [documentation](./docs/) for more general guidance on
-how to get the most out of the SRS process.
+product specifications.
+
+The focus here is on the mechanics and guardrails of the proposal process. See
+the [documentation](./docs/) for more general guidance on how to get the most
+out of the SRS process.
 
 The SRS is maintained by technical teams, in collaboration with product
 managers. Product managers are ultimately responsible for accepting or rejecting
@@ -16,6 +18,9 @@ lifecycle.
 Anyone with write access to this repository may propose changes to the
 functional and non-functional requirements of the system, for product
 consideration.
+
+See also [TS-1](https://github.com/kieranpotts/standards/tree/latest/dev/src/001)
+for the technical standard that underpins this process.
 
 > [!NOTE]
 > The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD

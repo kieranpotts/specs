@@ -1,6 +1,7 @@
 # 📋 Software Requirements Specification (SRS)
 
-**A template for managing the lifecycle of software requirements via version control.**
+**A template for managing the lifecycle of software requirements**
+via version control.
 
 This repository is the home of the software requirements specification (SRS) for
 [Project Name]. It defines the major operations and business rules of the
@@ -30,10 +31,6 @@ with users. The SRS, which is maintained by the technical teams in collaboration
 with product stakeholders, translates the product vision into precise, testable
 functional and non-functional requirements. See [PRD versus SRS](./docs/prd.md)
 for more on the distinction.
-
-> [!NOTE]
-> See [**TS-1: Requirements Specification**](https://github.com/kieranpotts/standards/tree/latest/dev/src/001)
-> for more guidance on maintaining software requirements specifications.
 
 ## Ecosystem
 
