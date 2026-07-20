@@ -59,7 +59,7 @@ journeys, or domain-model entities are added, modified, or removed?
 
 Reference the specific specification artifacts this proposal edits, by relative
 link from this document (eg.
-`../../specification/requirements/behaviors/features/list-pets.feature`).
+`../../specification/requirements/behaviors/features/list-products.feature`).
 
 ## Alternatives
 

@@ -33,7 +33,7 @@ The current actor hierarchy is as follows:
 - **Partner**: An Authenticated User belonging to an organization that holds a
   signed partner agreement (see [constraints](../constraints/)). A Partner
   inherits every read capability of an Authenticated User, and additionally may
-  place and release [reservations](../glossary/) on pets — the only
+  place and release [reservations](../glossary/) on products — the only
   caller-facing operations that change catalog state. Partner status is asserted
   by a claim in the caller's [credential](../glossary/), issued by the identity
   service.

@@ -21,55 +21,56 @@ _Replace the illustrative operations below with your own._
 
 ## Operations
 
-### List pets
+### List products
 
-Returns a paginated collection of [`Pet`](../../../context/model/) records,
-optionally filtered by status, species, or price range. Requires an
+Returns a paginated collection of [`Product`](../../../context/model/) records,
+optionally filtered by status, type, or price range. Requires an
 authenticated caller. Behavior is specified in
-[`features/list-pets.feature`](../features/list-pets.feature).
+[`features/list-products.feature`](../features/list-products.feature).
 
-### Search pets
+### Search products
 
-Returns the [`Pet`](../../../context/model/) records matching a keyword and/or
-tag query. Requires an authenticated caller. Behavior is specified in
-[`features/search-pets.feature`](../features/search-pets.feature).
+Returns the [`Product`](../../../context/model/) records matching a keyword
+and/or tag query. Requires an authenticated caller. Behavior is specified in
+[`features/search-products.feature`](../features/search-products.feature).
 
-### Get pet by ID
+### Get product by ID
 
-Returns the full detail of a single [`Pet`](../../../context/model/) identified
-by its `id`, or indicates not-found. Requires an authenticated caller. Behavior
-is specified in [`features/get-pet.feature`](../features/get-pet.feature).
+Returns the full detail of a single [`Product`](../../../context/model/)
+identified by its `id`, or indicates not-found. Requires an authenticated
+caller. Behavior is specified in
+[`features/get-product.feature`](../features/get-product.feature).
 
-### Reserve a pet
+### Reserve a product
 
-Places a temporary hold on an `available` [`Pet`](../../../context/model/),
+Places a temporary hold on an `available` [`Product`](../../../context/model/),
 moving it to `reserved` and recording the caller as the holder. Requires a
 [Partner](../../../context/actors/) caller. The operation is idempotent under a
 caller-supplied idempotency key (see
 [idempotence](../../qualities/idempotence.md)). Behavior is specified in
-[`features/reserve-pet.feature`](../features/reserve-pet.feature), constrained
-by [rule R3](../rules/).
+[`features/reserve-product.feature`](../features/reserve-product.feature),
+constrained by [rule R3](../rules/).
 
 ### Release a reservation
 
-Returns a `reserved` [`Pet`](../../../context/model/) to `available`, provided
-the caller holds the reservation. Requires a [Partner](../../../context/actors/)
-caller. Behavior is specified in
+Returns a `reserved` [`Product`](../../../context/model/) to `available`,
+provided the caller holds the reservation. Requires a
+[Partner](../../../context/actors/) caller. Behavior is specified in
 [`features/release-reservation.feature`](../features/release-reservation.feature),
 constrained by [rule R4](../rules/).
 
 ## Resources
 
-- **Pet** — the primary resource. See the [`Pet`](../../../context/model/)
-  entity.
+- **Product** — the primary resource. See the
+  [`Product`](../../../context/model/) entity.
 
-- **Category** — a grouping of pets. See the
+- **Category** — a grouping of products. See the
   [`Category`](../../../context/model/) entity.
 
 ## Events
 
-_The Petstore API emits no events. Reservation expiry ([rule R5](../rules/))
-changes a pet's status internally and is observable only by polling its status;
-no notification is published. If a future proposal introduces event delivery
-(eg. a `reservation.expired` webhook), list each event here with its meaning and
-payload described in domain terms._
+_The Acme Catalog API emits no events. Reservation expiry ([rule R5](../rules/))
+changes a product's status internally and is observable only by polling its
+status; no notification is published. If a future proposal introduces event
+delivery (eg. a `reservation.expired` webhook), list each event here with its
+meaning and payload described in domain terms._

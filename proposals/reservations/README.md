@@ -23,7 +23,7 @@ RELEASED
 ## Summary
 
 Add a reservation capability to the catalog API: a new **Partner** actor may
-place a temporary hold on an available pet and release a hold it owns. This is
+place a temporary hold on an available product and release a hold it owns. This is
 the first caller-facing capability that changes catalog state, and it introduces
 a third tier to the actor hierarchy. Reservations expire automatically after a
 configurable hold window.
@@ -32,14 +32,14 @@ configurable hold window.
 
 Retailers and marketplace operators (see [proposal
 0001](../catalog-read-api/README.md)) report that customers regularly express
-interest in a specific animal, but a sale takes time to arrange — a home visit,
+interest in a specific product, but a sale takes time to arrange — a home visit,
 a deposit, a transport booking. Today nothing prevents two consumers from being
-shown the same `available` pet and both being told it is for sale, because the
-catalog is read-only and offers no way to hold an animal. The result is
-double-promised pets, disappointed customers, and manual reconciliation outside
+shown the same `available` product and both being told it is for sale, because
+the catalog is read-only and offers no way to hold a product. The result is
+double-promised products, disappointed customers, and manual reconciliation outside
 any system.
 
-A reservation gives a trusted integrator a way to hold a pet for a bounded
+A reservation gives a trusted integrator a way to hold a product for a bounded
 period while a sale is arranged, and to release it promptly if the sale falls
 through. Restricting this to vetted **Partner** organizations (those with a
 signed partner agreement) keeps the privilege to hold inventory away from
@@ -53,9 +53,9 @@ MEDIUM
 This proposal extends the actor hierarchy and the API surface, and introduces
 the first caller-driven state change. Existing read-only consumers are
 unaffected: no existing endpoint, field, or permission changes for Anonymous or
-Authenticated Users, and the `Pet` model gains only an optional `reservation`
-attribute that is absent unless a pet is held. The notable new concerns are
-concurrency (two Partners racing to reserve the same pet), idempotent retries on
+Authenticated Users, and the `Product` model gains only an optional `reservation`
+attribute that is absent unless a product is held. The notable new concerns are
+concurrency (two Partners racing to reserve the same product), idempotent retries on
 the write path, and the operational machinery for expiring stale holds.
 
 ## Proposed change
@@ -71,13 +71,13 @@ This proposal introduces the following specification artifacts.
 
 - [Scope](../../specification/context/overview/scope.md): Reservations added to
   _in scope_; the _out of scope_ purchasing note clarified — a reservation holds
-  a pet but does not buy it.
+  a product but does not buy it.
 
 - [Glossary](../../specification/context/glossary/README.md): New terms —
   **Partner**, **Hold window**, **Idempotency key** — and the **Reservation**
   definition revised to reflect caller-managed holds.
 
-- [Domain model](../../specification/context/model/README.md): `Pet` gains an
+- [Domain model](../../specification/context/model/README.md): `Product` gains an
   optional `reservation` attribute (`heldBy`, `expiresAt`), present only while
   `reserved`; the embedded `Reservation` value object and its link to the
   Partner actor are added to the ER and class diagrams.
@@ -101,10 +101,11 @@ This proposal introduces the following specification artifacts.
   requires `available`), R4 (only the holder may release), R5 (reservations
   expire); lifecycle annotations updated to show caller-triggered transitions.
 
-- [Reserve a pet
-  feature](../../specification/requirements/behaviors/features/reserve-pet.feature):
-  New feature — reserve an available pet, rejection of already-reserved/sold
-  pets, idempotent retry, forbidden for non-Partners, unauthenticated rejection.
+- [Reserve a product
+  feature](../../specification/requirements/behaviors/features/reserve-product.feature):
+  New feature — reserve an available product, rejection of already-reserved/sold
+  products, idempotent retry, forbidden for non-Partners, unauthenticated
+  rejection.
 
 - [Release a reservation
   feature](../../specification/requirements/behaviors/features/release-reservation.feature):
@@ -113,7 +114,7 @@ This proposal introduces the following specification artifacts.
   unauthenticated rejection.
 
 - [Interfaces](../../specification/requirements/behaviors/interfaces/README.md):
-  New _Reserve a pet_ and _Release a reservation_ operations; events section
+  New _Reserve a product_ and _Release a reservation_ operations; events section
   updated to note expiry is not published.
 
 - [Journeys](../../specification/requirements/behaviors/journeys/README.md): New
@@ -132,38 +133,38 @@ This proposal introduces the following specification artifacts.
 
 **Let any Authenticated User reserve.** Simpler — no third actor tier. Rejected
 because holding inventory is a privileged action with commercial consequences (a
-held pet is unavailable to everyone else); the business wants it limited to
+held product is unavailable to everyone else); the business wants it limited to
 vetted partners with a contractual relationship and an audit trail.
 
 **Reservations never expire; the holder must always release explicitly.**
-Rejected because partners forget, integrations crash, and pets would be stranded
+Rejected because partners forget, integrations crash, and products would be stranded
 in `reserved` indefinitely. An automatic hold window bounds the damage from an
 abandoned reservation. The cost is the operational machinery to expire holds.
 
 **Model a `Reservation` as its own first-class entity.** A separate entity with
 its own lifecycle would generalize more cleanly to multiple concurrent holds or
-a waitlist. Rejected for now as over-engineered: a pet holds at most one
-reservation at a time, so an optional attribute on `Pet` is sufficient. Revisit
+a waitlist. Rejected for now as over-engineered: a product holds at most one
+reservation at a time, so an optional attribute on `Product` is sufficient. Revisit
 if waitlisting is ever proposed.
 
 ## Tradeoffs and risks
 
 - **Concurrency on reserve.** Two Partners may attempt to reserve the same
-  `available` pet simultaneously. The specification requires that exactly one
+  `available` product simultaneously. The specification requires that exactly one
   succeeds and the other is rejected (R3); the implementation must enforce this
   atomically. A naive read-then-write will admit double holds under load.
 
-- **Clock dependence of expiry.** R5 makes a pet's observable status depend on
+- **Clock dependence of expiry.** R5 makes a product's observable status depend on
   elapsed time. Tests and consumers must not assume a reservation is still held
   right up to `expiresAt`; expiry processing may lag the timestamp slightly.
 
 - **Idempotency-key hygiene is the caller's responsibility.** A Partner that
-  reuses a key across different pets, or fails to send one, loses the safe-retry
-  guarantee. This is documented but not enforceable by the API beyond per-pet
-  scoping of the key.
+  reuses a key across different products, or fails to send one, loses the
+  safe-retry guarantee. This is documented but not enforceable by the API beyond
+  per-product scoping of the key.
 
 - **No expiry notification.** Because the API publishes no events, a Partner
-  only learns a hold has lapsed by re-reading the pet. Partners with
+  only learns a hold has lapsed by re-reading the product. Partners with
   time-critical flows must poll. An event/webhook mechanism is explicitly
   deferred.
 

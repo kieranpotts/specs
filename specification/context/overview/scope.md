@@ -7,14 +7,14 @@ The boundaries of the system.
 _List the capabilities, user groups, and domains that the system is responsible
 for._
 
-- **Catalog browsing**: Listing, searching, and filtering the pet catalog.
+- **Catalog browsing**: Listing, searching, and filtering the product catalog.
 
-- **Catalog retrieval**: Fetching the full details of a single pet listing by
-  ID.
+- **Catalog retrieval**: Fetching the full details of a single product listing
+  by ID.
 
 - **Reservations**: Allowing Partner callers to place a temporary hold on an
-  available pet, and to release a hold they own. This is the only caller-facing
-  capability that changes catalog state.
+  available product, and to release a hold they own. This is the only
+  caller-facing capability that changes catalog state.
 
 - **Authentication**: Verifying caller identity before granting access to
   catalog data.
@@ -31,12 +31,13 @@ recording what is in scope: it prevents scope creep and sets clear expectations
 with stakeholders._
 
 - **Purchasing and orders**: The API does not support placing orders, managing a
-  basket, or processing payments. A reservation holds a pet but does not buy it;
-  converting a reservation to a sale is an administrative function outside this
-  service.
+  basket, or processing payments. A reservation holds a product but does not
+  buy it; converting a reservation to a sale is an administrative function
+  outside this service.
 
 - **Inventory management**: Catalog data is read-only. Adding, editing, or
-  removing pet listings is an administrative function outside this service.
+  removing product listings is an administrative function outside this
+  service.
 
 - **User account management**: Registration, password reset, and profile
   management are handled by a separate identity service.

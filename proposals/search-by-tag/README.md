@@ -23,20 +23,20 @@ RELEASED
 ## Summary
 
 Extend the catalog API with a search capability that allows authenticated
-callers to find pets by free-text keyword and by tag, and to combine both
+callers to find products by free-text keyword and by tag, and to combine both
 filters in a single request.
 
 ## Motivation
 
 The initial catalog API (see [proposal 0001](../catalog-read-api/README.md))
-supports filtering by status, species, and price range, but gives consumers no
+supports filtering by status, type, and price range, but gives consumers no
 way to search the catalog by descriptive attributes. Retailers have reported
-that their customers want to search for pets by characteristics such as
-"hypoallergenic", "house-trained", or "good with children" — qualities captured
-in free-text descriptions and tags but not surfaced by the existing filter set.
+that their customers want to search for products by characteristics such as
+"eco-friendly", "handmade", or "dishwasher-safe" — qualities captured in
+free-text descriptions and tags but not surfaced by the existing filter set.
 
 A keyword and tag search capability closes this gap without requiring changes to
-the domain model: the `Pet` entity already has `description` and `tags`
+the domain model: the `Product` entity already has `description` and `tags`
 attributes defined in proposal 0001.
 
 ## Impact
@@ -53,9 +53,9 @@ efficiently at scale.
 
 This proposal adds the following specification artifact:
 
-- **[`specification/requirements/behaviors/features/search-pets.feature`](../../specification/requirements/behaviors/features/search-pets.feature)**:
+- **[`specification/requirements/behaviors/features/search-products.feature`](../../specification/requirements/behaviors/features/search-products.feature)**:
   New feature file specifying keyword search (case-insensitive match against
-  name, breed, and description), tag-based search, combined keyword-and-tag
+  name, variant, and description), tag-based search, combined keyword-and-tag
   search, empty result handling, and unauthenticated rejection.
 
 No changes are required to the domain model, actor hierarchy, or quality
@@ -89,9 +89,8 @@ with two different query models.
   50,000-record capacity target. The implementation team must choose an
   appropriate indexing strategy.
 - **Tag matching is exact**: The specification requires exact tag matches (eg.
-  "hypoallergenic" does not match "hypo-allergenic"). This may frustrate
-  consumers if tag values are not normalized consistently when listings are
-  created. Tag normalization is an administrative concern outside the scope of
+  "eco-friendly" does not match "eco friendly"). This may frustrate consumers
+  if tag values are not normalized consistently when listings are created. Tag normalization is an administrative concern outside the scope of
   this API, but it is a real operational risk.
 - **No relevance ranking**: Search results are returned in the default list
   order (id ascending). Consumers requiring ranked results must implement

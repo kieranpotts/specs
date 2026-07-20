@@ -16,24 +16,26 @@ requirements as Gherkin scenarios keeps them concrete and testable. Each
 scenario is an acceptance criterion that can be verified against the running
 system.
 
-See [`get-pet.feature`](./get-pet.feature) for an example of the notation.
+See [`get-product.feature`](./get-product.feature) for an example of the
+notation.
 
 ## Features
 
 ### Authenticated User
 
-- [`list-pets.feature`](./list-pets.feature): List and filter the pet catalog.
+- [`list-products.feature`](./list-products.feature): List and filter the
+  product catalog.
 
-- [`search-pets.feature`](./search-pets.feature): Search the catalog by keyword
-  and tag.
+- [`search-products.feature`](./search-products.feature): Search the catalog by
+  keyword and tag.
 
-- [`get-pet.feature`](./get-pet.feature): Retrieve the full details of a single
-  pet by ID.
+- [`get-product.feature`](./get-product.feature): Retrieve the full details of
+  a single product by ID.
 
 ### Partner
 
-- [`reserve-pet.feature`](./reserve-pet.feature): Place a temporary hold on an
-  available pet.
+- [`reserve-product.feature`](./reserve-product.feature): Place a temporary
+  hold on an available product.
 
 - [`release-reservation.feature`](./release-reservation.feature): Release a
   reservation the Partner holds.

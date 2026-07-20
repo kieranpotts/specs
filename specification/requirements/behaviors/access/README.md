@@ -22,8 +22,8 @@ capability, one column per actor, ordered from lowest to highest privilege._
 | ---------- | :------------: | :----------------: | :-----: |
 | List and filter the catalog | — | ✓ | ✓ |
 | Search the catalog | — | ✓ | ✓ |
-| Retrieve a single pet by ID | — | ✓ | ✓ |
-| Reserve an available pet | — | — | ✓ |
+| Retrieve a single product by ID | — | ✓ | ✓ |
+| Reserve an available product | — | — | ✓ |
 | Release a reservation it holds | — | — | ✓ |
 
 ✓ = permitted, and inherited by all higher-privileged actors. — = not permitted.

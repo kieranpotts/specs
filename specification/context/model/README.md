@@ -16,29 +16,29 @@ model visually._
 
 ## Entities
 
-### Pet
+### Product
 
-A `Pet` is a single animal available in the catalog. It is the primary entity in
-the domain.
+A `Product` is a single item available in the catalog. It is the primary entity
+in the domain.
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
 | `id` | Unique identifier | Stable, system-assigned identifier for the listing. |
-| `name` | String | The given name of the individual animal (eg. "Fido"). |
-| `species` | Enum | The species category (eg. `dog`, `cat`, `bird`, `fish`, `reptile`, `small-animal`). |
-| `breed` | String | The breed or variety within the species (eg. "Labrador Retriever"). Optional; may be blank for mixed-breed animals. |
-| `age` | Object | Approximate age, expressed as `{ value: number, unit: "weeks" | "months" | "years" }`. |
+| `name` | String | The given name of the individual product (eg. "Widget Pro"). |
+| `type` | Enum | The product type category (eg. `furniture`, `electronics`, `apparel`, `kitchenware`, `outdoor`, `accessory`). |
+| `variant` | String | The variant or style within the type (eg. "Oak Finish"). Optional; may be blank for single-variant products. |
+| `age` | Object | Approximate time since manufacture, expressed as `{ value: number, unit: "weeks" | "months" | "years" }`. |
 | `price` | Decimal | Asking price in the catalog's configured currency. |
 | `status` | Enum | Current availability: `available`, `reserved`, or `sold`. |
-| `description` | String | Free-text description of the animal, its temperament, and care requirements. |
-| `photoUrls` | Array of strings | One or more URLs pointing to images of the animal. |
-| `tags` | Array of strings | Freeform labels for search and filtering (eg. "hypoallergenic", "house-trained"). |
-| `reservation` | Object | Present only while `status` is `reserved`. Records the holding [`Partner`](../actors/) and the time at which the [hold window](../glossary/) expires: `{ heldBy: PartnerId, expiresAt: timestamp }`. Absent when the pet is `available` or `sold`. |
+| `description` | String | Free-text description of the product, its features, and care requirements. |
+| `photoUrls` | Array of strings | One or more URLs pointing to images of the product. |
+| `tags` | Array of strings | Freeform labels for search and filtering (eg. "eco-friendly", "handmade"). |
+| `reservation` | Object | Present only while `status` is `reserved`. Records the holding [`Partner`](../actors/) and the time at which the [hold window](../glossary/) expires: `{ heldBy: PartnerId, expiresAt: timestamp }`. Absent when the product is `available` or `sold`. |
 
 ### Category
 
-A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats",
-"Birds"). A `Pet` belongs to exactly one `Category`.
+A `Category` groups products into broad catalog sections (eg. "Electronics",
+"Apparel", "Furniture"). A `Product` belongs to exactly one `Category`.
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
@@ -47,24 +47,24 @@ A `Category` groups pets into broad catalog sections (eg. "Dogs", "Cats",
 
 ## Relationships
 
-- A `Pet` belongs to exactly one `Category`.
-- A `Category` may contain zero or more `Pets`.
-- A `Pet` has at most one active `Reservation` — present only while its `status`
-  is `reserved` (see [rule R3](../../requirements/behaviors/rules/)).
+- A `Product` belongs to exactly one `Category`.
+- A `Category` may contain zero or more `Products`.
+- A `Product` has at most one active `Reservation` — present only while its
+  `status` is `reserved` (see [rule R3](../../requirements/behaviors/rules/)).
 - A `Reservation` is held by exactly one [`Partner`](../actors/) actor.
 
 ## Entity-relationship diagram
 
 The diagram summarizes the entities above and the cardinality of their
 relationships. `Reservation` is shown as a separate node for clarity, but it is
-an embedded value on `Pet` (the `reservation` attribute), not an
+an embedded value on `Product` (the `reservation` attribute), not an
 independently-addressable record. `Partner` is an [actor](../actors/), not a
 stored entity; it appears here only to show what a reservation references.
 
 ```mermaid
 erDiagram
-    CATEGORY ||--o{ PET : "groups"
-    PET ||--o| RESERVATION : "is held by (0..1)"
+    CATEGORY ||--o{ PRODUCT : "groups"
+    PRODUCT ||--o| RESERVATION : "is held by (0..1)"
     RESERVATION }o--|| PARTNER : "held by"
 
     CATEGORY {
@@ -72,11 +72,11 @@ erDiagram
         string name
     }
 
-    PET {
+    PRODUCT {
         id          id          PK
         string      name
-        enum        species
-        string      breed       "optional"
+        enum        type
+        string      variant     "optional"
         object      age         "value + unit"
         decimal     price
         enum        status      "available | reserved | sold"
@@ -101,11 +101,11 @@ object and the `status` enum more explicit:
 
 ```mermaid
 classDiagram
-    class Pet {
+    class Product {
         +Id id
         +String name
-        +Species species
-        +String breed
+        +Type type
+        +String variant
         +Age age
         +Decimal price
         +Status status
@@ -135,10 +135,10 @@ classDiagram
         sold
     }
 
-    Category "1" --> "0..*" Pet : contains
-    Pet "1" --> "0..1" Reservation : holds
-    Pet *-- Age : embeds
-    Pet ..> Status : has
+    Category "1" --> "0..*" Product : contains
+    Product "1" --> "0..1" Reservation : holds
+    Product *-- Age : embeds
+    Product ..> Status : has
     Reservation ..> Partner : heldBy
 
     class Partner {

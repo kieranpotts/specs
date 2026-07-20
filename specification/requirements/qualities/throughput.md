@@ -9,7 +9,7 @@ second under normal load without exceeding the [latency](./latency.md)
 thresholds. The system MUST sustain at least 1,500 API requests per second under
 peak load, with a graceful degradation in latency rather than hard failure._
 
-For the Petstore API:
+For the Acme Catalog API:
 
 - The API MUST sustain at least 200 requests per second across all endpoints
   under normal load without breaching the [latency](./latency.md) thresholds.

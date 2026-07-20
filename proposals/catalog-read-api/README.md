@@ -22,13 +22,14 @@ RELEASED
 
 ## Summary
 
-Introduce the foundational Petstore API: a read-only digital service that allows
-authenticated callers to list, filter, and retrieve individual pet listings from
-the catalog. This establishes the domain model and the core actor hierarchy.
+Introduce the foundational Acme Catalog API: a read-only digital service that
+allows authenticated callers to list, filter, and retrieve individual product
+listings from the catalog. This establishes the domain model and the core actor
+hierarchy.
 
 ## Motivation
 
-Pet retailers and marketplace operators need a reliable, programmatic way to
+Retailers and marketplace operators need a reliable, programmatic way to
 access catalog data. Without a shared API, each consuming application must
 maintain its own copy of catalog data, leading to duplication, staleness, and
 fragile bespoke integrations. A read API that is accessible to both
@@ -56,7 +57,7 @@ This proposal introduces the following specification artifacts.
 
 - [Mission
   statement](../../specification/context/overview/mission-statement.md): New
-  content stating the core purpose of the Petstore API.
+  content stating the core purpose of the Acme Catalog API.
 
 - [Problem
   statement](../../specification/context/overview/problem-statement.md): New
@@ -77,7 +78,7 @@ This proposal introduces the following specification artifacts.
   credential, listing, and reservation.
 
 - [Domain model](../../specification/context/model/README.md): New domain model
-  defining the `Pet` and `Category` entities, their attributes, and their
+  defining the `Product` and `Category` entities, their attributes, and their
   relationship.
 
 - [Actor hierarchy](../../specification/context/actors/README.md): Updated actor
@@ -91,24 +92,24 @@ This proposal introduces the following specification artifacts.
   list and retrieve catalog data.
 
 - [Rules](../../specification/requirements/behaviors/rules/README.md): New
-  business rules and the `Pet` status lifecycle — the single-status invariant,
-  the read-only-to-callers invariant, and the `available → reserved → sold`
-  state machine.
+  business rules and the `Product` status lifecycle — the single-status
+  invariant, the read-only-to-callers invariant, and the
+  `available → reserved → sold` state machine.
 
-- [List pets
-  feature](../../specification/requirements/behaviors/features/list-pets.feature):
+- [List products
+  feature](../../specification/requirements/behaviors/features/list-products.feature):
   New feature file specifying list and filter behavior, including pagination,
-  status filter, species filter, price range filter, empty result, and
+  status filter, type filter, price range filter, empty result, and
   unauthenticated rejection.
 
-- [Get pet by ID
-  feature](../../specification/requirements/behaviors/features/get-pet.feature):
-  New feature file specifying retrieval of a single pet by ID, including the
+- [Get product by ID
+  feature](../../specification/requirements/behaviors/features/get-product.feature):
+  New feature file specifying retrieval of a single product by ID, including the
   not-found and unauthenticated cases.
 
 - [Quality: Latency](../../specification/requirements/qualities/latency.md):
-  Petstore-specific latency thresholds for list/search (300ms p95) and get-by-ID
-  (100ms p99).
+  Acme Catalog-specific latency thresholds for list/search (300ms p95) and
+  get-by-ID (100ms p99).
 
 - [Quality:
   Throughput](../../specification/requirements/qualities/throughput.md): Minimum
@@ -151,10 +152,11 @@ expose pricing and availability information without any audit trail.
   listings via the same API will need to use a separate administrative interface
   until write operations are specified and built. This may slow early adoption.
 
-- **Domain model is intentionally minimal**: The `Pet` entity omits health
-  records, vaccination status, and lineage data that some retailers may consider
-  essential. These can be added via future proposals, but early integrators
-  building against the initial model may need to accommodate schema additions.
+- **Domain model is intentionally minimal**: The `Product` entity omits
+  supplier records, warranty status, and provenance data that some retailers may
+  consider essential. These can be added via future proposals, but early
+  integrators building against the initial model may need to accommodate schema
+  additions.
 
 - **Performance thresholds are estimates**: The latency and throughput targets
   in this proposal are based on comparable catalog APIs, not load testing
@@ -171,5 +173,5 @@ expose pricing and availability information without any audit trail.
 
 ## References
 
-- [Swagger Petstore](https://petstore.swagger.io/): The original reference
-  implementation that inspired this domain model.
+- [Swagger Petstore](https://petstore.swagger.io/): A well-known reference API
+  whose read/list/filter shape inspired the structure of this domain model.

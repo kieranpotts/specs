@@ -22,19 +22,19 @@ REJECTED
 
 ## Summary
 
-Add a full purchasing flow to the API: a basket that aggregates reserved pets, a
-checkout operation that captures customer and delivery details, and payment
-processing that converts reserved pets to `sold`. This would turn the catalog
+Add a full purchasing flow to the API: a basket that aggregates reserved
+products, a checkout operation that captures customer and delivery details, and
+payment processing that converts reserved products to `sold`. This would turn the catalog
 service into an end-to-end commerce platform.
 
 ## Motivation
 
-Now that Partners can [reserve](../reservations/README.md) pets, the natural
+Now that Partners can [reserve](../reservations/README.md) products, the natural
 next step appears to be letting a consumer complete the purchase through the
 same API — adding a basket, a checkout step, and payment capture — rather than
 handing off to a separate administrative function. Several integrators have
-asked for "one API to sell a pet," arguing that the reservation feature is only
-half a sale.
+asked for "one API to sell a product," arguing that the reservation feature is
+only half a sale.
 
 ## Impact
 
@@ -56,7 +56,7 @@ qualities._
 ## Alternatives
 
 **Keep purchasing out of scope; integrate with a dedicated commerce platform.**
-The catalog and reservation API hands a held pet to an existing
+The catalog and reservation API hands a held product to an existing
 order-management/payment system (Stripe, a retailer's own checkout) rather than
 rebuilding that capability. This is the status quo and the preferred path.
 
@@ -88,13 +88,13 @@ so the same ground is not re-covered.
   right.
 
 - **No clear consumer demand for in-API payment.** The integrators asking for
-  "one API" want a held pet to flow smoothly into _their_ checkout, which the
+  "one API" want a held product to flow smoothly into _their_ checkout, which the
   existing reservation feature plus a documented hand-off already supports. None
   require the payment step to live in this service.
 
 **Decision:** rejected. Purchasing and payment remain explicitly [out of
-scope](../../specification/context/overview/scope.md). A Partner reserves a pet
-through this API and completes the sale through an external commerce system; the
+scope](../../specification/context/overview/scope.md). A Partner reserves a
+product through this API and completes the sale through an external commerce system; the
 administrative function records the resulting `sold` status. Should a genuine,
 evidenced need for in-API checkout emerge, a fresh proposal may revisit this —
 but it would need to confront the regulatory and scope objections above head-on.

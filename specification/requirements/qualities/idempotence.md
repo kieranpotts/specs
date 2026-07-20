@@ -16,7 +16,7 @@ the request without risking duplicate side effects on the server's state.
 _State which operations MUST be idempotent, and how clients are expected to
 retry them (for example, via an idempotency key on write requests)._
 
-All Petstore API read operations (list, search, retrieve) are naturally
+All Acme Catalog API read operations (list, search, retrieve) are naturally
 idempotent: repeating the same request MUST return the same result given the
 same catalog state, with no side effects. Clients MAY safely retry any read
 request in the event of a network failure or timeout without risk of unintended
@@ -25,9 +25,9 @@ consequences.
 The reservation operations (reserve, release) change state and are therefore not
 naturally idempotent. To let Partners retry safely after a network failure, the
 **reserve** operation MUST accept a caller-supplied idempotency key: a retry
-carrying the same key against the same pet MUST return the result of the
-original reservation rather than rejecting the pet as already reserved, and MUST
-NOT create a second hold. The **release** operation is idempotent by nature —
-releasing a reservation the caller has already released (or that has lapsed)
-MUST succeed without error, provided the pet is `available` and the caller was
-the holder.
+carrying the same key against the same product MUST return the result of the
+original reservation rather than rejecting the product as already reserved, and
+MUST NOT create a second hold. The **release** operation is idempotent by
+nature — releasing a reservation the caller has already released (or that has
+lapsed) MUST succeed without error, provided the product is `available` and the
+caller was the holder.

@@ -8,13 +8,13 @@ pages MUST be under 1.5 seconds at the 95th percentile under normal load. API
 responses for read operations MUST be returned within 200ms at the 99th
 percentile._
 
-For the Petstore API:
+For the Acme Catalog API:
 
-- The **list pets** and **search pets** endpoints MUST return a response within
-  300ms at the 95th percentile under normal load.
+- The **list products** and **search products** endpoints MUST return a
+  response within 300ms at the 95th percentile under normal load.
 
-- The **get pet by ID** endpoint MUST return a response within 100ms at the 99th
-  percentile under normal load.
+- The **get product by ID** endpoint MUST return a response within 100ms at the
+  99th percentile under normal load.
 
 - The **reserve** and **release** endpoints MUST return a response within 400ms
   at the 95th percentile under normal load. The slightly higher budget reflects

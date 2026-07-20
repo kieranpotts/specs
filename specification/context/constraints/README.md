@@ -19,12 +19,12 @@ apply to your system._
 
 ## Regulatory and legal
 
-- **Animal welfare advertising.** Catalog listings for live animals MUST comply
-  with applicable animal-welfare and pet-advertising law in the jurisdictions
-  the catalog serves — including, where required, the display of a seller
-  license number and the animal's country of origin. The system treats these as
-  catalog data supplied by the administrative function; it does not originate
-  them, but it MUST NOT suppress them.
+- **Product safety and labeling.** Catalog listings MUST comply with applicable
+  product-safety and advertising law in the jurisdictions the catalog serves —
+  including, where required, the display of a seller license number and the
+  product's country of origin. The system treats these as catalog data supplied
+  by the administrative function; it does not originate them, but it MUST NOT
+  suppress them.
 
 - **Consumer pricing transparency.** Where a `price` is shown, it MUST be the
   price a consumer would pay, in a single declared currency, with no hidden
@@ -41,7 +41,7 @@ apply to your system._
 
 - **Identity-service SLA.** Authentication depends on the external identity
   service (see _Dependencies_ below). The system's own availability commitments
-  are bounded by that service's SLA: the Petstore API cannot promise
+  are bounded by that service's SLA: the Acme Catalog API cannot promise
   availability higher than the identity service it relies on to authorize every
   request.
 

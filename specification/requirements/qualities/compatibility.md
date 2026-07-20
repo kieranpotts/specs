@@ -15,7 +15,7 @@ in parentheses):
 
 ## API protocol compatibility
 
-The Petstore API is a digital service accessible to both human-operated client
+The Acme Catalog API is a digital service accessible to both human-operated client
 applications and automated systems. It is not tied to any specific transport or
 serialization technology; however, the following compatibility commitments apply
 to the current production implementation:
