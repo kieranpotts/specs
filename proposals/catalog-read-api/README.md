@@ -134,31 +134,31 @@ This proposal introduces the following specification artifacts.
 
 ## Alternatives
 
-**GraphQL API instead of REST-style HTTP**: A query language would give
+**GraphQL API instead of REST-style HTTP:** A query language would give
 consumers more flexibility to request only the fields they need, reducing
 over-fetching. Rejected at this stage because the catalog model is small and
 stable, and the additional tooling overhead is not justified for a read-only use
 case with well-defined response shapes. Can be reconsidered if consumers report
 significant over-fetching problems.
 
-**Open access (no authentication)**: Removing the authentication requirement
+**Open access (no authentication):** Removing the authentication requirement
 would simplify integration for casual consumers. Rejected because the business
 requires control over who accesses catalog data; unauthenticated access would
 expose pricing and availability information without any audit trail.
 
 ## Tradeoffs and risks
 
-- **Read-only scope may frustrate early adopters**: Consumers who want to manage
+- **Read-only scope may frustrate early adopters:** Consumers who want to manage
   listings via the same API will need to use a separate administrative interface
   until write operations are specified and built. This may slow early adoption.
 
-- **Domain model is intentionally minimal**: The `Product` entity omits
+- **Domain model is intentionally minimal:** The `Product` entity omits
   supplier records, warranty status, and provenance data that some retailers may
   consider essential. These can be added via future proposals, but early
   integrators building against the initial model may need to accommodate schema
   additions.
 
-- **Performance thresholds are estimates**: The latency and throughput targets
+- **Performance thresholds are estimates:** The latency and throughput targets
   in this proposal are based on comparable catalog APIs, not load testing
   against a running system. They should be validated during implementation.
 

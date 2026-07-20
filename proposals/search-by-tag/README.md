@@ -53,7 +53,7 @@ efficiently at scale.
 
 This proposal adds the following specification artifact:
 
-- **[`specification/requirements/behaviors/features/search-products.feature`](../../specification/requirements/behaviors/features/search-products.feature)**:
+- **[`specification/requirements/behaviors/features/search-products.feature`](../../specification/requirements/behaviors/features/search-products.feature):**
   New feature file specifying keyword search (case-insensitive match against
   name, variant, and description), tag-based search, combined keyword-and-tag
   search, empty result handling, and unauthenticated rejection.
@@ -65,14 +65,14 @@ threshold of 300ms at the 95th percentile.
 
 ## Alternatives
 
-**Expose a dedicated full-text search service (eg. Elasticsearch)**: A
+**Expose a dedicated full-text search service (eg. Elasticsearch):** A
 purpose-built search engine would give consumers richer query syntax (fuzzy
 matching, relevance scoring, faceted navigation). Rejected for this proposal
 because the initial use case — matching on a small set of well-defined tags and
 short descriptive text — does not justify the operational complexity. If search
 volume or query complexity grows, this can be revisited in a future proposal.
 
-**Extend the existing list endpoint with additional filter parameters**: Rather
+**Extend the existing list endpoint with additional filter parameters:** Rather
 than a separate search endpoint, keyword and tag filters could be added as
 optional query parameters on the list endpoint. Considered and rejected because
 the semantics differ: the list endpoint returns structured filter results,
@@ -82,17 +82,17 @@ with two different query models.
 
 ## Tradeoffs and risks
 
-- **Full-text keyword search has non-trivial performance implications**:
+- **Full-text keyword search has non-trivial performance implications:**
   Matching against free-text `description` fields at scale requires indexing. If
   the underlying implementation uses a simple SQL `LIKE` or `ILIKE` query, it
   will not meet the latency thresholds at catalog sizes approaching the
   50,000-record capacity target. The implementation team must choose an
   appropriate indexing strategy.
-- **Tag matching is exact**: The specification requires exact tag matches (eg.
+- **Tag matching is exact:** The specification requires exact tag matches (eg.
   "eco-friendly" does not match "eco friendly"). This may frustrate consumers
   if tag values are not normalized consistently when listings are created. Tag normalization is an administrative concern outside the scope of
   this API, but it is a real operational risk.
-- **No relevance ranking**: Search results are returned in the default list
+- **No relevance ranking:** Search results are returned in the default list
   order (id ascending). Consumers requiring ranked results must implement
   ranking client-side.
 

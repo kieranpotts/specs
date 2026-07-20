@@ -18,39 +18,39 @@ home of the project's specification-content rules, and the place to tune them.
 
 The lifecycle skills are, in order:
 
-- **[`/draft-spec`](./draft-spec/)**: Scaffolds a new draft proposal, ready for
+- **[`/draft-spec`](./draft-spec/):** Scaffolds a new draft proposal, ready for
   the user to complete. Sets up the branch and proposal document from the
   template, opens a draft pull request and an associated discussion thread.
 
-- **[`/propose-spec`](./propose-spec/)**: `DRAFT` → `PROPOSED` — Confirms the
+- **[`/propose-spec`](./propose-spec/):** `DRAFT` → `PROPOSED` — Confirms the
   proposal document and specification edits are complete and free of leftover
   template text. Applies the `#proposed` label, and takes the pull request out
   of draft so stakeholders can review it.
 
-- **[`/accept-spec`](./accept-spec/)**: `PROPOSED` → `ACCEPTED` — Verifies the
+- **[`/accept-spec`](./accept-spec/):** `PROPOSED` → `ACCEPTED` — Verifies the
   approval gates, sets the document's `Status` to `ACCEPTED`, and labels the
   pull request `#accepted`. The pull request and its discussion thread stay open
   through implementation until release – it is not merged here.
 
-- **[`/release-spec`](./release-spec/)**: `ACCEPTED` → `RELEASED` — Sets the
+- **[`/release-spec`](./release-spec/):** `ACCEPTED` → `RELEASED` — Sets the
   document's `Status` to `RELEASED`, labels the pull request `#released`,
   squash-merges it to `main`, and closes the discussion thread. After the merge,
   the proposal is assigned a unique number and listed in the proposals index –
   `proposals/INDEX.md`.
 
-- **[`/reject-spec`](./reject-spec/)**: `PROPOSED` → `REJECTED` — Reverts the
+- **[`/reject-spec`](./reject-spec/):** `PROPOSED` → `REJECTED` — Reverts the
   specification edits, sets the document's `Status` to `REJECTED`, labels the
   pull request `#rejected`, closes the discussion thread, and squash-merges it
   to `main`. After the merge, the proposal is given a unique reference number
   and listed in the proposals index.
 
-- **[`/supersede-spec`](./supersede-spec/)**: `RELEASED` → `SUPERSEDED` — Marks
+- **[`/supersede-spec`](./supersede-spec/):** `RELEASED` → `SUPERSEDED` — Marks
   a released proposal as retired once a newer proposal has replaced or
   overridden it. Sets up cross-references between the two.
 
 And the content skill:
 
-- **[`/write-spec`](./write-spec/)**: Authors and edits the specification
+- **[`/write-spec`](./write-spec/):** Authors and edits the specification
   artifacts for a proposal – functional requirements as testable Gherkin
   acceptance criteria, non-functional requirements as measurable thresholds –
   and checks them against the Definition of Ready. Used during `DRAFT`, after

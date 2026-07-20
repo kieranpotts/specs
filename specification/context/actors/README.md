@@ -23,14 +23,14 @@ capabilities each actor holds.
 
 The current actor hierarchy is as follows:
 
-- **Anonymous User**: A caller who has not authenticated.
+- **Anonymous User:** A caller who has not authenticated.
 
-- **Authenticated User**: A caller who has presented a valid credential — either
+- **Authenticated User:** A caller who has presented a valid credential — either
   a human operator using a client application, or an automated system making
   machine-to-machine requests. Authenticated Users may read the catalog but may
   not change its state.
 
-- **Partner**: An Authenticated User belonging to an organization that holds a
+- **Partner:** An Authenticated User belonging to an organization that holds a
   signed partner agreement (see [constraints](../constraints/)). A Partner
   inherits every read capability of an Authenticated User, and additionally may
   place and release [reservations](../glossary/) on products — the only

@@ -21,52 +21,52 @@ of how that state was reached.
 
 ## Project structure
 
-- **`specification/`**:
+- **`specification/`:**
   Describes the current production system.
 
-  - **`context/`**:
+  - **`context/`:**
     Problem space and domain model. Descriptive.
 
-    - **`overview/`**:
+    - **`overview/`:**
       Mission statement, problem statement, project scope.
 
-    - **`constraints/`**:
+    - **`constraints/`:**
       Regulatory and legal constraints, dependencies.
 
-    - **`glossary/`**:
+    - **`glossary/`:**
       The domain's ubiquitous language.
 
-    - **`model/`**:
+    - **`model/`:**
       Domain entities and their relationships.
 
-    - **`actors/`**:
+    - **`actors/`:**
       Actors that interact with the system (definitions only – no permissions).
 
-  - **`requirements/`**:
+  - **`requirements/`:**
     Expected behaviors and qualities. Prescriptive.
 
-    - **`behaviors/`**:
+    - **`behaviors/`:**
       Capabilities exposed and rules enforced.
 
-      - **`access/`**:
+      - **`access/`:**
         Permissions matrix – which actors have which capabilities.
 
-      - **`rules/`**:
+      - **`rules/`:**
         Business rules, invariants, entity lifecycles.
 
-      - **`features/`**:
+      - **`features/`:**
         Functional requirements, Gherkin notation.
 
-      - **`journeys/`**:
+      - **`journeys/`:**
         User journeys – wireframes or call-sequences.
 
-      - **`interfaces/`**:
+      - **`interfaces/`:**
         External behavioral contracts.
 
-    - **`qualities/`**:
+    - **`qualities/`:**
       Dynamic qualities, aka. non-functional requirements.
 
-- **`proposals/`**:
+- **`proposals/`:**
   Permanent archive of every proposed change. Each proposal is a directory
   (`proposals/<slug>/`) holding its `README.md` and any supporting artifacts.
 
@@ -81,38 +81,38 @@ of how that state was reached.
     immutable once written, even while the proposal itself evolves. A proposal
     specified directly, with no PRD, omits it.
 
-- **`docs/`**:
+- **`docs/`:**
   General guidelines for humans to get the most out of the SRS process.
 
 ## Proposal lifecycle
 
 Each proposal moves through a defined state machine:
 
-- **`DRAFT`**: The proposal is being written. The pull request is open as draft
+- **`DRAFT`:** The proposal is being written. The pull request is open as draft
   and carries only its type label, eg. `FEATURE`. Not yet ready for review.
 
-- **`PROPOSED`**: The proposal is complete and open for a decision. The pull
+- **`PROPOSED`:** The proposal is complete and open for a decision. The pull
   request is marked ready for review and labeled `#proposed`. From this point,
   the author should not make further material changes except in response to
   reviewer feedback.
 
-- **`ACCEPTED`**: The proposal is approved and the work is queued for
+- **`ACCEPTED`:** The proposal is approved and the work is queued for
   implementation. The pull request stays open until the implementation reaches
   production. The proposal document and accompanying specification edits MAY
   continue to evolve during the implementation period, with feedback continuing
   on the still-open discussion thread.
 
-- **`REJECTED`**: The proposal is not being taken forward. Its specification
+- **`REJECTED`:** The proposal is not being taken forward. Its specification
   edits are reverted, and only the proposal document is merged into `main`,
   preserved permanently as the record of the decision and its rationale. After
   the merge, its number is recorded in `proposals/INDEX.md`.
 
-- **`RELEASED`**: The implementation is live in production. The specification
+- **`RELEASED`:** The implementation is live in production. The specification
   edits are merged into `main`, and after the merge the proposal is given its
   number in `proposals/INDEX.md`. A released decision stays in effect until a
   later proposal supersedes it.
 
-- **`SUPERSEDED`**: The proposal was previously released but is no longer in
+- **`SUPERSEDED`:** The proposal was previously released but is no longer in
   effect, because a later released proposal has replaced or removed its feature.
 
 The only allowed state transitions are:
