@@ -1,6 +1,6 @@
-_Copy the "Summary" section from the proposal document here._
+Copy the "Summary" section from the proposal document here.
 
-- Discussion thread: [Link] _(required — every proposal has one)_
+- Discussion thread: [Link] (REQUIRED)
 
 > [!IMPORTANT]
 > Please use the discussion thread linked above, not comments on this pull
