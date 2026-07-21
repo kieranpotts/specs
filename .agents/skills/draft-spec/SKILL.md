@@ -1,11 +1,11 @@
 ---
 name: draft-spec
 description: >-
-  Scaffold a new proposal for a change to the
-  software requirements specification and open it as a draft pull request. Use
-  when the user wants to propose a new feature, a changed non-functional
-  requirement, or a large-scale epic initiative, or says "draft a proposal", "new
-  proposal", or "start a proposal".
+  Scaffold a new proposal for a change to the software requirements
+  specification and open it as a draft pull request. Use when the user wants
+  to propose a new feature, a changed non-functional requirement, or a
+  large-scale epic initiative, or says "draft a proposal", "new proposal",
+  or "start a proposal".
 license: MIT
 metadata:
   interactive: yes
@@ -25,6 +25,17 @@ Do NOT use this skill to advance an existing proposal, draft or otherwise. See
 [`/accept-spec`](../accept-spec/SKILL.md),
 [`/release-spec`](../release-spec/SKILL.md), or
 [`/reject-spec`](../reject-spec/SKILL.md).
+
+**Input:** A description of the proposed specification change — REQUIRED.
+Prompt the user if not provided. The change type (`FEATURE`, `QUALITY`, or
+`EPIC`) — OPTIONAL, inferred from the description if possible. A PRD, if one
+exists — OPTIONAL.
+
+**Output:** A `proposal/<slug>` (or `epic/<slug>`) branch, with
+`proposals/<slug>/README.md` created from the template and its metadata
+header filled in (`Status: DRAFT`), committed to a draft pull request opened
+against `main`, carrying exactly one type label, with a linked discussion
+thread.
 
 ## Instructions
 

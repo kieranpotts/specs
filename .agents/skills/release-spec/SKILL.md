@@ -1,11 +1,10 @@
 ---
 name: release-spec
 description: >-
-  Mark an accepted proposal as released once its
-  implementation is live in production — set its status to released, label the PR,
-  squash-merge it, and assign its number in the index. Use when the user says
-  "release this proposal", "this proposal is live", or "the implementation
-  shipped".
+  Mark an accepted proposal as released once its implementation is live in
+  production — set its status to released, label the PR, squash-merge it,
+  and assign its number in the index. Use when the user says "release this
+  proposal", "this proposal is live", or "the implementation shipped".
 license: MIT
 metadata:
   interactive: yes
@@ -24,6 +23,15 @@ Do NOT use this skill for any other transition — see
 [`/reject-spec`](../reject-spec/SKILL.md),
 [`/propose-spec`](../propose-spec/SKILL.md), or
 [`/draft-spec`](../draft-spec/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the proposal from the checked-out branch
+(`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
+description, or list the open `#accepted` pull requests and ask the user to
+choose.
+
+**Output:** The proposal document updated to `Status: RELEASED`, the PR
+carrying `#released` and squash-merged into `main`, its discussion thread
+closed, and a new numbered row appended to `proposals/INDEX.md`.
 
 ## Transition gates: `ACCEPTED` → `RELEASED`
 

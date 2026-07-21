@@ -1,10 +1,10 @@
 ---
 name: write-spec
 description: >-
-  Author or edit the specification artifacts for a
-  proposal – functional requirements as testable Gherkin acceptance criteria,
-  non-functional requirements as measurable thresholds – and check them against
-  the Definition of Ready. Use when writing the specification edits for a
+  Author or edit the specification artifacts for a proposal – functional
+  requirements as testable Gherkin acceptance criteria, non-functional
+  requirements as measurable thresholds – and check them against the
+  Definition of Ready. Use when writing the specification edits for a
   proposal, not when transitioning its lifecycle state.
 license: MIT
 metadata:
@@ -27,6 +27,14 @@ use [`/draft-spec`](../draft-spec/SKILL.md); to transition its state, use
 [`/release-spec`](../release-spec/SKILL.md),
 [`/reject-spec`](../reject-spec/SKILL.md), or
 [`/supersede-spec`](../supersede-spec/SKILL.md).
+
+**Input:** The requirement to specify — REQUIRED, either from the user's
+description or the proposal document already scaffolded on the current
+`proposal/<slug>` branch.
+
+**Output:** Specification artifacts written or edited under
+[`specification/`](../../../specification/), checked against the Definition
+of Ready.
 
 This skill is the authoritative, agent-facing source for the project's
 specification-content rules. A project MAY adjust these rules to its own

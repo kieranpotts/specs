@@ -1,10 +1,10 @@
 ---
 name: propose-spec
 description: >-
-  Remove the draft status from a proposal pull
-  request, marking it ready for stakeholder review. Use when the user says
-  "propose this", "this proposal is ready for review", "mark the proposal ready",
-  or "take it out of draft".
+  Remove the draft status from a proposal pull request, marking it ready for
+  stakeholder review. Use when the user says "propose this", "this proposal
+  is ready for review", "mark the proposal ready", or "take it out of
+  draft".
 license: MIT
 metadata:
   interactive: yes
@@ -21,6 +21,13 @@ Do NOT use this skill to scaffold a new proposal (use
 [`/accept-spec`](../accept-spec/SKILL.md),
 [`/release-spec`](../release-spec/SKILL.md), or
 [`/reject-spec`](../reject-spec/SKILL.md)).
+
+**Input:** Target — REQUIRED. Infer the proposal from the checked-out branch
+(`proposal/<slug>` or `epic/<slug>`). If on `main`, list open draft pull
+requests and ask the user to choose.
+
+**Output:** The proposal document updated to `Status: PROPOSED`, the PR
+carrying `#proposed` and taken out of draft.
 
 ## Transition gates: `DRAFT` → `PROPOSED`
 

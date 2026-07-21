@@ -1,11 +1,10 @@
 ---
 name: reject-spec
 description: >-
-  Reject a proposed proposal — revert its
-  specification edits, record its number in the index, set its status to rejected,
-  close its discussion, and squash-merge the pull request as a permanent record.
-  Use when the user says "reject this proposal" or "the proposal was not
-  approved".
+  Reject a proposed proposal — revert its specification edits, record its
+  number in the index, set its status to rejected, close its discussion, and
+  squash-merge the pull request as a permanent record. Use when the user
+  says "reject this proposal" or "the proposal was not approved".
 license: MIT
 metadata:
   interactive: yes
@@ -24,6 +23,16 @@ use [`/release-spec`](../release-spec/SKILL.md), to retire a released proposal
 use [`/supersede-spec`](../supersede-spec/SKILL.md), and to scaffold or propose
 use [`/draft-spec`](../draft-spec/SKILL.md) /
 [`/propose-spec`](../propose-spec/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the proposal from the checked-out branch
+(`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
+description, or list the open `#proposed` pull requests and ask the user to
+choose. Explicit confirmation that the decision is to reject — REQUIRED.
+
+**Output:** The specification edits reverted, the proposal document updated
+to `Status: REJECTED`, the PR carrying `#rejected` and squash-merged into
+`main`, its discussion thread closed, and a new numbered row appended to
+`proposals/INDEX.md`.
 
 ## Transition gates: `PROPOSED` → `REJECTED`
 

@@ -1,10 +1,10 @@
 ---
 name: accept-spec
 description: >-
-  Approve a proposed proposal — set its status to
-  accepted and label the PR. The PR and its discussion thread stay open through
-  implementation until release. Use when the user says "accept this proposal",
-  "approve this proposal", or "mark this proposal accepted".
+  Approve a proposed proposal — set its status to accepted and label the PR.
+  The PR and its discussion thread stay open through implementation until
+  release. Use when the user says "accept this proposal", "approve this
+  proposal", or "mark this proposal accepted".
 license: MIT
 metadata:
   interactive: yes
@@ -27,6 +27,15 @@ Do NOT use this skill for any other transition — to reject use
 use [`/release-spec`](../release-spec/SKILL.md), and to scaffold or propose use
 [`/draft-spec`](../draft-spec/SKILL.md) /
 [`/propose-spec`](../propose-spec/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the proposal from the checked-out branch
+(`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
+description, or list the open `#proposed` pull requests and ask the user to
+choose.
+
+**Output:** The proposal document updated to `Status: ACCEPTED` with
+`Decided by` and `Decision date` filled in, the PR carrying `#accepted` and
+left open.
 
 ## Transition gates: `PROPOSED` → `ACCEPTED`
 

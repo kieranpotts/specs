@@ -1,10 +1,10 @@
 ---
 name: supersede-spec
 description: >-
-  Supersede a previously-released proposal once
-  a later proposal has replaced or removed its feature. Use when the user says
-  "supersede this proposal", "this proposal is superseded by ...", or retires a
-  released feature in favor of a newer one.
+  Supersede a previously-released proposal once a later proposal has
+  replaced or removed its feature. Use when the user says "supersede this
+  proposal", "this proposal is superseded by ...", or retires a released
+  feature in favor of a newer one.
 license: MIT
 metadata:
   interactive: yes
@@ -30,6 +30,14 @@ Do NOT use this skill for any other transition — see
 [`/reject-spec`](../reject-spec/SKILL.md),
 [`/propose-spec`](../propose-spec/SKILL.md), or
 [`/draft-spec`](../draft-spec/SKILL.md).
+
+**Input:** The proposal being superseded and its successor — REQUIRED. Infer
+both from the user's description (eg. "X is superseded by Y"), or prompt for
+them.
+
+**Output:** The superseded proposal's document updated to `Status:
+SUPERSEDED` with a `Superseded by` link, the `proposals/INDEX.md` row
+updated, and its original PR carrying `#superseded`.
 
 ## Transition gates: `RELEASED` → `SUPERSEDED`
 
