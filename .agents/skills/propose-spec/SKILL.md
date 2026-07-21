@@ -126,7 +126,7 @@ report it and pause — do not mark the PR ready.
     in its discussion thread. The next transition is the decision: once
     stakeholders agree, use [`/accept-spec`](../accept-spec/SKILL.md) to move it
     to `ACCEPTED`; if it will not be taken forward, use
-    [`/reject-spec`](../reject-spec/SKILL.md). Both are out of scope for this
+    [`/reject-spec`](../reject-spec/SKILL.md). Both are out-of-scope for this
     skill.
 
 ## Rules

@@ -70,7 +70,7 @@ This proposal introduces the following specification artifacts.
   it.
 
 - [Scope](../../specification/context/overview/scope.md): Reservations added to
-  _in scope_; the _out of scope_ purchasing note clarified — a reservation holds
+  _in-scope_; the _out-of-scope_ purchasing note clarified — a reservation holds
   a product but does not buy it.
 
 - [Glossary](../../specification/context/glossary/README.md): New terms —
@@ -175,7 +175,7 @@ if waitlisting is ever proposed.
   value; per-partner windows can be a later proposal.
 
 - Should a Partner be able to extend an active reservation before it expires?
-  Out of scope here; raise as a follow-up if partners request it.
+  Out-of-scope here; raise as a follow-up if partners request it.
 
 ## References
 

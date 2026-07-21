@@ -2,7 +2,7 @@
 
 The boundaries of the system.
 
-## In scope
+## In-scope
 
 _List the capabilities, user groups, and domains that the system is responsible
 for._
@@ -30,11 +30,11 @@ for._
   application; automated systems (eg. partner platforms, internal services)
   consuming the API programmatically.
 
-## Out of scope
+## Out-of-scope
 
 _List anything that might reasonably be assumed to be part of the system but is
-deliberately excluded. Recording what is out of scope is as important as
-recording what is in scope: it prevents scope creep and sets clear expectations
+deliberately excluded. Recording what is out-of-scope is as important as
+recording what is in-scope: it prevents scope creep and sets clear expectations
 with stakeholders._
 
 - **Refunds, tax, and fraud:** Checkout captures payment, but refund handling,

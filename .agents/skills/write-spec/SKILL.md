@@ -172,7 +172,7 @@ not in the human-facing `docs/`.
 
     The Definition-of-Ready criteria apply to any proposal regardless of
     subject, and judge the readiness of the *requirements* – not of a design or
-    a delivery plan, which are out of scope for the specification.
+    a delivery plan, which are out-of-scope for the specification.
 
 ## Success criteria
 

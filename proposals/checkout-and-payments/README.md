@@ -70,8 +70,8 @@ This proposal introduces the following specification artifacts.
   foundation.
 
 - [Scope](../../specification/context/overview/scope.md): Purchasing and payments
-  moved from _out of scope_ to _in scope_ — basket management, checkout, and card
-  payment. Inventory management and user account management remain out of scope.
+  moved from _out-of-scope_ to _in-scope_ — basket management, checkout, and card
+  payment. Inventory management and user account management remain out-of-scope.
 
 - [Actors](../../specification/context/actors/README.md): New **Shopper** tier —
   an Authenticated User who may assemble a basket, check out, and pay. The Shopper
@@ -132,7 +132,7 @@ This proposal introduces the following specification artifacts.
 
 ## Alternatives
 
-**Keep purchasing out of scope; integrate with a dedicated commerce platform.**
+**Keep purchasing out-of-scope; integrate with a dedicated commerce platform.**
 Hand a held product to an external order-management/payment system rather than
 building checkout in-platform. Rejected: it leaves the catalog blind to the
 final `sold` transition, splits the order record across two systems, and never
@@ -175,4 +175,4 @@ None outstanding.
 - [Proposal 0003: Reservations](../reservations/README.md): The capability that
   prompted this proposal.
 - [Scope](../../specification/context/overview/scope.md): Records purchasing and
-  payments as in scope.
+  payments as in-scope.

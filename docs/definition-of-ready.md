@@ -37,7 +37,7 @@ checklist](../.agents/skills/write-spec/references/definition-of-ready.md) for
 the full wording of each criterion. The criteria are deliberately generic, so
 they apply to any proposal regardless of subject. The emphasis throughout is on
 the readiness of the _requirements_ — not on the readiness of a design or a
-delivery plan, which are out of scope for the specification.
+delivery plan, which are out-of-scope for the specification.
 
 ## When a proposal is not ready
 

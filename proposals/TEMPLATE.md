@@ -73,7 +73,7 @@ the downsides. Note any "unknowns" that remain at this time.
 
 ## Questions
 
-Any unresolved questions, or related issues considered out of scope for this
+Any unresolved questions, or related issues considered out-of-scope for this
 proposal but that will need to be addressed separately.
 
 ## References

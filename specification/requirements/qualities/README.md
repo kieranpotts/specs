@@ -8,7 +8,7 @@ runtime, in how the system behaves for real users in production (latency,
 availability, security, and so on). _Static_ quality attributes — the internal
 qualities of the code and design — are not requirements the specification
 states. They are a design concern, addressed in code review and refactoring, and
-so are out of scope here.
+so are out-of-scope here.
 
 Where [features](../behaviors/features/) describe _what_ the system does, this
 section describes _how well_ it must do it at runtime, and the constraints (eg.

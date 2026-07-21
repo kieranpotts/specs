@@ -10,7 +10,7 @@ A high-level overview of the system, including its purpose and scope.
 - [**Problem statement**](./problem-statement.md) — The business problem the
   system solves.
 
-- [**Scope**](./scope.md) — The boundaries of the system: what is in scope, and
+- [**Scope**](./scope.md) — The boundaries of the system: what is in-scope, and
   what is not.
 
 - [**System context**](./system-context.md) — A C4-style context diagram placing

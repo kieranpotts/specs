@@ -154,7 +154,7 @@ backwards or skip states.
 - Non-functional requirements SHOULD be specified as measurable thresholds, not
   vague aspirations. Scope is the system's dynamic (runtime,
   externally-observable) qualities only – not static qualities of the code and
-  design, which are out of scope for the specification.
+  design, which are out-of-scope for the specification.
 
 - The detailed rules for *writing* the specification content – the Gherkin
   conventions, the measurable-threshold forms, and the problem-not-solution

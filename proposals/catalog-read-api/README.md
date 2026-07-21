@@ -66,7 +66,7 @@ This proposal introduces the following specification artifacts.
 
 - [Scope](../../specification/context/overview/scope.md): New content bounding
   the system to catalog read operations; purchasing, inventory management, and
-  user account management are explicitly out of scope.
+  user account management are explicitly out-of-scope.
 
 - [Constraints](../../specification/context/constraints/README.md): New content
   recording the external givens — the dependency on a separate identity service,
@@ -168,7 +168,7 @@ expose pricing and availability information without any audit trail.
   currency sufficient for the initial version?
 
 - What credential mechanism (eg. API key, OAuth 2.0 bearer token) will
-  authentication use? This is out of scope for the specification but needs to be
+  authentication use? This is out-of-scope for the specification but needs to be
   resolved before implementation.
 
 ## References
