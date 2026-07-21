@@ -17,7 +17,7 @@ document and specification edits are complete, apply the `#proposed` label, and
 remove the pull request's draft status so stakeholders can review it.
 
 Do NOT use this skill to scaffold a new proposal (use
-[`/draft-spec`](../draft-spec/SKILL.md)) or to decide one (use
+[`/scaffold-spec`](../scaffold-spec/SKILL.md)) or to decide one (use
 [`/accept-spec`](../accept-spec/SKILL.md),
 [`/release-spec`](../release-spec/SKILL.md), or
 [`/reject-spec`](../reject-spec/SKILL.md)).

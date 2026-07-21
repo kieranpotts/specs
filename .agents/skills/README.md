@@ -2,12 +2,12 @@
 
 Skills available to agents in this repository are:
 
-- **[Draft spec](./draft-spec/):**
+- **[Scaffold spec](./scaffold-spec/):**
   Scaffolds a new draft proposal, ready for the user to complete.
   Sets status to `DRAFT`.
 
 - **[Write spec](./write-spec/):**
-  Authors and edits the specification artifacts for a proposal.
+  Authors the specification artifacts for a proposal.
   Used during the `DRAFT` state.
 
 - **[Propose spec](./propose-spec/):**

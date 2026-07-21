@@ -1,4 +1,4 @@
-# Draft spec
+# Scaffold spec
 
 Scaffolds a new proposal and opens it as a draft pull request.
 
@@ -20,11 +20,12 @@ Scaffolds a new proposal and opens it as a draft pull request.
 
 ## Examples
 
-- `/draft-spec`: Agent will prompt you for the information it needs to prepare a
-  draft PR, then scaffolds the branch, document, PR, and discussion.
+- `/scaffold-spec`: Agent will prompt you for the information it needs to
+  prepare a draft PR, then scaffolds the branch, document, PR, and
+  discussion.
 
-- `/draft-spec <Description>`: Scaffolds immediately based on your description
-  of the requirement.
+- `/scaffold-spec <Description>`: Scaffolds immediately based on your
+  description of the requirement.
 
 Next, use [`/write-spec`](../write-spec/README.md) to author the specification
 content (the functional and non-functional requirements). Once that's complete,

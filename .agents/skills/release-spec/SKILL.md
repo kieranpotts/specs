@@ -22,7 +22,7 @@ Do NOT use this skill for any other transition — see
 [`/accept-spec`](../accept-spec/SKILL.md),
 [`/reject-spec`](../reject-spec/SKILL.md),
 [`/propose-spec`](../propose-spec/SKILL.md), or
-[`/draft-spec`](../draft-spec/SKILL.md).
+[`/scaffold-spec`](../scaffold-spec/SKILL.md).
 
 **Input:** Target — REQUIRED. Infer the proposal from the checked-out branch
 (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's

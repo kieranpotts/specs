@@ -21,7 +21,7 @@ counterpart to the lifecycle skills, which own *how a proposal moves through its
 states*.
 
 Do NOT use this skill to scaffold, advance, or merge a proposal. To start one,
-use [`/draft-spec`](../draft-spec/SKILL.md); to transition its state, use
+use [`/scaffold-spec`](../scaffold-spec/SKILL.md); to transition its state, use
 [`/propose-spec`](../propose-spec/SKILL.md),
 [`/accept-spec`](../accept-spec/SKILL.md),
 [`/release-spec`](../release-spec/SKILL.md),
@@ -133,7 +133,7 @@ not in the human-facing `docs/`.
     [`/propose-spec`](../propose-spec/SKILL.md), which verifies completeness and
     marks the pull request ready for stakeholder review. (If the proposal has
     not yet been scaffolded – no branch, document, or draft PR – use
-    [`/draft-spec`](../draft-spec/SKILL.md) first.)
+    [`/scaffold-spec`](../scaffold-spec/SKILL.md) first.)
 
 ## Rules
 
@@ -205,7 +205,7 @@ not in the human-facing `docs/`.
 - [AGENTS.md](../../../AGENTS.md): The repository's agent-facing rules and the
   proposal lifecycle this content feeds into.
 
-- [`/draft-spec`](../draft-spec/SKILL.md): Scaffolds the proposal and identifies
+- [`/scaffold-spec`](../scaffold-spec/SKILL.md): Scaffolds the proposal and identifies
   which `specification/` files to edit; hands off to this skill for the
   authoring.
 

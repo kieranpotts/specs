@@ -21,7 +21,7 @@ Do NOT use this skill for any other transition — for the acceptance path use
 [`/accept-spec`](../accept-spec/SKILL.md), to mark a shipped proposal released
 use [`/release-spec`](../release-spec/SKILL.md), to retire a released proposal
 use [`/supersede-spec`](../supersede-spec/SKILL.md), and to scaffold or propose
-use [`/draft-spec`](../draft-spec/SKILL.md) /
+use [`/scaffold-spec`](../scaffold-spec/SKILL.md) /
 [`/propose-spec`](../propose-spec/SKILL.md).
 
 **Input:** Target — REQUIRED. Infer the proposal from the checked-out branch

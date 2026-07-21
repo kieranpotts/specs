@@ -1,5 +1,5 @@
 ---
-name: draft-spec
+name: scaffold-spec
 description: >-
   Scaffold a new proposal for a change to the software requirements
   specification and open it as a draft pull request. Use when the user wants
@@ -11,7 +11,7 @@ metadata:
   interactive: yes
 ---
 
-# Draft spec
+# Scaffold spec
 
 Use this skill to start a new proposal: scaffold the branch and document from
 the template, then open a draft pull request with the artifacts in place, ready

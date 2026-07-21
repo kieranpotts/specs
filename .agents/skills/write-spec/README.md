@@ -20,7 +20,7 @@ the definition of ready.
 
 - Checks the result against the Definition of Ready.
 
-It is the *content* skill, distinct from the lifecycle skills (`/draft-spec`,
+It is the *content* skill, distinct from the lifecycle skills (`/scaffold-spec`,
 `/propose-spec`, …) which move a proposal through its states. This skill owns
 what the specification should contain and how it is written; it is also the
 canonical, agent-facing home of the project's content rules and Definition of
@@ -35,7 +35,7 @@ Ready. A project tunes its specification standards by editing this skill.
 > xxxxxxx
 
 Typically invoked while a proposal is in `DRAFT`, after
-[`/draft-spec`](../draft-spec/README.md) has scaffolded the branch, document,
+[`/scaffold-spec`](../scaffold-spec/README.md) has scaffolded the branch, document,
 and PR, to write the actual specification edits.
 
 ## Examples

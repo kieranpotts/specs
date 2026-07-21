@@ -25,7 +25,7 @@ may continue while the proposal evolves.
 Do NOT use this skill for any other transition — to reject use
 [`/reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released
 use [`/release-spec`](../release-spec/SKILL.md), and to scaffold or propose use
-[`/draft-spec`](../draft-spec/SKILL.md) /
+[`/scaffold-spec`](../scaffold-spec/SKILL.md) /
 [`/propose-spec`](../propose-spec/SKILL.md).
 
 **Input:** Target — REQUIRED. Infer the proposal from the checked-out branch

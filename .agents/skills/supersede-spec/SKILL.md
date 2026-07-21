@@ -29,7 +29,7 @@ Do NOT use this skill for any other transition — see
 [`/release-spec`](../release-spec/SKILL.md),
 [`/reject-spec`](../reject-spec/SKILL.md),
 [`/propose-spec`](../propose-spec/SKILL.md), or
-[`/draft-spec`](../draft-spec/SKILL.md).
+[`/scaffold-spec`](../scaffold-spec/SKILL.md).
 
 **Input:** The proposal being superseded and its successor — REQUIRED. Infer
 both from the user's description (eg. "X is superseded by Y"), or prompt for
