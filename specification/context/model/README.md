@@ -87,7 +87,7 @@ stores only a provider-issued token and the result — never raw card data (see
 | `orderId` | Id | The [`Order`](#order) this payment settles. |
 | `amount` | Decimal | The amount captured, in the catalog's configured currency. |
 | `providerToken` | String | Opaque token returned by the payment provider; no card data is stored. |
-| `idempotencyKey` | String | Caller-supplied key that makes capture safe to retry (see [idempotence](../../requirements/qualities/idempotence.md)). |
+| `idempotencyKey` | String | Caller-supplied key that makes capture safe to retry (see [idempotence](../../requirements/qualities/reliability/idempotence.md)). |
 | `status` | Enum | `authorized`, `captured`, or `declined`. |
 
 ## Relationships

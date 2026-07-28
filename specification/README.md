@@ -38,8 +38,11 @@ specification/
     │   ├── journeys/         wireframes and/or call-sequences
     │   └── interfaces/       external contracts: operations,
     │                           resources, events
-    └── qualities/            non-functional requirements
-        ├── latency.md
+    └── qualities/            non-functional requirements, grouped
+        │                       by ISO/IEC 25010 characteristic
+        ├── performance-efficiency/
+        │   ├── latency.md
+        │   └── …
         └── …
 ```
 

@@ -1,4 +1,4 @@
-# Throughput
+# Q3. Throughput
 
 Throughput is the number of requests or transactions the system can process per
 unit of time.
@@ -11,8 +11,10 @@ peak load, with a graceful degradation in latency rather than hard failure._
 
 For the Acme Catalog API:
 
-- The API MUST sustain at least 200 requests per second across all endpoints
-  under normal load without breaching the [latency](./latency.md) thresholds.
+- **Q3.1.** The API MUST sustain at least 200 requests per second across all
+  endpoints under normal load without breaching the [latency](./latency.md)
+  thresholds.
 
-- The API MUST sustain at least 600 requests per second under peak load, with
-  graceful degradation in latency rather than hard failure or error responses.
+- **Q3.2.** The API MUST sustain at least 600 requests per second under peak
+  load, with graceful degradation in latency rather than hard failure or
+  error responses.

@@ -1,4 +1,4 @@
-# Portability
+# Q5. Portability
 
 A portable software system is one that can be moved between different host
 environments with minimal effort.
@@ -9,11 +9,12 @@ local development), and what is the acceptable effort to move between them? If
 the system must avoid lock-in to a particular vendor's proprietary services, say
 so here._
 
-The Acme Catalog API MUST be deployable in at least the following environments
-without code changes:
+**Q5.1.** The Acme Catalog API MUST be deployable in at least the following
+environments without code changes:
 
 - A local development environment on a developer's workstation.
 - A cloud-hosted production environment.
 
-The system MUST NOT depend on proprietary managed services that would make
-migration to a different cloud provider impractical without significant rework.
+**Q5.2.** The system MUST NOT depend on proprietary managed services that would
+make migration to a different cloud provider impractical without significant
+rework.

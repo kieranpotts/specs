@@ -121,11 +121,11 @@ This proposal introduces the following specification artifacts.
   annotated call-sequence for the Partner reservation flow, with the three
   resolution paths (sale, release, expiry).
 
-- [Quality: Latency](../../specification/requirements/qualities/latency.md): New
+- [Quality: Latency](../../specification/requirements/qualities/performance-efficiency/latency.md): New
   400ms p95 threshold for the write endpoints.
 
 - [Quality:
-  Idempotence](../../specification/requirements/qualities/idempotence.md):
+  Idempotence](../../specification/requirements/qualities/reliability/idempotence.md):
   Reserve made idempotent via a caller-supplied key; release idempotent by
   nature.
 

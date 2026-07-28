@@ -126,7 +126,7 @@ This proposal introduces the following specification artifacts.
   annotated call-sequence for the Shopper checkout flow, including the
   payment-failure recovery path.
 
-- [Quality: Idempotence](../../specification/requirements/qualities/idempotence.md):
+- [Quality: Idempotence](../../specification/requirements/qualities/reliability/idempotence.md):
   Payment capture made idempotent via a caller-supplied key, so a retried
   checkout never double-charges.
 
@@ -159,7 +159,7 @@ against.
 - **Double-charge risk on retry.** A shopper retrying a checkout after a network
   failure must not be charged twice. Addressed by making payment capture
   idempotent under a client-supplied key (see
-  [idempotence](../../specification/requirements/qualities/idempotence.md)).
+  [idempotence](../../specification/requirements/qualities/reliability/idempotence.md)).
 
 - **Scope growth.** Commerce is a large domain (tax, fraud, chargebacks). This
   proposal deliberately scopes to basket, checkout, and card capture; refunds,

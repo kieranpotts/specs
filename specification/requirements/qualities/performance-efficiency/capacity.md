@@ -1,4 +1,4 @@
-# Capacity
+# Q4. Capacity
 
 Capacity is the maximum load the system must support — concurrent users, data
 volume, or other resource limits — without degradation below the specified
@@ -11,9 +11,10 @@ of query performance._
 
 For the Acme Catalog API:
 
-- The API MUST support at least 5,000 concurrent authenticated callers without
-  degradation below the [latency](./latency.md) or [throughput](./throughput.md)
-  thresholds.
+- **Q4.1.** The API MUST support at least 5,000 concurrent authenticated
+  callers without degradation below the [latency](./latency.md) or
+  [throughput](./throughput.md) thresholds.
 
-- The catalog MUST remain fully queryable with at least 50,000 product records
-  without degradation of list, search, or retrieval response times.
+- **Q4.2.** The catalog MUST remain fully queryable with at least 50,000
+  product records without degradation of list, search, or retrieval response
+  times.

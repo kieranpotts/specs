@@ -21,7 +21,7 @@ _List terms alphabetically. Replace the examples below with your own._
 | **Checkout** | The operation by which a [Shopper](../actors/) converts a basket into an order, capturing payment and moving the purchased products to `sold`. See [checkout](../../requirements/behaviors/features/checkout.feature). |
 | **Credential** | The token a caller presents to authenticate. Issued and verified by the external identity service (see [constraints](../constraints/)). |
 | **Hold window** | The configured duration for which a reservation is honored before it automatically lapses. See [rule R5](../../requirements/behaviors/rules/). |
-| **Idempotency key** | A caller-supplied token that lets a caller safely retry a state-changing request — a reserve or a payment capture — without duplicating its effect. See [idempotence](../../requirements/qualities/idempotence.md). |
+| **Idempotency key** | A caller-supplied token that lets a caller safely retry a state-changing request — a reserve or a payment capture — without duplicating its effect. See [idempotence](../../requirements/qualities/reliability/idempotence.md). |
 | **Listing** | A single entry in the catalog representing one product. See the [`Product`](../model/) entity. |
 | **Order** | The durable record of a completed purchase — the products bought and the payment that settled them. See the [`Order`](../model/) entity. |
 | **Partner** | An authenticated caller belonging to an organization with a signed partner agreement, permitted to place and release reservations. See [actors](../actors/). |

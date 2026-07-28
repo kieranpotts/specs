@@ -107,29 +107,29 @@ This proposal introduces the following specification artifacts.
   New feature file specifying retrieval of a single product by ID, including the
   not-found and unauthenticated cases.
 
-- [Quality: Latency](../../specification/requirements/qualities/latency.md):
+- [Quality: Latency](../../specification/requirements/qualities/performance-efficiency/latency.md):
   Acme Catalog-specific latency thresholds for list/search (300ms p95) and
   get-by-ID (100ms p99).
 
 - [Quality:
-  Throughput](../../specification/requirements/qualities/throughput.md): Minimum
+  Throughput](../../specification/requirements/qualities/performance-efficiency/throughput.md): Minimum
   throughput of 200 req/s normal, 600 req/s peak.
 
-- [Quality: Capacity](../../specification/requirements/qualities/capacity.md):
+- [Quality: Capacity](../../specification/requirements/qualities/performance-efficiency/capacity.md):
   Support for 5,000 concurrent callers and a catalog of at least 50,000 records.
 
 - [Quality:
-  Compatibility](../../specification/requirements/qualities/compatibility.md):
+  Compatibility](../../specification/requirements/qualities/compatibility/browser-and-api-compatibility.md):
   API protocol compatibility commitments: any HTTP client, no proprietary SDK
   required, backwards-compatible within a major version.
 
 - [Quality:
-  Portability](../../specification/requirements/qualities/portability.md):
+  Portability](../../specification/requirements/qualities/flexibility/portability.md):
   Deployable in local development and cloud-hosted production without code
   changes; no proprietary service lock-in.
 
 - [Quality:
-  Idempotence](../../specification/requirements/qualities/idempotence.md): All
+  Idempotence](../../specification/requirements/qualities/reliability/idempotence.md): All
   read operations are idempotent; clients may safely retry on failure.
 
 ## Alternatives

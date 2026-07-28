@@ -64,7 +64,9 @@ of how that state was reached.
         External behavioral contracts.
 
     - **`qualities/`:**
-      Dynamic qualities, aka. non-functional requirements.
+      Dynamic qualities, aka. non-functional requirements. Grouped into
+      subdirectories by ISO/IEC 25010 quality characteristic (eg.
+      `performance-efficiency/`, `reliability/`).
 
 - **`proposals/`:**
   Permanent archive of every proposed change. Each proposal is a directory
@@ -158,6 +160,17 @@ by superseding it with a new proposal.
   vague aspirations. Scope is the system's dynamic (runtime,
   externally-observable) qualities only – not static qualities of the code and
   design, which are out-of-scope for the specification.
+
+- Qualities MUST be filed under a subdirectory of
+  [`qualities/`](./specification/requirements/qualities/) named for their
+  ISO/IEC 25010 quality characteristic: `functional-suitability`,
+  `performance-efficiency`, `compatibility`, `interaction-capability`,
+  `reliability`, `security`, `flexibility`, `safety`. Create a subdirectory
+  when the first requirement under it is written; do NOT create empty ones.
+  The ISO/IEC 25010 `maintainability` characteristic is deliberately
+  excluded – those are static qualities. A maintenance concern that *is*
+  observable at runtime (eg. time to restore service after a fault) belongs
+  under `reliability` as a recoverability requirement.
 
 - The detailed rules for *writing* the specification content – the Gherkin
   conventions, the measurable-threshold forms, and the problem-not-solution
