@@ -57,10 +57,8 @@ The states are:
 - `SUPERSEDED`: A previously released proposal that is no longer in effect,
   because a later proposal replaced or removed the feature.
 
-### Allowed state transitions
-
-The permitted state transitions are intended to be simple, memorable, and easy
-to enforce through automation and agentic workflows.
+The following state transitions are permitted. They are intended to be simple,
+memorable, and easy to enforce through automation and agentic workflows.
 
 ```mermaid
 stateDiagram-v2
@@ -101,22 +99,12 @@ as you are ready to start writing the proposal document.
     as `epic/<slug>` for an epic. (An epic is a special case, encapsulating
     multiple interdependent proposals for easier tracking of dependencies.)
 
-2.  Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to
-    `proposals/<slug>/README.md`. The proposal lives in its own directory, so
-    you may add supporting artifacts – wireframes, mock-ups, data – alongside
-    the `README.md` and link them from its `References` section. Fill it out,
-    describing the change in full – the rationale, the impact on the business
-    and its customers, and the alternatives considered. (You will link the
-    discussion thread, opened in the next step, via the `Discussion thread`
-    field.)
+2.  Copy the [template](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`.
+    Fill it out, describing the change in full – the rationale, the impact on
+    the business and its customers, and the alternatives considered.
 
 3.  Edit the [`specification/`](./specification/) artifacts to reflect the
-    intended final state of the system after the change ships. You may add,
-    modify, or delete specification artifacts as needed to describe the desired
-    end state. The [`/write-spec`](./.agents/skills/write-spec/) skill carries
-    the content rules for this step – functional requirements as testable
-    Gherkin acceptance criteria, non-functional requirements as measurable
-    thresholds – and is the recommended way to author them.
+    intended final state of the system after the change ships.
 
 4.  Commit your changes and open the pull request as a draft, titled `feature:
     <description>`, `quality: <description>`, or `epic: <description>`, where
@@ -125,18 +113,10 @@ as you are ready to start writing the proposal document.
     out the top of the PR template (above the horizontal rule). Leave the
     checklist for now.
 
-5.  Open an associated [discussion
-    thread](https://github.com/kieranpotts/specs/discussions) (REQUIRED), using
-    the form for the proposal's type (feature, quality, or epic). It MUST exist
-    by the time the pull request is marked ready for review; you MAY open it
-    earlier – even before the pull request – to brainstorm before a firm
-    proposal exists. Link the discussion and the pull request to each other,
-    recording the thread in the proposal document's `Discussion thread` field.
-    The thread stays open for the life of the proposal and is closed when the
-    PR is merged. All review feedback is gathered here, keeping the pull
-    request focused on the evolution of the proposal document and the
-    specification edits. (The GitHub issue tracker is _not_ used for proposals
-    – it is reserved for repository maintenance only.)
+5.  Open a [discussion thread](https://github.com/kieranpotts/specs/discussions)
+    using the appropriate form for the proposal type (feature, quality, or epic).
+    Link the discussion and the pull request to each other, recording the thread
+    in the proposal document's `Discussion thread` field.
 
 6.  Keep the pull request in draft while you refine it. When the document and
     spec edits are complete and ready for full stakeholder review, mark the PR
@@ -144,12 +124,7 @@ as you are ready to start writing the proposal document.
     `#proposed` label.
 
 7.  Once stakeholders decide, apply the `#accepted` or `#rejected` label. If
-    accepted, formulate delivery plans in the product's backlog. Keep the pull
-    request open and the discussion thread active until the corresponding
-    changes are designed, built, tested, and released to production – the
-    specification MAY continue to evolve during this period in response to
-    technical feedback, implementation discoveries, or feedback from real
-    users.
+    accepted, formulate delivery plans in the product's backlog.
 
 8.  Once the change is live in production, apply the `#released` label and
     merge the pull request. If rejected, revert the specification edits before
@@ -157,7 +132,7 @@ as you are ready to start writing the proposal document.
 
 ## Rules
 
-- MUST write in American English.
+- All artifacts MUST be written in American English.
 
 - A decision, once taken (`ACCEPTED` or `REJECTED`), MUST NOT be reversed by
   moving the proposal backwards. Instead, past decisions MAY be `SUPERSEDED` by
@@ -165,72 +140,40 @@ as you are ready to start writing the proposal document.
   is genuinely ready for review; early feedback MAY still be solicited via the
   discussion thread while still in `DRAFT`.
 
-- The `main` trunk is the default branch. The artifacts in the
+- The `main` trunk MUST be treated as the default branch. The artifacts in the
   [`specification/`](./specification/) directory on `main` are the authoritative
   record of the system as it exists in production right now.
 
-- Proposals are developed on `proposal/<slug>` branches cut from `main`, and
-  integrated back into `main` via pull requests. A proposal's pull request stays
-  open until the corresponding changes in code and configuration are in
-  production. It is not enough for a proposal to be approved; the changes MUST
-  also be designed, built, tested, and released before the proposal is
-  considered "done" and its pull request is merged. Thus the `main`
-  specification stays current with production.
-
-- If a product proposal is ultimately rejected, the proposal document is merged
-  to `main` but any edits made via the PR to the specification artifacts are
-  reverted before the merge. A rejected proposal leaves the system unchanged.
-  The system's specification did not change, though we capture the decision
-  anyway.
-
-- Every proposal pull request MUST carry exactly one type label – `FEATURE`,
-  `QUALITY`, or `EPIC` – matching the kind of change.
+- A proposal's pull request MUST stay open until the corresponding changes in
+  code and configuration are in production; it is not enough for a proposal to
+  be approved. Thus the `main` specification stays current with production.
 
 - A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change – one
   requirement that can be reviewed, decided, and shipped independently of any
-  other. Author it on a `proposal/<slug>` branch cut from `main`, and open a
-  pull request titled `feature: <description>` or `quality: <description>`.
+  other.
 
-- An `EPIC` proposal spans multiple feature and quality requirements and is used
-  for large-scale initiatives – for example, specifying a greenfield system from
-  scratch. Author it on an `epic/<slug>` branch cut from `main`, and open a pull
-  request titled `epic: <description>`. Individual feature and quality proposals
-  that are part of an epic reference it via their `Depends on` field.
+- An `EPIC` proposal MAY span multiple feature and quality requirements, for
+  large-scale initiatives. Individual feature and quality proposals that are
+  part of an epic MUST reference it via their `Depends on` field.
 
-- Every proposal pull request MUST have an associated discussion thread, opened
-  with the pull request and used for all review feedback. The thread is closed
-  when the PR is merged.
-
-- The current lifecycle state of a proposal is tracked via a label on its pull
-  request (`#proposed`, `#accepted`, `#rejected`, `#released`, `#superseded`). A
-  pull request is opened as a draft while the document is still being refined.
+- The discussion thread MUST be closed when the PR is merged.
 
 - Once a requirement is `PROPOSED`, from this point on in its lifecycle, the
   author SHOULD NOT make further material changes to the proposed
   specifications, except in response to reviewer feedback.
 
-- A proposal is assigned a sequential number after merge, recorded in
-  [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-`main` commit. The
-  number lives only in the index.
+- A proposal MUST be assigned a sequential number after merge, recorded in
+  [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-`main` commit.
 
-- Proposal branches are squash-merged into `main`. The message of the squash
-  commit MUST take the form `<type>: <description> - RELEASED|REJECTED`, where
-  `<type>` is `feature`, `quality`, or `epic`, and `<description>` is a short
-  prose title of the proposal, written full lowercase (eg. `feature: time out
-  idle user sessions - RELEASED`). A released proposal merges at `#released`; a
-  rejected one at `#rejected`.
+- The message of the squash commit MUST take the form `<type>: <description> -
+  RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`.
 
-- Once a proposal is merged into `main`, its document is immutable. For accepted
-  proposals, this happens at the `RELEASED` state, after the implementation
-  ships to production. For rejected proposals, shortly after the rejection
-  decision. To revisit a decision, open a new proposal that supersedes the
-  original. Cross-reference the proposals using their `Supersedes` and
-  `Superseded by` fields.
+- Once a proposal is merged into `main`, its document MUST be treated as
+  immutable. To revisit a decision, open a new proposal that supersedes the
+  original, cross-referenced via the `Supersedes` and `Superseded by` fields.
 
-- The GitHub issue tracker is used only for maintenance work on this repository
-  itself (the `MAINTENANCE` template). Proposals are proposed, decided, and
-  archived entirely through pull requests. Open-ended brainstorming happens in
-  [discussions](https://github.com/kieranpotts/specs/discussions).
+- The GitHub issue tracker MUST be used only for maintenance work on this
+  repository itself.
 
 ## Tools
 
