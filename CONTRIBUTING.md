@@ -134,19 +134,9 @@ as you are ready to start writing the proposal document.
 
 - All artifacts MUST be written in American English.
 
-- A decision, once taken (`ACCEPTED` or `REJECTED`), MUST NOT be reversed by
-  moving the proposal backwards. Instead, past decisions MAY be `SUPERSEDED` by
-  new proposals. A proposal SHOULD NOT move from `DRAFT` to `PROPOSED` until it
-  is genuinely ready for review; early feedback MAY still be solicited via the
-  discussion thread while still in `DRAFT`.
-
 - The `main` trunk MUST be treated as the default branch. The artifacts in the
   [`specification/`](./specification/) directory on `main` are the authoritative
   record of the system as it exists in production right now.
-
-- A proposal's pull request MUST stay open until the corresponding changes in
-  code and configuration are in production; it is not enough for a proposal to
-  be approved. Thus the `main` specification stays current with production.
 
 - A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change – one
   requirement that can be reviewed, decided, and shipped independently of any
@@ -156,11 +146,37 @@ as you are ready to start writing the proposal document.
   large-scale initiatives. Individual feature and quality proposals that are
   part of an epic MUST reference it via their `Depends on` field.
 
-- The discussion thread MUST be closed when the PR is merged.
+- Withdrawing a requirement MUST go through the proposal lifecycle like any
+  other change. There is no lightweight path for removing behavior.
+
+- The preserved `product-requirements.md` (the `Origin` PRD) MUST be treated as
+  immutable from the moment it is written – stricter than the proposal
+  document, which stays editable while the PR is open. It records the
+  requirement as it arrived, before specification. Capture any change of
+  understanding in the proposal `README.md` or the spec edits, never by editing
+  the preserved PRD.
+
+- A proposal SHOULD NOT move from `DRAFT` to `PROPOSED` until it is genuinely
+  ready for review; early feedback MAY still be solicited via the discussion
+  thread while still in `DRAFT`.
 
 - Once a requirement is `PROPOSED`, from this point on in its lifecycle, the
   author SHOULD NOT make further material changes to the proposed
   specifications, except in response to reviewer feedback.
+
+- The discussion thread MUST be closed when the PR is merged.
+
+- A proposal MUST NOT be accepted unless its requirement meets the [Definition
+  of Ready](./.agents/skills/write-spec/references/definition-of-ready.md). A
+  sound-but-incomplete proposal is sent back for refinement, not accepted.
+
+- A decision, once taken (`ACCEPTED` or `REJECTED`), MUST NOT be reversed by
+  moving the proposal backwards. Instead, past decisions MAY be `SUPERSEDED` by
+  new proposals.
+
+- A proposal's pull request MUST stay open until the corresponding changes in
+  code and configuration are in production; it is not enough for a proposal to
+  be approved. Thus the `main` specification stays current with production.
 
 - A proposal MUST be assigned a sequential number after merge, recorded in
   [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-`main` commit.

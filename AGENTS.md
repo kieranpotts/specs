@@ -42,20 +42,20 @@ See [CONTRIBUTING.md > Workflow](./CONTRIBUTING.md#workflow) for the
 step-by-step process for shepherding a proposal from `DRAFT` to
 `RELEASED`/`REJECTED`.
 
-## Writing specifications
-
-See [CONTRIBUTING.md > Writing specifications](./CONTRIBUTING.md#writing-specifications)
-for the Gherkin conventions, requirement identifiers, the qualities taxonomy,
-and the deprecation process.
-
-The [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill applies these
-conventions. Use it when authoring or editing specification artifacts.
-
 ## Rules
 
-Agents MUST follow the rules in [CONTRIBUTING.md > Rules](./CONTRIBUTING.md#rules).
-Re-read the rules before creating, transitioning, or merging a proposal, rather
-than relying on your memory of a prior state of the rules.
+Agents MUST follow the process rules in [CONTRIBUTING.md >
+Rules](./CONTRIBUTING.md#rules). Re-read them before creating, transitioning,
+or merging a proposal, rather than relying on your memory of a prior state of
+the rules.
+
+The conventions for writing specification content itself – Gherkin scenarios,
+requirement identifiers, the qualities taxonomy, deprecation marking – are
+documented where that content lives: see
+[`specification/requirements/`](./specification/requirements/) and its
+subdirectory READMEs, and [`docs/best-practices.md`](./docs/best-practices.md).
+The [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill applies these
+conventions. Use it when authoring or editing specification artifacts.
 
 ## Skills
 
