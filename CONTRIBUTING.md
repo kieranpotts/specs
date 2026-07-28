@@ -172,6 +172,8 @@ as you are ready to start writing the proposal document.
   immutable. To revisit a decision, open a new proposal that supersedes the
   original, cross-referenced via the `Supersedes` and `Superseded by` fields.
 
+- A proposal document MUST NOT be deleted, including rejected ones.
+
 - The GitHub issue tracker MUST be used only for maintenance work on this
   repository itself.
 
