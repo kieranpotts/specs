@@ -79,6 +79,7 @@ stateDiagram-v2
   direction LR
   [*] --> DRAFT
   DRAFT --> PROPOSED
+  PROPOSED --> DRAFT: rework
   PROPOSED --> ACCEPTED
   PROPOSED --> REJECTED
   ACCEPTED --> RELEASED
@@ -89,18 +90,25 @@ stateDiagram-v2
 
 Only the following transitions are allowed:
 
-| From       | To           | Condition                                |
-| ---------- | ------------ | ---------------------------------------- |
-| _(new)_    | `DRAFT`      | Initial state, scaffolding the document. |
-| `DRAFT`    | `PROPOSED`   | Proposal and spec edits complete.        |
-| `PROPOSED` | `ACCEPTED`   | Final comments wrapped. Ready. Accepted. |
-| `PROPOSED` | `REJECTED`   | Final comments concluded. Rejected.      |
-| `ACCEPTED` | `RELEASED`   | Implementation shipped to production.    |
-| `RELEASED` | `SUPERSEDED` | Superseded by a later proposal.          |
+| From       | To           | Condition                                 |
+| ---------- | ------------ | ----------------------------------------- |
+| _(new)_    | `DRAFT`      | Initial state, scaffolding the document.  |
+| `DRAFT`    | `PROPOSED`   | Proposal and spec edits complete.         |
+| `PROPOSED` | `DRAFT`      | Review returned the proposal for rework.  |
+| `PROPOSED` | `ACCEPTED`   | Final comments wrapped. Ready. Accepted.  |
+| `PROPOSED` | `REJECTED`   | Final comments concluded. Rejected.       |
+| `ACCEPTED` | `RELEASED`   | Implementation shipped to production.     |
+| `RELEASED` | `SUPERSEDED` | Superseded by a later proposal.           |
 
-Transitions not listed are not permitted. A proposal MUST NOT move backwards
-(eg. from `PROPOSED` back to `DRAFT`) and MUST NOT skip states (eg. from `DRAFT`
-directly to `ACCEPTED`).
+Transitions not listed are not permitted. A proposal MUST NOT skip states (eg.
+from `DRAFT` directly to `ACCEPTED`).
+
+`PROPOSED` → `DRAFT` is the only permitted backward transition. It is used
+when review determines a proposal is not yet ready to be decided — keeping
+`PROPOSED` to mean "ready for a decision", rather than letting it become a
+holding pen for work still in progress. A decision once taken (`ACCEPTED` or
+`REJECTED`) MUST NOT be reversed by moving the proposal backwards; it is
+revisited by superseding it with a new proposal.
 
 > [!TIP]
 > This repository includes a suite of [agent skills](./.agents/skills/): one per

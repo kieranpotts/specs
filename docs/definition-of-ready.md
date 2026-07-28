@@ -44,8 +44,13 @@ delivery plan, which are out-of-scope for the specification.
 If any criterion is unmet, the proposal is not yet ready to accept. Report the
 specific gap and pause. The author refines the proposal — sharpening an
 ambiguous requirement, adding the missing scenarios, putting a number on a vague
-quality — and brings it back through the gate. Refinement keeps the proposal in
-`PROPOSED` – it does not move it backwards or reject it.
+quality — and brings it back through the gate.
+
+Minor refinement, settled within the review, keeps the proposal in `PROPOSED`.
+Where the gap is substantial enough that the proposal is not ready to be
+decided at all, return it to `DRAFT` for rework; it comes back to `PROPOSED`
+when the author has addressed the gap. Neither is a rejection, which is
+reserved for ideas the product has decided not to pursue.
 
 ## Related
 

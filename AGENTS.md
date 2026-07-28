@@ -119,13 +119,16 @@ The only allowed state transitions are:
 
 - (New proposal) → DRAFT
 - DRAFT → PROPOSED
+- PROPOSED → DRAFT (rework: review found it not yet ready to be decided)
 - PROPOSED → ACCEPTED
 - PROPOSED → REJECTED
 - ACCEPTED → RELEASED
 - RELEASED → SUPERSEDED
 
-Transitions not listed above are NOT permitted. A proposal MUST NOT move
-backwards or skip states.
+Transitions not listed above are NOT permitted. A proposal MUST NOT skip
+states. PROPOSED → DRAFT is the only permitted backward transition; a decision
+once taken (ACCEPTED or REJECTED) MUST NOT be reversed by moving backwards, but
+by superseding it with a new proposal.
 
 ## Rules
 
