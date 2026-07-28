@@ -172,6 +172,42 @@ by superseding it with a new proposal.
   observable at runtime (eg. time to restore service after a fault) belongs
   under `reliability` as a recoverability requirement.
 
+- Every requirement MUST carry a stable identifier: `F` for features, `Q` for
+  qualities, `R` for rules. Where an artifact holds several independently
+  verifiable statements, they are numbered within it (`F3.2`, `Q1.4`); rules
+  are atomic and take a single-part identifier. Identifiers are permanent and
+  MUST NOT be reused, even after a requirement is removed – a gap in the
+  sequence is the trace that something once existed there. Identifiers survive
+  renaming, re-filing, and rewording: moving a quality between characteristic
+  subdirectories does NOT renumber it.
+
+- A scenario verifying a business rule SHOULD be tagged with that rule's
+  identifier (eg. `@R3`), so the rule and its verifying scenarios resolve to
+  each other. Where a rule has no scenario coverage – because it is a negative
+  invariant or time-triggered – say so explicitly in
+  [`rules/README.md`](./specification/requirements/behaviors/rules/README.md)
+  rather than leaving the gap unexplained.
+
+- Withdrawing a requirement is a change like any other and MUST go through the
+  proposal lifecycle. There is no lightweight path for removing behavior. It
+  takes two phases: first *deprecated* – the removal is agreed but the
+  behavior is still in production, so the requirement stays in the
+  specification, marked as below. Then *removed* – once the behavior is gone from production, the
+  specification artifacts are deleted in the same change-set that removes the
+  implementing code. Nothing is left behind: no tombstone, no struck-through
+  prose. The retired identifier MUST NOT be reused. The proposal archive is
+  then the only record of what the behavior was and why it went.
+
+- A deprecated requirement MUST be marked in the specification, at the head of
+  the artifact (or against the individual scenario or threshold, where the
+  deprecation is narrower than the whole artifact). The marker MUST name the
+  proposal that will remove it and, where committed, the release or date after
+  which the behavior is unavailable. In `.feature` files use a `@deprecated`
+  tag alongside the identifier tag; in Markdown, a bold **Deprecated.** lead-in
+  as the first line of the requirement. Consumers rely on the specification to
+  tell them what they can safely depend on, so a scheduled withdrawal MUST be
+  visible there and not only in the proposal archive.
+
 - The detailed rules for *writing* the specification content – the Gherkin
   conventions, the measurable-threshold forms, and the problem-not-solution
   discipline – are owned by the

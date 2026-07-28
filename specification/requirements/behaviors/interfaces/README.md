@@ -26,20 +26,20 @@ _Replace the illustrative operations below with your own._
 Returns a paginated collection of [`Product`](../../../context/model/) records,
 optionally filtered by status, type, or price range. Requires an
 authenticated caller. Behavior is specified in
-[`features/list-products.feature`](../features/list-products.feature).
+[`features/list-products.feature` (F1)](../features/list-products.feature).
 
 ### Search products
 
 Returns the [`Product`](../../../context/model/) records matching a keyword
 and/or tag query. Requires an authenticated caller. Behavior is specified in
-[`features/search-products.feature`](../features/search-products.feature).
+[`features/search-products.feature` (F2)](../features/search-products.feature).
 
 ### Get product by ID
 
 Returns the full detail of a single [`Product`](../../../context/model/)
 identified by its `id`, or indicates not-found. Requires an authenticated
 caller. Behavior is specified in
-[`features/get-product.feature`](../features/get-product.feature).
+[`features/get-product.feature` (F3)](../features/get-product.feature).
 
 ### Reserve a product
 
@@ -47,8 +47,8 @@ Places a temporary hold on an `available` [`Product`](../../../context/model/),
 moving it to `reserved` and recording the caller as the holder. Requires a
 [Partner](../../../context/actors/) caller. The operation is idempotent under a
 caller-supplied idempotency key (see
-[idempotence](../../qualities/idempotence.md)). Behavior is specified in
-[`features/reserve-product.feature`](../features/reserve-product.feature),
+[idempotence](../../qualities/reliability/idempotence.md)). Behavior is specified in
+[`features/reserve-product.feature` (F4)](../features/reserve-product.feature),
 constrained by [rule R3](../rules/).
 
 ### Release a reservation
@@ -56,7 +56,7 @@ constrained by [rule R3](../rules/).
 Returns a `reserved` [`Product`](../../../context/model/) to `available`,
 provided the caller holds the reservation. Requires a
 [Partner](../../../context/actors/) caller. Behavior is specified in
-[`features/release-reservation.feature`](../features/release-reservation.feature),
+[`features/release-reservation.feature` (F5)](../features/release-reservation.feature),
 constrained by [rule R4](../rules/).
 
 ### Manage a basket
@@ -72,10 +72,10 @@ Converts the caller's [`Basket`](../../../context/model/) into an
 provider and, on success, moves every purchased
 [`Product`](../../../context/model/) to `sold`. Requires a
 [Shopper](../../../context/actors/) caller. The payment step is idempotent under
-a caller-supplied key (see [idempotence](../../qualities/idempotence.md)).
+a caller-supplied key (see [idempotence](../../qualities/reliability/idempotence.md)).
 Behavior is specified in
-[`features/checkout.feature`](../features/checkout.feature) and
-[`features/capture-payment.feature`](../features/capture-payment.feature),
+[`features/checkout.feature` (F6)](../features/checkout.feature) and
+[`features/capture-payment.feature` (F7)](../features/capture-payment.feature),
 constrained by [rules R6–R8](../rules/).
 
 ### View orders

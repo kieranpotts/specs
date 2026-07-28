@@ -14,6 +14,13 @@ and the transitions permitted between them.
 State each rule so that it is unambiguous and, where possible, testable. Give
 each a stable identifier so it can be referenced from elsewhere.
 
+Scenarios that verify a rule are tagged with its identifier, so the binding runs
+in both directions — see [features](../features/). Not every rule has scenario
+coverage: R2 is a negative invariant (no caller-facing operation exists to
+violate it), and R5 is triggered by elapsed time rather than by a caller, so it
+is observable only as a later status change. Both are verified below the
+caller-facing surface, not by a scenario.
+
 _Replace the illustrative rules below with your own._
 
 ## Invariants
@@ -59,7 +66,7 @@ _Replace the illustrative rules below with your own._
   declined or the provider is unavailable, no product in the basket moves to
   `sold` (R8). Payment capture is idempotent under a caller-supplied key, so a
   retried checkout never captures twice (see
-  [idempotence](../../qualities/idempotence.md)).
+  [idempotence](../../qualities/reliability/idempotence.md)).
 
 - **R8 — Failed checkout leaves no product sold.** If a checkout fails at any
   step — an unpurchasable product (R6), a declined payment, or a provider outage

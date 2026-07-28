@@ -18,7 +18,7 @@ _List terms alphabetically. Replace the examples below with your own._
 | **Caller** | Any client that issues a request to the system, whether or not it is authenticated. See [actors](../actors/). |
 | **Catalog** | The complete collection of product listings the system makes available to callers. |
 | **Category** | A broad grouping of products within the catalog (eg. "Electronics", "Apparel"). See the [`Category`](../model/) entity. |
-| **Checkout** | The operation by which a [Shopper](../actors/) converts a basket into an order, capturing payment and moving the purchased products to `sold`. See [checkout](../../requirements/behaviors/features/checkout.feature). |
+| **Checkout** | The operation by which a [Shopper](../actors/) converts a basket into an order, capturing payment and moving the purchased products to `sold`. See [checkout (F6)](../../requirements/behaviors/features/checkout.feature). |
 | **Credential** | The token a caller presents to authenticate. Issued and verified by the external identity service (see [constraints](../constraints/)). |
 | **Hold window** | The configured duration for which a reservation is honored before it automatically lapses. See [rule R5](../../requirements/behaviors/rules/). |
 | **Idempotency key** | A caller-supplied token that lets a caller safely retry a state-changing request — a reserve or a payment capture — without duplicating its effect. See [idempotence](../../requirements/qualities/reliability/idempotence.md). |

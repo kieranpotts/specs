@@ -43,7 +43,7 @@ apply to your system._
   [payment provider](#dependencies), and the system retains only a
   provider-issued token and the payment result. This obligation is restated as a
   testable [rule](../../requirements/behaviors/rules/) and exercised by the
-  [capture-payment feature](../../requirements/behaviors/features/capture-payment.feature).
+  [capture-payment feature (F7)](../../requirements/behaviors/features/capture-payment.feature).
 
 ## Business
 

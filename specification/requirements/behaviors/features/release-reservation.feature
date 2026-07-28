@@ -1,9 +1,10 @@
-Feature: Release a reservation
+Feature: [F5] Release a reservation
   In order to return a product to the catalog when a sale falls through
   As a Partner
   I want to release a reservation that I hold
 
-  Scenario: Release a reservation I hold
+  @R1 @R4
+  Scenario: [F5.1] Release a reservation I hold
     Given an authenticated Partner caller
       And the product with id "abc123" is reserved by the requesting Partner
      When the Partner releases the reservation on the product with id "abc123"
@@ -11,7 +12,8 @@ Feature: Release a reservation
       And the product's status becomes "available"
       And the product no longer records a reservation holder
 
-  Scenario: Cannot release another Partner's reservation
+  @R4
+  Scenario: [F5.2] Cannot release another Partner's reservation
     Given an authenticated Partner caller
       And the product with id "abc123" is reserved by a different Partner
      When the Partner releases the reservation on the product with id "abc123"
@@ -19,7 +21,8 @@ Feature: Release a reservation
       And the product's status remains "reserved"
       And the existing reservation's holder is unchanged
 
-  Scenario: Releasing an already-available product I previously held is a no-op
+  @R4
+  Scenario: [F5.3] Releasing an already-available product I previously held is a no-op
     Given an authenticated Partner caller
       And the product with id "abc123" has status "available"
       And the requesting Partner held the most recent reservation on it
@@ -27,14 +30,16 @@ Feature: Release a reservation
      Then the response confirms the product is available
       And the response does not indicate an error
 
-  Scenario: An Authenticated User without Partner standing cannot release
+  @R4
+  Scenario: [F5.4] An Authenticated User without Partner standing cannot release
     Given an authenticated caller who is not a Partner
       And the product with id "abc123" has status "reserved"
      When the caller attempts to release the reservation on the product with id "abc123"
      Then the response status indicates the request is forbidden
       And the product's status remains "reserved"
 
-  Scenario: Unauthenticated request
+  @R4
+  Scenario: [F5.5] Unauthenticated request
     Given a caller is not authenticated
      When the caller attempts to release a reservation
      Then the response status indicates the request is unauthorized

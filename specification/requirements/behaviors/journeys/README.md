@@ -56,22 +56,22 @@ sequenceDiagram
 **Steps and outcomes:**
 
 1. **Find the product.** The Partner locates an `available` product via
-   [search](../features/search-products.feature) or
-   [get-by-ID](../features/get-product.feature). _Outcome:_ a product whose
+   [search (F2)](../features/search-products.feature) or
+   [get-by-ID (F3)](../features/get-product.feature). _Outcome:_ a product whose
    `status` is `available`.
 
 2. **Reserve it.** The Partner calls
-   [reserve](../features/reserve-product.feature) with an [idempotency
+   [reserve (F4)](../features/reserve-product.feature) with an [idempotency
    key](../../../context/glossary/). _Outcome:_ the product moves to
    `reserved` ([R3](../rules/)), the Partner is recorded as holder, and an
    `expiresAt` is set. A retry with the same key is safe (see
-   [idempotence](../../qualities/idempotence.md)).
+   [idempotence](../../qualities/reliability/idempotence.md)).
 
 3. **Resolve the hold.** Exactly one of three things happens next:
    - The sale completes — a Shopper checkout, or the administrative function,
      moves the product to `sold`, observable to the Partner as a status change.
-   - The Partner [releases](../features/release-reservation.feature) the hold
-     ([R4](../rules/)) — the product returns to `available`.
+   - The Partner [releases (F5)](../features/release-reservation.feature) the
+     hold ([R4](../rules/)) — the product returns to `available`.
    - The Partner does nothing and the [hold window](../../../context/glossary/)
      elapses — the reservation lapses automatically ([R5](../rules/)) and the
      product returns to `available`.
@@ -110,20 +110,20 @@ sequenceDiagram
 **Steps and outcomes:**
 
 1. **Find products.** The Shopper locates `available` products via
-   [search](../features/search-products.feature) or
-   [get-by-ID](../features/get-product.feature).
+   [search (F2)](../features/search-products.feature) or
+   [get-by-ID (F3)](../features/get-product.feature).
 
 2. **Build a basket.** The Shopper adds one or more products to its
    [basket](../../../context/model/). _Outcome:_ a basket listing the chosen
    products.
 
-3. **Check out.** The Shopper calls [checkout](../features/checkout.feature) with
+3. **Check out.** The Shopper calls [checkout (F6)](../features/checkout.feature) with
    an [idempotency key](../../../context/glossary/) and a payment method. The API
    captures payment through the provider. _Outcome, on success:_ every product
    moves to `sold` ([R7](../rules/)), an [`Order`](../../../context/model/) is
    recorded as `paid`, and an `order.placed` event is published. A retry with the
    same key is safe and never double-charges (see
-   [idempotence](../../qualities/idempotence.md)).
+   [idempotence](../../qualities/reliability/idempotence.md)).
 
 4. **Failure path.** If payment is declined or the provider is unavailable, no
    product moves to `sold`, any reservation the checkout would have consumed is
