@@ -53,7 +53,13 @@ not in the human-facing `docs/`.
       `features/` (Gherkin), `rules/` (business rules, invariants, lifecycles),
       `access/` (the permissions matrix), `journeys/` (user journeys),
       `interfaces/` (external contracts).
-    - Non-functional requirements → `specification/requirements/qualities/`.
+    - Non-functional requirements → `specification/requirements/qualities/`,
+      in a subdirectory named for the ISO/IEC 25010 quality characteristic:
+      `functional-suitability/`, `performance-efficiency/`, `compatibility/`,
+      `interaction-capability/`, `reliability/`, `security/`, `flexibility/`,
+      `safety/`. Create the subdirectory if it does not yet exist; do NOT
+      create empty ones for characteristics with no requirements.
+      `maintainability` is deliberately not in the list — see step 3.
     - Supporting context (new domain terms, entities, or actors the requirement
       introduces) → `specification/context/`: `glossary/`, `model/`, `actors/`.
 
@@ -105,6 +111,12 @@ not in the human-facing `docs/`.
     *dynamic* (runtime, externally-observable) qualities only – not static
     qualities of the code and design, which belong to the design documentation,
     not the specification.
+
+    This is why the ISO/IEC 25010 *maintainability* characteristic (modularity,
+    reusability, testability) has no directory under `qualities/` and MUST NOT
+    be given one. Where a maintenance concern is genuinely observable at
+    runtime – time to restore service after a fault, say – write it under
+    `reliability/` as a recoverability requirement instead.
 
 4.  **Write the edits as the final state, not a diff.**
 

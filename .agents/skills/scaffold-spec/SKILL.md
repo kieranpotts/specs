@@ -126,7 +126,8 @@ thread.
       `access/`, `rules/`, `journeys/`, `interfaces/`),
       `specification/context/actors/`, `specification/context/model/`.
 
-    - Non-functional changes → `specification/requirements/qualities/`.
+    - Non-functional changes → `specification/requirements/qualities/`, under
+      the subdirectory for the relevant ISO/IEC 25010 quality characteristic.
 
 9.  **Commit and open a draft pull request.**
 
