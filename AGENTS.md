@@ -1,4 +1,4 @@
-# [Project Name] – Software Requirements Specification
+# [Project Name] – Software Requirements Specification (SRS)
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 OPTIONAL, and MAY are to be interpreted as described in [IETF RFC

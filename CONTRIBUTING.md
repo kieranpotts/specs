@@ -22,16 +22,17 @@ consideration.
 See also [TS-1](https://github.com/kieranpotts/standards/tree/latest/dev/src/001)
 for the technical standard that underpins this process.
 
-> [!NOTE]
-> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD
-> NOT, OPTIONAL, and MAY herein are to be interpreted as described in [IETF RFC
-> 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
+SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
+in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
 
-## The proposal lifecycle
+## Lifecycle
 
-The [specification artifacts](./specification/) always reflect the current state
-of the system as experienced by real users in production right now. Changes to
-that state are introduced through [proposals](./proposals/).
+The [specification artifacts](./specification/) on `main` always reflect the
+current state of the system as experienced by real users in production right now.
+Changes to that state are introduced through [proposals](./proposals/).
 
 Each proposal moves through a defined state machine. The current state of a
 proposal is shown in the document's `Status` field. In addition, to make it
@@ -50,10 +51,10 @@ The states are:
 
 - `ACCEPTED`: The proposal has been approved by the product managers. The pull
   request remains open until the implementation is released to production. The
-  specification documents may continue to evolve during this period – in
+  specification documents may continue to evolve during this period, in
   response to technical feedback, implementation discoveries, or feedback from
-  real users in beta tests or staged roll-outs – with feedback continuing on the
-  still-open discussion thread.
+  real users in beta tests or staged roll-outs. Feedback continues on the
+  discussion thread, which remains open throughout the implementation.
 
 - `REJECTED`: The proposal will not be taken forward. The accompanying
   specification edits are reverted, but the proposal document is preserved and
@@ -74,6 +75,11 @@ The states are:
 - `SUPERSEDED`: A previously released proposal that is no longer in effect,
   because a later proposal replaced or removed the feature.
 
+### Allowed state transitions
+
+The permitted state transitions are intended to be simple, memorable, and easy
+to enforce through automation and agentic workflows.
+
 ```mermaid
 stateDiagram-v2
   direction LR
@@ -87,8 +93,6 @@ stateDiagram-v2
   REJECTED --> [*]
   SUPERSEDED --> [*]
 ```
-
-Only the following transitions are allowed:
 
 | From       | To           | Condition                                 |
 | ---------- | ------------ | ----------------------------------------- |
@@ -110,69 +114,61 @@ holding pen for work still in progress. A decision once taken (`ACCEPTED` or
 `REJECTED`) MUST NOT be reversed by moving the proposal backwards; it is
 revisited by superseding it with a new proposal.
 
-> [!TIP]
-> This repository includes a suite of [agent skills](./.agents/skills/): one per
-> state transition (to automate the transitions and enforce the gate rules),
-> plus [`/write-spec`](./.agents/skills/write-spec/) for authoring the
-> specification content itself. It is RECOMMENDED to get AI agents to drive the
-> workflow through these skills. Doing so helps to keep the process consistent.
-
 ## Workflow
 
-### Step 1: Open a pull request (REQUIRED)
+> [!TIP]
+> [Agent skills](./.agents/skills/) are available to help automate some steps in
+> this workflow. It is RECOMMENDED to use agents to drive state transitions.
+> Doing so helps to maintain consistency.
 
 A pull request is the formal vehicle for a proposal. Open it as a draft as soon
 as you are ready to start writing the proposal document.
 
-1. Branch off `main` as `proposal/<slug>` for a feature or quality proposal, or
-   as `epic/<slug>` for an epic. (An epic is a special case, encapsulating
-   multiple interdependent proposals for easier tracking of dependencies.)
+1.  Branch off `main` as `proposal/<slug>` for a feature or quality proposal, or
+    as `epic/<slug>` for an epic. (An epic is a special case, encapsulating
+    multiple interdependent proposals for easier tracking of dependencies.)
 
-2. Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to
-   `proposals/<slug>/README.md`. The proposal lives in its own directory, so you
-   may add supporting artifacts – wireframes, mock-ups, data – alongside the
-   `README.md` and link them from its `References` section. Fill it out,
-   describing the change in full – the rationale, the impact on the business and
-   its customers, and the alternatives considered. (You will link the discussion
-   thread, opened in step 2, via the `Discussion thread` field.)
+2.  Copy [`proposals/TEMPLATE.md`](./proposals/TEMPLATE.md) to
+    `proposals/<slug>/README.md`. The proposal lives in its own directory, so
+    you may add supporting artifacts – wireframes, mock-ups, data – alongside
+    the `README.md` and link them from its `References` section. Fill it out,
+    describing the change in full – the rationale, the impact on the business
+    and its customers, and the alternatives considered. (You will link the
+    discussion thread, opened in the next step, via the `Discussion thread`
+    field.)
 
-3. Edit the [`specification/`](./specification/) artifacts to reflect the
-   intended final state of the system after the change ships. You may add,
-   modify, or delete specification artifacts as needed to describe the desired
-   end state. The [`/write-spec`](./.agents/skills/write-spec/) skill carries
-   the content rules for this step – functional requirements as testable Gherkin
-   acceptance criteria, non-functional requirements as measurable thresholds –
-   and is the recommended way to author them.
+3.  Edit the [`specification/`](./specification/) artifacts to reflect the
+    intended final state of the system after the change ships. You may add,
+    modify, or delete specification artifacts as needed to describe the desired
+    end state. The [`/write-spec`](./.agents/skills/write-spec/) skill carries
+    the content rules for this step – functional requirements as testable
+    Gherkin acceptance criteria, non-functional requirements as measurable
+    thresholds – and is the recommended way to author them.
 
-4. Commit your changes and open the pull request as a draft, titled `feature:
-   <description>`, `quality: <description>`, or `epic: <description>`, where
-   `<description>` is a short prose title, written full lowercase. Apply
-   exactly one type label to the PR – `FEATURE`, `QUALITY`, or `EPIC`. Fill out
-   the top of the PR template (above the horizontal rule). Leave the checklist
-   for now.
+4.  Commit your changes and open the pull request as a draft, titled `feature:
+    <description>`, `quality: <description>`, or `epic: <description>`, where
+    `<description>` is a short prose title, written full lowercase. Apply
+    exactly one type label to the PR – `FEATURE`, `QUALITY`, or `EPIC`. Fill
+    out the top of the PR template (above the horizontal rule). Leave the
+    checklist for now.
 
-### Step 2: Open a discussion thread (REQUIRED)
+5.  Open an associated [discussion
+    thread](https://github.com/kieranpotts/specs/discussions) (REQUIRED), using
+    the form for the proposal's type (feature, quality, or epic). It MUST exist
+    by the time the pull request is marked ready for review; you MAY open it
+    earlier – even before the pull request – to brainstorm before a firm
+    proposal exists. Link the discussion and the pull request to each other,
+    recording the thread in the proposal document's `Discussion thread` field.
+    The thread stays open for the life of the proposal and is closed when the
+    PR is merged. All review feedback is gathered here, keeping the pull
+    request focused on the evolution of the proposal document and the
+    specification edits. (The GitHub issue tracker is _not_ used for proposals
+    – it is reserved for repository maintenance only.)
 
-Every proposal has an associated discussion thread where _all_ review feedback
-is gathered. This keeps the pull request focused on the evolution of the
-proposal document and the specification edits.
-
-Open a [discussion](https://github.com/kieranpotts/specs/discussions) using the
-form for the proposal's type (feature, quality, or epic). It MUST exist by the
-time the pull request is marked ready for review; you MAY open it earlier – even
-before the pull request – to brainstorm before a firm proposal exists. Link the
-discussion and the pull request to each other, recording the thread in the
-proposal document's `Discussion thread` field. The thread stays open for the
-life of the proposal and is closed when the PR is merged.
-
-(The GitHub issue tracker is _not_ used for proposals – it is reserved for
-repository maintenance only.)
-
-### Step 3: Request a decision
-
-Keep the pull request in draft while you refine it. When the document and spec
-edits are complete and ready for full stakeholder review, mark the PR as ready
-for review (which takes it out of draft) and apply the `#proposed` label.
+6.  Keep the pull request in draft while you refine it. When the document and
+    spec edits are complete and ready for full stakeholder review, mark the PR
+    as ready for review (which takes it out of draft) and apply the
+    `#proposed` label.
 
 ## Rules
 
