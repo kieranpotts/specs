@@ -25,12 +25,16 @@ There are two parts to the SRS:
   of the project's history, they inherit a deep appreciation for why the system
   is the way it is.
 
-The SRS is distinct from a PRD. A product requirements document is a precursor
-artifact, owned by product managers and generated through discover workshops
-with users. The SRS, which is maintained by the technical teams in collaboration
-with product stakeholders, translates the product vision into precise, testable
-functional and non-functional requirements. See [PRD versus SRS](./docs/prd.md)
-for more on the distinction.
+The SRS drives the [design docs](https://github.com/kieranpotts/design) and
+proposals for changes to the system's requirements may specification may trigger
+[requests for comments (RFCs)](https://github.com/kieranpotts/rfc), where design
+options are discussed.
+
+> [!NOTE]
+> This is a reference implementation of
+> [TS-1](https://github.com/kieranpotts/standards/tree/latest/dev/src/001),
+> a technical standard for managing and documenting software requirements
+> specifications (SRS).
 
 ## Ecosystem
 
