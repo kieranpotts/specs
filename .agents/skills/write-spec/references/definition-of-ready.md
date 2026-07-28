@@ -51,13 +51,8 @@ specific gap and pause. The author refines the proposal – sharpening an
 ambiguous requirement, adding the missing scenarios, putting a number on a vague
 quality – and brings it back through the gate.
 
-Minor refinement, settled within the review, keeps the proposal in `PROPOSED`.
-Where the gap is substantial enough that the proposal is not ready to be decided
-at all, return it to `DRAFT` for rework; it comes back to `PROPOSED` once the
-author has addressed the gap. A proposal can be a good idea and still fail this
-checklist; when that happens, send it back for refinement rather than accepting
-it – and rather than rejecting it, which is reserved for ideas the product has
-decided not to pursue.
+The proposal stays in `PROPOSED` while it is being refined. A proposal MUST
+NOT move backwards to `DRAFT`.
 
 ## Related
 

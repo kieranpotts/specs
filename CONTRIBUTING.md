@@ -41,36 +41,18 @@ to open pull requests: `#proposed`, `#accepted`, etc.
 
 The states are:
 
-- `DRAFT`: The proposal is being written. Its pull request is open as a draft,
-  which means it's not yet ready for review. Early feedback may be solicited via
-  the discussion thread.
+- `DRAFT`: The proposal is being written.
 
-- `PROPOSED`: The proposal is complete and open for a decision. The idea is now
-  formally reviewed and negotiated with relevant stakeholders (both technical
-  and non-technical).
+- `PROPOSED`: The proposal is complete and open for formal review, negotiation,
+  and a final decision in collaboration with relevant stakeholders (both
+  technical and non-technical).
 
-- `ACCEPTED`: The proposal has been approved by the product managers. The pull
-  request remains open until the implementation is released to production. The
-  specification documents may continue to evolve during this period, in
-  response to technical feedback, implementation discoveries, or feedback from
-  real users in beta tests or staged roll-outs. Feedback continues on the
-  discussion thread, which remains open throughout the implementation.
+- `ACCEPTED`: The proposal has been approved by the product managers and
+  delivery plans have been formulated in the product's backlog.
 
-- `REJECTED`: The proposal will not be taken forward. The accompanying
-  specification edits are reverted, but the proposal document is preserved and
-  merged to `main`. After merge, the proposal is given a unique reference and
-  listed in the [proposals index](./proposals/INDEX.md). Thus, all proposed
-  changes to the software requirements specifications, whether ultimately
-  accepted or rejected, are preserved indefinitely as a record of the decision
-  and its rationale. But the actual requirements specification in `main` always
-  reflects the current as-is production system, and captures no traces of
-  rejected or superseded specifications.
+- `REJECTED`: The proposal will not be taken forward.
 
-- `RELEASED`: An accepted change request is now live in production. Both the
-  proposal document and the changes to the specification artifacts are merged
-  into `main`. After merge, the proposal is given a unique reference and listed
-  in the [proposals index](./proposals/INDEX.md). A released proposal stays in
-  effect until a later proposal supersedes it.
+- `RELEASED`: An accepted change request is now live in production.
 
 - `SUPERSEDED`: A previously released proposal that is no longer in effect,
   because a later proposal replaced or removed the feature.
@@ -85,7 +67,6 @@ stateDiagram-v2
   direction LR
   [*] --> DRAFT
   DRAFT --> PROPOSED
-  PROPOSED --> DRAFT: rework
   PROPOSED --> ACCEPTED
   PROPOSED --> REJECTED
   ACCEPTED --> RELEASED
@@ -98,21 +79,13 @@ stateDiagram-v2
 | ---------- | ------------ | ----------------------------------------- |
 | _(new)_    | `DRAFT`      | Initial state, scaffolding the document.  |
 | `DRAFT`    | `PROPOSED`   | Proposal and spec edits complete.         |
-| `PROPOSED` | `DRAFT`      | Review returned the proposal for rework.  |
 | `PROPOSED` | `ACCEPTED`   | Final comments wrapped. Ready. Accepted.  |
 | `PROPOSED` | `REJECTED`   | Final comments concluded. Rejected.       |
 | `ACCEPTED` | `RELEASED`   | Implementation shipped to production.     |
 | `RELEASED` | `SUPERSEDED` | Superseded by a later proposal.           |
 
-Transitions not listed are not permitted. A proposal MUST NOT skip states (eg.
-from `DRAFT` directly to `ACCEPTED`).
-
-`PROPOSED` → `DRAFT` is the only permitted backward transition. It is used
-when review determines a proposal is not yet ready to be decided — keeping
-`PROPOSED` to mean "ready for a decision", rather than letting it become a
-holding pen for work still in progress. A decision once taken (`ACCEPTED` or
-`REJECTED`) MUST NOT be reversed by moving the proposal backwards; it is
-revisited by superseding it with a new proposal.
+Transitions not listed are not permitted. A proposal MUST NOT move backwards
+and MUST NOT skip states.
 
 ## Workflow
 
@@ -170,9 +143,27 @@ as you are ready to start writing the proposal document.
     as ready for review (which takes it out of draft) and apply the
     `#proposed` label.
 
+7.  Once stakeholders decide, apply the `#accepted` or `#rejected` label. If
+    accepted, formulate delivery plans in the product's backlog. Keep the pull
+    request open and the discussion thread active until the corresponding
+    changes are designed, built, tested, and released to production – the
+    specification MAY continue to evolve during this period in response to
+    technical feedback, implementation discoveries, or feedback from real
+    users.
+
+8.  Once the change is live in production, apply the `#released` label and
+    merge the pull request. If rejected, revert the specification edits before
+    merging, and apply the `#rejected` label.
+
 ## Rules
 
 - MUST write in American English.
+
+- A decision, once taken (`ACCEPTED` or `REJECTED`), MUST NOT be reversed by
+  moving the proposal backwards. Instead, past decisions MAY be `SUPERSEDED` by
+  new proposals. A proposal SHOULD NOT move from `DRAFT` to `PROPOSED` until it
+  is genuinely ready for review; early feedback MAY still be solicited via the
+  discussion thread while still in `DRAFT`.
 
 - The `main` trunk is the default branch. The artifacts in the
   [`specification/`](./specification/) directory on `main` are the authoritative
