@@ -8,11 +8,10 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Accept spec
-
-<!-- TODO: Review these skills against the latest template. -->
 
 Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the
 approval gates, update the document, and label the PR `#accepted`. The proposal
@@ -141,21 +140,21 @@ and pause.
 
 ## Rules
 
--   **Only product managers may approve.**
+-   **Only product managers MAY approve a proposal.**
 
     If unsure of the user's role, ask first.
 
--   **Forward only.**
+-   **You MUST approve only from `PROPOSED`, never backwards.**
 
     Approve only from `PROPOSED`. Never accept a draft, and never move
     backwards.
 
--   **Do not merge.**
+-   **You MUST NOT merge the pull request.**
 
     Acceptance is a decision, not a release. The PR stays open until the
     implementation ships.
 
--   **Proposals are immutable after merge.**
+-   **Proposals MUST be treated as immutable after merge.**
 
     While the PR is open — including through implementation — the document and
     its spec edits MAY still evolve. Once merged at `#released`, only the
@@ -164,24 +163,19 @@ and pause.
 
 ## Success criteria
 
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.
+- **`Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
+  `Decision date` are filled in.**
 
-- The PR carries `#accepted` (and its type label), not `#proposed`, and remains
-  open.
+- **The PR carries `#accepted` (and its type label), not `#proposed`, and remains
+  open.**
 
-- The associated discussion thread remains open — it is closed when the PR is
+- **The associated discussion thread remains open** — it is closed when the PR is
   merged at release.
 
-- No number has been assigned — that waits for release.
+- **No number has been assigned** — that waits for release.
 
 ## References
 
-- [General reference information for agents](../../../AGENTS.md)
-
-- [Definition of Ready](../write-spec/references/definition-of-ready.md): the
+- [Definition of Ready](../write-spec/references/definition-of-ready.md): The
   canonical readiness checklist this skill verifies at the `PROPOSED` →
   `ACCEPTED` gate.
-
-- [`/write-spec`](../write-spec/SKILL.md): owns the specification-content rules
-  and authors content to meet the Definition of Ready.

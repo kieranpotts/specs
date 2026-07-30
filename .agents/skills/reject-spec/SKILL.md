@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Reject spec
@@ -124,13 +125,21 @@ and pause.
     Confirm with the user that the PR is ready to merge into `main` — do not
     merge without explicit instruction. Once confirmed, squash-merge it with the
     message `<type>: <short lowercase proposal description> - REJECTED` (where
-    `<type>` is `feature`, `quality`, or `epic`):
+    `<type>` is `feature`, `quality`, or `epic`), and delete the source branch on
+    the upstream repository:
 
     ```sh
-    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED"
+    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED" --delete-branch
     ```
 
-9.  **Close the associated discussion thread.**
+9.  **In case the branch was not automatically deleted from the upstream
+    repository, delete it directly.**
+
+    ```sh
+    git push origin --delete proposal/<slug>   # or epic/<slug>
+    ```
+
+10. **Close the associated discussion thread.**
 
     The proposal has merged, so its discussion is now closed. Find the
     discussion linked in the `Discussion thread` field and close it as resolved
@@ -148,7 +157,7 @@ and pause.
       }' -F id=<discussionId>
     ```
 
-10. **After merge, assign the number.**
+11. **After merge, assign the number.**
 
     The proposal number is assigned only after merge. A rejected proposal is
     archived in the ordered log like any other, so it takes the next number. On
@@ -168,39 +177,39 @@ and pause.
 
 ## Rules
 
--   **Never delete the proposal document.**
+-   **You MUST NOT delete the proposal document.**
 
     Rejected proposals are permanently archived in `proposals/` as the record of
     the decision and its rationale.
 
--   **Revert spec edits precisely.**
+-   **You MUST revert spec edits precisely.**
 
     Only revert changes introduced by this branch; do not touch unrelated
     changes.
 
--   **The document is immutable after `#rejected`.**
+-   **The document MUST be treated as immutable after `#rejected`.**
 
     To revisit the decision, open a new proposal that supersedes this one.
 
--   **Do not merge without instruction.**
+-   **You MUST NOT merge without explicit instruction from the user.**
 
 ## Success criteria
 
-- No files under `specification/` are changed on this branch relative to `main`
-  after the revert.
+- **No files under `specification/` are changed on this branch relative to `main`
+  after the revert.**
 
-- The PR carries `#rejected` (and its type label), the `## Status` section reads
-  `REJECTED`, and `Last updated` is today's date.
+- **The PR carries `#rejected` (and its type label), the `## Status` section reads
+  `REJECTED`, and `Last updated` is today's date.**
 
-- The associated discussion thread is closed.
+- **The associated discussion thread is closed.**
 
-- The proposal document is squash-merged into `main`.
+- **The proposal document is squash-merged into `main`.**
 
-- After merge: a `proposals/INDEX.md` entry is added on `main`, with the next
-  sequential number and `Rejected` status.
+- **After merge: a `proposals/INDEX.md` entry is added on `main`, with the next
+  sequential number and `Rejected` status.**
 
-- The user has explicitly confirmed the rejection decision before any changes
-  were made.
+- **The user has explicitly confirmed the rejection decision before any changes
+  were made.**
 
 ## References
 

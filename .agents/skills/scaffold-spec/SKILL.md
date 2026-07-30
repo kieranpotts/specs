@@ -9,6 +9,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Scaffold spec
@@ -69,7 +70,7 @@ thread.
 
     ```sh
     git checkout main
-    git pull
+    git pull --rebase
     git checkout -b proposal/<slug>   # or epic/<slug>
     ```
 
@@ -208,46 +209,46 @@ thread.
 
 ## Rules
 
--   **A proposal is for a deliberate change to the specification.**
+-   **A proposal MUST be for a deliberate change to the specification.**
 
     Proposals are for new or changed requirements that warrant stakeholder
     review, not routine implementation work, bug fixes, or trivial edits, which
     go through the normal pull-request workflow. If the request looks too small
     to warrant a proposal, say so before scaffolding.
 
--   **One proposal per branch and pull request.**
+-   **There MUST be exactly one proposal per branch and pull request.**
 
     Never bundle multiple changes into a single branch. If the user describes
     changes that span multiple independent concerns, scaffold separate proposal
     branches.
 
--   **Branch from `main`, not from any other branch.**
+-   **You MUST branch from `main`, not from any other branch.**
 
     Proposals are always cut from `main`. If the local `main` is behind the
     remote, pull first.
 
--   **Open the PR as a draft.**
+-   **You MUST open the PR as a draft.**
 
     A new proposal is not yet ready for review. It MUST be opened as a draft
     pull request.
 
--   **Every proposal PR has an associated discussion thread.**
+-   **Every proposal PR MUST have an associated discussion thread.**
 
     Opened with the PR (even as a draft) using the matching discussion category
     (`Features`, `Qualities`, or `Epics`), and linked from both the document and
     the PR. All review feedback belongs in the discussion, not the PR's
     comments.
 
--   **Do not assign a numeric ID.**
+-   **You MUST NOT assign a numeric ID.**
 
     Proposal numbers are assigned only in `proposals/INDEX.md`, after merge.
 
--   **The specification edits describe the final state, not a diff.**
+-   **The specification edits MUST describe the final state, not a diff.**
 
     When helping draft them, write as if the change has already shipped — not
     "we will add…" or "currently X, changing to Y".
 
--   **The preserved PRD is a frozen input.**
+-   **The preserved PRD MUST be treated as a frozen input.**
 
     When a PRD is supplied, save it verbatim as
     `proposals/<slug>/product-requirements.md` and never edit, summarize, or
@@ -257,28 +258,27 @@ thread.
 
 ## Success criteria
 
-- Branch `proposal/<slug>` exists and is checked out.
+- **Branch `proposal/<slug>` exists and is checked out.**
 
-- `proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
-  header filled in and `Status: DRAFT`.
+- **`proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
+  header filled in and `Status: DRAFT`.**
 
-- If a PRD was supplied, `proposals/<slug>/product-requirements.md` exists,
-  holding it verbatim, and the `Origin` field links it. If no PRD was supplied,
-  the `Origin` field is removed.
+- **If a PRD was supplied, `proposals/<slug>/product-requirements.md` exists,
+  holding it verbatim, and the `Origin` field links it.**
 
-- A draft pull request is open (titled `feature: <short lowercase proposal
-  description>`, `quality: …`, or `epic: …`), carrying exactly one type label
+  If no PRD was supplied, the `Origin` field is removed.
+
+- **A draft pull request is open**, titled `feature: <short lowercase proposal
+  description>`, `quality: …`, or `epic: …`, carrying exactly one type label
   and no lifecycle label.
 
-- An associated discussion thread is open, linked from the document's
+- **An associated discussion thread is open**, linked from the document's
   `Discussion thread` field and from the PR.
 
-- The user has been directed to [`/write-spec`](../write-spec/SKILL.md) to
-  author the specification content.
+- **The user has been directed to [`/write-spec`](../write-spec/SKILL.md) to
+  author the specification content.**
 
 ## References
-
-- [General reference information for agents](../../../AGENTS.md)
 
 - [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md)
 

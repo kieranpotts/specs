@@ -15,7 +15,7 @@ feature ride on the successor proposal's own pull request. The change lands on
 
 ## How to invoke
 
-> xxxxxx
+> Supersede the catalog read API proposal.
 
 > The catalog read API is now superseded by the catalog read API v2.
 

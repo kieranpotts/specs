@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Supersede spec
@@ -115,38 +116,38 @@ the following before superseding. If any is unmet, report it and pause.
 
 ## Rules
 
--   **Only from `RELEASED`.**
+-   **You MUST supersede only from `RELEASED`.**
 
     A draft, proposed, accepted, or rejected proposal cannot be superseded.
 
--   **A successor is required.**
+-   **A successor proposal MUST exist.**
 
     Superseding is always driven by a later, released proposal that replaces or
     removes the feature. There is no standalone supersession.
 
--   **Immutable except the cross-reference.**
+-   **The document MUST remain immutable except for the cross-reference.**
 
     Only the `Status` field, `Last updated` date, and the `Superseded by` link
     may change. Do not touch `specification/` — the spec edits belong to the
     successor proposal's pull request.
 
--   **Never delete the proposal document.**
+-   **You MUST NOT delete the proposal document.**
 
     Superseded proposals are permanently archived in `proposals/` as part of the
     historical record.
 
 ## Success criteria
 
-- `Status` is `SUPERSEDED`, `Last updated` is today's date, and `Superseded by`
-  links the successor.
+- **`Status` is `SUPERSEDED`, `Last updated` is today's date, and `Superseded by`
+  links the successor.**
 
-- The successor's `Supersedes` field links back to this proposal.
+- **The successor's `Supersedes` field links back to this proposal.**
 
-- The `proposals/INDEX.md` row for this proposal reads `SUPERSEDED`.
+- **The `proposals/INDEX.md` row for this proposal reads `SUPERSEDED`.**
 
-- The PR carries `#superseded` (and its type label), not `#released`.
+- **The PR carries `#superseded` (and its type label), not `#released`.**
 
-- No files under `specification/` are changed by this skill.
+- **No files under `specification/` are changed by this skill.**
 
 ## References
 

@@ -9,6 +9,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Write spec
@@ -149,7 +150,7 @@ not in the human-facing `docs/`.
 
 ## Rules
 
--   **Specify the problem, not the solution.**
+-   **Acceptance criteria MUST specify the problem, not the solution.**
 
     Acceptance criteria describe user needs and outcomes. They MUST NOT
     prescribe implementation: no class names, no API endpoints, no database
@@ -158,21 +159,21 @@ not in the human-facing `docs/`.
     changing it. Decisions about *how* the system is built belong in the RFC
     archive, not here.
 
--   **Use domain language, not technical jargon.**
+-   **The specification MUST use domain language, not technical jargon.**
 
     The specification is a contract with business stakeholders. Use the
     vocabulary of the business domain (customer, order, refund, dosage, invoice)
     – not the vocabulary of the codebase (entity, repository, DTO, controller).
     Keep to the project's ubiquitous language.
 
--   **Assert on observable outcomes, not internal state.**
+-   **`Then` steps MUST assert on observable outcomes, not internal state.**
 
     `Then` steps assert on outputs the user can observe: rendered UI, API
     responses, logged messages, command output, state visible in a downstream
     report. Assertions on database rows, queue contents, or in-memory structures
     couple the specification to the implementation.
 
--   **Bundle authorization into functional requirements.**
+-   **Authorization concerns MUST be bundled into functional requirements.**
 
     Permissions and roles ("As an admin, I can...") belong in the functional
     specification – as user stories in `behaviors/`, and in the `access/`
@@ -180,7 +181,7 @@ not in the human-facing `docs/`.
     audit logging, and compliance-driven constraints are non-functional and
     belong in `qualities/`.
 
--   **The DoR is generic by design.**
+-   **The DoR MUST remain generic, applying to any proposal regardless of subject.**
 
     The Definition-of-Ready criteria apply to any proposal regardless of
     subject, and judge the readiness of the *requirements* – not of a design or
@@ -188,38 +189,28 @@ not in the human-facing `docs/`.
 
 ## Success criteria
 
-- Every functional requirement is expressed as one or more testable Gherkin
-  scenarios, covering unhappy paths, with no implementation detail (no class,
+- **Every functional requirement is expressed as one or more testable Gherkin
+  scenarios, covering unhappy paths, with no implementation detail** (no class,
   file, endpoint, table, or framework name).
 
-- Every non-functional requirement names a metric, a target, and its conditions,
-  and concerns a dynamic runtime quality only.
+- **Every non-functional requirement names a metric, a target, and its conditions,
+  and concerns a dynamic runtime quality only.**
 
-- The edits read as a description of the final shipped state, in the present
-  tense – not a changelog.
+- **The edits read as a description of the final shipped state, in the present
+  tense – not a changelog.**
 
-- Each artifact sits in the correct `specification/` subdirectory, and any new
-  domain terms, entities, or actors are reflected in `context/`.
+- **Each artifact sits in the correct `specification/` subdirectory, and any new
+  domain terms, entities, or actors are reflected in `context/`.**
 
-- The specification edits satisfy every Definition-of-Ready criterion, or each
-  unmet criterion is reported as a specific gap.
+- **The specification edits satisfy every Definition-of-Ready criterion, or each
+  unmet criterion is reported as a specific gap.**
 
-- Once the content is complete, the user has been directed to
+- **Once the content is complete, the user has been directed to
   [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready for
-  review.
+  review.**
 
 ## References
 
 - [`references/definition-of-ready.md`](./references/definition-of-ready.md):
   The canonical readiness checklist applied in step 5. Read it before declaring
   the specification edits complete.
-
-- [AGENTS.md](../../../AGENTS.md): The repository's agent-facing rules and the
-  proposal lifecycle this content feeds into.
-
-- [`/scaffold-spec`](../scaffold-spec/SKILL.md): Scaffolds the proposal and identifies
-  which `specification/` files to edit; hands off to this skill for the
-  authoring.
-
-- [`/accept-spec`](../accept-spec/SKILL.md): Verifies the Definition of Ready at
-  the `PROPOSED` → `ACCEPTED` gate.

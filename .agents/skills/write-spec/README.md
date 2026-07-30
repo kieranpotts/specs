@@ -28,11 +28,11 @@ Ready. A project tunes its specification standards by editing this skill.
 
 ## How to invoke
 
-> xxxxxxxx
+> Write the specification for user session timeout.
 
-> xxxxxx
+> Draft the Gherkin scenarios for the refund flow.
 
-> xxxxxxx
+> Add a non-functional requirement for p99 latency.
 
 Typically invoked while a proposal is in `DRAFT`, after
 [`/scaffold-spec`](../scaffold-spec/README.md) has scaffolded the branch, document,

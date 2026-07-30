@@ -25,6 +25,22 @@ Skills available to agents in this repository are:
 - **[Supersede spec](./supersede-spec/):**
   Handles the `RELEASED` → `SUPERSEDED` transition.
 
+## Conventions
+
+Two structural conventions recur across the `SKILL.md` files in this
+directory:
+
+- **Transition gates.** Skills that handle a state transition (propose,
+  accept, release, reject, supersede) open their gating logic with a
+  `## Transition gates: <FROM> → <TO>` heading, e.g. "Transition gates:
+  `PROPOSED` → `ACCEPTED`". This section lists the conditions that MUST be
+  satisfied before the transition is allowed to proceed.
+
+- **References.** Most skills close with a `## References` section linking
+  to related documents the skill depends on or is subordinate to, such as
+  the [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md) or the
+  [Definition of Ready](./write-spec/references/definition-of-ready.md).
+
 ## Compatibility
 
 Agent harnesses are converging on the `./.agents/skills/` path for dynamic

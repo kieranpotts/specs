@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Propose spec
@@ -131,25 +132,23 @@ report it and pause — do not mark the PR ready.
 
 ## Rules
 
--   **Do not mark a PR ready until the document and spec edits are complete.**
+-   **You MUST NOT mark a PR ready until the document and spec edits are complete.**
 
     An incomplete or boilerplate-laden proposal wastes reviewers' time. The
     completeness gate is mandatory.
 
--   **Forward only.**
+-   **This skill MUST only move a proposal forward, from `DRAFT` to `PROPOSED`.**
 
     This skill only moves `DRAFT` → `PROPOSED`. It does not decide the proposal.
 
 ## Success criteria
 
-- The PR is no longer a draft (`isDraft: false`).
+- **The PR is no longer a draft (`isDraft: false`).**
 
-- The `#proposed` label is applied, alongside the type label.
+- **The `#proposed` label is applied, alongside the type label.**
 
-- `Last updated` is today's date and `Status` is `PROPOSED`.
+- **`Last updated` is today's date and `Status` is `PROPOSED`.**
 
 ## References
-
-- [General reference information for agents](../../../AGENTS.md)
 
 - [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md)

@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Release spec
@@ -101,13 +102,21 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm
     `main`. Confirm with the user that the PR is ready to merge — do not merge
     without explicit instruction. Once confirmed, squash-merge it with the
     message `<type>: <short lowercase proposal description> - RELEASED` (where
-    `<type>` is `feature`, `quality`, or `epic`):
+    `<type>` is `feature`, `quality`, or `epic`), and delete the source branch on
+    the upstream repository:
 
     ```sh
-    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - RELEASED"
+    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - RELEASED" --delete-branch
     ```
 
-7.  **Close the associated discussion thread.**
+7.  **In case the branch was not automatically deleted from the upstream
+    repository, delete it directly.**
+
+    ```sh
+    git push origin --delete proposal/<slug>   # or epic/<slug>
+    ```
+
+8.  **Close the associated discussion thread.**
 
     The proposal has merged, so its discussion is now closed. Find the
     discussion linked in the `Discussion thread` field, look up its node ID, and
@@ -126,7 +135,7 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm
       }' -F id=<discussionId>
     ```
 
-8.  **After merge, assign the number.**
+9.  **After merge, assign the number.**
 
     The proposal number is assigned only after merge. On `main`, find the
     highest number in [`proposals/INDEX.md`](../../../proposals/INDEX.md),
@@ -147,34 +156,34 @@ The proposal MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm
 
 ## Rules
 
--   **Only product managers may release.**
+-   **Only product managers MAY release a proposal.**
 
     If unsure of the user's role, ask first.
 
--   **Only from `ACCEPTED`.**
+-   **You MUST release only from `ACCEPTED`.**
 
     Never release a draft, proposed, or rejected proposal.
 
--   **Release means production.**
+-   **Release MUST mean the change is live in production.**
 
     Do not mark a proposal released until its change is actually live for real
     users — that is what keeps `main` honest.
 
--   **Do not merge without instruction.**
+-   **You MUST NOT merge without explicit instruction from the user.**
 
 ## Success criteria
 
-- `Status` is `RELEASED` and `Last updated` is today's date.
+- **`Status` is `RELEASED` and `Last updated` is today's date.**
 
-- The PR carries `#released` (and its type label), not `#accepted`.
+- **The PR carries `#released` (and its type label), not `#accepted`.**
 
-- The specification edits and the proposal document are squash-merged into
-  `main`.
+- **The specification edits and the proposal document are squash-merged into
+  `main`.**
 
-- The associated discussion thread is closed.
+- **The associated discussion thread is closed.**
 
-- After merge: a `proposals/INDEX.md` entry is added on `main`, with the next
-  sequential number and `Released` status.
+- **After merge: a `proposals/INDEX.md` entry is added on `main`, with the next
+  sequential number and `Released` status.**
 
 ## References
 
