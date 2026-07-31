@@ -1,56 +1,56 @@
-# Agent skills
+# Agent skills for managing the Software Requirements Specification (SRS)
 
-Skills available to agents in this repository are:
+The skills available to agents in this project are:
 
-- **[Scaffold spec](./scaffold-spec/):**
-  Scaffolds a new draft proposal, ready for the user to complete.
-  Sets status to `DRAFT`.
+- **[scaffold-spec](./scaffold-spec/):** \
+  Scaffolds a new proposal, ready for the user to write up.
+  Sets the status to `DRAFT`.
 
-- **[Write spec](./write-spec/):**
+- **[write-spec](./write-spec/):** \
   Authors the specification artifacts for a proposal.
   Used during the `DRAFT` state.
 
-- **[Propose spec](./propose-spec/):**
+- **[propose-spec](./propose-spec/):** \
   Handles the `DRAFT` → `PROPOSED` transition.
 
-- **[Accept spec](./accept-spec/):**
+- **[accept-spec](./accept-spec/):** \
   Handles the `PROPOSED` → `ACCEPTED` transition.
 
-- **[Release spec](./release-spec/):**
+- **[release-spec](./release-spec/):** \
   Handles the `ACCEPTED` → `RELEASED` transition.
 
-- **[Reject spec](./reject-spec/):**
+- **[reject-spec](./reject-spec/):** \
   Handles the `PROPOSED` → `REJECTED` transition.
 
-- **[Supersede spec](./supersede-spec/):**
+- **[supersede-spec](./supersede-spec/):** \
   Handles the `RELEASED` → `SUPERSEDED` transition.
 
-## Conventions
+The **scaffold-spec** skill...
 
-Two structural conventions recur across the `SKILL.md` files in this
-directory:
+```mermaid
+flowchart LR
+  scaffold["🤖<br/>scaffold"]:::agentic
+  write["🤖<br/>write"]:::agentic
+  propose["🤖<br/>propose"]:::agentic
+  accept["🤖<br/>accept"]:::agentic
+  release["🤖<br/>release"]:::agentic
+  supersede["🤖<br/>supersede"]:::agentic
+  reject["🤖<br/>reject"]:::agentic
 
-- **Transition gates.** Skills that handle a state transition (propose,
-  accept, release, reject, supersede) open their gating logic with a
-  `## Transition gates: <FROM> → <TO>` heading, e.g. "Transition gates:
-  `PROPOSED` → `ACCEPTED`". This section lists the conditions that MUST be
-  satisfied before the transition is allowed to proceed.
+  scaffold ==> write
+  write ==> propose
+  propose ==> accept
+  accept ==> release
+  release -.-> supersede
+  propose ---> reject
 
-- **References.** Most skills close with a `## References` section linking
-  to related documents the skill depends on or is subordinate to, such as
-  the [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md) or the
-  [Definition of Ready](./write-spec/references/definition-of-ready.md).
+  classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
+  classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
+  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
+```
 
 ## Compatibility
 
-Agent harnesses are converging on the `./.agents/skills/` path for dynamic
-retrieval of project-specific skills. This is compatible with the Agent Skills
-convention — see https://agentskills.io/.
-
-As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
-OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
-will not.
-
-You will require workarounds for incompatible harnesses. For Claude Code, you
-can simply symlink this directory from `.claude/skills/`. Cursor requires more
-effort to transpile these skills into its native "rules" format.
+These skills are compatible with the [Agent Skills](https://agentskills.io/)
+convention. Most agent harnesses support this convention natively, but
+workarounds may be required for harnesses that do not.
