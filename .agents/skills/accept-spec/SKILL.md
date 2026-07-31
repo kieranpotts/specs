@@ -1,10 +1,9 @@
 ---
 name: accept-spec
 description: >-
-  Approve a proposed proposal — set its status to accepted and label the PR.
-  The PR and its discussion thread stay open through implementation until
-  release. Use when the user says "accept this proposal", "approve this
-  proposal", or "mark this proposal accepted".
+  Approve a proposal. Use this skill when the user says something like
+  "accept this proposal", "approve this proposal", "mark this proposal as
+  accepted", "accept spec for <slug>", or "accept <pr-number>".
 license: MIT
 metadata:
   interactive: yes
@@ -13,35 +12,35 @@ metadata:
 
 # Accept spec
 
-Use this skill to move a proposal from `PROPOSED` to `ACCEPTED`: verify the
-approval gates, update the document, and label the PR `#accepted`. The
-proposal is now decided, but its pull request stays open until the
-implementation is released to production (see
-[`/release-spec`](../release-spec/SKILL.md)) — only at that point is the spec
-merged, the discussion thread closed, and a number assigned. The discussion
-thread stays open through implementation, as feedback may continue while the
-proposal evolves.
+Use this skill to transition a proposal from `PROPOSED` to `ACCEPTED`.
 
-Do NOT use this skill for any other transition — to reject use
-[`/reject-spec`](../reject-spec/SKILL.md), to mark a shipped proposal released
-use [`/release-spec`](../release-spec/SKILL.md), and to scaffold or propose
-use [`/scaffold-spec`](../scaffold-spec/SKILL.md) /
-[`/propose-spec`](../propose-spec/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the proposal from the checked-out branch
+- **Target — REQUIRED.** Infer the proposal from the checked-out branch
   (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
   description, or list the open `#proposed` pull requests and ask the user to
   choose.
 
-## Output
+## Success criteria
 
-The proposal document updated to `Status: ACCEPTED` with `Decided by` and
-`Decision date` filled in, the PR carrying `#accepted` and left open.
+You will achieve the following outcomes:
+
+<!-- The proposal document updated to `Status: ACCEPTED` with `Decided by` and
+`Decision date` filled in, the PR carrying `#accepted` and left open. -->
+
+- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
+  `Decision date` are filled in.
+
+- The PR carries `#accepted` (and its type label), not `#proposed`, and
+  remains open.
+
+- The associated discussion thread remains open — it is closed when the PR
+  is merged at release.
+
+- No number has been assigned — that waits for release.
 
 ## Instructions
 
@@ -157,19 +156,6 @@ The proposal document updated to `Status: ACCEPTED` with `Decided by` and
   its spec edits MAY still evolve. Once merged at `#released`, only the
   `Status` field, `Last updated` date, cross-references to related proposals,
   and implementation trackers may change.
-
-## Success criteria
-
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.
-
-- The PR carries `#accepted` (and its type label), not `#proposed`, and
-  remains open.
-
-- The associated discussion thread remains open — it is closed when the PR
-  is merged at release.
-
-- No number has been assigned — that waits for release.
 
 ## References
 

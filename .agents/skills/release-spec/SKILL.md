@@ -2,9 +2,9 @@
 name: release-spec
 description: >-
   Mark an accepted proposal as released once its implementation is live in
-  production — set its status to released, label the PR, squash-merge it,
-  and assign its number in the index. Use when the user says "release this
-  proposal", "this proposal is live", or "the implementation shipped".
+  production. Use this skill when the user says something like
+  "release this proposal", "this proposal is live", "the implementation
+  shipped", "release <slug>", or "release <pr-number>".
 license: MIT
 metadata:
   interactive: yes
@@ -13,33 +13,38 @@ metadata:
 
 # Release spec
 
-Use this skill to move a proposal from `ACCEPTED` to `RELEASED`, once its
-implementation is live in production. This is the point at which the
-proposal's pull request is squash-merged into `main` — its specification
-edits becoming part of `main` — and the proposal is assigned its number in
-[`proposals/INDEX.md`](../../../proposals/INDEX.md).
+Use this skill to transition a proposal from `ACCEPTED` to `RELEASED`,
+landing the specification edits in the `main` trunk.
 
-Do NOT use this skill for any other transition — see
-[`/accept-spec`](../accept-spec/SKILL.md),
-[`/reject-spec`](../reject-spec/SKILL.md),
-[`/propose-spec`](../propose-spec/SKILL.md), or
-[`/scaffold-spec`](../scaffold-spec/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the proposal from the checked-out branch
+- **Target — REQUIRED.** Infer the proposal from the checked-out branch
   (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
   description, or list the open `#accepted` pull requests and ask the user to
   choose.
 
-## Output
+## Success criteria
 
-The proposal document updated to `Status: RELEASED`, the PR carrying
+You will achieve the following outcomes:
+
+<!-- The proposal document updated to `Status: RELEASED`, the PR carrying
 `#released` and squash-merged into `main`, its discussion thread closed, and
-a new numbered row appended to `proposals/INDEX.md`.
+a new numbered row appended to `proposals/INDEX.md`. -->
+
+- `Status` is `RELEASED` and `Last updated` is today's date.
+
+- The PR carries `#released` (and its type label), not `#accepted`.
+
+- The specification edits and the proposal document are squash-merged into
+  `main`.
+
+- The associated discussion thread is closed.
+
+- After merge: a `proposals/INDEX.md` entry is added on `main`, with the
+  next sequential number and `Released` status.
 
 ## Instructions
 
@@ -170,17 +175,3 @@ a new numbered row appended to `proposals/INDEX.md`.
   real users — that is what keeps `main` honest.
 
 - You MUST NOT merge without explicit instruction from the user.
-
-## Success criteria
-
-- `Status` is `RELEASED` and `Last updated` is today's date.
-
-- The PR carries `#released` (and its type label), not `#accepted`.
-
-- The specification edits and the proposal document are squash-merged into
-  `main`.
-
-- The associated discussion thread is closed.
-
-- After merge: a `proposals/INDEX.md` entry is added on `main`, with the
-  next sequential number and `Released` status.

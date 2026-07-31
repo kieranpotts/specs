@@ -1,10 +1,9 @@
 ---
 name: reject-spec
 description: >-
-  Reject a proposed proposal — revert its specification edits, record its
-  number in the index, set its status to rejected, close its discussion, and
-  squash-merge the pull request as a permanent record. Use when the user
-  says "reject this proposal" or "the proposal was not approved".
+  Reject a proposal. Use this skill when the user says something like
+  "reject this proposal", "this proposal was not approved", "reject <slug>",
+  or "reject <pr-number>".
 license: MIT
 metadata:
   interactive: yes
@@ -19,31 +18,42 @@ before merge, so only the proposal document itself is added to `main`. The
 decision and its rationale are preserved permanently; the system is
 unchanged.
 
-Do NOT use this skill for any other transition — for the acceptance path
-use [`/accept-spec`](../accept-spec/SKILL.md), to mark a shipped proposal
-released use [`/release-spec`](../release-spec/SKILL.md), to retire a
-released proposal use [`/supersede-spec`](../supersede-spec/SKILL.md), and
-to scaffold or propose use [`/scaffold-spec`](../scaffold-spec/SKILL.md) /
-[`/propose-spec`](../propose-spec/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the proposal from the checked-out branch
+- **Target — REQUIRED.** Infer the proposal from the checked-out branch
   (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
   description, or list the open `#proposed` pull requests and ask the user to
   choose.
 
-- Explicit confirmation that the decision is to reject — REQUIRED.
+- **Explicit confirmation that the decision is to reject — REQUIRED.**
 
-## Output
+## Success criteria
 
-The specification edits reverted, the proposal document updated to `Status:
+You will achieve the following outcomes:
+
+<!-- The specification edits reverted, the proposal document updated to `Status:
 REJECTED`, the PR carrying `#rejected` and squash-merged into `main`, its
 discussion thread closed, and a new numbered row appended to
-`proposals/INDEX.md`.
+`proposals/INDEX.md`. -->
+
+- No files under `specification/` are changed on this branch relative to
+  `main` after the revert.
+
+- The PR carries `#rejected` (and its type label), the `## Status` section
+  reads `REJECTED`, and `Last updated` is today's date.
+
+- The associated discussion thread is closed.
+
+- The proposal document is squash-merged into `main`.
+
+- After merge: a `proposals/INDEX.md` entry is added on `main`, with the
+  next sequential number and `Rejected` status.
+
+- The user has explicitly confirmed the rejection decision before any
+  changes were made.
 
 ## Instructions
 
@@ -201,21 +211,3 @@ discussion thread closed, and a new numbered row appended to
   To revisit the decision, open a new proposal that supersedes this one.
 
 - You MUST NOT merge without explicit instruction from the user.
-
-## Success criteria
-
-- No files under `specification/` are changed on this branch relative to
-  `main` after the revert.
-
-- The PR carries `#rejected` (and its type label), the `## Status` section
-  reads `REJECTED`, and `Last updated` is today's date.
-
-- The associated discussion thread is closed.
-
-- The proposal document is squash-merged into `main`.
-
-- After merge: a `proposals/INDEX.md` entry is added on `main`, with the
-  next sequential number and `Rejected` status.
-
-- The user has explicitly confirmed the rejection decision before any
-  changes were made.

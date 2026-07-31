@@ -2,9 +2,9 @@
 name: scaffold-spec
 description: >-
   Scaffold a new proposal for a change to the software requirements
-  specification and open it as a draft pull request. Use when the user wants
-  to propose a new feature, a changed non-functional requirement, or a
-  large-scale epic initiative, or says "draft a proposal", "new proposal",
+  specification, opening it as a draft pull request. Use this skill when the
+  user wants to propose a new feature or make a change to a non-functional
+  requirement, or says something like "draft a proposal", "new proposal",
   or "start a proposal".
 license: MIT
 metadata:
@@ -21,32 +21,48 @@ place, ready for the user to complete.
 This is the entry point to the requirement proposal lifecycle. The PR
 stays a draft while the user writes it.
 
-Do NOT use this skill to advance an existing proposal, draft or otherwise.
-See [`/propose-spec`](../propose-spec/SKILL.md),
-[`/accept-spec`](../accept-spec/SKILL.md),
-[`/release-spec`](../release-spec/SKILL.md), or
-[`/reject-spec`](../reject-spec/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- A description of the proposed specification change — REQUIRED. Prompt
+- **A description of the proposed specification change — REQUIRED.** Prompt
   the user if not provided.
 
-- The change type (`FEATURE`, `QUALITY`, or `EPIC`) — OPTIONAL, inferred
+- **The change type (`FEATURE`, `QUALITY`, or `EPIC`) — OPTIONAL**, inferred
   from the description if possible.
 
-- A PRD, if one exists — OPTIONAL.
+- **A PRD, if one exists — OPTIONAL.**
 
-## Output
+## Success criteria
 
-A `proposal/<slug>` (or `epic/<slug>`) branch, with
+You will achieve the following outcomes:
+
+<!-- A `proposal/<slug>` (or `epic/<slug>`) branch, with
 `proposals/<slug>/README.md` created from the template and its metadata
 header filled in (`Status: DRAFT`), committed to a draft pull request
 opened against `main`, carrying exactly one type label, with a linked
-discussion thread.
+discussion thread. -->
+
+- Branch `proposal/<slug>` exists and is checked out.
+
+- `proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
+  metadata header filled in and `Status: DRAFT`.
+
+- If a PRD was supplied, `proposals/<slug>/product-requirements.md` exists,
+  holding it verbatim, and the `Origin` field links it.
+
+  If no PRD was supplied, the `Origin` field is removed.
+
+- A draft pull request is open, titled `feature: <short lowercase proposal
+  description>`, `quality: …`, or `epic: …`, carrying exactly one type
+  label and no lifecycle label.
+
+- An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.
+
+- The user has been directed to [`/write-spec`](../write-spec/SKILL.md) to
+  author the specification content.
 
 ## Instructions
 
@@ -272,28 +288,6 @@ discussion thread.
   arrived, before specification — and its worth depends on staying
   faithful to that. The proposal and the spec edits evolve; the PRD does
   not.
-
-## Success criteria
-
-- Branch `proposal/<slug>` exists and is checked out.
-
-- `proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
-  metadata header filled in and `Status: DRAFT`.
-
-- If a PRD was supplied, `proposals/<slug>/product-requirements.md` exists,
-  holding it verbatim, and the `Origin` field links it.
-
-  If no PRD was supplied, the `Origin` field is removed.
-
-- A draft pull request is open, titled `feature: <short lowercase proposal
-  description>`, `quality: …`, or `epic: …`, carrying exactly one type
-  label and no lifecycle label.
-
-- An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.
-
-- The user has been directed to [`/write-spec`](../write-spec/SKILL.md) to
-  author the specification content.
 
 ## References
 

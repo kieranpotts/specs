@@ -1,10 +1,10 @@
 ---
 name: propose-spec
 description: >-
-  Remove the draft status from a proposal pull request, marking it ready for
-  stakeholder review. Use when the user says "propose this", "this proposal
-  is ready for review", "mark the proposal ready", or "take it out of
-  draft".
+  Remove the draft status from a proposal's pull request, making it ready for
+  stakeholder review. Use this skill when the user says something like
+  "this proposal is ready for review", "mark the proposal ready",
+  "take this out of draft", "propose <slug>", or "propose <pr-number>".
 license: MIT
 metadata:
   interactive: yes
@@ -17,25 +17,27 @@ Use this skill to move a proposal from `DRAFT` to `PROPOSED`: confirm the
 document and specification edits are complete, apply the `#proposed` label,
 and remove the pull request's draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new proposal (use
-[`/scaffold-spec`](../scaffold-spec/SKILL.md)) or to decide one (use
-[`/accept-spec`](../accept-spec/SKILL.md),
-[`/release-spec`](../release-spec/SKILL.md), or
-[`/reject-spec`](../reject-spec/SKILL.md)).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the proposal from the checked-out branch
+- **Target — REQUIRED.** Infer the proposal from the checked-out branch
   (`proposal/<slug>` or `epic/<slug>`). If on `main`, list open draft pull
   requests and ask the user to choose.
 
-## Output
+## Success criteria
 
-The proposal document updated to `Status: PROPOSED`, the PR carrying
-`#proposed` and taken out of draft.
+You will achieve the following outcomes:
+
+<!-- The proposal document updated to `Status: PROPOSED`, the PR carrying
+`#proposed` and taken out of draft. -->
+
+- The PR is no longer a draft (`isDraft: false`).
+
+- The `#proposed` label is applied, alongside the type label.
+
+- `Last updated` is today's date and `Status` is `PROPOSED`.
 
 ## Instructions
 
@@ -144,14 +146,6 @@ The proposal document updated to `Status: PROPOSED`, the PR carrying
 
   This skill only moves `DRAFT` → `PROPOSED`. It does not decide the
   proposal.
-
-## Success criteria
-
-- The PR is no longer a draft (`isDraft: false`).
-
-- The `#proposed` label is applied, alongside the type label.
-
-- `Last updated` is today's date and `Status` is `PROPOSED`.
 
 ## References
 

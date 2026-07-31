@@ -2,9 +2,9 @@
 name: supersede-spec
 description: >-
   Supersede a previously-released proposal once a later proposal has
-  replaced or removed its feature. Use when the user says "supersede this
-  proposal", "this proposal is superseded by ...", or retires a released
-  feature in favor of a newer one.
+  replaced or removed its feature. Use this skill when the user says something
+  like "supersede this proposal", "this proposal is superseded by ...", or
+  otherwise wishes to retire a released feature in favor of a newer one.
 license: MIT
 metadata:
   interactive: yes
@@ -26,27 +26,33 @@ that remove or replace the feature ride on the successor proposal's own
 pull request, through its normal `DRAFT` → … → `RELEASED` cycle; this
 skill does not touch `specification/`.
 
-Do NOT use this skill for any other transition — see
-[`/accept-spec`](../accept-spec/SKILL.md),
-[`/release-spec`](../release-spec/SKILL.md),
-[`/reject-spec`](../reject-spec/SKILL.md),
-[`/propose-spec`](../propose-spec/SKILL.md), or
-[`/scaffold-spec`](../scaffold-spec/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- The proposal being superseded and its successor — REQUIRED. Infer both
+- **The proposal being superseded and its successor — REQUIRED.** Infer both
   from the user's description (eg. "X is superseded by Y"), or prompt for
   them.
 
-## Output
+## Success criteria
 
-The superseded proposal's document updated to `Status: SUPERSEDED` with a
+You will achieve the following outcomes:
+
+<!-- The superseded proposal's document updated to `Status: SUPERSEDED` with a
 `Superseded by` link, the `proposals/INDEX.md` row updated, and its
-original PR carrying `#superseded`.
+original PR carrying `#superseded`. -->
+
+- `Status` is `SUPERSEDED`, `Last updated` is today's date, and
+  `Superseded by` links the successor.
+
+- The successor's `Supersedes` field links back to this proposal.
+
+- The `proposals/INDEX.md` row for this proposal reads `SUPERSEDED`.
+
+- The PR carries `#superseded` (and its type label), not `#released`.
+
+- No files under `specification/` are changed by this skill.
 
 ## Instructions
 
@@ -139,16 +145,3 @@ original PR carrying `#superseded`.
 
   Superseded proposals are permanently archived in `proposals/` as part
   of the historical record.
-
-## Success criteria
-
-- `Status` is `SUPERSEDED`, `Last updated` is today's date, and
-  `Superseded by` links the successor.
-
-- The successor's `Supersedes` field links back to this proposal.
-
-- The `proposals/INDEX.md` row for this proposal reads `SUPERSEDED`.
-
-- The PR carries `#superseded` (and its type label), not `#released`.
-
-- No files under `specification/` are changed by this skill.

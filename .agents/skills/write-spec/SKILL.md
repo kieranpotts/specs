@@ -1,11 +1,9 @@
 ---
 name: write-spec
 description: >-
-  Author or edit the specification artifacts for a proposal – functional
-  requirements as testable Gherkin acceptance criteria, non-functional
-  requirements as measurable thresholds – and check them against the
-  Definition of Ready. Use when writing the specification edits for a
-  proposal, not when transitioning its lifecycle state.
+  Author or edit the specification artifacts for a new proposal, checking
+  them against the definition of ready. Use this skill when the user wants
+  to write or update the specification for a proposal.
 license: MIT
 metadata:
   interactive: yes
@@ -21,26 +19,20 @@ what the specification should contain and how it is written. It is the
 authoring counterpart to the lifecycle skills, which own how a proposal
 moves through its states.
 
-Do NOT use this skill to scaffold, advance, or merge a proposal. To start
-one, use [`/scaffold-spec`](../scaffold-spec/SKILL.md); to transition its
-state, use [`/propose-spec`](../propose-spec/SKILL.md),
-[`/accept-spec`](../accept-spec/SKILL.md),
-[`/release-spec`](../release-spec/SKILL.md),
-[`/reject-spec`](../reject-spec/SKILL.md), or
-[`/supersede-spec`](../supersede-spec/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- The requirement to specify — REQUIRED, either from the user's
+- **The requirement to specify — REQUIRED**, either from the user's
   description or the proposal document already scaffolded on the current
   `proposal/<slug>` branch.
 
-## Output
+## Success criteria
 
-Specification artifacts written or edited under
+You will achieve the following outcomes:
+
+<!-- Specification artifacts written or edited under
 [`specification/`](../../../specification/), checked against the Definition
 of Ready.
 
@@ -48,7 +40,27 @@ This skill is the authoritative, agent-facing source for the project's
 specification-content rules. A project MAY adjust these rules to its own
 standards by editing this skill. Anything an agent needs in order to write
 a conforming specification lives here or in
-[`AGENTS.md`](../../../AGENTS.md) — not in the human-facing `docs/`.
+[`AGENTS.md`](../../../AGENTS.md) — not in the human-facing `docs/`. -->
+
+- Every functional requirement is expressed as one or more testable
+  Gherkin scenarios, covering unhappy paths, with no implementation
+  detail (no class, file, endpoint, table, or framework name).
+
+- Every non-functional requirement names a metric, a target, and its
+  conditions, and concerns a dynamic runtime quality only.
+
+- The edits read as a description of the final shipped state, in the
+  present tense — not a changelog.
+
+- Each artifact sits in the correct `specification/` subdirectory, and
+  any new domain terms, entities, or actors are reflected in `context/`.
+
+- The specification edits satisfy every Definition-of-Ready criterion, or
+  each unmet criterion is reported as a specific gap.
+
+- Once the content is complete, the user has been directed to
+  [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready
+  for review.
 
 ## Instructions
 
@@ -202,28 +214,6 @@ a conforming specification lives here or in
   The Definition-of-Ready criteria apply to any proposal regardless of
   subject, and judge the readiness of the requirements — not of a design
   or a delivery plan, which are out-of-scope for the specification.
-
-## Success criteria
-
-- Every functional requirement is expressed as one or more testable
-  Gherkin scenarios, covering unhappy paths, with no implementation
-  detail (no class, file, endpoint, table, or framework name).
-
-- Every non-functional requirement names a metric, a target, and its
-  conditions, and concerns a dynamic runtime quality only.
-
-- The edits read as a description of the final shipped state, in the
-  present tense — not a changelog.
-
-- Each artifact sits in the correct `specification/` subdirectory, and
-  any new domain terms, entities, or actors are reflected in `context/`.
-
-- The specification edits satisfy every Definition-of-Ready criterion, or
-  each unmet criterion is reported as a specific gap.
-
-- Once the content is complete, the user has been directed to
-  [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready
-  for review.
 
 ## References
 
