@@ -16,6 +16,11 @@ is assigned until release.
 
 > Accept 42
 
+## Recommended models
+
+A fast or mid-tier model is enough. Verifying the approval gates is a
+checklist task, not a judgment call.
+
 ## Examples
 
 - `/accept-spec`: Verifies the gates for the proposal in context and accepts it.

@@ -18,6 +18,11 @@ proposal the next sequential number and logs it in `proposals/INDEX.md` on
 
 > Release 42
 
+## Recommended models
+
+A fast or mid-tier model is enough. Verifying the implementation is live and
+matches the spec is a comparison check, not a judgment call.
+
 ## Examples
 
 - `/release-spec`: Verifies the proposal in context is live, prepares the merge,

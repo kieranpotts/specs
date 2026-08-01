@@ -17,6 +17,11 @@ Marks a proposal pull request ready for stakeholder review (`DRAFT` →
 
 > Propose 42
 
+## Recommended models
+
+A fast or mid-tier model is enough. Confirming the proposal and spec edits
+are complete and free of template text is a checklist task.
+
 ## Examples
 
 - `/propose-spec`: Verifies the most recent proposal in context, then marks its

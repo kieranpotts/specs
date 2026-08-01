@@ -18,6 +18,11 @@ After the merge, assigns the next sequential number in `proposals/INDEX.md` on
 
 > Reject 42
 
+## Recommended models
+
+A fast, inexpensive model is enough. The rejection decision is already made
+by you; this skill reverts the spec edits and records it.
+
 ## Examples
 
 - `/reject-spec`: Walks through the rejection path for the proposal in context.

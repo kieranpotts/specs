@@ -18,6 +18,12 @@ Drafts a new proposal and opens it as a draft pull request.
 
 > Draft a spec for user session timeout.
 
+## Recommended models
+
+A fast, inexpensive model is enough. This skill scaffolds files from a
+template and fills in metadata — the requirements themselves are authored by
+you afterwards.
+
 ## Examples
 
 - `/draft-spec`: Agent will prompt you for the information it needs to

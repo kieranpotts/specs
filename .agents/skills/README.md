@@ -1,52 +1,53 @@
-# Agent skills for managing the Software Requirements Specification (SRS)
+# Agent skills
 
-The skills available to agents in this project are:
+The following skills are available to support the management of the software
+requirements specification via AI agents.
 
 - **[draft-spec](./draft-spec/):** \
+  Scaffolds a proposal for changes to the software requirements specification.
   Cuts a `proposal/<slug>` branch from `main`, prepares a fresh proposal from
   the template, and opens a pull request in a draft state.
+  Sets the status to `DRAFT`.
 
 - **[propose-spec](./propose-spec/):** \
+  Handles the `DRAFT` → `PROPOSED` transition.
   Checks the proposal is complete and takes the pull request out of draft,
   ready for stakeholder review.
 
 - **[accept-spec](./accept-spec/):** \
+  Handles the `PROPOSED` → `ACCEPTED` transition.
   Checks the approval gates and marks the proposal accepted, leaving the
   pull request open through implementation.
 
 - **[release-spec](./release-spec/):** \
+  Handles the `ACCEPTED` → `RELEASED` transition.
   Checks the implementation is live and merges the specification edits into
   the `main` trunk.
 
 - **[reject-spec](./reject-spec/):** \
+  Handles the `PROPOSED` → `REJECTED` transition.
   Reverts the specification edits and merges the proposal document as a
   permanent record of the decision.
 
 - **[supersede-spec](./supersede-spec/):** \
+  Handles the `RELEASED` → `SUPERSEDED` transition.
   Retires a released proposal once a later proposal has replaced or removed
   its feature.
 
-The **draft-spec** skill opens a new proposal as a draft PR. After this
-step, the user authors the specification edits directly — see
-[`docs/best-practices.md`](../../docs/best-practices.md) and the
-[`specification/requirements/`](../../specification/requirements/)
-subdirectory READMEs for the content conventions — then **propose-spec** puts
-the PR up for stakeholder review. From there, **accept-spec** or
-**reject-spec** decides the proposal, and once an accepted change is live in
-production, **release-spec** lands it in the `main` trunk. A released proposal
-may later be retired with **supersede-spec** once a newer proposal replaces
-it.
+## Workflow
 
 ```mermaid
 flowchart LR
   draft["🤖<br/><b>draft-spec</b>"]:::agentic
+  write["🧑<br/>write requirements proposal<br/>and draft spec edits"]:::anthropic
   propose["🤖<br/><b>propose-spec</b>"]:::agentic
   accept["🤖<br/><b>accept-spec</b>"]:::agentic
   release["🤖<br/><b>release-spec</b>"]:::agentic
   supersede["🤖<br/><b>supersede-spec</b>"]:::agentic
   reject["🤖<br/><b>reject-spec</b>"]:::agentic
 
-  draft ==> propose
+  draft ==> write
+  write ==> propose
   propose ==> accept
   accept ==> release
   release -.-> supersede
@@ -57,13 +58,13 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how a proposal is drafted,
-decided, and landed in `main`. For the specification work itself — working out
-what the requirement should be and writing it up as a proposal — use the
+The skills in this project are focused on the mechanics of managing the lifecycle
+of requirements proposals and changes to the specification artifacts.
+For help with the specification work itself — working out what a requirement
+should be and writing it up as a proposal — you may instruct agents to use the
 [**specify**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/specify)
-skill in my global skills collection, or author directly against this
-repository's own content conventions
-([`docs/best-practices.md`](../../docs/best-practices.md)).
+skill in my global skills collection.
+
 
 ## Compatibility
 

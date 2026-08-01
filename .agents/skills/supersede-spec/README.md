@@ -19,6 +19,12 @@ feature ride on the successor proposal's own pull request. The change lands on
 
 > The catalog read API is now superseded by the catalog read API v2.
 
+## Recommended models
+
+A fast or mid-tier model is enough. Verifying that the successor proposal
+actually replaces or removes the feature is a factual check, not a judgment
+call.
+
 ## Examples
 
 - `/supersede-spec`: Agent asks which released proposal is being superseded and
