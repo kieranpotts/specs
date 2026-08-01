@@ -3,51 +3,68 @@
 The skills available to agents in this project are:
 
 - **[scaffold-spec](./scaffold-spec/):** \
-  Scaffolds a new proposal, ready for the user to write up.
-  Sets the status to `DRAFT`.
+  Cuts a `proposal/<slug>` branch from `main`, prepares a fresh proposal from
+  the template, and opens a pull request in a draft state.
 
 - **[write-spec](./write-spec/):** \
-  Authors the specification artifacts for a proposal.
-  Used during the `DRAFT` state.
+  Authors or edits the specification edits for a proposal, and checks them
+  against the definition of ready.
 
 - **[propose-spec](./propose-spec/):** \
-  Handles the `DRAFT` → `PROPOSED` transition.
+  Checks the proposal is complete and takes the pull request out of draft,
+  ready for stakeholder review.
 
 - **[accept-spec](./accept-spec/):** \
-  Handles the `PROPOSED` → `ACCEPTED` transition.
+  Checks the approval gates and marks the proposal accepted, leaving the
+  pull request open through implementation.
 
 - **[release-spec](./release-spec/):** \
-  Handles the `ACCEPTED` → `RELEASED` transition.
+  Checks the implementation is live and merges the specification edits into
+  the `main` trunk.
 
 - **[reject-spec](./reject-spec/):** \
-  Handles the `PROPOSED` → `REJECTED` transition.
+  Reverts the specification edits and merges the proposal document as a
+  permanent record of the decision.
 
 - **[supersede-spec](./supersede-spec/):** \
-  Handles the `RELEASED` → `SUPERSEDED` transition.
+  Retires a released proposal once a later proposal has replaced or removed
+  its feature.
 
-The **scaffold-spec** skill...
+The **scaffold-spec** skill opens a new proposal as a draft PR. After this
+step, the user (with **write-spec**) authors the specification edits, then
+**propose-spec** puts the PR up for stakeholder review. From there,
+**accept-spec** or **reject-spec** decides the proposal, and once an accepted
+change is live in production, **release-spec** lands it in the `main` trunk.
+A released proposal may later be retired with **supersede-spec** once a newer
+proposal replaces it.
 
 ```mermaid
 flowchart LR
-  scaffold["🤖<br/>scaffold"]:::agentic
-  write["🤖<br/>write"]:::agentic
-  propose["🤖<br/>propose"]:::agentic
-  accept["🤖<br/>accept"]:::agentic
-  release["🤖<br/>release"]:::agentic
-  supersede["🤖<br/>supersede"]:::agentic
-  reject["🤖<br/>reject"]:::agentic
+  scaffold["🤖<br/><b>scaffold-spec</b>"]:::agentic
+  write["🤖<br/><b>write-spec</b>"]:::agentic
+  propose["🤖<br/><b>propose-spec</b>"]:::agentic
+  accept["🤖<br/><b>accept-spec</b>"]:::agentic
+  release["🤖<br/><b>release-spec</b>"]:::agentic
+  supersede["🤖<br/><b>supersede-spec</b>"]:::agentic
+  reject["🤖<br/><b>reject-spec</b>"]:::agentic
 
   scaffold ==> write
   write ==> propose
   propose ==> accept
   accept ==> release
   release -.-> supersede
-  propose ---> reject
+  propose -.-> reject
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
   classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
+
+These skills handle process, not substance: how a proposal is scaffolded,
+decided, and landed in `main`. For the specification work itself — working out
+what the requirement should be and writing it up as a proposal — use the
+[**specify**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/specify)
+skill in my global skills collection.
 
 ## Compatibility
 
