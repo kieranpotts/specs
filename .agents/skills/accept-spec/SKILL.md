@@ -127,11 +127,11 @@ You will achieve the following outcomes:
   They describe the system as it will be after the change ships.
 
 - The requirement MUST meet the [Definition of
-  Ready](../write-spec/references/definition-of-ready.md).
+  Ready](../../../docs/definition-of-ready.md).
 
   Acceptance queues the work for implementation, so the requirement MUST be
   ready to build. Work through the full checklist in the [Definition of
-  Ready](../write-spec/references/definition-of-ready.md); in summary,
+  Ready](../../../docs/definition-of-ready.md); in summary,
   confirm the requirements are clear and unambiguous, functional acceptance
   criteria are testable Gherkin scenarios and quality requirements are
   measurable thresholds, the stakeholders are known, and the work is
@@ -159,6 +159,6 @@ You will achieve the following outcomes:
 
 ## References
 
-- [Definition of Ready](../write-spec/references/definition-of-ready.md): The
+- [Definition of Ready](../../../docs/definition-of-ready.md): The
   canonical readiness checklist this skill verifies at the `PROPOSED` →
   `ACCEPTED` gate.

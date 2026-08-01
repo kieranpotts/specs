@@ -54,8 +54,10 @@ requirement identifiers, the qualities taxonomy, deprecation marking – are
 documented where that content lives: see
 [`specification/requirements/`](./specification/requirements/) and its
 subdirectory READMEs, and [`docs/best-practices.md`](./docs/best-practices.md).
-The [`/write-spec`](./.agents/skills/write-spec/SKILL.md) skill applies these
-conventions. Use it when authoring or editing specification artifacts.
+Read and apply these directly when authoring or editing specification
+artifacts – authoring is not itself a skill in this repository. The
+[`Definition of Ready`](./docs/definition-of-ready.md) states what "ready to
+accept" means, verified by [`/accept-spec`](./.agents/skills/accept-spec/SKILL.md).
 
 ## Skills
 

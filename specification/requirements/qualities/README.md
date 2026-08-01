@@ -42,6 +42,14 @@ business specifies. Where a maintenance concern is genuinely observable at
 runtime — the time taken to restore service after a fault, say — it belongs
 under **reliability** as a recoverability requirement.
 
+**Security** here covers non-functional concerns: encryption, audit logging,
+and compliance-driven constraints (eg. AES-256 at rest, TLS 1.3 in transit,
+GDPR Article 32). Authorization and permissions — who may do what — are a
+functional concern and belong in
+[`behaviors/access/`](../behaviors/access/) (the permission matrix) and as
+user stories in [`behaviors/features/`](../behaviors/features/) (eg. "As an
+admin, I can revoke a user's session so that..."), not here.
+
 ## Contents
 
 _These are illustrative examples. Add, remove, or replace them with the quality

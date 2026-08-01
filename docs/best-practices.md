@@ -41,7 +41,19 @@ Keep scenarios concrete. Prefer "then the response contains at most 10 pet
 records" over "then a reasonable number of records is returned."
 
 Define one behavior per scenario. If a scenario has two unrelated `Then`
-outcomes, it is probably two scenarios.
+outcomes, it is probably two scenarios. Aim for no more than five steps per
+scenario, and no more than two `When` steps.
+
+Use `Background:` to factor out `Given` steps repeated across a feature's
+scenarios. Use `Scenario Outline:` with `Examples:` when the business rule
+itself varies by input – not merely to enumerate UI permutations of an
+otherwise-identical scenario.
+
+`Then` steps assert on outcomes a consumer can observe – a response, a
+rendered UI, a logged message, a state change visible in a downstream report –
+never on internal state such as database rows, queue contents, or in-memory
+structures. An assertion on internal state couples the specification to an
+implementation.
 
 Use the project's ubiquitous language. The same term should mean the same thing
 in the glossary, the model, and every scenario.
@@ -53,6 +65,19 @@ ambiguous.
 Cross-cutting invariants that constrain many features ("a pet is never in two
 states at once") do not belong in any single scenario. Better to state them as
 business rules and have the scenarios reference them.
+
+## Specify the problem, not the solution
+
+Acceptance criteria describe user needs and observable outcomes, never how the
+system is built to meet them. Keep class names, API endpoints, database
+tables, and framework choices out of the specification – it should be possible
+to build the system on any technology stack without changing a word of it.
+Decisions about how the system is built belong in the RFC archive, not here.
+
+Likewise, use the vocabulary of the business domain (customer, order, refund)
+rather than the vocabulary of the codebase (entity, repository, DTO,
+controller). The specification is a contract with business stakeholders, not
+an implementation guide.
 
 ## State non-functional requirements as measurable thresholds
 
@@ -130,9 +155,9 @@ A specification that is _mostly_ true is one nobody can trust.
 
 ## Related
 
-- [`/write-spec` skill](../.agents/skills/write-spec/SKILL.md): The agent-facing
-  skill that applies these practices when authoring specification content. This
-  page is the human-readable rationale; `/write-spec` is what agents follow.
-
 - [Definition of Ready](./definition-of-ready.md): The readiness checklist
   enforced at the `PROPOSED` → `ACCEPTED` gate.
+
+- [Requirements](../specification/requirements/): The `behaviors/` and
+  `qualities/` subdirectory READMEs describe where each kind of requirement
+  belongs and the conventions specific to it.

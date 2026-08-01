@@ -61,8 +61,9 @@ discussion thread. -->
 - An associated discussion thread is open, linked from the document's
   `Discussion thread` field and from the PR.
 
-- The user has been directed to [`/write-spec`](../write-spec/SKILL.md) to
-  author the specification content.
+- The user has been directed to author the specification content directly,
+  following [`docs/best-practices.md`](../../../docs/best-practices.md) and
+  the `specification/requirements/` subdirectory READMEs.
 
 ## Instructions
 
@@ -148,9 +149,9 @@ discussion thread. -->
 
     Based on the proposal type and description, locate the relevant files
     in `specification/` and list them in the `Proposed change` section as a
-    starting point. Do not edit the spec files here — the authoring is done
-    with [`/write-spec`](../write-spec/SKILL.md) once the proposal is
-    scaffolded.
+    starting point. Do not edit the spec files here — the authoring happens
+    once the proposal is scaffolded, following
+    [`docs/best-practices.md`](../../../docs/best-practices.md).
 
     - Functional changes → `specification/requirements/behaviors/`
       (`features/`, `access/`, `rules/`, `journeys/`, `interfaces/`),
@@ -230,14 +231,16 @@ discussion thread. -->
     git push
     ```
 
-12. Hand off to [`/write-spec`](../write-spec/SKILL.md).
+12. Hand off to authoring the specification content.
 
     The scaffold is now in place: branch, document, draft PR, and
     discussion thread. The next step is to author the actual specification
     content — the functional and non-functional requirements. Direct the
-    user to [`/write-spec`](../write-spec/SKILL.md) for that, and once the
-    spec edits are complete, to [`/propose-spec`](../propose-spec/SKILL.md)
-    to mark the proposal ready for review.
+    user to [`docs/best-practices.md`](../../../docs/best-practices.md) and
+    the `specification/requirements/` subdirectory READMEs for that, and
+    once the spec edits are complete, to
+    [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready
+    for review.
 
 ## Rules
 

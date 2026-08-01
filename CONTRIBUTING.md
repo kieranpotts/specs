@@ -167,8 +167,8 @@ as you are ready to start writing the proposal document.
 - The discussion thread MUST be closed when the PR is merged.
 
 - A proposal MUST NOT be accepted unless its requirement meets the [Definition
-  of Ready](./.agents/skills/write-spec/references/definition-of-ready.md). A
-  sound-but-incomplete proposal is sent back for refinement, not accepted.
+  of Ready](./docs/definition-of-ready.md). A sound-but-incomplete proposal is
+  sent back for refinement, not accepted.
 
 - A decision, once taken (`ACCEPTED` or `REJECTED`), MUST NOT be reversed by
   moving the proposal backwards. Instead, past decisions MAY be `SUPERSEDED` by

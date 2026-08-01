@@ -6,10 +6,6 @@ The skills available to agents in this project are:
   Cuts a `proposal/<slug>` branch from `main`, prepares a fresh proposal from
   the template, and opens a pull request in a draft state.
 
-- **[write-spec](./write-spec/):** \
-  Authors or edits the specification edits for a proposal, and checks them
-  against the definition of ready.
-
 - **[propose-spec](./propose-spec/):** \
   Checks the proposal is complete and takes the pull request out of draft,
   ready for stakeholder review.
@@ -31,25 +27,26 @@ The skills available to agents in this project are:
   its feature.
 
 The **scaffold-spec** skill opens a new proposal as a draft PR. After this
-step, the user (with **write-spec**) authors the specification edits, then
-**propose-spec** puts the PR up for stakeholder review. From there,
-**accept-spec** or **reject-spec** decides the proposal, and once an accepted
-change is live in production, **release-spec** lands it in the `main` trunk.
-A released proposal may later be retired with **supersede-spec** once a newer
-proposal replaces it.
+step, the user authors the specification edits directly — see
+[`docs/best-practices.md`](../../docs/best-practices.md) and the
+[`specification/requirements/`](../../specification/requirements/)
+subdirectory READMEs for the content conventions — then **propose-spec** puts
+the PR up for stakeholder review. From there, **accept-spec** or
+**reject-spec** decides the proposal, and once an accepted change is live in
+production, **release-spec** lands it in the `main` trunk. A released proposal
+may later be retired with **supersede-spec** once a newer proposal replaces
+it.
 
 ```mermaid
 flowchart LR
   scaffold["🤖<br/><b>scaffold-spec</b>"]:::agentic
-  write["🤖<br/><b>write-spec</b>"]:::agentic
   propose["🤖<br/><b>propose-spec</b>"]:::agentic
   accept["🤖<br/><b>accept-spec</b>"]:::agentic
   release["🤖<br/><b>release-spec</b>"]:::agentic
   supersede["🤖<br/><b>supersede-spec</b>"]:::agentic
   reject["🤖<br/><b>reject-spec</b>"]:::agentic
 
-  scaffold ==> write
-  write ==> propose
+  scaffold ==> propose
   propose ==> accept
   accept ==> release
   release -.-> supersede
@@ -64,7 +61,9 @@ These skills handle process, not substance: how a proposal is scaffolded,
 decided, and landed in `main`. For the specification work itself — working out
 what the requirement should be and writing it up as a proposal — use the
 [**specify**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/specify)
-skill in my global skills collection.
+skill in my global skills collection, or author directly against this
+repository's own content conventions
+([`docs/best-practices.md`](../../docs/best-practices.md)).
 
 ## Compatibility
 
