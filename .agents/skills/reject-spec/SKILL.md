@@ -111,11 +111,16 @@ discussion thread closed, and a new numbered row appended to
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-7.  Commit.
+7.  Commit and push.
+
+    The push is mandatory: the merge in the next step lands the *remote*
+    branch, so an unpushed commit would leave `Status: REJECTED` and the
+    reverted specification edits behind.
 
     ```sh
     git add proposals/ specification/
     git commit -m "chore: reject <short lowercase proposal description>"
+    git push
     ```
 
     The PR should now contain only the proposal document (no spec changes).
@@ -209,5 +214,11 @@ discussion thread closed, and a new numbered row appended to
 - The document MUST be treated as immutable after `#rejected`.
 
   To revisit the decision, open a new proposal that supersedes this one.
+
+- You MUST push before merging.
+
+  `gh pr merge` merges what is on the remote. The status change and the
+  reverted specification edits MUST both be on the remote branch before the
+  merge, or the merge will land the un-reverted spec changes.
 
 - You MUST NOT merge without explicit instruction from the user.

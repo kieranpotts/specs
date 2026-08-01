@@ -84,10 +84,16 @@ You will achieve the following outcomes:
     stays open through implementation and is closed only when the PR is
     merged at release.
 
-5.  Commit.
+5.  Commit and push.
+
+    Push as well as commit. The pull request stays open through
+    implementation, so reviewers read its status from the remote — an
+    unpushed commit leaves the PR showing `PROPOSED` after the decision was
+    taken.
 
     ```sh
     git commit -am "chore: accept <short lowercase proposal description>"
+    git push
     ```
 
 6.  Queue the implementation.
@@ -149,6 +155,12 @@ You will achieve the following outcomes:
 
   Acceptance is a decision, not a release. The PR stays open until the
   implementation ships.
+
+- You MUST push the status change.
+
+  The pull request remains open through implementation and is what
+  stakeholders read. A commit left unpushed leaves the remote showing the
+  pre-decision status.
 
 - Proposals MUST be treated as immutable after merge.
 

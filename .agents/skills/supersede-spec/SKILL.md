@@ -99,13 +99,20 @@ original PR carrying `#superseded`. -->
 
 6.  Land the document change.
 
-    Commit the edit to the superseded document and index row — typically
-    as part of the successor proposal's pull request, since `main` is
-    updated only through pull requests:
+    Commit the edit to the superseded document and its index row directly to
+    `main`, and push. Both proposals are already merged, and every field
+    touched here is one of the few a merged proposal may still change — so
+    there is nothing for a pull request to review:
 
     ```sh
+    git checkout main
+    git pull --rebase
     git commit -am "chore: supersede <short lowercase proposal description>"
+    git push
     ```
+
+    The push is mandatory. An unpushed supersession leaves the archive
+    claiming the old proposal is still in effect.
 
 ## Rules
 
@@ -134,6 +141,18 @@ original PR carrying `#superseded`. -->
 
   Superseding is always driven by a later, released proposal that
   replaces or removes the feature. There is no standalone supersession.
+
+- The cross-reference change MUST be committed directly to `main`, and
+  pushed.
+
+  Both proposals are already merged. The only fields this skill touches —
+  `Status`, `Last updated`, `Superseded by`, and the index row — are among
+  the few a merged proposal may still change, so a pull request would have
+  nothing to review. This matches how proposal numbers are assigned at
+  release and rejection, which also commit straight to `main`.
+
+  The specification edits that remove or replace the feature are a separate
+  matter: those ride on the successor proposal's own pull request.
 
 - The document MUST remain immutable except for the cross-reference.
 

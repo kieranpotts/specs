@@ -79,10 +79,14 @@ a new numbered row appended to `proposals/INDEX.md`. -->
 
     This swaps only the lifecycle label; leave the type label in place.
 
-5.  Commit.
+5.  Commit and push.
+
+    The push is mandatory: the merge in the next step lands the *remote*
+    branch, so an unpushed commit would leave `Status: RELEASED` behind.
 
     ```sh
     git commit -am "chore: release <short lowercase proposal description>"
+    git push
     ```
 
 6.  Merge the pull request.
@@ -173,5 +177,11 @@ a new numbered row appended to `proposals/INDEX.md`. -->
 
   Do not mark a proposal released until its change is actually live for
   real users — that is what keeps `main` honest.
+
+- You MUST push before merging.
+
+  `gh pr merge` merges what is on the remote. A status change committed
+  locally but not pushed is silently dropped from `main`, leaving the merged
+  document still reading `ACCEPTED`.
 
 - You MUST NOT merge without explicit instruction from the user.

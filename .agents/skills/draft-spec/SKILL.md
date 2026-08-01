@@ -138,9 +138,10 @@ discussion thread. -->
     - `Status`: `DRAFT`.
     - `Origin`: `./product-requirements.md` if a PRD was preserved in step
       6; otherwise remove the field.
-    - Leave `Decided by`, `Decision date`, `Proposal PR`, and
-      `Implementation trackers` blank or as placeholders. The `Discussion
-      thread` field is filled in at the discussion-thread step.
+    - Leave `Decided by`, `Decision date`, and `Implementation trackers`
+      blank or as placeholders. `Proposal PR` is filled in once the pull
+      request exists, and `Discussion thread` at the discussion-thread step
+      — both later in this procedure.
 
     Leave the prose sections as the template placeholders for the proposer
     to complete.
@@ -173,6 +174,10 @@ discussion thread. -->
     git push -u origin proposal/<slug>  # or epic/<slug>
     gh pr create --draft --title "<type>: <short lowercase proposal description>" --fill
     ```
+
+    Record the returned PR number in the document's `Proposal PR` field. The
+    readiness gate downstream requires that field to be set, and this is the
+    first point at which the number exists.
 
 10. Apply the type label.
 
