@@ -34,23 +34,23 @@ sale falls through.
 
 ```mermaid
 sequenceDiagram
-    participant P as Partner
-    participant API as Acme Catalog API
-    P->>API: Search / get product by ID
+  participant P as Partner
+  participant API as Acme Catalog API
+  P->>API: Search / get product by ID
+  API-->>P: Product { status: available }
+  P->>API: Reserve product (idempotency key)
+  API-->>P: Reservation { heldBy: P, expiresAt }
+  Note over P,API: Product is now reserved (R3); hold window is running (R5)
+  alt Sale proceeds
+    Note over API: A Shopper checkout, or the admin function, records the sale
+    API-->>API: status → sold (observable to P)
+  else Sale falls through
+    P->>API: Release reservation
     API-->>P: Product { status: available }
-    P->>API: Reserve product (idempotency key)
-    API-->>P: Reservation { heldBy: P, expiresAt }
-    Note over P,API: Product is now reserved (R3); hold window is running (R5)
-    alt Sale proceeds
-        Note over API: A Shopper checkout, or the admin function, records the sale
-        API-->>API: status → sold (observable to P)
-    else Sale falls through
-        P->>API: Release reservation
-        API-->>P: Product { status: available }
-    else Partner does nothing
-        Note over API: Hold window elapses
-        API-->>API: status → available (R5, automatic)
-    end
+  else Partner does nothing
+    Note over API: Hold window elapses
+    API-->>API: status → available (R5, automatic)
+  end
 ```
 
 **Steps and outcomes:**
@@ -86,25 +86,25 @@ success, moves every purchased product to `sold` in a single operation.
 
 ```mermaid
 sequenceDiagram
-    participant S as Shopper
-    participant API as Acme Catalog API
-    participant PSP as Payment provider
-    S->>API: Search / get products by ID
-    API-->>S: Product { status: available }
-    S->>API: Add product(s) to basket
-    API-->>S: Basket { productIds }
-    S->>API: Check out (idempotency key, payment method)
-    API->>PSP: Authorize + capture card
-    alt Payment captured
-        PSP-->>API: captured
-        API-->>API: products → sold (R7); Order { status: paid }
-        API-->>S: Order confirmed
-        Note over API: order.placed event published (see interfaces)
-    else Payment declined / provider unavailable
-        PSP-->>API: declined / no response
-        API-->>API: products unchanged; any consumed hold released (R8)
-        API-->>S: Checkout failed (may be retried)
-    end
+  participant S as Shopper
+  participant API as Acme Catalog API
+  participant PSP as Payment provider
+  S->>API: Search / get products by ID
+  API-->>S: Product { status: available }
+  S->>API: Add product(s) to basket
+  API-->>S: Basket { productIds }
+  S->>API: Check out (idempotency key, payment method)
+  API->>PSP: Authorize + capture card
+  alt Payment captured
+    PSP-->>API: captured
+    API-->>API: products → sold (R7); Order { status: paid }
+    API-->>S: Order confirmed
+    Note over API: order.placed event published (see interfaces)
+  else Payment declined / provider unavailable
+    PSP-->>API: declined / no response
+    API-->>API: products unchanged; any consumed hold released (R8)
+    API-->>S: Checkout failed (may be retried)
+  end
 ```
 
 **Steps and outcomes:**

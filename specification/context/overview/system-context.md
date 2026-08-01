@@ -13,34 +13,34 @@ The participants shown here are defined elsewhere: the callers are
 
 ```mermaid
 flowchart TB
-    subgraph callers["Callers (actors)"]
-        Human["Human operator<br/><i>via client app</i>"]
-        Machine["Automated system<br/><i>machine-to-machine</i>"]
-        PartnerOrg["Partner integration<br/><i>holds reservations</i>"]
-        Shopper["Shopper<br/><i>buys via client app</i>"]
-    end
+  subgraph callers["Callers (actors)"]
+    Human["Human operator<br/><i>via client app</i>"]
+    Machine["Automated system<br/><i>machine-to-machine</i>"]
+    PartnerOrg["Partner integration<br/><i>holds reservations</i>"]
+    Shopper["Shopper<br/><i>buys via client app</i>"]
+  end
 
-    API["<b>Acme Catalog API</b><br/>Authoritative catalog of<br/>products, with checkout"]
+  API["<b>Acme Catalog API</b><br/>Authoritative catalog of<br/>products, with checkout"]
 
-    Identity["Identity service<br/><i>issues &amp; verifies credentials</i>"]
-    Payments["Payment provider<br/><i>authorizes &amp; captures cards</i>"]
-    Admin["Administrative function<br/><i>maintains catalog, records sales</i>"]
+  Identity["Identity service<br/><i>issues &amp; verifies credentials</i>"]
+  Payments["Payment provider<br/><i>authorizes &amp; captures cards</i>"]
+  Admin["Administrative function<br/><i>maintains catalog, records sales</i>"]
 
-    Human -->|"reads catalog<br/>(authenticated)"| API
-    Machine -->|"reads catalog<br/>(authenticated)"| API
-    PartnerOrg -->|"reads + reserves /<br/>releases (Partner)"| API
-    Shopper -->|"reads + checks out /<br/>pays (Shopper)"| API
+  Human -->|"reads catalog<br/>(authenticated)"| API
+  Machine -->|"reads catalog<br/>(authenticated)"| API
+  PartnerOrg -->|"reads + reserves /<br/>releases (Partner)"| API
+  Shopper -->|"reads + checks out /<br/>pays (Shopper)"| API
 
-    API -->|"verifies credential<br/>on every request"| Identity
-    API -->|"authorizes + captures<br/>payment at checkout"| Payments
-    Admin -->|"writes listings,<br/>records sales"| API
+  API -->|"verifies credential<br/>on every request"| Identity
+  API -->|"authorizes + captures<br/>payment at checkout"| Payments
+  Admin -->|"writes listings,<br/>records sales"| API
 
-    classDef sys fill:#e8f0fe,stroke:#4070c0,color:#13284b;
-    classDef ext fill:#f5f5f5,stroke:#999,color:#222;
-    classDef person fill:#fff5e6,stroke:#cc8800,color:#5a3d00;
-    class API sys;
-    class Identity,Payments,Admin ext;
-    class Human,Machine,PartnerOrg,Shopper person;
+  classDef sys fill:#e8f0fe,stroke:#4070c0,color:#13284b;
+  classDef ext fill:#f5f5f5,stroke:#999,color:#222;
+  classDef person fill:#fff5e6,stroke:#cc8800,color:#5a3d00;
+  class API sys;
+  class Identity,Payments,Admin ext;
+  class Human,Machine,PartnerOrg,Shopper person;
 ```
 
 **How to read it:**

@@ -54,17 +54,17 @@ matrix records exactly what each adds.
 
 ```mermaid
 flowchart BT
-    Anon["Anonymous User<br/><i>no capabilities</i>"]
-    Auth["Authenticated User<br/><i>+ read the catalog</i>"]
-    Partner["Partner<br/><i>+ reserve / release</i>"]
-    Shopper["Shopper<br/><i>+ basket / checkout / pay</i>"]
+  Anon["Anonymous User<br/><i>no capabilities</i>"]
+  Auth["Authenticated User<br/><i>+ read the catalog</i>"]
+  Partner["Partner<br/><i>+ reserve / release</i>"]
+  Shopper["Shopper<br/><i>+ basket / checkout / pay</i>"]
 
-    Anon -->|"authenticates"| Auth
-    Auth -->|"+ partner agreement"| Partner
-    Auth -->|"+ shopper claim"| Shopper
+  Anon -->|"authenticates"| Auth
+  Auth -->|"+ partner agreement"| Partner
+  Auth -->|"+ shopper claim"| Shopper
 
-    classDef tier fill:#f5f5f5,stroke:#999,color:#222;
-    class Anon,Auth,Partner,Shopper tier;
+  classDef tier fill:#f5f5f5,stroke:#999,color:#222;
+  class Anon,Auth,Partner,Shopper tier;
 ```
 
 Read bottom-to-top as increasing capability: an Anonymous User who authenticates

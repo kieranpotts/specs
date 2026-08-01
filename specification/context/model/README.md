@@ -114,72 +114,72 @@ stored entity; it appears here only to show what a reservation references.
 
 ```mermaid
 erDiagram
-    CATEGORY ||--o{ PRODUCT : "groups"
-    PRODUCT ||--o| RESERVATION : "is held by (0..1)"
-    RESERVATION }o--|| PARTNER : "held by"
-    SHOPPER ||--o| BASKET : "owns (0..1)"
-    BASKET }o--o{ PRODUCT : "contains"
-    SHOPPER ||--o{ ORDER : "places"
-    ORDER }o--o{ PRODUCT : "purchases"
-    ORDER ||--|| PAYMENT : "settled by"
+  CATEGORY ||--o{ PRODUCT : "groups"
+  PRODUCT ||--o| RESERVATION : "is held by (0..1)"
+  RESERVATION }o--|| PARTNER : "held by"
+  SHOPPER ||--o| BASKET : "owns (0..1)"
+  BASKET }o--o{ PRODUCT : "contains"
+  SHOPPER ||--o{ ORDER : "places"
+  ORDER }o--o{ PRODUCT : "purchases"
+  ORDER ||--|| PAYMENT : "settled by"
 
-    CATEGORY {
-        id   id   PK
-        string name
-    }
+  CATEGORY {
+    id   id   PK
+    string name
+  }
 
-    PRODUCT {
-        id          id          PK
-        string      name
-        enum        type
-        string      variant     "optional"
-        object      age         "value + unit"
-        decimal     price
-        enum        status      "available | reserved | sold"
-        string      description
-        string_list photoUrls
-        string_list tags
-        id          categoryId  FK
-    }
+  PRODUCT {
+    id          id          PK
+    string      name
+    enum        type
+    string      variant     "optional"
+    object      age         "value + unit"
+    decimal     price
+    enum        status      "available | reserved | sold"
+    string      description
+    string_list photoUrls
+    string_list tags
+    id          categoryId  FK
+  }
 
-    RESERVATION {
-        id        heldBy    FK "references a Partner actor"
-        timestamp expiresAt
-    }
+  RESERVATION {
+    id        heldBy    FK "references a Partner actor"
+    timestamp expiresAt
+  }
 
-    BASKET {
-        id        id        PK
-        id        ownedBy   FK "references a Shopper actor"
-        id_list   productIds
-        timestamp updatedAt
-    }
+  BASKET {
+    id        id        PK
+    id        ownedBy   FK "references a Shopper actor"
+    id_list   productIds
+    timestamp updatedAt
+  }
 
-    ORDER {
-        id        id        PK
-        id        placedBy  FK "references a Shopper actor"
-        id_list   productIds
-        id        paymentId FK
-        decimal   total
-        enum      status    "placed | paid | failed"
-        timestamp placedAt
-    }
+  ORDER {
+    id        id        PK
+    id        placedBy  FK "references a Shopper actor"
+    id_list   productIds
+    id        paymentId FK
+    decimal   total
+    enum      status    "placed | paid | failed"
+    timestamp placedAt
+  }
 
-    PAYMENT {
-        id      id            PK
-        id      orderId       FK
-        decimal amount
-        string  providerToken
-        string  idempotencyKey
-        enum    status        "authorized | captured | declined"
-    }
+  PAYMENT {
+    id      id            PK
+    id      orderId       FK
+    decimal amount
+    string  providerToken
+    string  idempotencyKey
+    enum    status        "authorized | captured | declined"
+  }
 
-    PARTNER {
-        id id PK "actor, not a stored entity"
-    }
+  PARTNER {
+    id id PK "actor, not a stored entity"
+  }
 
-    SHOPPER {
-        id id PK "actor, not a stored entity"
-    }
+  SHOPPER {
+    id id PK "actor, not a stored entity"
+  }
 ```
 
 The same model viewed as classes, which makes the embedded `Reservation` value
@@ -187,92 +187,92 @@ object and the `status` enum more explicit:
 
 ```mermaid
 classDiagram
-    class Product {
-        +Id id
-        +String name
-        +Type type
-        +String variant
-        +Age age
-        +Decimal price
-        +Status status
-        +String description
-        +String[] photoUrls
-        +String[] tags
-        +Reservation reservation
-    }
-    class Category {
-        +Id id
-        +String name
-    }
-    class Reservation {
-        <<value object>>
-        +Id heldBy
-        +Timestamp expiresAt
-    }
-    class Age {
-        <<value object>>
-        +Number value
-        +Unit unit
-    }
-    class Status {
-        <<enumeration>>
-        available
-        reserved
-        sold
-    }
-    class Basket {
-        +Id id
-        +Id ownedBy
-        +Id[] productIds
-        +Timestamp updatedAt
-    }
-    class Order {
-        +Id id
-        +Id placedBy
-        +Id[] productIds
-        +Id paymentId
-        +Decimal total
-        +OrderStatus status
-        +Timestamp placedAt
-    }
-    class Payment {
-        +Id id
-        +Id orderId
-        +Decimal amount
-        +String providerToken
-        +String idempotencyKey
-        +PaymentStatus status
-    }
-    class OrderStatus {
-        <<enumeration>>
-        placed
-        paid
-        failed
-    }
-    class PaymentStatus {
-        <<enumeration>>
-        authorized
-        captured
-        declined
-    }
+  class Product {
+    +Id id
+    +String name
+    +Type type
+    +String variant
+    +Age age
+    +Decimal price
+    +Status status
+    +String description
+    +String[] photoUrls
+    +String[] tags
+    +Reservation reservation
+  }
+  class Category {
+    +Id id
+    +String name
+  }
+  class Reservation {
+    <<value object>>
+    +Id heldBy
+    +Timestamp expiresAt
+  }
+  class Age {
+    <<value object>>
+    +Number value
+    +Unit unit
+  }
+  class Status {
+    <<enumeration>>
+    available
+    reserved
+    sold
+  }
+  class Basket {
+    +Id id
+    +Id ownedBy
+    +Id[] productIds
+    +Timestamp updatedAt
+  }
+  class Order {
+    +Id id
+    +Id placedBy
+    +Id[] productIds
+    +Id paymentId
+    +Decimal total
+    +OrderStatus status
+    +Timestamp placedAt
+  }
+  class Payment {
+    +Id id
+    +Id orderId
+    +Decimal amount
+    +String providerToken
+    +String idempotencyKey
+    +PaymentStatus status
+  }
+  class OrderStatus {
+    <<enumeration>>
+    placed
+    paid
+    failed
+  }
+  class PaymentStatus {
+    <<enumeration>>
+    authorized
+    captured
+    declined
+  }
 
-    Category "1" --> "0..*" Product : contains
-    Product "1" --> "0..1" Reservation : holds
-    Product *-- Age : embeds
-    Product ..> Status : has
-    Reservation ..> Partner : heldBy
-    Shopper "1" --> "0..1" Basket : owns
-    Basket "1" --> "0..*" Product : contains
-    Shopper "1" --> "0..*" Order : places
-    Order "1" --> "1..*" Product : purchases
-    Order "1" --> "1" Payment : "settled by"
-    Order ..> OrderStatus : has
-    Payment ..> PaymentStatus : has
+  Category "1" --> "0..*" Product : contains
+  Product "1" --> "0..1" Reservation : holds
+  Product *-- Age : embeds
+  Product ..> Status : has
+  Reservation ..> Partner : heldBy
+  Shopper "1" --> "0..1" Basket : owns
+  Basket "1" --> "0..*" Product : contains
+  Shopper "1" --> "0..*" Order : places
+  Order "1" --> "1..*" Product : purchases
+  Order "1" --> "1" Payment : "settled by"
+  Order ..> OrderStatus : has
+  Payment ..> PaymentStatus : has
 
-    class Partner {
-        <<actor>>
-    }
-    class Shopper {
-        <<actor>>
-    }
+  class Partner {
+    <<actor>>
+  }
+  class Shopper {
+    <<actor>>
+  }
 ```
