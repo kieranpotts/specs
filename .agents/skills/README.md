@@ -2,7 +2,7 @@
 
 The skills available to agents in this project are:
 
-- **[scaffold-spec](./scaffold-spec/):** \
+- **[draft-spec](./draft-spec/):** \
   Cuts a `proposal/<slug>` branch from `main`, prepares a fresh proposal from
   the template, and opens a pull request in a draft state.
 
@@ -26,7 +26,7 @@ The skills available to agents in this project are:
   Retires a released proposal once a later proposal has replaced or removed
   its feature.
 
-The **scaffold-spec** skill opens a new proposal as a draft PR. After this
+The **draft-spec** skill opens a new proposal as a draft PR. After this
 step, the user authors the specification edits directly — see
 [`docs/best-practices.md`](../../docs/best-practices.md) and the
 [`specification/requirements/`](../../specification/requirements/)
@@ -39,14 +39,14 @@ it.
 
 ```mermaid
 flowchart LR
-  scaffold["🤖<br/><b>scaffold-spec</b>"]:::agentic
+  draft["🤖<br/><b>draft-spec</b>"]:::agentic
   propose["🤖<br/><b>propose-spec</b>"]:::agentic
   accept["🤖<br/><b>accept-spec</b>"]:::agentic
   release["🤖<br/><b>release-spec</b>"]:::agentic
   supersede["🤖<br/><b>supersede-spec</b>"]:::agentic
   reject["🤖<br/><b>reject-spec</b>"]:::agentic
 
-  scaffold ==> propose
+  draft ==> propose
   propose ==> accept
   accept ==> release
   release -.-> supersede
@@ -57,7 +57,7 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how a proposal is scaffolded,
+These skills handle process, not substance: how a proposal is drafted,
 decided, and landed in `main`. For the specification work itself — working out
 what the requirement should be and writing it up as a proposal — use the
 [**specify**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/specify)

@@ -1,7 +1,7 @@
 ---
-name: scaffold-spec
+name: draft-spec
 description: >-
-  Scaffold a new proposal for a change to the software requirements
+  Draft a new proposal for a change to the software requirements
   specification, opening it as a draft pull request. Use this skill when the
   user wants to propose a new feature or make a change to a non-functional
   requirement, or says something like "draft a proposal", "new proposal",
@@ -12,9 +12,9 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Scaffold spec
+# Draft spec
 
-Use this skill to start a new proposal: scaffold the branch and document
+Use this skill to start a new proposal: draft the branch and document
 from the template, then open a draft pull request with the artifacts in
 place, ready for the user to complete.
 
@@ -150,7 +150,7 @@ discussion thread. -->
     Based on the proposal type and description, locate the relevant files
     in `specification/` and list them in the `Proposed change` section as a
     starting point. Do not edit the spec files here — the authoring happens
-    once the proposal is scaffolded, following
+    once the proposal is drafted, following
     [`docs/best-practices.md`](../../../docs/best-practices.md).
 
     - Functional changes → `specification/requirements/behaviors/`
@@ -233,7 +233,7 @@ discussion thread. -->
 
 12. Hand off to authoring the specification content.
 
-    The scaffold is now in place: branch, document, draft PR, and
+    The draft is now in place: branch, document, draft PR, and
     discussion thread. The next step is to author the actual specification
     content — the functional and non-functional requirements. Direct the
     user to [`docs/best-practices.md`](../../../docs/best-practices.md) and
@@ -249,12 +249,12 @@ discussion thread. -->
   Proposals are for new or changed requirements that warrant stakeholder
   review, not routine implementation work, bug fixes, or trivial edits,
   which go through the normal pull-request workflow. If the request looks
-  too small to warrant a proposal, say so before scaffolding.
+  too small to warrant a proposal, say so before drafting.
 
 - There MUST be exactly one proposal per branch and pull request.
 
   Never bundle multiple changes into a single branch. If the user
-  describes changes that span multiple independent concerns, scaffold
+  describes changes that span multiple independent concerns, draft
   separate proposal branches.
 
 - You MUST branch from `main`, not from any other branch.

@@ -1,6 +1,6 @@
-# Scaffold spec
+# Draft spec
 
-Scaffolds a new proposal and opens it as a draft pull request.
+Drafts a new proposal and opens it as a draft pull request.
 
 ## What it does
 
@@ -20,11 +20,11 @@ Scaffolds a new proposal and opens it as a draft pull request.
 
 ## Examples
 
-- `/scaffold-spec`: Agent will prompt you for the information it needs to
-  prepare a draft PR, then scaffolds the branch, document, PR, and
+- `/draft-spec`: Agent will prompt you for the information it needs to
+  prepare a draft PR, then drafts the branch, document, PR, and
   discussion.
 
-- `/scaffold-spec <Description>`: Scaffolds immediately based on your
+- `/draft-spec <Description>`: Drafts immediately based on your
   description of the requirement.
 
 Next, author the specification content (the functional and non-functional
