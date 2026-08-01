@@ -1,15 +1,9 @@
 # Propose spec
 
-Marks a proposal pull request ready for stakeholder review (`DRAFT` →
-`PROPOSED`).
+Handles the `DRAFT` → `PROPOSED` transition.
 
-## What it does
-
-- Confirms the proposal document and specification edits are complete and free
-  of leftover template text.
-- Sets `Last updated`.
-- Applies the `#proposed` label.
-- Removes the pull request's draft status so stakeholders can review it.
+Checks the proposal is complete and takes the pull request out of draft,
+ready for stakeholder review.
 
 ## How to invoke
 
@@ -19,17 +13,5 @@ Marks a proposal pull request ready for stakeholder review (`DRAFT` →
 
 ## Recommended models
 
-A fast or mid-tier model is enough. Confirming the proposal and spec edits
-are complete and free of template text is a checklist task.
-
-## Examples
-
-- `/propose-spec`: Verifies the most recent proposal in context, then marks its
-  PR ready.
-
-- `/propose-spec 42`: Verifies and proposes the proposal on PR #42.
-
-Once the proposal is `PROPOSED` and stakeholders have reviewed it, the decision
-is made with [`/accept-spec`](../accept-spec/README.md) (to move it to
-`ACCEPTED`) or [`/reject-spec`](../reject-spec/README.md) (if it will not be
-taken forward).
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

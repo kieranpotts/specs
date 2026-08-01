@@ -1,14 +1,9 @@
 # Accept spec
 
-Approves a proposed proposal (`PROPOSED` → `ACCEPTED`).
+Handles the `PROPOSED` → `ACCEPTED` transition.
 
-## What it does
-
-Verifies the approval gates, sets the document to `ACCEPTED` (filling in
-`Decided by` and `Decision date`), and swaps the `#proposed` label for
-`#accepted`. The pull request **stays open** through implementation, and so does
-the discussion thread — it is closed when the PR is merged at release. No number
-is assigned until release.
+Checks the approval gates and marks the proposal accepted, leaving the
+pull request open through implementation.
 
 ## How to invoke
 
@@ -18,11 +13,5 @@ is assigned until release.
 
 ## Recommended models
 
-A fast or mid-tier model is enough. Verifying the approval gates is a
-checklist task, not a judgment call.
-
-## Examples
-
-- `/accept-spec`: Verifies the gates for the proposal in context and accepts it.
-
-- `/accept-spec 42`: Accepts the proposal on PR #42 after its gates pass.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

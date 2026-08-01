@@ -1,18 +1,11 @@
 # Draft spec
 
-Drafts a new proposal and opens it as a draft pull request.
+Scaffolds a proposal for changes to the software requirements specification.
 
-## What it does
+Cuts a `proposal/<slug>` branch from `main`, prepares a fresh proposal from
+the template, and opens a pull request in a draft state.
 
-- Creates a `proposal/<slug>` branch (or `epic/<slug>` for EPICs).
-- Copies `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`.
-- Fills in the metadata header (authors, dates, `Status: DRAFT`).
-- Identifies the specification files that will need editing.
-- Commits and pushes the change.
-- Opens a draft pull request with one type label: `FEATURE`, `QUALITY`, or
-  `EPIC`.
-- Opens a discussion thread.
-- Creates cross-references between the discussion and the PR.
+Sets the status to `DRAFT`.
 
 ## How to invoke
 
@@ -20,22 +13,5 @@ Drafts a new proposal and opens it as a draft pull request.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. This skill scaffolds files from a
-template and fills in metadata — the requirements themselves are authored by
-you afterwards.
-
-## Examples
-
-- `/draft-spec`: Agent will prompt you for the information it needs to
-  prepare a draft PR, then drafts the branch, document, PR, and
-  discussion.
-
-- `/draft-spec <Description>`: Drafts immediately based on your
-  description of the requirement.
-
-Next, author the specification content (the functional and non-functional
-requirements) directly, following
-[`docs/best-practices.md`](../../../docs/best-practices.md) and the
-`specification/requirements/` subdirectory READMEs. Once that's complete, use
-[`/propose-spec`](../propose-spec/README.md) to mark the PR as "ready for
-review".
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

@@ -1,17 +1,9 @@
 # Supersede spec
 
-Retires a previously-released proposal once a later proposal has replaced or
-removed its feature (`RELEASED` → `SUPERSEDED`).
+Handles the `RELEASED` → `SUPERSEDED` transition.
 
-## What it does
-
-Verifies that a later, released proposal replaces or removes the feature, sets
-the superseded proposal's document to `SUPERSEDED` (and its `Superseded by`
-cross-reference), changes its `proposals/INDEX.md` row to `SUPERSEDED`, and
-swaps the `#released` label for `#superseded` on its original pull request. It
-does **not** touch `specification/` — the spec edits that remove or replace the
-feature ride on the successor proposal's own pull request. The change lands on
-`main` through that successor PR.
+Retires a released proposal once a later proposal has replaced or removed
+its feature.
 
 ## How to invoke
 
@@ -21,15 +13,5 @@ feature ride on the successor proposal's own pull request. The change lands on
 
 ## Recommended models
 
-A fast or mid-tier model is enough. Verifying that the successor proposal
-actually replaces or removes the feature is a factual check, not a judgment
-call.
-
-## Examples
-
-- `/supersede-spec`: Agent asks which released proposal is being superseded and
-  which later proposal replaces it, then verifies the gates and applies the
-  change.
-
-- `/supersede-spec catalog-read-api superseded by catalog-read-api-v2`:
-  Supersedes the `catalog-read-api` proposal, linking it to its successor.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

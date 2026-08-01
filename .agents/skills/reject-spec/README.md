@@ -1,16 +1,9 @@
 # Reject spec
 
-Rejects a proposed proposal (`PROPOSED` → `REJECTED`), preserving it permanently
-as a record.
+Handles the `PROPOSED` → `REJECTED` transition.
 
-## What it does
-
-Confirms the rejection decision, reverts all `specification/` changes introduced
-by the branch (leaving only the proposal document), sets the document to
-`REJECTED`, closes the associated discussion thread, applies the `#rejected`
-label, and squash-merges the pull request into `main` on your confirmation.
-After the merge, assigns the next sequential number in `proposals/INDEX.md` on
-`main`.
+Reverts the specification edits and merges the proposal document as a
+permanent record of the decision.
 
 ## How to invoke
 
@@ -20,12 +13,5 @@ After the merge, assigns the next sequential number in `proposals/INDEX.md` on
 
 ## Recommended models
 
-A fast, inexpensive model is enough. The rejection decision is already made
-by you; this skill reverts the spec edits and records it.
-
-## Examples
-
-- `/reject-spec`: Walks through the rejection path for the proposal in context.
-
-- `/reject-spec 42`: Rejects the proposal on PR #42, reverts its spec edits, and
-  prepares the merge.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

@@ -1,16 +1,9 @@
 # Release spec
 
-Marks an accepted proposal as released once its implementation is live
-(`ACCEPTED` → `RELEASED`).
+Handles the `ACCEPTED` → `RELEASED` transition.
 
-## What it does
-
-Verifies the implementation is in production and the spec matches it, sets the
-document to `RELEASED`, swaps the `#accepted` label for `#released`,
-squash-merges the pull request (specification edits and all) into `main` on your
-confirmation, and closes the discussion thread. After the merge, assigns the
-proposal the next sequential number and logs it in `proposals/INDEX.md` on
-`main`.
+Checks the implementation is live and merges the specification edits into
+the `main` trunk.
 
 ## How to invoke
 
@@ -20,13 +13,5 @@ proposal the next sequential number and logs it in `proposals/INDEX.md` on
 
 ## Recommended models
 
-A fast or mid-tier model is enough. Verifying the implementation is live and
-matches the spec is a comparison check, not a judgment call.
-
-## Examples
-
-- `/release-spec`: Verifies the proposal in context is live, prepares the merge,
-  and numbers it in the index afterwards.
-
-- `/release-spec 42`: Releases the proposal on PR #42 once its implementation
-  has shipped.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.
