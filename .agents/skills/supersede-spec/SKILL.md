@@ -5,7 +5,7 @@ description: >-
   replaced or removed its feature. Use this skill when the user says something
   like "supersede this proposal", "this proposal is superseded by ...", or
   otherwise wishes to retire a released feature in favor of a newer one.
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -131,11 +131,6 @@ original PR carrying `#superseded`. -->
 
   The superseded proposal's `Superseded by` field links the successor, and
   the successor's `Supersedes` field links back to this one.
-
-- Only product managers MAY supersede.
-
-  If there is any indication the current user is not a product manager,
-  ask for confirmation first.
 
 - A successor proposal MUST exist.
 

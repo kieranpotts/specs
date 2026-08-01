@@ -5,7 +5,7 @@ description: >-
   stakeholder review. Use this skill when the user says something like
   "this proposal is ready for review", "mark the proposal ready",
   "take this out of draft", "propose <slug>", or "propose <pr-number>".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

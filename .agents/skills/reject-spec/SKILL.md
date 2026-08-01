@@ -4,7 +4,7 @@ description: >-
   Reject a proposal. Use this skill when the user says something like
   "reject this proposal", "this proposal was not approved", "reject <slug>",
   or "reject <pr-number>".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -42,7 +42,7 @@ discussion thread closed, and a new numbered row appended to
 - No files under `specification/` are changed on this branch relative to
   `main` after the revert.
 
-- The PR carries `#rejected` (and its type label), the `## Status` section
+- The PR carries `#rejected` (and its type label), the `Status` header field
   reads `REJECTED`, and `Last updated` is today's date.
 
 - The associated discussion thread is closed.
@@ -200,11 +200,6 @@ discussion thread closed, and a new numbered row appended to
   `Motivation`, `Proposed change`, `Alternatives`, and `Tradeoffs and
   risks` are substantive — the document will be archived permanently as the
   record of this decision.
-
-- Only product managers MAY reject.
-
-  If there is any indication the current user is not a product manager, ask
-  for confirmation first.
 
 - You MUST revert spec edits precisely.
 

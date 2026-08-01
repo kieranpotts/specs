@@ -6,7 +6,7 @@ description: >-
   user wants to propose a new feature or make a change to a non-functional
   requirement, or says something like "draft a proposal", "new proposal",
   or "start a proposal".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

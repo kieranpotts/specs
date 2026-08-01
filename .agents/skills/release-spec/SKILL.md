@@ -5,7 +5,7 @@ description: >-
   production. Use this skill when the user says something like
   "release this proposal", "this proposal is live", "the implementation
   shipped", "release <slug>", or "release <pr-number>".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -151,10 +151,6 @@ a new numbered row appended to `proposals/INDEX.md`. -->
     it.
 
 ## Rules
-
-- Only product managers MAY release a proposal.
-
-  If unsure of the user's role, ask first.
 
 - You MUST release only from `ACCEPTED`.
 

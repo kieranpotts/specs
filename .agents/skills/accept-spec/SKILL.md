@@ -4,7 +4,7 @@ description: >-
   Approve a proposal. Use this skill when the user says something like
   "accept this proposal", "approve this proposal", "mark this proposal as
   accepted", "accept spec for <slug>", or "accept <pr-number>".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -106,10 +106,6 @@ You will achieve the following outcomes:
     [`/release-spec`](../release-spec/SKILL.md).
 
 ## Rules
-
-- Only product managers MAY approve a proposal.
-
-  If unsure of the user's role, ask first.
 
 - You MUST approve only from `PROPOSED`, never backwards.
 
