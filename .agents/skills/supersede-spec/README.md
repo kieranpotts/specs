@@ -13,5 +13,4 @@ its feature.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A fast, cheap model is sufficient for this skill.

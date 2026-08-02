@@ -13,5 +13,6 @@ Sets the status to `DRAFT`.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A mid-tier model with strong prose output is best suited to this skill. The
+scaffolding is mechanical, but authoring the specification edits requires a
+bit more effort.

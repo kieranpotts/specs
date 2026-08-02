@@ -13,5 +13,6 @@ pull request open through implementation.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A mid-tier model is sufficient for this skill. The state transition is
+procedural, but judging the requirement against the Definition of Ready
+requires a bit more effort.

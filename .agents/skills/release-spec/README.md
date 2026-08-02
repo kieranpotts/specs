@@ -13,5 +13,6 @@ the `main` trunk.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A mid-tier model is sufficient for this skill. The state transition is
+procedural, but confirming the implementation is really live requires a bit
+more effort.
