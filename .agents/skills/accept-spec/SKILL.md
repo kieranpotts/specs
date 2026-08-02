@@ -31,16 +31,16 @@ You will achieve the following outcomes:
 <!-- The proposal document updated to `Status: ACCEPTED` with `Decided by` and
 `Decision date` filled in, the PR carrying `#accepted` and left open. -->
 
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.
+- `Status` MUST be `ACCEPTED`, `Last updated` MUST be today's date, and
+  `Decided by` / `Decision date` MUST be filled in.
 
-- The PR carries `#accepted` (and its type label), not `#proposed`, and
-  remains open.
+- The PR MUST carry `#accepted` (and its type label), not `#proposed`, and
+  MUST remain open.
 
-- The associated discussion thread remains open — it is closed when the PR
-  is merged at release.
+- The associated discussion thread MUST remain open — it is closed when the
+  PR is merged at release.
 
-- No number has been assigned — that waits for release.
+- A number MUST NOT have been assigned — that waits for release.
 
 ## Instructions
 

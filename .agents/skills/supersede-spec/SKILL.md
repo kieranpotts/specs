@@ -43,16 +43,16 @@ You will achieve the following outcomes:
 `Superseded by` link, the `proposals/INDEX.md` row updated, and its
 original PR carrying `#superseded`. -->
 
-- `Status` is `SUPERSEDED`, `Last updated` is today's date, and
-  `Superseded by` links the successor.
+- `Status` MUST be `SUPERSEDED`, `Last updated` MUST be today's date, and
+  `Superseded by` MUST link the successor.
 
-- The successor's `Supersedes` field links back to this proposal.
+- The successor's `Supersedes` field MUST link back to this proposal.
 
-- The `proposals/INDEX.md` row for this proposal reads `SUPERSEDED`.
+- The `proposals/INDEX.md` row for this proposal MUST read `SUPERSEDED`.
 
-- The PR carries `#superseded` (and its type label), not `#released`.
+- The PR MUST carry `#superseded` (and its type label), not `#released`.
 
-- No files under `specification/` are changed by this skill.
+- Files under `specification/` MUST NOT be changed by this skill.
 
 ## Instructions
 

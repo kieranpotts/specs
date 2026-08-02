@@ -44,26 +44,26 @@ header filled in (`Status: DRAFT`), committed to a draft pull request
 opened against `main`, carrying exactly one type label, with a linked
 discussion thread. -->
 
-- Branch `proposal/<slug>` exists and is checked out.
+- Branch `proposal/<slug>` MUST exist and MUST be checked out.
 
-- `proposals/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
+- `proposals/<slug>/README.md` MUST exist, a copy of `TEMPLATE.md` with the
   metadata header filled in and `Status: DRAFT`.
 
-- If a PRD was supplied, `proposals/<slug>/product-requirements.md` exists,
-  holding it verbatim, and the `Origin` field links it.
+- If a PRD was supplied, `proposals/<slug>/product-requirements.md` MUST
+  exist, holding it verbatim, and the `Origin` field MUST link it; if no PRD
+  was supplied, the `Origin` field MUST be removed.
 
-  If no PRD was supplied, the `Origin` field is removed.
+- A draft pull request MUST be open, titled `feature: <short lowercase
+  proposal description>`, `quality: …`, or `epic: …`, carrying exactly one
+  type label and no lifecycle label.
 
-- A draft pull request is open, titled `feature: <short lowercase proposal
-  description>`, `quality: …`, or `epic: …`, carrying exactly one type
-  label and no lifecycle label.
-
-- An associated discussion thread is open, linked from the document's
+- An associated discussion thread MUST be open, linked from the document's
   `Discussion thread` field and from the PR.
 
-- The user has been directed to author the specification content directly,
-  following [`docs/best-practices.md`](../../../docs/best-practices.md) and
-  the `specification/requirements/` subdirectory READMEs.
+- The user MUST have been directed to author the specification content
+  directly, following
+  [`docs/best-practices.md`](../../../docs/best-practices.md) and the
+  `specification/requirements/` subdirectory READMEs.
 
 ## Instructions
 

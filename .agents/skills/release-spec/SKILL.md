@@ -34,17 +34,17 @@ You will achieve the following outcomes:
 `#released` and squash-merged into `main`, its discussion thread closed, and
 a new numbered row appended to `proposals/INDEX.md`. -->
 
-- `Status` is `RELEASED` and `Last updated` is today's date.
+- `Status` MUST be `RELEASED` and `Last updated` MUST be today's date.
 
-- The PR carries `#released` (and its type label), not `#accepted`.
+- The PR MUST carry `#released` (and its type label), not `#accepted`.
 
-- The specification edits and the proposal document are squash-merged into
-  `main`.
+- The specification edits and the proposal document MUST be squash-merged
+  into `main`.
 
-- The associated discussion thread is closed.
+- The associated discussion thread MUST be closed.
 
-- After merge: a `proposals/INDEX.md` entry is added on `main`, with the
-  next sequential number and `Released` status.
+- After merge, a `proposals/INDEX.md` entry MUST be added on `main`, with
+  the next sequential number and `Released` status.
 
 ## Instructions
 

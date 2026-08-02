@@ -39,20 +39,20 @@ REJECTED`, the PR carrying `#rejected` and squash-merged into `main`, its
 discussion thread closed, and a new numbered row appended to
 `proposals/INDEX.md`. -->
 
-- No files under `specification/` are changed on this branch relative to
-  `main` after the revert.
+- Files under `specification/` MUST NOT be changed on this branch relative
+  to `main` after the revert.
 
-- The PR carries `#rejected` (and its type label), the `Status` header field
-  reads `REJECTED`, and `Last updated` is today's date.
+- The PR MUST carry `#rejected` (and its type label), the `Status` header
+  field MUST read `REJECTED`, and `Last updated` MUST be today's date.
 
-- The associated discussion thread is closed.
+- The associated discussion thread MUST be closed.
 
-- The proposal document is squash-merged into `main`.
+- The proposal document MUST be squash-merged into `main`.
 
-- After merge: a `proposals/INDEX.md` entry is added on `main`, with the
-  next sequential number and `Rejected` status.
+- After merge, a `proposals/INDEX.md` entry MUST be added on `main`, with
+  the next sequential number and `Rejected` status.
 
-- The user has explicitly confirmed the rejection decision before any
+- The user MUST have explicitly confirmed the rejection decision before any
   changes were made.
 
 ## Instructions
