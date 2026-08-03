@@ -26,8 +26,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The proposal document updated to `Status: ACCEPTED` with `Decided by` and
 `Decision date` filled in, the PR carrying `#accepted` and left open. -->
 

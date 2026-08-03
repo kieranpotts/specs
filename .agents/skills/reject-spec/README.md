@@ -7,6 +7,10 @@ permanent record of the decision.
 
 ## How to invoke
 
+> Reject this proposal
+
+> This proposal was not approved
+
 > Reject user-session-timeout
 
 > Reject 42

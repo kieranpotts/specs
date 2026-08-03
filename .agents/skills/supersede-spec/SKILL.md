@@ -37,8 +37,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The superseded proposal's document updated to `Status: SUPERSEDED` with a
 `Superseded by` link, the `proposals/INDEX.md` row updated, and its
 original PR carrying `#superseded`. -->

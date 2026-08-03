@@ -11,6 +11,10 @@ Sets the status to `DRAFT`.
 
 > Draft a spec for user session timeout.
 
+> New proposal
+
+> Start a proposal
+
 ## Recommended models
 
 A mid-tier model with strong prose output is best suited to this skill. The

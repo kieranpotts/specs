@@ -36,8 +36,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- A `proposal/<slug>` (or `epic/<slug>`) branch, with
 `proposals/<slug>/README.md` created from the template and its metadata
 header filled in (`Status: DRAFT`), committed to a draft pull request

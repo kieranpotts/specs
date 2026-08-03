@@ -7,6 +7,12 @@ the `main` trunk.
 
 ## How to invoke
 
+> Release this proposal
+
+> This proposal is live
+
+> The implementation shipped
+
 > Release user-session-timeout
 
 > Release 42

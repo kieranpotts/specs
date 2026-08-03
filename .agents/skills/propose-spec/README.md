@@ -7,6 +7,12 @@ ready for stakeholder review.
 
 ## How to invoke
 
+> This proposal is ready for review
+
+> Mark the proposal ready
+
+> Take this out of draft
+
 > Propose user-session-timeout
 
 > Propose 42

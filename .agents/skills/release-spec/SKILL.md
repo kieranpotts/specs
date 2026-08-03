@@ -28,8 +28,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The proposal document updated to `Status: RELEASED`, the PR carrying
 `#released` and squash-merged into `main`, its discussion thread closed, and
 a new numbered row appended to `proposals/INDEX.md`. -->

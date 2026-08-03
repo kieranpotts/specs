@@ -32,8 +32,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The specification edits reverted, the proposal document updated to `Status:
 REJECTED`, the PR carrying `#rejected` and squash-merged into `main`, its
 discussion thread closed, and a new numbered row appended to

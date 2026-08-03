@@ -7,6 +7,12 @@ pull request open through implementation.
 
 ## How to invoke
 
+> Accept this proposal
+
+> Approve this proposal
+
+> Mark this proposal as accepted
+
 > Accept spec for user session timeout
 
 > Accept 42
