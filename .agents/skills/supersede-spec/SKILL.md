@@ -5,10 +5,8 @@ description: >-
   replaced or removed its feature. Use this skill when the user says something
   like "supersede this proposal", "this proposal is superseded by ...", or
   otherwise wishes to retire a released feature in favor of a newer one.
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_BASIC
 ---
 
 # Supersede spec

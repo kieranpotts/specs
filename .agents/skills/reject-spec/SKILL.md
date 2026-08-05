@@ -4,10 +4,8 @@ description: >-
   Reject a proposal. Use this skill when the user says something like
   "reject this proposal", "this proposal was not approved", "reject <slug>",
   or "reject <pr-number>".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Reject spec

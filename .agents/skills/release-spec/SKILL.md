@@ -5,10 +5,8 @@ description: >-
   production. Use this skill when the user says something like
   "release this proposal", "this proposal is live", "the implementation
   shipped", "release <slug>", or "release <pr-number>".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Release spec

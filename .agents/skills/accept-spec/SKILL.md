@@ -4,10 +4,8 @@ description: >-
   Approve a proposal. Use this skill when the user says something like
   "accept this proposal", "approve this proposal", "mark this proposal as
   accepted", "accept spec for <slug>", or "accept <pr-number>".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Accept spec
