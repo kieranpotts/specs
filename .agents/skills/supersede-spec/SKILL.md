@@ -1,157 +1,146 @@
 ---
 name: supersede-spec
 description: >-
-  Supersede a previously-released proposal once a later proposal has
-  replaced or removed its feature. Use this skill when the user says something
-  like "supersede this proposal", "this proposal is superseded by ...", or
-  otherwise wishes to retire a released feature in favor of a newer one.
-compatibility: requires Read, Edit, Bash (git/gh)
+  Retire a released proposal once a later released proposal has replaced or
+  removed its feature, setting the reciprocal cross-references and updating
+  the proposal index. Use when the user says something like "supersede this
+  proposal", "this proposal is superseded by ...", or otherwise wishes to
+  retire a released feature in favor of a newer one. Do not use it to author
+  the successor proposal or to edit the specification.
+compatibility: >-
+  requires Read, Edit, Bash (git, gh)
 license: CC0-1.0
 ---
 
 # Supersede spec
 
-Use this skill to move a proposal from `RELEASED` to `SUPERSEDED`, once a
-later, released proposal has replaced or removed its feature. This is the
-only transition out of `#released`. The superseded document remains in
-`proposals/` permanently as part of the historical record; nothing is
-deleted.
-
-A released proposal is already merged into `main`, so its document is
-immutable — only its `Status` field, `Last updated` date, and the
-`Superseded by` cross-reference may change. The actual specification edits
-that remove or replace the feature ride on the successor proposal's own
-pull request, through its normal `DRAFT` → … → `RELEASED` cycle; this
-skill does not touch `specification/`.
+Move a proposal from `RELEASED` to `SUPERSEDED`, once a later released
+proposal has replaced or removed its feature. Update only the status, the
+`Superseded by` cross-reference, and the index row. Do not touch
+`specification/` — those edits ride on the successor's own pull request.
 
 ## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible.
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- **The proposal being superseded and its successor — REQUIRED.** Infer both
-  from the user's description (eg. "X is superseded by Y"), or prompt for
-  them.
+- **The proposal being superseded — REQUIRED.** A released proposal, given by
+  slug, index number, or description. Infer it from a phrasing such as "X is
+  superseded by Y", or prompt for it.
+
+- **The successor proposal — REQUIRED.** The later released proposal that
+  replaced or removed the feature. There is no standalone supersession, so
+  prompt for it if it is not clear from context.
 
 ## Success criteria
 
-<!-- The superseded proposal's document updated to `Status: SUPERSEDED` with a
-`Superseded by` link, the `proposals/INDEX.md` row updated, and its
-original PR carrying `#superseded`. -->
+- The superseded `proposals/<slug>/README.md` MUST read
+  `Status: SUPERSEDED`, with `Superseded by` linking the successor's index
+  number and `Last updated` set to today's date.
 
-- `Status` MUST be `SUPERSEDED`, `Last updated` MUST be today's date, and
-  `Superseded by` MUST link the successor.
+- The successor's `Supersedes` field MUST link back to this proposal's index
+  number, so the cross-references are reciprocal.
 
-- The successor's `Supersedes` field MUST link back to this proposal.
+- The superseded proposal's row in `proposals/INDEX.md` MUST read
+  `Superseded`.
 
-- The `proposals/INDEX.md` row for this proposal MUST read `SUPERSEDED`.
+- The superseded proposal's original pull request MUST carry `#superseded`
+  alongside its type label, and MUST NOT carry `#released`.
 
-- The PR MUST carry `#superseded` (and its type label), not `#released`.
+- The change MUST be committed directly to `main` and pushed. An unpushed
+  supersession leaves the archive claiming a retired feature is still in
+  effect.
 
-- Files under `specification/` MUST NOT be changed by this skill.
+- Files under `specification/` MUST NOT have been changed, and no proposal
+  document MUST have been deleted or renumbered.
 
 ## Instructions
 
 1.  Identify both proposals.
 
-    The released proposal being superseded, and the later released
-    proposal that replaces or removes its feature. Ask the user for both
-    if they are not clear from context. If the user gave a short
-    description (eg. "X is superseded by Y"), use it to infer both.
+    Read `proposals/<slug>/README.md` for the proposal being superseded, and
+    confirm its `Status` reads `RELEASED` and its pull request carries
+    `#released`:
 
-    Read `proposals/<slug>/README.md` for the proposal being superseded;
-    confirm its `Status` is `RELEASED` and the PR carries `#released`
-    (`gh pr view <number> --json labels`). Confirm the successor is itself
-    `RELEASED` and is the newer of the two.
+    ```sh
+    gh pr view <number> --json labels
+    ```
 
-2.  Verify the rules.
+    Confirm the successor is itself `RELEASED`, and that it carries the
+    higher `proposals/INDEX.md` number of the two.
 
-    Report any unmet rule and stop.
+2.  Verify every rule below. Report any that are unmet, and stop without
+    changing anything.
 
-3.  Update the superseded document and the index.
+3.  Update the superseded document, on `main`.
 
     - Set `Status` to `SUPERSEDED` and `Last updated` to today's date.
-    - Set the `Superseded by` cross-reference to the successor proposal.
-    - In [`proposals/INDEX.md`](../../../proposals/INDEX.md), change this
-      proposal's row status to `SUPERSEDED`.
+    - Set `Superseded by` to the successor's index number.
+    - Change nothing else; the document is otherwise immutable, and it keeps
+      the number it was given at release.
 
-    Change nothing else in the document — it is otherwise immutable. Do
-    not assign a new number; the proposal keeps the number it was given at
-    release.
+4.  Update the superseded proposal's row in
+    [`proposals/INDEX.md`](../../../proposals/INDEX.md) to read
+    `Superseded`.
 
-4.  Confirm the successor links back.
+5.  Confirm the successor's `Supersedes` field links back to this proposal.
+    The successor is edited through its own pull request, so if the back-link
+    is missing, flag it to the user rather than editing the successor here.
 
-    Ensure the successor proposal's `Supersedes` field references this
-    proposal. The successor is edited through its own pull request; if the
-    back-link is missing, flag it.
-
-5.  Switch the state label on the old proposal.
-
-    On the superseded proposal's original pull request:
+6.  Swap the lifecycle label on the superseded proposal's original pull
+    request, leaving the type label in place.
 
     ```sh
     gh pr edit <number> --add-label "#superseded" --remove-label "#released"
     ```
 
-6.  Land the document change.
-
-    Commit the edit to the superseded document and its index row directly to
-    `main`, and push. Both proposals are already merged, and every field
-    touched here is one of the few a merged proposal may still change — so
-    there is nothing for a pull request to review:
+7.  Commit directly to `main` and push.
 
     ```sh
     git checkout main
     git pull --rebase
-    git commit -am "chore: supersede <short lowercase proposal description>"
+    git commit -am "chore: supersede <short lowercase description>"
     git push
     ```
 
-    The push is mandatory. An unpushed supersession leaves the archive
-    claiming the old proposal is still in effect.
+8.  Report the transition.
 
 ## Rules
 
-- You MUST supersede only from `RELEASED`.
+- You MUST supersede only from `RELEASED`. A draft, proposed, accepted, or
+  rejected proposal was never in effect, so there is nothing to retire.
 
-  A draft, proposed, accepted, or rejected proposal cannot be superseded.
+- A successor proposal MUST exist and MUST itself be `RELEASED`, and MUST be
+  the newer of the two — a higher `proposals/INDEX.md` number.
 
-- A later proposal MUST have replaced or removed the feature.
+  A proposal that has not shipped cannot retire a feature that is still live
+  for real users. There is no standalone supersession.
 
-  That successor proposal is itself `RELEASED` — a draft, proposed,
-  accepted, or rejected proposal cannot supersede a released one, because
-  the change is not yet live for real users. The successor MUST be the
-  newer of the two (a higher `proposals/INDEX.md` number).
+- The cross-references MUST be reciprocal: `Superseded by` on the old
+  proposal, `Supersedes` on the successor. A one-way link leaves the archive
+  ambiguous about which proposal is in effect.
 
-- The cross-references MUST be reciprocal.
+- The change MUST be committed directly to `main`, and pushed.
 
-  The superseded proposal's `Superseded by` field links the successor, and
-  the successor's `Supersedes` field links back to this one.
-
-- A successor proposal MUST exist.
-
-  Superseding is always driven by a later, released proposal that
-  replaces or removes the feature. There is no standalone supersession.
-
-- The cross-reference change MUST be committed directly to `main`, and
-  pushed.
-
-  Both proposals are already merged. The only fields this skill touches —
+  Both proposals are already merged, and the fields this skill touches —
   `Status`, `Last updated`, `Superseded by`, and the index row — are among
   the few a merged proposal may still change, so a pull request would have
   nothing to review. This matches how proposal numbers are assigned at
   release and rejection, which also commit straight to `main`.
 
-  The specification edits that remove or replace the feature are a separate
-  matter: those ride on the successor proposal's own pull request.
+- You MUST NOT edit files under `specification/`. The edits that remove or
+  replace the feature belong to the successor proposal's own pull request,
+  and landed there when it was released.
 
-- The document MUST remain immutable except for the cross-reference.
+- You MUST NOT delete or renumber the proposal document. Superseded proposals
+  are archived permanently in `proposals/` as part of the historical record.
 
-  Only the `Status` field, `Last updated` date, and the `Superseded by`
-  link may change. Do not touch `specification/` — the spec edits belong
-  to the successor proposal's pull request.
+## Edge cases
 
-- You MUST NOT delete the proposal document.
+- The successor's `Supersedes` field is missing or points elsewhere.
 
-  Superseded proposals are permanently archived in `proposals/` as part
-  of the historical record.
+  Complete the supersession and flag the gap, naming the successor and the
+  field to fix. The successor's document is immutable except for
+  cross-references, so the back-link can be added by a separate direct commit
+  to `main` — but that is the user's call, not an edit to make silently.

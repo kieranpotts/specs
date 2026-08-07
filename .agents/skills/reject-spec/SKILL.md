@@ -1,91 +1,95 @@
 ---
 name: reject-spec
 description: >-
-  Reject a proposal. Use this skill when the user says something like
-  "reject this proposal", "this proposal was not approved", "reject <slug>",
-  or "reject <pr-number>".
-compatibility: requires Read, Edit, Bash (git/gh)
+  Revert a proposal's specification edits and land the proposal document in
+  the `main` trunk as a permanent record of the decision not to proceed. Use
+  when the user says something like "reject this proposal", "this proposal was
+  not approved", "reject <slug>", or "reject <pr-number>". Do not use it to
+  delete a proposal or to close one that was never proposed.
+compatibility: >-
+  requires Read, Edit, Bash (git, gh)
 license: CC0-1.0
 ---
 
 # Reject spec
 
-Use this skill to move a proposal from `PROPOSED` to `REJECTED`. The key
-distinction from acceptance is that the specification edits MUST be reverted
-before merge, so only the proposal document itself is added to `main`. The
-decision and its rationale are preserved permanently; the system is
-unchanged.
+Move a proposal from `PROPOSED` to `REJECTED`: revert the specification edits,
+record the decision on the proposal document, squash-merge it into `main`,
+close the discussion thread, and assign the proposal its number. The decision
+and its rationale are preserved permanently; the system is left unchanged.
 
 ## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible.
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- **Target — REQUIRED.** Infer the proposal from the checked-out branch
+- **Target proposal — REQUIRED.** Infer it from the checked-out branch
   (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
   description, or list the open `#proposed` pull requests and ask the user to
   choose.
 
-- **Explicit confirmation that the decision is to reject — REQUIRED.**
+- **Explicit confirmation that the decision is to reject — REQUIRED.** Never
+  infer a rejection from a lukewarm discussion. Ask the user outright before
+  touching anything.
+
+- **Explicit instruction to merge — REQUIRED.** Confirm with the user before
+  merging. A merged proposal is immutable.
 
 ## Success criteria
 
-<!-- The specification edits reverted, the proposal document updated to `Status:
-REJECTED`, the PR carrying `#rejected` and squash-merged into `main`, its
-discussion thread closed, and a new numbered row appended to
-`proposals/INDEX.md`. -->
+- `git diff main --name-only -- specification/` MUST return nothing on the
+  branch once the revert is complete.
 
-- Files under `specification/` MUST NOT be changed on this branch relative
-  to `main` after the revert.
+- `proposals/<slug>/README.md` MUST read `Status: REJECTED`, with
+  `Decision date` set to the rejection date and `Last updated` set to today's
+  date.
 
-- The PR MUST carry `#rejected` (and its type label), the `Status` header
-  field MUST read `REJECTED`, and `Last updated` MUST be today's date.
+- The document MUST record the rationale for the rejection, since it is the
+  only lasting artifact of the decision.
 
-- The associated discussion thread MUST be closed.
+- The pull request MUST carry `#rejected` alongside its type label, and MUST
+  NOT carry `#proposed`.
 
-- The proposal document MUST be squash-merged into `main`.
+- The proposal document MUST be squash-merged into `main`, under the message
+  `<type>: <short lowercase description> - REJECTED`.
 
-- After merge, a `proposals/INDEX.md` entry MUST be added on `main`, with
+- The discussion thread MUST be closed as resolved.
+
+- `proposals/INDEX.md` on `main` MUST carry a new row for this proposal, with
   the next sequential number and `Rejected` status.
 
-- The user MUST have explicitly confirmed the rejection decision before any
-  changes were made.
+- The proposal document MUST NOT have been deleted, and its directory MUST
+  NOT have been renamed.
 
 ## Instructions
 
-1.  Confirm the proposal and the decision.
+1.  Identify the proposal and confirm the decision.
 
-    Infer the target from the current checked-out branch (`proposal/<slug>`
-    or `epic/<slug>`). If on `main`, use the user's description to infer the
-    target proposal if they gave one; otherwise list the open `#proposed`
-    pull requests and ask the user to choose:
+    Infer the target from the checked-out branch. If on `main`, use the
+    user's description, or list the open `#proposed` pull requests and ask
+    the user to choose:
 
     ```sh
     gh pr list --label "#proposed" --json number,title,headRefName
     ```
 
-    Identify the document and PR. Confirm with the user that review is
-    concluded and the decision is to reject. Do not proceed until this is
-    explicit.
+    Read `proposals/<slug>/README.md`, check `Status` reads `PROPOSED`, and
+    confirm with the user that review is concluded and the decision is to
+    reject. Do not proceed until that is explicit.
 
-2.  Verify the rules.
+2.  Verify every rule below. Report any that are unmet, and stop without
+    changing anything.
 
-    Report any unmet rule and stop.
-
-3.  Identify the specification edits to revert.
-
-    List all changes to `specification/` introduced by this branch relative
-    to `main`, and present them to the user for confirmation before
-    reverting:
+3.  List the specification edits this branch introduced, and present them to
+    the user for confirmation before reverting anything.
 
     ```sh
     git diff main --name-only -- specification/
     ```
 
-4.  Revert the specification edits.
-
-    Restore the `main` version of each changed file, and delete any files
-    this branch added:
+4.  Revert those edits: restore the `main` version of each changed file, and
+    delete any file the branch added.
 
     ```sh
     git checkout main -- specification/<path/to/file>
@@ -98,57 +102,46 @@ discussion thread closed, and a new numbered row appended to
     - Set `Status` to `REJECTED` and `Last updated` to today's date.
     - Set `Decision date` to the date the rejection was decided.
     - Ensure the document captures the rationale for the rejection.
-    - Do not alter any other field — the document is immutable after this
-      point.
+    - Change nothing else — the document is immutable from here on.
 
-6.  Apply the label.
+6.  Swap the lifecycle label, leaving the type label in place.
 
     ```sh
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-7.  Commit and push.
-
-    The push is mandatory: the merge in the next step lands the *remote*
-    branch, so an unpushed commit would leave `Status: REJECTED` and the
-    reverted specification edits behind.
+7.  Commit and push. The push is mandatory: the next step merges the remote
+    branch, so an unpushed commit would land the un-reverted specification
+    edits.
 
     ```sh
     git add proposals/ specification/
-    git commit -m "chore: reject <short lowercase proposal description>"
+    git commit -m "chore: reject <short lowercase description>"
     git push
     ```
 
-    The PR should now contain only the proposal document (no spec changes).
+    The pull request should now show only the proposal document, with no
+    changes under `specification/`.
 
-8.  Merge the pull request.
-
-    Confirm with the user that the PR is ready to merge into `main` — do not
-    merge without explicit instruction. Once confirmed, squash-merge it with
-    the message `<type>: <short lowercase proposal description> - REJECTED`
-    (where `<type>` is `feature`, `quality`, or `epic`), and delete the
-    source branch on the upstream repository:
+8.  Confirm with the user that the pull request is ready to merge, then
+    squash-merge it and delete the source branch.
 
     ```sh
-    gh pr merge <number> --squash --subject "<type>: <short lowercase proposal description> - REJECTED" --delete-branch
+    gh pr merge <number> --squash --subject "<type>: <short lowercase description> - REJECTED" --delete-branch
     ```
 
-9.  Delete the branch, if it was not deleted automatically.
+    `<type>` is `feature`, `quality`, or `epic`, in lowercase.
 
-    In case the branch was not automatically deleted from the upstream
-    repository, delete it directly:
+9.  If the branch survived the merge, delete it directly.
 
     ```sh
     git push origin --delete proposal/<slug>   # or epic/<slug>
     ```
 
-10. Close the associated discussion thread.
+10. Close the discussion thread as resolved. `gh` has no native discussion
+    command, so look up the node ID and close it via the GraphQL API.
 
-    The proposal has merged, so its discussion is now closed. Find the
-    discussion linked in the `Discussion thread` field and close it as
-    resolved via the GraphQL API:
-
-    ```gh
+    ```sh
     gh api graphql -f query='
       query($owner:String!, $name:String!, $number:Int!) {
         repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
@@ -160,56 +153,61 @@ discussion thread closed, and a new numbered row appended to
       }' -F id=<discussionId>
     ```
 
-11. After merge, assign the number.
+11. Assign the proposal its number, on `main`.
 
-    The proposal number is assigned only after merge. A rejected proposal
-    is archived in the ordered log like any other, so it takes the next
-    number. On `main`, find the highest number in
-    [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment by one,
-    and zero-pad to four digits. Add a row — its number, title, type,
-    `Rejected` status, the decision date (its `Decision date`, ie. the
-    rejection date), and a link to its directory (`proposals/<slug>/`). The
-    proposal directory is never renamed.
-
-    Commit this directly to `main`, and push:
+    A rejected proposal is archived in the ordered log like any other, so it
+    takes the next number. Find the highest number in
+    [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment it, and
+    zero-pad to four digits. Add a row carrying the number, the title, the
+    type (`Feature`, `Quality`, or `Epic`), the `Rejected` status, and the
+    proposal's `Decision date`, linking the number to `proposals/<slug>/`.
 
     ```sh
-    git commit -am "chore: assign next proposal number"
+    git checkout main
+    git pull --rebase
+    git commit -am "chore: assign proposal <number>"
     git push
     ```
 
+12. Report the transition.
+
 ## Rules
 
-- You MUST NOT delete the proposal document.
+- You MUST reject only from `PROPOSED`. There is no path to rejection from a
+  draft — an unwanted draft is simply abandoned, and its branch closed.
 
-  Rejected proposals are permanently archived in `proposals/` as the record
-  of the decision and its rationale.
+- Stakeholder review MUST have concluded, with consensus that the proposal
+  should not be implemented.
 
-- Stakeholder review MUST have concluded.
+- You MUST NOT delete the proposal document. Rejected proposals are archived
+  permanently in `proposals/` as the record of the decision and its
+  rationale, which is the whole point of merging one.
 
-  Feedback gathered from all relevant stakeholders.
+- The document MUST be a complete record before merge: `Motivation`,
+  `Proposed change`, `Alternatives`, and `Tradeoffs and risks` are all
+  substantive. A future reader needs to understand what was turned down and
+  why.
 
-- There MUST be consensus the proposal should not be implemented.
+- You MUST revert the specification edits precisely, touching only the
+  changes this branch introduced. `main` describes production, which this
+  decision leaves unchanged.
 
-- The document MUST be a complete record.
-
-  `Motivation`, `Proposed change`, `Alternatives`, and `Tradeoffs and
-  risks` are substantive — the document will be archived permanently as the
-  record of this decision.
-
-- You MUST revert spec edits precisely.
-
-  Only revert changes introduced by this branch; do not touch unrelated
-  changes.
-
-- The document MUST be treated as immutable after `#rejected`.
-
-  To revisit the decision, open a new proposal that supersedes this one.
-
-- You MUST push before merging.
-
-  `gh pr merge` merges what is on the remote. The status change and the
-  reverted specification edits MUST both be on the remote branch before the
-  merge, or the merge will land the un-reverted spec changes.
+- You MUST push before merging. `gh pr merge` merges what is on the remote,
+  so an unpushed revert would land the specification edits after all.
 
 - You MUST NOT merge without explicit instruction from the user.
+
+- You MUST assign the number in `proposals/INDEX.md` only after the merge,
+  and MUST commit it directly to `main`. The number is not part of the
+  proposal, so it is not part of what the pull request reviewed.
+
+- The document MUST be treated as immutable once merged. To revisit the
+  decision, open a new proposal.
+
+## Edge cases
+
+- The branch touched files outside `specification/` and `proposals/<slug>/`.
+
+  Report them and stop. This skill reverts specification edits only; an
+  unexpected change elsewhere means the branch carried more than one concern
+  and needs untangling by hand first.

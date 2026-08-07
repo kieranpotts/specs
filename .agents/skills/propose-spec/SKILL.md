@@ -1,148 +1,158 @@
 ---
 name: propose-spec
 description: >-
-  Remove the draft status from a proposal's pull request, making it ready for
-  stakeholder review. Use this skill when the user says something like
-  "this proposal is ready for review", "mark the proposal ready",
-  "take this out of draft", "propose <slug>", or "propose <pr-number>".
-compatibility: requires Read, Edit, Bash (git/gh)
+  Check that a draft proposal and its specification edits are complete, then
+  take its pull request out of draft for stakeholder review. Use when the user
+  says something like "this proposal is ready for review", "mark the proposal
+  ready", "take this out of draft", "propose <slug>", or "propose
+  <pr-number>". Do not use it to write the proposal or to decide it.
+compatibility: >-
+  requires Read, Edit, Bash (git, gh)
 license: CC0-1.0
 ---
 
 # Propose spec
 
-Use this skill to move a proposal from `DRAFT` to `PROPOSED`: confirm the
-document and specification edits are complete, apply the `#proposed` label,
-and remove the pull request's draft status so stakeholders can review it.
+Move a proposal from `DRAFT` to `PROPOSED`: confirm the proposal document and
+the specification edits are complete, set the status, apply the `#proposed`
+label, and take the pull request out of draft. Do not fill in gaps in the
+proposal yourself, and do not decide it.
 
 ## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible.
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- **Target — REQUIRED.** Infer the proposal from the checked-out branch
-  (`proposal/<slug>` or `epic/<slug>`). If on `main`, list open draft pull
-  requests and ask the user to choose.
+- **Target proposal — REQUIRED.** Infer it from the checked-out branch
+  (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
+  description, or list the open draft pull requests and ask the user to
+  choose.
 
 ## Success criteria
 
-<!-- The proposal document updated to `Status: PROPOSED`, the PR carrying
-`#proposed` and taken out of draft. -->
+- `proposals/<slug>/README.md` MUST read `Status: PROPOSED`, with
+  `Last updated` set to today's date.
 
-- The PR MUST no longer be a draft (`isDraft: false`).
+- The pull request MUST report `isDraft: false`.
 
-- The `#proposed` label MUST be applied, alongside the type label.
+- The pull request MUST carry `#proposed` alongside its single type label.
 
-- `Last updated` MUST be today's date and `Status` MUST be `PROPOSED`.
+- The status change MUST be pushed, because reviewers read the proposal from
+  the remote branch.
+
+- No decision MUST have been recorded: `Decided by` and `Decision date` stay
+  blank, and the proposal MUST NOT have been merged.
 
 ## Instructions
 
-1.  Identify the proposal and its PR.
+1.  Identify the proposal and its pull request.
 
-    Infer the target from the current checked-out branch (`proposal/<slug>`
-    or `epic/<slug>`). If on `main`, list all open draft pull requests and
-    ask the user to choose:
+    Infer the target from the checked-out branch. If on `main`, use the
+    user's description, or list the open draft pull requests and ask the user
+    to choose:
 
     ```sh
     gh pr list --draft --json number,title,headRefName
     ```
 
-    Then checkout the branch, read the proposal document
-    (`proposals/<slug>/README.md`), and confirm its PR (`gh pr view <number>
-    --json isDraft,labels`) if needed.
+    Check out the branch, read `proposals/<slug>/README.md` in full, and
+    confirm the pull request state:
 
-2.  Verify the rules.
+    ```sh
+    gh pr view <number> --json isDraft,labels
+    ```
 
-    Read the document in full, check each rule, and report any failures.
-    Stop if unmet.
+2.  Verify every rule below. Report any that are unmet, and stop without
+    changing anything.
 
-3.  Update the document.
+3.  Confirm the specification edits are present and match the document's
+    `Proposed change` section.
 
-    Set `Status` to `PROPOSED` and `Last updated` to today's date.
+    ```sh
+    git diff main --name-only -- specification/
+    ```
 
-4.  Apply the `#proposed` label.
+4.  Update the document: set `Status` to `PROPOSED` and `Last updated` to
+    today's date.
+
+5.  Apply the `#proposed` label, leaving the type label in place. There is no
+    `#draft` label to remove — the draft state is the pull request's own
+    draft flag.
 
     ```sh
     gh pr edit <number> --add-label "#proposed"
     ```
 
-    Leave the type label in place. (There is no `#draft` label to remove —
-    the draft state is the pull request's own draft flag.)
-
-5.  Remove the draft status.
+6.  Take the pull request out of draft.
 
     ```sh
     gh pr ready <number>
     ```
 
-6.  Commit any document change.
+7.  Commit and push the document change.
 
     ```sh
-    git commit -am "chore: mark <short lowercase proposal description> ready for review"
+    git commit -am "chore: mark <short lowercase description> ready for review"
     git push
     ```
 
-7.  Hand off to stakeholder review and the decision.
-
-    The proposal is now `PROPOSED` and open for review, with feedback
-    gathered in its discussion thread. The next transition is the decision:
-    once stakeholders agree, use [`/accept-spec`](../accept-spec/SKILL.md) to
-    move it to `ACCEPTED`; if it will not be taken forward, use
-    [`/reject-spec`](../reject-spec/SKILL.md). Both are out-of-scope for
-    this skill.
+8.  Report the transition, and remind the user that review feedback belongs
+    in the proposal's discussion thread rather than in the pull request
+    comments. The next transition is the stakeholders' decision, which is
+    out-of-scope for this skill.
 
 ## Rules
 
-- You MUST NOT mark a PR ready until the document and spec edits are
-  complete.
-
-  An incomplete or boilerplate-laden proposal wastes reviewers' time. The
-  completeness gate is mandatory.
-
-- The document MUST be reasonably complete.
-
-  Every required section contains substantive, change-specific content —
-  not the generic placeholder prose carried over from `TEMPLATE.md`:
+- The proposal document MUST be substantive in every required section, with
+  no generic prose carried over from `proposals/TEMPLATE.md`:
 
   - `Summary` — a concise description of the change.
-  - `Motivation` — the problem and who it affects.
+  - `Motivation` — the problem, and who it affects.
   - `Impact` — `HIGH`, `MEDIUM`, or `LOW`, plus what is affected.
-  - `Proposed change` — which specification artifacts are added, modified,
-    or removed.
+  - `Proposed change` — which specification artifacts are added, modified, or
+    removed.
   - `Alternatives` — at least one alternative considered.
   - `Tradeoffs and risks` — an honest account of the downsides.
 
-- The specification edits MUST be present and coherent.
+- No unfilled template tokens (`#...`, `YYYY-MM-DD`, `NNNN`) or placeholder
+  prompts MUST remain in any completed section.
 
-  The branch actually edits `specification/` to describe the intended end
-  state, and those edits match the `Proposed change` section. Run `git diff
-  main --name-only -- specification/` to confirm.
+- The branch MUST edit `specification/` to describe the intended end state,
+  and those edits MUST match the `Proposed change` section.
 
-  - For `features/` files: scenarios are valid Gherkin, each a concrete
-    acceptance criterion.
-  - For `qualities/` files: requirements are measurable thresholds, not
-    aspirations.
+  Scenarios under `features/` MUST be valid Gherkin, each a concrete
+  acceptance criterion. Requirements under `qualities/` MUST be measurable
+  thresholds, not aspirations.
 
-- There MUST be no leftover template text.
+- The metadata header MUST be filled in: `Authors`, `Created`,
+  `Last updated`, `Proposal PR`, and `Discussion thread` are all set, and
+  `Status` still reads `DRAFT` before this skill advances it.
 
-  No italic placeholder prompts and no unfilled tokens (`#...`,
-  `YYYY-MM-DD`) remain in any completed section.
+- The pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`,
+  or `EPIC`.
 
-- The metadata header MUST be filled in.
+- You MUST NOT take the pull request out of draft while any of the above is
+  unmet. An incomplete proposal wastes reviewers' time, and this readiness
+  gate is the only thing standing between the two.
 
-  `Authors`, `Created`, `Last updated`, and `Proposal PR` are set; `Status`
-  is `DRAFT` (this skill advances it to `PROPOSED`); the `Discussion thread`
-  field links the thread.
+- You MUST NOT write or complete the proposal yourself. Where a section is
+  thin, report it and stop; the proposer fills the gap.
 
-- There MUST be exactly one type label on the PR.
+- You MUST move the proposal only forward, `DRAFT` → `PROPOSED`. This skill
+  does not decide the proposal, and the lifecycle permits no backwards move.
 
-  `FEATURE`, `QUALITY`, or `EPIC`.
+## Edge cases
 
-- This skill MUST only move a proposal forward, from `DRAFT` to `PROPOSED`.
+- The branch has no changes under `specification/`.
 
-  This skill only moves `DRAFT` → `PROPOSED`. It does not decide the
-  proposal.
+  Stop and report it. A proposal with no specification edits describes no end
+  state, so there is nothing for stakeholders to review. The one case worth
+  checking before rejecting outright is a proposal that only withdraws a
+  requirement — that still shows as a deletion in the diff.
 
 ## References
 
-- [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md)
+- [Pull request checklist](../../../.github/PULL_REQUEST_TEMPLATE.md) \
+  Read when confirming the pull request is complete before taking it out of
+  draft.

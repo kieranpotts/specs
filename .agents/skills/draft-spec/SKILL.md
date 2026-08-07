@@ -1,97 +1,89 @@
 ---
 name: draft-spec
 description: >-
-  Draft a new proposal for a change to the software requirements
-  specification, opening it as a draft pull request. Use this skill when the
-  user wants to propose a new feature or make a change to a non-functional
-  requirement, or says something like "draft a proposal", "new proposal",
-  or "start a proposal".
-compatibility: requires Read, Write, Edit, Bash (git/gh)
+  Scaffold the branch, proposal document, draft pull request, and discussion
+  thread for a proposed change to the software requirements specification. Use
+  when the user wants to propose a new feature or a change to a non-functional
+  requirement, or says something like "draft a proposal", "new proposal", or
+  "start a proposal". Do not use it to write the body of the proposal or to
+  edit the specification artifacts.
+compatibility: >-
+  requires Read, Write, Edit, Glob, Grep, Bash (git, gh)
 license: CC0-1.0
 ---
 
 # Draft spec
 
-Use this skill to start a new proposal: draft the branch and document
-from the template, then open a draft pull request with the artifacts in
-place, ready for the user to complete.
-
-This is the entry point to the requirement proposal lifecycle. The PR
-stays a draft while the user writes it.
+Scaffold a new proposal: cut the branch, copy the template into
+`proposals/<slug>/`, open a draft pull request, and link a discussion thread.
+Do not write the substance of the proposal, and do not edit `specification/`.
 
 ## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible.
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- **A description of the proposed specification change — REQUIRED.** Prompt
-  the user if not provided.
+- **A description of the proposed change — REQUIRED.** A short statement of
+  the new or changed requirement, in the user's own words. Prompt for it if
+  the user has not given one.
 
-- **The change type (`FEATURE`, `QUALITY`, or `EPIC`) — OPTIONAL**, inferred
-  from the description if possible.
+- **Change type — OPTIONAL.** One of `FEATURE`, `QUALITY`, or `EPIC`. Infer
+  it from the description where you can, and ask the user when the
+  description is genuinely ambiguous.
 
-- **A PRD, if one exists — OPTIONAL.**
+- **A product-requirements document (PRD) — OPTIONAL.** The business-language
+  statement of need this proposal is specified from. When absent, the
+  proposal has no origin document and the `Origin` field is removed.
 
 ## Success criteria
 
-<!-- A `proposal/<slug>` (or `epic/<slug>`) branch, with
-`proposals/<slug>/README.md` created from the template and its metadata
-header filled in (`Status: DRAFT`), committed to a draft pull request
-opened against `main`, carrying exactly one type label, with a linked
-discussion thread. -->
+- Branch `proposal/<slug>` (or `epic/<slug>` for an epic) MUST exist and MUST
+  be checked out.
 
-- Branch `proposal/<slug>` MUST exist and MUST be checked out.
+- `proposals/<slug>/README.md` MUST exist, copied from
+  `proposals/TEMPLATE.md`, with its metadata header filled in and `Status`
+  reading `DRAFT`.
 
-- `proposals/<slug>/README.md` MUST exist, a copy of `TEMPLATE.md` with the
-  metadata header filled in and `Status: DRAFT`.
+- If a PRD was supplied, `proposals/<slug>/product-requirements.md` MUST hold
+  it verbatim and the `Origin` field MUST link it; otherwise the `Origin`
+  field MUST have been removed.
 
-- If a PRD was supplied, `proposals/<slug>/product-requirements.md` MUST
-  exist, holding it verbatim, and the `Origin` field MUST link it; if no PRD
-  was supplied, the `Origin` field MUST be removed.
+- A draft pull request MUST be open, titled `<type>: <short lowercase
+  description>`, carrying exactly one type label and no lifecycle label.
 
-- A draft pull request MUST be open, titled `feature: <short lowercase
-  proposal description>`, `quality: …`, or `epic: …`, carrying exactly one
-  type label and no lifecycle label.
+- A discussion thread MUST be open, linked from the document's `Discussion
+  thread` field and from the pull request body.
 
-- An associated discussion thread MUST be open, linked from the document's
-  `Discussion thread` field and from the PR.
+- The `Proposal PR` field MUST name the pull request, because the readiness
+  gate later in the lifecycle requires it.
 
-- The user MUST have been directed to author the specification content
-  directly, following
-  [`docs/best-practices.md`](../../../docs/best-practices.md) and the
-  `specification/requirements/` subdirectory READMEs.
+- Files under `specification/` MUST NOT have been edited — this skill
+  scaffolds the proposal only, and the specification edits are authored
+  afterwards.
 
 ## Instructions
 
-1.  Capture the description of the proposed specification change.
+1.  Capture the description of the proposed change, and prompt the user for
+    it if they did not supply one.
 
-    If the user did not explicitly input this information, prompt them for
-    it.
+2.  Derive a short, descriptive slug from it.
 
-2.  Create a short, descriptive slug.
+    For example, a change setting a maximum session duration before
+    re-authentication gives the description "user session timeout" and the
+    slug "user-session-timeout". Confirm with the user if you are unsure.
 
-    For example, for a behavioral change that sets a maximum duration for a
-    user session before re-authentication is required, the short
-    description may be "user session timeout" and its URL slug
-    "user-session-timeout". Confirm with the user if you're not sure what
-    is appropriate.
+3.  Determine the change type. Exactly one applies:
 
-3.  Determine the change type.
+    - `FEATURE`: a new or changed functional requirement.
+    - `QUALITY`: a new or changed non-functional requirement.
+    - `EPIC`: a large-scale initiative spanning multiple feature and quality
+      proposals.
 
-    A specification change MUST be exactly one of the following types:
+    Ask the user if the description does not settle it.
 
-    - `FEATURE`: A new or changed functional requirement.
-    - `QUALITY`: A new or changed non-functional requirement.
-    - `EPIC`: A large-scale initiative spanning multiple feature and
-      quality proposals.
-
-    Determine which is the most appropriate category from the
-    description. If you're not sure, ask the user.
-
-4.  Create the branch.
-
-    For `FEATURE` and `QUALITY` proposals use a `proposal/<slug>` branch;
-    for `EPIC` proposals use `epic/<slug>`:
+4.  Create the branch. Use `proposal/<slug>` for `FEATURE` and `QUALITY`
+    proposals, and `epic/<slug>` for `EPIC` proposals.
 
     ```sh
     git checkout main
@@ -99,56 +91,39 @@ discussion thread. -->
     git checkout -b proposal/<slug>   # or epic/<slug>
     ```
 
-5.  Create the proposal directory from the template.
+5.  Copy `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`.
 
-    Copy `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`.
-
-    The proposal lives in its own directory, so the user can add supporting
-    artifacts (wireframes, mock-ups, data) alongside the `README.md` and
+    The proposal lives in its own directory so the user can add supporting
+    artifacts — wireframes, mock-ups, data — alongside the `README.md` and
     link them from its `References` section.
 
 6.  Preserve the originating PRD, if there is one.
 
-    If a product-requirements document (PRD) was supplied as the input for
-    this proposal — a discovery report, or any business-language statement
-    of the requirement — write it verbatim to
-    `proposals/<slug>/product-requirements.md`, alongside the `README.md`.
-    This is the proposal's origin: the need it was specified from,
-    preserved for posterity.
+    Write it verbatim to `proposals/<slug>/product-requirements.md`, beside
+    the `README.md`. Save it as-supplied: do not edit, summarize, or reformat
+    it. Its worth is that it captures the requirement exactly as it arrived,
+    before specification.
 
-    The PRD is a frozen input. Save it as-supplied and do not edit,
-    summarize, or reformat it — its value is that it captures the
-    requirement exactly as it arrived, before specification. The proposal
-    (`README.md`) and the specification edits evolve; this file does not.
+    Where no PRD exists — the change is small enough to specify directly, or
+    originates from a bug or an internal decision — skip this step.
 
-    If no PRD exists (the change is small enough to specify directly, or
-    originates from a bug or internal decision rather than a stated
-    requirement), skip this step and remove the `Origin` field from the
-    metadata header.
+7.  Fill in the metadata header:
 
-7.  Fill in the metadata header.
-
-    - `Authors`: the Git user's name and GitHub handle (run `git config
+    - `Authors`: the Git user's name and GitHub handle (`git config
       user.name` if needed).
-    - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
+    - `Created` and `Last updated`: today's date, `YYYY-MM-DD`.
     - `Status`: `DRAFT`.
-    - `Origin`: `./product-requirements.md` if a PRD was preserved in step
-      6; otherwise remove the field.
+    - `Origin`: `./product-requirements.md` if a PRD was preserved in step 6;
+      otherwise remove the field.
     - Leave `Decided by`, `Decision date`, and `Implementation trackers`
-      blank or as placeholders. `Proposal PR` is filled in once the pull
-      request exists, and `Discussion thread` at the discussion-thread step
-      — both later in this procedure.
+      blank. `Proposal PR` and `Discussion thread` are filled in later in
+      this procedure, once those artifacts exist.
 
-    Leave the prose sections as the template placeholders for the proposer
-    to complete.
+    Leave the prose sections as template placeholders for the proposer.
 
-8.  Identify the specification sections to edit.
-
-    Based on the proposal type and description, locate the relevant files
-    in `specification/` and list them in the `Proposed change` section as a
-    starting point. Do not edit the spec files here — the authoring happens
-    once the proposal is drafted, following
-    [`docs/best-practices.md`](../../../docs/best-practices.md).
+8.  Identify the specification artifacts this proposal will touch, and list
+    them in the `Proposed change` section as a starting point. Do not edit
+    them.
 
     - Functional changes → `specification/requirements/behaviors/`
       (`features/`, `access/`, `rules/`, `journeys/`, `interfaces/`),
@@ -158,41 +133,30 @@ discussion thread. -->
       under the subdirectory for the relevant ISO/IEC 25010 quality
       characteristic.
 
-9.  Commit and open a draft pull request.
-
-    The `git add proposals/<slug>/` below stages the whole proposal
-    directory, so the preserved `product-requirements.md` is committed
-    alongside the `README.md`.
+9.  Commit and open the draft pull request. Staging the whole proposal
+    directory picks up the preserved `product-requirements.md` alongside the
+    `README.md`.
 
     ```sh
     git add proposals/<slug>/
-    git commit -m "<type>: <short lowercase proposal description>"
-    git push -u origin proposal/<slug>  # or epic/<slug>
-    gh pr create --draft --title "<type>: <short lowercase proposal description>" --fill
+    git commit -m "<type>: <short lowercase description>"
+    git push -u origin proposal/<slug>   # or epic/<slug>
+    gh pr create --draft --title "<type>: <short lowercase description>" --fill
     ```
 
-    Record the returned PR number in the document's `Proposal PR` field. The
-    readiness gate downstream requires that field to be set, and this is the
-    first point at which the number exists.
+    Record the returned pull request number in the `Proposal PR` field.
 
-10. Apply the type label.
+10. Apply exactly one type label, in full uppercase.
 
     ```sh
-    gh pr edit <number> --add-label "<type>"
+    gh pr edit <number> --add-label "<TYPE>"
     ```
 
-    Apply exactly one type label to the PR, full uppercase: `FEATURE`,
-    `QUALITY`, or `EPIC`.
+11. Open the discussion thread, using the category matching the proposal's
+    type. `gh` has no native discussion command, so use the GraphQL API to
+    look up the repository ID and category IDs:
 
-11. Open a discussion thread.
-
-    Every proposal PR MUST have an associated discussion thread, where
-    all review feedback is gathered. `gh` has no native discussion command,
-    so use the GraphQL API. Look up the repository ID and the discussion
-    category matching the proposal's type (features, qualities, or
-    epics):
-
-    ```gh
+    ```sh
     gh api graphql -f query='
       query($owner:String!, $name:String!) {
         repository(owner:$owner, name:$name) {
@@ -202,22 +166,21 @@ discussion thread. -->
       }' -F owner=<owner> -F name=<repo>
     ```
 
-    Create the discussion, referencing the PR, and capture its URL:
+    Create the discussion, referencing the pull request:
 
-    ```gh
+    ```sh
     gh api graphql -f query='
       mutation($repoId:ID!, $categoryId:ID!, $title:String!, $body:String!) {
         createDiscussion(input:{repositoryId:$repoId, categoryId:$categoryId, title:$title, body:$body}) {
           discussion { url }
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
-        -f title="<type>: <short lowercase proposal description>" \
-        -f body="Discussion thread for the <short lowercase proposal description> proposal (PR #<number>). Please leave all feedback here, not on the pull request."
+        -f title="<type>: <short lowercase description>" \
+        -f body="Discussion thread for the <short lowercase description> proposal (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
-    Record the returned URL in the proposal's `Discussion thread` field,
-    and add it to the pull request description, so the two cross-reference
-    each other:
+    Record the returned URL in the `Discussion thread` field, and add it to
+    the pull request body so the two cross-reference each other:
 
     ```sh
     gh pr edit <number> --body "$(gh pr view <number> --json body -q .body)
@@ -225,75 +188,73 @@ discussion thread. -->
     Discussion thread: <discussionUrl> — Please leave all review feedback there, not on this pull request."
     ```
 
-    Then commit and push the document change:
+12. Commit and push the document changes.
 
     ```sh
-    git commit -am "chore: link discussion thread"
+    git commit -am "chore: link pull request and discussion thread"
     git push
     ```
 
-12. Hand off to authoring the specification content.
-
-    The draft is now in place: branch, document, draft PR, and
-    discussion thread. The next step is to author the actual specification
-    content — the functional and non-functional requirements. Direct the
-    user to [`docs/best-practices.md`](../../../docs/best-practices.md) and
-    the `specification/requirements/` subdirectory READMEs for that, and
-    once the spec edits are complete, to
-    [`/propose-spec`](../propose-spec/SKILL.md) to mark the proposal ready
-    for review.
+13. Report what you scaffolded, and direct the user to author the
+    specification content next, following
+    [`docs/best-practices.md`](../../../docs/best-practices.md) and the
+    `specification/requirements/` subdirectory READMEs. The pull request
+    stays a draft until those edits are complete.
 
 ## Rules
 
 - A proposal MUST be for a deliberate change to the specification.
 
   Proposals are for new or changed requirements that warrant stakeholder
-  review, not routine implementation work, bug fixes, or trivial edits,
-  which go through the normal pull-request workflow. If the request looks
-  too small to warrant a proposal, say so before drafting.
+  review — not routine implementation work, bug fixes, or trivial edits,
+  which go through the normal pull-request workflow. If the request looks too
+  small to warrant a proposal, say so before drafting.
 
-- There MUST be exactly one proposal per branch and pull request.
+- There MUST be exactly one proposal per branch and per pull request.
 
-  Never bundle multiple changes into a single branch. If the user
-  describes changes that span multiple independent concerns, draft
-  separate proposal branches.
+  Where the user describes changes spanning multiple independent concerns,
+  scaffold separate proposals rather than bundling them.
 
-- You MUST branch from `main`, not from any other branch.
+- You MUST branch from `main`, and pull first if local `main` is behind the
+  remote. Rebase to keep history linear.
 
-  Proposals are always cut from `main`. If the local `main` is behind the
-  remote, pull first.
+- You MUST open the pull request as a draft, because a freshly scaffolded
+  proposal has no substance for a reviewer to weigh in on yet.
 
-- You MUST open the PR as a draft.
+- Every proposal pull request MUST have an associated discussion thread,
+  opened in the category matching its type and linked from both the document
+  and the pull request. All review feedback belongs in the discussion, not in
+  the pull request comments.
 
-  A new proposal is not yet ready for review. It MUST be opened as a draft
-  pull request.
+- You MUST NOT assign a proposal number. Numbers are assigned in
+  `proposals/INDEX.md` only after merge.
 
-- Every proposal PR MUST have an associated discussion thread.
+- The preserved PRD MUST be treated as a frozen input, never edited,
+  summarized, or reformatted. The proposal document and the specification
+  edits evolve; its origin record does not.
 
-  Opened with the PR (even as a draft) using the matching discussion
-  category (`Features`, `Qualities`, or `Epics`), and linked from both the
-  document and the PR. All review feedback belongs in the discussion, not
-  the PR's comments.
+- You MUST NOT edit files under `specification/`. Authoring the specification
+  content is the proposer's work, not this skill's.
 
-- You MUST NOT assign a numeric ID.
+## Edge cases
 
-  Proposal numbers are assigned only in `proposals/INDEX.md`, after merge.
+- The `gh` client is unavailable or not authenticated.
 
-- The specification edits MUST describe the final state, not a diff.
+  Stop and report the failure. Leave the branch and the proposal document in
+  place so the user can open the pull request and discussion by hand, then
+  fill in the `Proposal PR` and `Discussion thread` fields themselves.
 
-  When helping draft them, write as if the change has already shipped —
-  not "we will add…" or "currently X, changing to Y".
+- The repository has no discussion category matching the proposal's type.
 
-- The preserved PRD MUST be treated as a frozen input.
-
-  When a PRD is supplied, save it verbatim as
-  `proposals/<slug>/product-requirements.md` and never edit, summarize, or
-  reformat it. It is the origin record — the requirement exactly as it
-  arrived, before specification — and its worth depends on staying
-  faithful to that. The proposal and the spec edits evolve; the PRD does
-  not.
+  Create the discussion in the closest available category and flag the
+  mismatch to the user, rather than skipping the discussion thread
+  altogether.
 
 ## References
 
-- [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md)
+- [Best practices](../../../docs/best-practices.md) \
+  Read when you need to point the user at the conventions for authoring
+  specification content.
 
+- [Pull request checklist](../../../.github/PULL_REQUEST_TEMPLATE.md) \
+  Read when filling out the pull request description in step 9.
