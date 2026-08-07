@@ -77,5 +77,5 @@ move backwards to `DRAFT`.
   to `ACCEPTED`.
 
 - [TS-1: Requirements
-  Specification](https://github.com/kieranpotts/standards/tree/dev/src/001): The
+  Specification](https://github.com/kieranpotts/standards/tree/latest/dev/src/001): The
   upstream standard these criteria derive from.
