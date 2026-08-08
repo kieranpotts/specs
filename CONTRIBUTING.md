@@ -119,7 +119,7 @@ as you are ready to start writing the proposal document.
 3.  Edit the [`specification/`](./specification/) artifacts to reflect the
     intended final state of the system after the change ships.
 
-4.  Commit your changes and open the pull request as a draft, titled `feature:
+4.  Commit your changes and open the pull request as a draft, titled `behavior:
     <description>` for a feature proposal, or `create: <description>` for a
     quality or epic proposal, where `<description>` is a short prose title,
     written full lowercase. Apply exactly one type label to the PR – `FEATURE`,

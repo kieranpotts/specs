@@ -130,7 +130,7 @@ prompt the user for clarification.
     gh pr merge <number> --squash --subject "<type>: <short lowercase description> - REJECTED" --delete-branch
     ```
 
-    `<type>` is `feature` for a feature proposal, or `update` for a quality or
+    `<type>` is `behavior` for a feature proposal, or `update` for a quality or
     epic proposal.
 
 9.  If the branch survived the merge, delete it directly.

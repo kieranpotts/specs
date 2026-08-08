@@ -82,7 +82,7 @@ prompt the user for clarification.
 
     Ask the user if the description does not settle it. The change type sets
     the branch prefix and the PR type label; the commit message and PR title
-    use a derived commit type instead — `feature` for `FEATURE`, and `create`
+    use a derived commit type instead — `behavior` for `FEATURE`, and `create`
     for `QUALITY` or `EPIC` — per this repository's commit message
     conventions.
 
