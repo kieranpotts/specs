@@ -49,7 +49,7 @@ prompt the user for clarification.
   it verbatim and the `Origin` field MUST link it; otherwise the `Origin`
   field MUST have been removed.
 
-- A draft pull request MUST be open, titled `<type>: <short lowercase
+- A draft pull request MUST be open, titled `<commit type>: <short lowercase
   description>`, carrying exactly one type label and no lifecycle label.
 
 - A discussion thread MUST be open, linked from the document's `Discussion
@@ -80,7 +80,11 @@ prompt the user for clarification.
     - `EPIC`: a large-scale initiative spanning multiple feature and quality
       proposals.
 
-    Ask the user if the description does not settle it.
+    Ask the user if the description does not settle it. The change type sets
+    the branch prefix and the PR type label; the commit message and PR title
+    use a derived commit type instead — `feature` for `FEATURE`, and `create`
+    for `QUALITY` or `EPIC` — per this repository's commit message
+    conventions.
 
 4.  Create the branch. Use `proposal/<slug>` for `FEATURE` and `QUALITY`
     proposals, and `epic/<slug>` for `EPIC` proposals.
@@ -139,9 +143,9 @@ prompt the user for clarification.
 
     ```sh
     git add proposals/<slug>/
-    git commit -m "<type>: <short lowercase description>"
+    git commit -m "<commit type>: <short lowercase description>"
     git push -u origin proposal/<slug>   # or epic/<slug>
-    gh pr create --draft --title "<type>: <short lowercase description>" --fill
+    gh pr create --draft --title "<commit type>: <short lowercase description>" --fill
     ```
 
     Record the returned pull request number in the `Proposal PR` field.
@@ -175,7 +179,7 @@ prompt the user for clarification.
           discussion { url }
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
-        -f title="<type>: <short lowercase description>" \
+        -f title="<commit type>: <short lowercase description>" \
         -f body="Discussion thread for the <short lowercase description> proposal (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 

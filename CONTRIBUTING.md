@@ -120,11 +120,11 @@ as you are ready to start writing the proposal document.
     intended final state of the system after the change ships.
 
 4.  Commit your changes and open the pull request as a draft, titled `feature:
-    <description>`, `quality: <description>`, or `epic: <description>`, where
-    `<description>` is a short prose title, written full lowercase. Apply
-    exactly one type label to the PR – `FEATURE`, `QUALITY`, or `EPIC`. Fill
-    out the top of the PR template (above the horizontal rule). Leave the
-    checklist for now.
+    <description>` for a feature proposal, or `create: <description>` for a
+    quality or epic proposal, where `<description>` is a short prose title,
+    written full lowercase. Apply exactly one type label to the PR – `FEATURE`,
+    `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the
+    horizontal rule). Leave the checklist for now.
 
 5.  Open a [discussion thread](https://github.com/kieranpotts/specs/discussions)
     using the appropriate form for the proposal type (feature, quality, or epic).
@@ -200,7 +200,8 @@ as you are ready to start writing the proposal document.
   [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-`main` commit.
 
 - The message of the squash commit MUST take the form `<type>: <description> -
-  RELEASED|REJECTED`, where `<type>` is `feature`, `quality`, or `epic`.
+  RELEASED|REJECTED`, where `<type>` is `feature` for a feature proposal, or
+  `update` for a quality or epic proposal.
 
 - Once a proposal is merged into `main`, its document MUST be treated as
   immutable. To revisit a decision, open a new proposal that supersedes the
