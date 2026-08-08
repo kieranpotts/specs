@@ -37,7 +37,13 @@ Changes to that state are introduced through [proposals](./proposals/).
 Each proposal moves through a defined state machine. The current state of a
 proposal is shown in the document's `Status` field. In addition, to make it
 easier to search and filter pending proposals, corresponding labels are applied
-to open pull requests: `#proposed`, `#accepted`, etc.
+to open pull requests: `#proposed`, `#accepted`, `#rejected`, `#released`.
+
+`#superseded` is the one exception. It replaces `#released` on the original
+proposal's pull request once a later proposal has replaced or removed the
+feature — an edit to an already-merged, already-closed historical PR, not to
+an open one, since the superseding proposal is what actually opens and moves
+through this workflow.
 
 The states are:
 
@@ -85,6 +91,13 @@ stateDiagram-v2
 Transitions not listed are not permitted. A proposal MUST NOT move backwards
 and MUST NOT skip states.
 
+Abandoning a `DRAFT` is not a state transition, since nobody has yet decided
+anything to record: no stakeholder has reviewed it, and a draft's own pull
+request is never merged. Simply close the pull request unmerged and delete
+its branch. This leaves no trace in `main` — nothing to revert, and no
+`REJECTED` entry, since `REJECTED` specifically means stakeholders considered
+and declined a complete proposal.
+
 ## Workflow
 
 > [!TIP]
@@ -129,6 +142,11 @@ as you are ready to start writing the proposal document.
 8.  Once the change is live in production, apply the `#released` label and
     merge the pull request. If rejected, revert the specification edits before
     merging, and apply the `#rejected` label.
+
+9.  Once a later, released proposal replaces or removes a released feature,
+    swap `#released` for `#superseded` on the original proposal's pull
+    request — closed and merged long ago, but still editable by label — and
+    set its document's `Status` to `SUPERSEDED`.
 
 ## Rules
 

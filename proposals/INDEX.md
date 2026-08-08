@@ -13,6 +13,12 @@ The **decision date** is the date the proposal was decided — its approval date
 for released proposals, its rejection date for rejected ones — as recorded in
 the proposal document.
 
+The **type** is one of `Feature`, `Quality`, or `Epic`, matching the type
+label applied to the proposal's pull request (see
+[CONTRIBUTING.md](../CONTRIBUTING.md)). Every example row below happens to be
+a `Feature` — that reflects this template's seed data, not a restriction on
+what belongs here.
+
 | # | Title | Type | Status | Decision date |
 | --- | --- | --- | --- | --- |
 | [0001](./catalog-read-api/) | Catalog read API | Feature | Released | 2025-06-18 |
