@@ -4,7 +4,7 @@
 #
 
 title: "[Type a brief description]"
-labels: ["FEATURE"]
+labels: ["BEHAVIOR"]
 body:
   - type: input
     id: pr

@@ -28,7 +28,7 @@ prompt the user for clarification.
   the new or changed requirement, in the user's own words. Prompt for it if
   the user has not given one.
 
-- **Change type — OPTIONAL.** One of `FEATURE`, `QUALITY`, or `EPIC`. Infer
+- **Change type — OPTIONAL.** One of `BEHAVIOR`, `QUALITY`, or `EPIC`. Infer
   it from the description where you can, and ask the user when the
   description is genuinely ambiguous.
 
@@ -75,18 +75,18 @@ prompt the user for clarification.
 
 3.  Determine the change type. Exactly one applies:
 
-    - `FEATURE`: a new or changed functional requirement.
+    - `BEHAVIOR`: a new or changed functional requirement.
     - `QUALITY`: a new or changed non-functional requirement.
     - `EPIC`: a large-scale initiative spanning multiple feature and quality
       proposals.
 
     Ask the user if the description does not settle it. The change type sets
     the branch prefix and the PR type label; the commit message and PR title
-    use a derived commit type instead — `behavior` for `FEATURE`, and `create`
+    use a derived commit type instead — `behavior` for `BEHAVIOR`, and `create`
     for `QUALITY` or `EPIC` — per this repository's commit message
     conventions.
 
-4.  Create the branch. Use `proposal/<slug>` for `FEATURE` and `QUALITY`
+4.  Create the branch. Use `proposal/<slug>` for `BEHAVIOR` and `QUALITY`
     proposals, and `epic/<slug>` for `EPIC` proposals.
 
     ```sh

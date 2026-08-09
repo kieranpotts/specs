@@ -122,7 +122,7 @@ as you are ready to start writing the proposal document.
 4.  Commit your changes and open the pull request as a draft, titled `behavior:
     <description>` for a feature proposal, or `create: <description>` for a
     quality or epic proposal, where `<description>` is a short prose title,
-    written full lowercase. Apply exactly one type label to the PR – `FEATURE`,
+    written full lowercase. Apply exactly one type label to the PR – `BEHAVIOR`,
     `QUALITY`, or `EPIC`. Fill out the top of the PR template (above the
     horizontal rule). Leave the checklist for now.
 
@@ -156,7 +156,7 @@ as you are ready to start writing the proposal document.
   [`specification/`](./specification/) directory on `main` are the authoritative
   record of the system as it exists in production right now.
 
-- A `FEATURE` or `QUALITY` proposal MUST be a single, atomic change – one
+- A `BEHAVIOR` or `QUALITY` proposal MUST be a single, atomic change – one
   requirement that can be reviewed, decided, and shipped independently of any
   other.
 

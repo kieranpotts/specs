@@ -19,7 +19,7 @@ guidelines](../CONTRIBUTING.md) for more details about state transitions.
 
 On opening this PR (open it as a draft):
 
-- [ ] Exactly one type label — `FEATURE`, `QUALITY`, or `EPIC` — is applied.
+- [ ] Exactly one type label — `BEHAVIOR`, `QUALITY`, or `EPIC` — is applied.
 - [ ] An associated discussion thread is opened and linked (both above and in
   the proposal document).
 

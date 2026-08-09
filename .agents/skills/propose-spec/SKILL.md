@@ -129,7 +129,7 @@ prompt the user for clarification.
   `Last updated`, `Proposal PR`, and `Discussion thread` are all set, and
   `Status` still reads `DRAFT` before this skill advances it.
 
-- The pull request MUST carry exactly one type label — `FEATURE`, `QUALITY`,
+- The pull request MUST carry exactly one type label — `BEHAVIOR`, `QUALITY`,
   or `EPIC`.
 
 - You MUST NOT take the pull request out of draft while any of the above is

@@ -36,7 +36,7 @@ specified directly — in which case the `Origin` field is omitted.
 1. A proposal is opened as a **draft pull request**, on a `proposal/<slug>`
    branch for a feature or quality proposal, or an `epic/<slug>` branch for an
    epic. The document lives at `proposals/<slug>/README.md`. The PR carries
-   exactly one type label (`FEATURE`, `QUALITY`, or `EPIC`) and an associated
+   exactly one type label (`BEHAVIOR`, `QUALITY`, or `EPIC`) and an associated
    discussion thread for all review feedback. (The issue tracker is not used for
    proposals; it is reserved for repository maintenance only.)
 
