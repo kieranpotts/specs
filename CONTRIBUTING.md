@@ -19,7 +19,7 @@ Anyone with write access to this repository may propose changes to the
 functional and non-functional requirements of the system, for product
 consideration.
 
-See also [TS-1](https://github.com/kieranpotts/standards/tree/latest/dev/src/001)
+See also [TS-1](https://kieranpotts.com/standards/001)
 for the technical standard that underpins this process.
 
 ****

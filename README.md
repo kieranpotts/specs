@@ -32,7 +32,7 @@ options are discussed.
 
 > [!NOTE]
 > This is a reference implementation of
-> [TS-1](https://github.com/kieranpotts/standards/tree/latest/dev/src/001),
+> [TS-1](https://kieranpotts.com/standards/001),
 > a technical standard for managing and documenting software requirements
 > specifications (SRS).
 
