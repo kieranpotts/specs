@@ -14,21 +14,21 @@ or run.
 
 ## Project structure
 
-- **`specification/`:** Describes the current production system.
+- `specification/`. Describes the current production system.
 
-  - **`context/`:** Problem space and domain model. Descriptive.
+  - `context/`. Problem space and domain model. Descriptive.
 
-  - **`requirements/`:** Expected behaviors and qualities. Prescriptive.
+  - `requirements/`. Expected behaviors and qualities. Prescriptive.
 
-- **`proposals/`:** Permanent archive of every proposed change. Each proposal
-  is a directory (`proposals/<slug>/`) holding its `README.md` and any
+- `proposals/`. Permanent archive of every proposed change. Each proposal is
+  a directory (`proposals/<slug>/`) holding its `README.md` and any
   supporting artifacts.
 
-  - **`proposals/INDEX.md`** is the numbered catalog of merged proposals.
+  - `proposals/INDEX.md` is the numbered catalog of merged proposals.
 
-  - **`proposals/TEMPLATE.md`** is the starting point for a new proposal.
+  - `proposals/TEMPLATE.md` is the starting point for a new proposal.
 
-- **`docs/`:** General guidelines for humans to get the most out of the SRS
+- `docs/`. General guidelines for humans to get the most out of the SRS
   process.
 
 ## Lifecycle
@@ -44,10 +44,10 @@ step-by-step process for shepherding a proposal from `DRAFT` to
 
 ## Rules
 
-Agents MUST follow the process rules in [CONTRIBUTING.md >
-Rules](./CONTRIBUTING.md#rules). Re-read them before creating, transitioning,
-or merging a proposal, rather than relying on your memory of a prior state of
-the rules.
+Agents MUST follow the process rules in
+[CONTRIBUTING.md > Rules](./CONTRIBUTING.md#rules). Re-read them before
+creating, transitioning, or merging a proposal, rather than relying on your
+memory of a prior state of the rules.
 
 The conventions for writing specification content itself – Gherkin scenarios,
 requirement identifiers, the qualities taxonomy, deprecation marking – are
@@ -61,7 +61,7 @@ accept" means, verified by [`/accept-spec`](./.agents/skills/accept-spec/SKILL.m
 
 ## Skills
 
-The **`.agents/skills/`** directory provides on-demand skills for managing the
+The `.agents/skills/` directory provides on-demand skills for managing the
 lifecycle of a proposal. See the [README](./.agents/skills/README.md) for
 descriptions of the available skills and their triggers.
 
