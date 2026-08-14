@@ -59,6 +59,28 @@ artifacts – authoring is not itself a skill in this repository. The
 [`Definition of Ready`](./docs/definition-of-ready.md) states what "ready to
 accept" means, verified by [`/accept-spec`](./.agents/skills/accept-spec/SKILL.md).
 
+## References
+
+The following technical standards (TS) govern this project. Fetch and ingest
+the relevant standards as-and-when required for the task at hand.
+
+- [**TS-1: Software Requirements Specification**](https://kieranpotts.com/standards/001) \
+  Use when writing, reviewing, or evaluating a software requirements
+  specification (SRS), acceptance criteria, Gherkin feature files,
+  non-functional qualities, or the lifecycle of product proposals.
+
+- [**TS-25: Technical Documentation**](https://kieranpotts.com/standards/025) \
+  Use when deciding what documentation a project needs, where it should live,
+  who it's for, or whether it's still trustworthy.
+
+- [**TS-26: Technical Writing Style Guide**](https://kieranpotts.com/standards/026) \
+  Use when writing or editing the prose of a technical document. Covers
+  tone-of-voice, headings, terminology, lists, and citations.
+
+- [**TS-9: Version Control**](https://kieranpotts.com/standards/009) \
+  Use when working with Git. Covers commits, branching, merging, integration
+  strategies, cutting releases, and configuring Git/PR/CI tooling.
+
 ## Skills
 
 The `.agents/skills/` directory provides on-demand skills for managing the
