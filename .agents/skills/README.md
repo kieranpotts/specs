@@ -5,9 +5,9 @@ requirements specification via AI agents.
 
 - **[draft-spec](./draft-spec/):** \
   Scaffolds a proposal for changes to the software requirements specification.
-  Cuts a `proposal/<slug>` branch from `main`, prepares a fresh proposal from
-  the template, opens a pull request in a draft state, and links a discussion
-  thread. Sets the status to `DRAFT`.
+  Cuts a `latest/proposal/<slug>` branch from `latest/main`, prepares a fresh
+  proposal from the template, opens a pull request in a draft state, and links
+  a discussion thread. Sets the status to `DRAFT`.
 
 - **[propose-spec](./propose-spec/):** \
   Handles the `DRAFT` → `PROPOSED` transition.
@@ -22,7 +22,7 @@ requirements specification via AI agents.
 - **[release-spec](./release-spec/):** \
   Handles the `ACCEPTED` → `RELEASED` transition.
   Checks the implementation is live, merges the proposal and its specification
-  edits into the `main` trunk, and assigns the proposal its number.
+  edits into the `latest/main` trunk, and assigns the proposal its number.
 
 - **[reject-spec](./reject-spec/):** \
   Handles the `PROPOSED` → `REJECTED` transition.

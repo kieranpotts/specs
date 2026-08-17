@@ -38,8 +38,8 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- Branch `proposal/<slug>` (or `epic/<slug>` for an epic) MUST exist and MUST
-  be checked out.
+- Branch `latest/proposal/<slug>` (or `latest/epic/<slug>` for an epic) MUST
+  exist and MUST be checked out.
 
 - `proposals/<slug>/README.md` MUST exist, copied from
   `proposals/TEMPLATE.md`, with its metadata header filled in and `Status`
@@ -86,13 +86,13 @@ prompt the user for clarification.
     for `QUALITY` or `EPIC` — per this repository's commit message
     conventions.
 
-4.  Create the branch. Use `proposal/<slug>` for `BEHAVIOR` and `QUALITY`
-    proposals, and `epic/<slug>` for `EPIC` proposals.
+4.  Create the branch. Use `latest/proposal/<slug>` for `BEHAVIOR` and `QUALITY`
+    proposals, and `latest/epic/<slug>` for `EPIC` proposals.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
-    git checkout -b proposal/<slug>   # or epic/<slug>
+    git checkout -b latest/proposal/<slug>   # or latest/epic/<slug>
     ```
 
 5.  Copy `proposals/TEMPLATE.md` to `proposals/<slug>/README.md`.
@@ -144,7 +144,7 @@ prompt the user for clarification.
     ```sh
     git add proposals/<slug>/
     git commit -m "<commit type>: <short lowercase description>"
-    git push -u origin proposal/<slug>   # or epic/<slug>
+    git push -u origin latest/proposal/<slug>   # or latest/epic/<slug>
     gh pr create --draft --title "<commit type>: <short lowercase description>" --fill
     ```
 
@@ -219,8 +219,8 @@ prompt the user for clarification.
   Where the user describes changes spanning multiple independent concerns,
   scaffold separate proposals rather than bundling them.
 
-- You MUST branch from `main`, and pull first if local `main` is behind the
-  remote. Rebase to keep history linear.
+- You MUST branch from `latest/main`, and pull first if local `latest/main` is
+  behind the remote. Rebase to keep history linear.
 
 - You MUST open the pull request as a draft, because a freshly scaffolded
   proposal has no substance for a reviewer to weigh in on yet.

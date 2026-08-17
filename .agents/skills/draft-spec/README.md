@@ -2,7 +2,7 @@
 
 Scaffolds a proposal for a change to the software requirements specification.
 
-Cuts a `proposal/<slug>` branch from `main` (or `epic/<slug>` for an epic),
+Cuts a `latest/proposal/<slug>` branch from `latest/main` (or `latest/epic/<slug>`),
 prepares a fresh proposal document from `proposals/TEMPLATE.md`, opens a draft
 pull request, and links a discussion thread. Sets the status to `DRAFT`.
 

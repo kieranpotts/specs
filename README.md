@@ -14,8 +14,9 @@ There are two parts to the SRS:
   maintained through the same version control system used to manage change in
   the software itself. This allows the SRS to be deeply integrated with the
   regular development lifecycle. A change in requirements is merged into the
-  `main` trunk at the same time as the corresponding code and configuration are
-  shipped to production. The specification therefore never drifts from reality.
+  `latest/main` trunk at the same time as the corresponding code and
+  configuration are shipped to production. The specification therefore never
+  drifts from reality.
 
 - An **immutable, append-only log of product decisions**, in the form of
   "proposals" that drive changes to the specification. Proposals that are

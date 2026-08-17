@@ -33,10 +33,10 @@ specified directly — in which case the `Origin` field is omitted.
 
 ## How it works
 
-1. A proposal is opened as a **draft pull request**, on a `proposal/<slug>`
-   branch for a feature or quality proposal, or an `epic/<slug>` branch for an
-   epic. The document lives at `proposals/<slug>/README.md`. The PR carries
-   exactly one type label (`BEHAVIOR`, `QUALITY`, or `EPIC`) and an associated
+1. A proposal is opened as a **draft pull request**, on a `latest/proposal/<slug>`
+   branch for a feature or quality proposal, or an `latest/epic/<slug>` branch.
+   The document lives at `proposals/<slug>/README.md`. The PR carries exactly
+   one type label (`BEHAVIOR`, `QUALITY`, or `EPIC`) and an associated
    discussion thread for all review feedback. (The issue tracker is not used for
    proposals; it is reserved for repository maintenance only.)
 
@@ -49,8 +49,8 @@ specified directly — in which case the `Origin` field is omitted.
    number and record it in [`INDEX.md`](./INDEX.md). The number appears only in
    the index — no directory is ever renamed.
 
-4. Once merged into `main`, the document is immutable. While a proposal is still
-   open, its document may be updated at any point — including during the
+4. Once merged into `latest/main`, the document is immutable. While a proposal
+   is still open, its document may be updated at any point — including during the
    `#accepted` implementation phase, in response to technical feedback,
    implementation discoveries, or feedback from real users during beta testing.
    To revisit a decision already merged, open a new proposal that supersedes the

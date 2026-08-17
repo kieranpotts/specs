@@ -1,7 +1,7 @@
 ---
 name: release-spec
 description: >-
-  Land an accepted proposal and its specification edits in the `main` trunk
+  Land an accepted proposal and its specification edits in the `latest/main` trunk
   once the implementation is live in production, then assign the proposal its
   number. Use when the user says something like "release this proposal", "this
   proposal is live", "the implementation shipped", "release <slug>", or
@@ -15,7 +15,7 @@ license: CC0-1.0
 # Release spec
 
 Move a proposal from `ACCEPTED` to `RELEASED`: confirm the change is live,
-squash-merge the proposal document and its specification edits into `main`,
+squash-merge the proposal document and its specification edits into `latest/main`,
 close the discussion thread, and assign the proposal its number in
 `proposals/INDEX.md`.
 
@@ -26,9 +26,9 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target proposal — REQUIRED.** Infer it from the checked-out branch
-  (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
-  description, or list the open `#accepted` pull requests and ask the user to
-  choose.
+  (`latest/proposal/<slug>` or `latest/epic/<slug>`). If on `latest/main`, use
+  the user's description, or list the open `#accepted` pull requests and ask
+  the user to choose.
 
 - **Explicit instruction to merge — REQUIRED.** Confirm with the user before
   merging. The merge is irreversible in practice, since a merged proposal is
@@ -43,15 +43,15 @@ prompt the user for clarification.
   NOT carry `#accepted`.
 
 - The proposal document and the specification edits MUST be squash-merged
-  into `main`, under the message `<type>: <short lowercase description> -
+  into `latest/main`, under the message `<type>: <short lowercase description> -
   RELEASED`.
 
 - The source branch MUST be deleted from the upstream repository.
 
 - The discussion thread MUST be closed as resolved.
 
-- `proposals/INDEX.md` on `main` MUST carry a new row for this proposal, with
-  the next sequential number and `Released` status.
+- `proposals/INDEX.md` on `latest/main` MUST carry a new row for this proposal,
+  with the next sequential number and `Released` status.
 
 - The proposal's directory MUST NOT have been renamed. The number lives only
   in the index, so that links to `proposals/<slug>/` never break.
@@ -60,7 +60,7 @@ prompt the user for clarification.
 
 1.  Identify the proposal and confirm it is `ACCEPTED`.
 
-    Infer the target from the checked-out branch. If on `main`, use the
+    Infer the target from the checked-out branch. If on `latest/main`, use the
     user's description, or list the open `#accepted` pull requests and ask
     the user to choose:
 
@@ -109,7 +109,7 @@ prompt the user for clarification.
 7.  If the branch survived the merge, delete it directly.
 
     ```sh
-    git push origin --delete proposal/<slug>   # or epic/<slug>
+    git push origin --delete latest/proposal/<slug>   # or latest/epic/<slug>
     ```
 
 8.  Close the discussion thread as resolved. `gh` has no native discussion
@@ -127,7 +127,7 @@ prompt the user for clarification.
       }' -F id=<discussionId>
     ```
 
-9.  Assign the proposal its number, on `main`.
+9.  Assign the proposal its number, on `latest/main`.
 
     Find the highest number in
     [`proposals/INDEX.md`](../../../proposals/INDEX.md), increment it, and
@@ -137,7 +137,7 @@ prompt the user for clarification.
     to `proposals/<slug>/`.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
     git commit -am "chore: assign proposal <number>"
     git push
@@ -152,8 +152,8 @@ prompt the user for clarification.
   proposal has no approved change to land.
 
 - The implementation MUST be live in production, experienced by real users
-  right now. Releasing early is what makes `main` dishonest about the system
-  it claims to describe.
+  right now. Releasing early is what makes `latest/main` dishonest about the
+  system it claims to describe.
 
 - The specification edits MUST match the implementation as it actually
   shipped, with any drift discovered during implementation reconciled back
@@ -167,7 +167,7 @@ prompt the user for clarification.
 - You MUST NOT merge without explicit instruction from the user.
 
 - You MUST assign the number in `proposals/INDEX.md` only after the merge,
-  and MUST commit it directly to `main`. The number is not part of the
+  and MUST commit it directly to `latest/main`. The number is not part of the
   proposal, so it is not part of what the pull request reviewed.
 
 ## Edge cases
@@ -181,6 +181,6 @@ prompt the user for clarification.
 
 - The merge succeeded but assigning the number failed.
 
-  Retry step 9 on `main`. The number is assigned by a separate direct commit,
-  so a failure there leaves the merge intact and needs no rework of the pull
-  request.
+  Retry step 9 on `latest/main`. The number is assigned by a separate direct
+  commit, so a failure there leaves the merge intact and needs no rework of the
+  pull request.

@@ -25,9 +25,9 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target proposal — REQUIRED.** Infer it from the checked-out branch
-  (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
-  description, or list the open `#proposed` pull requests and ask the user to
-  choose.
+  (`latest/proposal/<slug>` or `latest/epic/<slug>`). If on `latest/main`, use
+  the user's description, or list the open `#proposed` pull requests and ask
+  the user to choose.
 
 - **Decision record — REQUIRED.** Who approved the proposal, and on what
   date. Ask the user where the surrounding context does not supply both.
@@ -41,7 +41,7 @@ prompt the user for clarification.
 - The pull request MUST carry `#accepted` alongside its type label, and MUST
   NOT carry `#proposed`.
 
-- The pull request MUST remain open, since `main` stays current with
+- The pull request MUST remain open, since `latest/main` stays current with
   production and the change is not live yet.
 
 - The discussion thread MUST remain open, so implementation feedback has
@@ -57,7 +57,7 @@ prompt the user for clarification.
 
 1.  Identify the proposal and confirm it is `PROPOSED`.
 
-    Infer the target from the checked-out branch. If on `main`, use the
+    Infer the target from the checked-out branch. If on `latest/main`, use the
     user's description, or list the open `#proposed` pull requests and ask
     the user to choose:
 
@@ -130,7 +130,7 @@ prompt the user for clarification.
   along.
 
 - You MUST NOT merge the pull request. It stays open until the implementation
-  is live, which is what keeps the `main` specification honest about
+  is live, which is what keeps the `latest/main` specification honest about
   production.
 
 - You MUST push the status change and not merely commit it. The pull request

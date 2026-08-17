@@ -8,7 +8,7 @@ updates the row in `proposals/INDEX.md`, and swaps the lifecycle label on the
 original pull request.
 
 This is the only transition out of `RELEASED`, and the only one that commits
-straight to `main`. Both proposals are already merged, and the handful of
+straight to `latest/main`. Both proposals are already merged, and the handful of
 fields it touches are the only ones a merged proposal may still change — so
 there is nothing for a pull request to review.
 

@@ -1,7 +1,7 @@
 # Proposal index
 
-The catalog of every proposal merged into `main` — released, rejected, and
-superseded alike. The **proposal number** is assigned here, after merge; it
+The catalog of every proposal merged into `latest/main` — released, rejected,
+and superseded alike. The **proposal number** is assigned here, after merge; it
 appears nowhere else, and no proposal directory is ever renamed. Numbers run in
 a single sequence across all types and outcomes.
 

@@ -30,9 +30,9 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Lifecycle
 
-The [specification artifacts](./specification/) on `main` always reflect the
-current state of the system as experienced by real users in production right now.
-Changes to that state are introduced through [proposals](./proposals/).
+The [specification artifacts](./specification/) on `latest/main` always reflect
+the current state of the system as experienced by real users in production right
+now. Changes to that state are introduced through [proposals](./proposals/).
 
 Each proposal moves through a defined state machine. The current state of a
 proposal is shown in the document's `Status` field. In addition, to make it
@@ -94,7 +94,7 @@ and MUST NOT skip states.
 Abandoning a `DRAFT` is not a state transition, since nobody has yet decided
 anything to record: no stakeholder has reviewed it, and a draft's own pull
 request is never merged. Simply close the pull request unmerged and delete
-its branch. This leaves no trace in `main` — nothing to revert, and no
+its branch. This leaves no trace in `latest/main` — nothing to revert, and no
 `REJECTED` entry, since `REJECTED` specifically means stakeholders considered
 and declined a complete proposal.
 
@@ -108,9 +108,10 @@ and declined a complete proposal.
 A pull request is the formal vehicle for a proposal. Open it as a draft as soon
 as you are ready to start writing the proposal document.
 
-1.  Branch off `main` as `proposal/<slug>` for a feature or quality proposal, or
-    as `epic/<slug>` for an epic. (An epic is a special case, encapsulating
-    multiple interdependent proposals for easier tracking of dependencies.)
+1.  Branch off `latest/main` as `latest/proposal/<slug>` for a feature or
+    quality proposal, or as `latest/epic/<slug>` for an epic. (An epic is a
+    special case, encapsulating multiple interdependent proposals for easier
+    tracking of dependencies.)
 
 2.  Copy the [template](./proposals/TEMPLATE.md) to `proposals/<slug>/README.md`.
     Fill it out, describing the change in full – the rationale, the impact on
@@ -152,9 +153,9 @@ as you are ready to start writing the proposal document.
 
 - All artifacts MUST be written in American English.
 
-- The `main` trunk MUST be treated as the default branch. The artifacts in the
-  [`specification/`](./specification/) directory on `main` are the authoritative
-  record of the system as it exists in production right now.
+- The `latest/main` trunk MUST be treated as the default branch. The artifacts
+  in the [`specification/`](./specification/) directory on `latest/main` are
+  the authoritative record of the system as it exists in production right now.
 
 - A `BEHAVIOR` or `QUALITY` proposal MUST be a single, atomic change – one
   requirement that can be reviewed, decided, and shipped independently of any
@@ -194,16 +195,16 @@ as you are ready to start writing the proposal document.
 
 - A proposal's pull request MUST stay open until the corresponding changes in
   code and configuration are in production; it is not enough for a proposal to
-  be approved. Thus the `main` specification stays current with production.
+  be approved. Thus the `latest/main` specification stays current with production.
 
 - A proposal MUST be assigned a sequential number after merge, recorded in
-  [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-`main` commit.
+  [`proposals/INDEX.md`](./proposals/INDEX.md) in a direct-to-main commit.
 
 - The message of the squash commit MUST take the form `<type>: <description> -
   RELEASED|REJECTED`, where `<type>` is `feature` for a feature proposal, or
   `update` for a quality or epic proposal.
 
-- Once a proposal is merged into `main`, its document MUST be treated as
+- Once a proposal is merged into `latest/main`, its document MUST be treated as
   immutable. To revisit a decision, open a new proposal that supersedes the
   original, cross-referenced via the `Supersedes` and `Superseded by` fields.
 

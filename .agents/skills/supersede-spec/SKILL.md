@@ -48,7 +48,7 @@ prompt the user for clarification.
 - The superseded proposal's original pull request MUST carry `#superseded`
   alongside its type label, and MUST NOT carry `#released`.
 
-- The change MUST be committed directly to `main` and pushed. An unpushed
+- The change MUST be committed directly to `latest/main` and pushed. An un-pushed
   supersession leaves the archive claiming a retired feature is still in
   effect.
 
@@ -73,7 +73,7 @@ prompt the user for clarification.
 2.  Verify every rule below. Report any that are unmet, and stop without
     changing anything.
 
-3.  Update the superseded document, on `main`.
+3.  Update the superseded document, on `latest/main`.
 
     - Set `Status` to `SUPERSEDED` and `Last updated` to today's date.
     - Set `Superseded by` to the successor's index number.
@@ -95,10 +95,10 @@ prompt the user for clarification.
     gh pr edit <number> --add-label "#superseded" --remove-label "#released"
     ```
 
-7.  Commit directly to `main` and push.
+7.  Commit directly to `latest/main` and push.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
     git commit -am "chore: supersede <short lowercase description>"
     git push
@@ -121,13 +121,13 @@ prompt the user for clarification.
   proposal, `Supersedes` on the successor. A one-way link leaves the archive
   ambiguous about which proposal is in effect.
 
-- The change MUST be committed directly to `main`, and pushed.
+- The change MUST be committed directly to `latest/main`, and pushed.
 
   Both proposals are already merged, and the fields this skill touches —
   `Status`, `Last updated`, `Superseded by`, and the index row — are among
   the few a merged proposal may still change, so a pull request would have
   nothing to review. This matches how proposal numbers are assigned at
-  release and rejection, which also commit straight to `main`.
+  release and rejection, which also commit straight to `latest/main`.
 
 - You MUST NOT edit files under `specification/`. The edits that remove or
   replace the feature belong to the successor proposal's own pull request,
@@ -143,4 +143,4 @@ prompt the user for clarification.
   Complete the supersession and flag the gap, naming the successor and the
   field to fix. The successor's document is immutable except for
   cross-references, so the back-link can be added by a separate direct commit
-  to `main` — but that is the user's call, not an edit to make silently.
+  to `latest/main` — but that is the user's call, not an edit to make silently.

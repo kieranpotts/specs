@@ -7,8 +7,8 @@ Definition of Ready — then records the decision on the proposal document and
 swaps the lifecycle label to `#accepted`.
 
 The pull request deliberately stays open. A proposal is released only once its
-implementation is live, which is what keeps the `main` specification an honest
-record of production.
+implementation is live, which is what keeps the `latest/main` specification an
+honest record of production.
 
 ## Interactivity
 

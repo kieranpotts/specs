@@ -3,7 +3,7 @@
 Handles the `PROPOSED` → `REJECTED` transition.
 
 Reverts the `specification/` edits, records the decision and its rationale on
-the proposal document, squash-merges that document into the `main` trunk,
+the proposal document, squash-merges that document into the `latest/main` trunk,
 closes the discussion thread, and assigns the proposal its number.
 
 The rejected proposal is archived permanently in `proposals/`. Nothing is ever

@@ -3,13 +3,13 @@
 Handles the `ACCEPTED` → `RELEASED` transition.
 
 Checks the implementation is live in production, squash-merges the proposal
-document and its `specification/` edits into the `main` trunk, closes the
-discussion thread, and assigns the proposal its number in
+document and its `specification/` edits into the `latest/main` trunk, closes
+the discussion thread, and assigns the proposal its number in
 `proposals/INDEX.md`.
 
-This is the point at which `main` is updated to describe the new state of the
-system. Everything before it is a proposal about a system that does not yet
-behave that way.
+This is the point at which `latest/main` is updated to describe the new state
+of the system. Everything before it is a proposal about a system that does not
+yet behave that way.
 
 ## Interactivity
 
@@ -39,8 +39,8 @@ judgment.
 ## Suggested workflows
 
 Run this only after the change is live for real users — not when it merges,
-and not when it reaches a staging environment. Releasing early leaves `main`
-describing a system that does not exist.
+and not when it reaches a staging environment. Releasing early leaves
+`latest/main` describing a system that does not exist.
 
 ```mermaid
 flowchart LR

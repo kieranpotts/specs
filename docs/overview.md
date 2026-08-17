@@ -18,10 +18,10 @@ system that no longer exists, and stakeholder trust in the specification
 deteriorates in response.
 
 This SRS avoids that fate by binding the specification to production. The
-[specification artifacts](../specification/) on `main` MUST describe how the
-system behaves for real users right now. A change to those artifacts is not
-merged to `main` until the corresponding changes in code and configuration are
-themselves released to production.
+[specification artifacts](../specification/) on `latest/main` MUST describe how
+the system behaves for real users right now. A change to those artifacts is not
+merged to `latest/main` until the corresponding changes in code and
+configuration are themselves released to production.
 
 The payoff is a single, trustworthy answer to "what does the system do?" New
 team members, auditors, support staff, and other stakeholders can read it and

@@ -49,8 +49,8 @@ Move from **`#accepted`** to **`#released`**, and merge this PR, when:
 - [ ] The proposal document's status is set to `RELEASED`.
 - [ ] The PR is squash-merged, with subject `<type>: <description> - RELEASED`.
 - [ ] The associated discussion thread is closed.
-- [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on `main`
-  with the next sequential number.
+- [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on
+      `latest/main` with the next sequential number.
 
 Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:
 
@@ -58,16 +58,17 @@ Move from **`#proposed`** to **`#rejected`**, and merge this PR, when:
 - [ ] There is consensus that the proposal should not be implemented.
 - [ ] Final comments have been solicited for at least ___ days.
 - [ ] The updates to the specification artifacts are reverted.
-- [ ] Only the proposal document remains in the diff with `main`.
+- [ ] Only the proposal document remains in the diff with `latest/main`.
 - [ ] The proposal document's status is set to `REJECTED`, and it captures the
   rationale for that decision.
 - [ ] The associated discussion thread is closed.
 - [ ] The PR is squash-merged, with subject `<type>: <description> - REJECTED`.
-- [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on `main`
-  with the next sequential number.
+- [ ] _After the merge_, the proposal is added to `proposals/INDEX.md` on
+      `latest/main` with the next sequential number.
 
 > [!IMPORTANT]
-> Rejected proposals' specification edits MUST NOT be merged to `main`, because
-> the `main` trunk represents the as-is state of the production system. Only the
-> `REJECTED` proposal document is merged, capturing the rationale for the
-> decision and preserving the history of the proposal's evolution.
+> Rejected proposals' specification edits MUST NOT be merged to `latest/main`,
+> because the `latest/main` trunk represents the as-is state of the production
+> system. Only the `REJECTED` proposal document is merged, capturing the
+> rationale for the decision and preserving the history of the proposal's
+> evolution.

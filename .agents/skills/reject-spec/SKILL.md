@@ -2,8 +2,8 @@
 name: reject-spec
 description: >-
   Revert a proposal's specification edits and land the proposal document in
-  the `main` trunk as a permanent record of the decision not to proceed. Use
-  when the user says something like "reject this proposal", "this proposal was
+  the `latest/main` trunk as a permanent record of the decision not to proceed.
+  Use when the user says something like "reject this proposal", "this proposal was
   not approved", "reject <slug>", or "reject <pr-number>". Do not use it to
   delete a proposal or to close one that was never proposed.
 compatibility: >-
@@ -14,7 +14,7 @@ license: CC0-1.0
 # Reject spec
 
 Move a proposal from `PROPOSED` to `REJECTED`: revert the specification edits,
-record the decision on the proposal document, squash-merge it into `main`,
+record the decision on the proposal document, squash-merge it into `latest/main`,
 close the discussion thread, and assign the proposal its number. The decision
 and its rationale are preserved permanently; the system is left unchanged.
 
@@ -25,9 +25,9 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target proposal — REQUIRED.** Infer it from the checked-out branch
-  (`proposal/<slug>` or `epic/<slug>`). If on `main`, use the user's
-  description, or list the open `#proposed` pull requests and ask the user to
-  choose.
+  (`latest/proposal/<slug>` or `latest/epic/<slug>`). If on `latest/main`, use
+  the user's description, or list the open `#proposed` pull requests and ask
+  the user to choose.
 
 - **Explicit confirmation that the decision is to reject — REQUIRED.** Never
   infer a rejection from a lukewarm discussion. Ask the user outright before
@@ -38,7 +38,7 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- `git diff main --name-only -- specification/` MUST return nothing on the
+- `git diff latest/main --name-only -- specification/` MUST return nothing on the
   branch once the revert is complete.
 
 - `proposals/<slug>/README.md` MUST read `Status: REJECTED`, with
@@ -51,12 +51,12 @@ prompt the user for clarification.
 - The pull request MUST carry `#rejected` alongside its type label, and MUST
   NOT carry `#proposed`.
 
-- The proposal document MUST be squash-merged into `main`, under the message
+- The proposal document MUST be squash-merged into `latest/main`, under the message
   `<type>: <short lowercase description> - REJECTED`.
 
 - The discussion thread MUST be closed as resolved.
 
-- `proposals/INDEX.md` on `main` MUST carry a new row for this proposal, with
+- `proposals/INDEX.md` on `latest/main` MUST carry a new row for this proposal, with
   the next sequential number and `Rejected` status.
 
 - The proposal document MUST NOT have been deleted, and its directory MUST
@@ -66,7 +66,7 @@ prompt the user for clarification.
 
 1.  Identify the proposal and confirm the decision.
 
-    Infer the target from the checked-out branch. If on `main`, use the
+    Infer the target from the checked-out branch. If on `latest/main`, use the
     user's description, or list the open `#proposed` pull requests and ask
     the user to choose:
 
@@ -85,14 +85,14 @@ prompt the user for clarification.
     the user for confirmation before reverting anything.
 
     ```sh
-    git diff main --name-only -- specification/
+    git diff latest/main --name-only -- specification/
     ```
 
-4.  Revert those edits: restore the `main` version of each changed file, and
+4.  Revert those edits: restore the `latest/main` version of each changed file, and
     delete any file the branch added.
 
     ```sh
-    git checkout main -- specification/<path/to/file>
+    git checkout latest/main -- specification/<path/to/file>
     git rm specification/<path/to/new-file>
     git add specification/
     ```
@@ -136,7 +136,7 @@ prompt the user for clarification.
 9.  If the branch survived the merge, delete it directly.
 
     ```sh
-    git push origin --delete proposal/<slug>   # or epic/<slug>
+    git push origin --delete latest/proposal/<slug>   # or latest/epic/<slug>
     ```
 
 10. Close the discussion thread as resolved. `gh` has no native discussion
@@ -154,7 +154,7 @@ prompt the user for clarification.
       }' -F id=<discussionId>
     ```
 
-11. Assign the proposal its number, on `main`.
+11. Assign the proposal its number, on `latest/main`.
 
     A rejected proposal is archived in the ordered log like any other, so it
     takes the next number. Find the highest number in
@@ -164,7 +164,7 @@ prompt the user for clarification.
     proposal's `Decision date`, linking the number to `proposals/<slug>/`.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
     git commit -am "chore: assign proposal <number>"
     git push
@@ -190,7 +190,7 @@ prompt the user for clarification.
   why.
 
 - You MUST revert the specification edits precisely, touching only the
-  changes this branch introduced. `main` describes production, which this
+  changes this branch introduced. `latest/main` describes production, which this
   decision leaves unchanged.
 
 - You MUST push before merging. `gh pr merge` merges what is on the remote,
@@ -199,7 +199,7 @@ prompt the user for clarification.
 - You MUST NOT merge without explicit instruction from the user.
 
 - You MUST assign the number in `proposals/INDEX.md` only after the merge,
-  and MUST commit it directly to `main`. The number is not part of the
+  and MUST commit it directly to `latest/main`. The number is not part of the
   proposal, so it is not part of what the pull request reviewed.
 
 - The document MUST be treated as immutable once merged. To revisit the

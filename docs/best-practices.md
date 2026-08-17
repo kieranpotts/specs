@@ -18,9 +18,9 @@ A proposal's specification edits SHOULD describe the system as it will be once
 the change has shipped. It SHOULD NOT specify the steps necessary to get to that
 end state.
 
-The diff against `main` already shows what is changing. The prose SHOULD read as
-a description of the destination, so that when the proposal is released the
-specification is simply true.
+The diff against `latest/main` already shows what is changing. The prose SHOULD
+read as a description of the destination, so that when the proposal is released
+the specification is simply true.
 
 How the change is rolled out – migration steps, sequencing, feature flags – is
 an implementation concern and does not belong in the SRS.
@@ -143,9 +143,9 @@ send it back for refinement rather than accepting it.
 
 ## Keep the specification honest
 
-The specification's value rests entirely on one promise: that `main` describes
-production. Protect that promise. Do not merge an accepted proposal until its
-change is actually live.
+The specification's value rests entirely on one promise: that `latest/main`
+describes production. Protect that promise. Do not merge an accepted proposal
+until its change is actually live.
 
 When implementation reveals that the real behavior differs from the proposed
 specification, reconcile the difference back into the spec before release,
