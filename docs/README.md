@@ -23,4 +23,7 @@ specification (SRS) process.
   The mechanics of the proposal lifecycle — branching, the state machine, and
   maintaining the specification.
 
+- [**🛠️ Development tools and methods**](./development/) \
+  Maintaining this repository itself, including its GitHub configuration.
+
 For available agentic workflows, see the [agent skills](../.agents/skills/).
