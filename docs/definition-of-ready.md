@@ -76,6 +76,5 @@ move backwards to `DRAFT`.
   workflow that verifies this checklist when moving a proposal from `PROPOSED`
   to `ACCEPTED`.
 
-- [TS-1: Requirements
-  Specification](https://kieranpotts.com/standards/001): The
+- [TS-1: Software Requirements Specification](https://kieranpotts.com/standards/001): The
   upstream standard these criteria derive from.
